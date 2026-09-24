@@ -59,13 +59,21 @@ export default function Header() {
     mode: 'voice'
   });
 
-  // Sync with localStorage on client mount
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Sync with localStorage on client mount & listen for window scroll
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('selbar_selected_city');
       if (saved) {
         setSelectedCity(saved);
       }
+
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > 8);
+      };
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      return () => window.removeEventListener('scroll', handleScroll);
     }
   }, []);
 
@@ -140,9 +148,24 @@ export default function Header() {
     router.push(`/sell?search=${encodeURIComponent(searchQuery.trim())}`);
   };
 
+  // Suppress storefront header on admin, seller, or account dashboard routes
+  if (
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/seller') ||
+    pathname.startsWith('/account')
+  ) {
+    return null;
+  }
+
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-xs select-none">
+      <header
+        className={`fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-xl border-b select-none transition-all duration-200 ${
+          isScrolled
+            ? 'border-slate-200/90 shadow-md bg-white/98'
+            : 'border-slate-200/70 shadow-xs'
+        }`}
+      >
         {/* TOP TIER: Brand Logo + Location + Search + Actions */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-18 flex items-center justify-between gap-3 sm:gap-6">
           {/* Logo & Location Pill */}
@@ -1260,6 +1283,9 @@ export default function Header() {
           </div>
         </nav>
       </header>
+
+      {/* Spacer to guarantee public page content is never hidden under the fixed navbar */}
+      <div className="h-[110px] md:h-[72px] lg:h-[114px] shrink-0" aria-hidden="true" />
 
       {/* MOBILE SLIDE-OVER DRAWER MENU */}
       {mobileMenuOpen && (

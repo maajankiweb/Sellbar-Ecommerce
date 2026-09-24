@@ -1,10 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import CartDrawer from "@/components/cart/CartDrawer";
-import AuthModal from "@/components/auth/AuthModal";
+import StorefrontLayoutWrapper from "@/components/layout/StorefrontLayoutWrapper";
 import { CartProvider } from "@/context/CartContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -47,13 +44,9 @@ export default function RootLayout({
         <ThemeProvider>
           <AuthProvider>
             <CartProvider>
-              <Header />
-              <main className="flex-1 pb-16 lg:pb-0">
+              <StorefrontLayoutWrapper>
                 {children}
-              </main>
-              <CartDrawer />
-              <AuthModal />
-              <Footer />
+              </StorefrontLayoutWrapper>
             </CartProvider>
           </AuthProvider>
         </ThemeProvider>

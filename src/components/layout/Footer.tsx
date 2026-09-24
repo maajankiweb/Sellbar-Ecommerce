@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   MessageSquare,
   X,
@@ -11,11 +12,21 @@ import {
 } from 'lucide-react';
 
 export default function Footer() {
+  const pathname = usePathname();
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatMessage, setChatMessage] = useState('');
   const [chatHistory, setChatHistory] = useState<{ sender: 'bot' | 'user'; text: string }[]>([
     { sender: 'bot', text: 'Hi there! 👋 How can we help you with selling, buying, or repairing your gadget today?' }
   ]);
+
+  // Suppress storefront footer on admin, seller, or account dashboard routes
+  if (
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/seller') ||
+    pathname.startsWith('/account')
+  ) {
+    return null;
+  }
 
   const handleSendChat = (e: React.FormEvent) => {
     e.preventDefault();
