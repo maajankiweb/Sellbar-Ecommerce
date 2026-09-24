@@ -40,14 +40,14 @@ async function seedAdmin() {
 
   const passwordHash = await hashPassword(adminPassword);
 
-  const existingUser = await User.findOne({
+  const existingUser: any = await User.findOne({
     $or: [
       { 'email.normalized': adminEmail },
       { 'username.normalized': adminUsername },
       { email: adminEmail },
       { username: adminUsername },
     ],
-  });
+  } as any);
 
   if (existingUser) {
     console.log(`Found existing user (${existingUser.email?.value || existingUser.email || existingUser.username}). Updating to super_admin...`);
