@@ -39,8 +39,9 @@ export async function POST(req: NextRequest) {
         : 'Successfully logged out.',
     });
 
-    // Clear the cookie
-    response.cookies.delete('selbar_refresh_token');
+    // Clear cookies across the entire site
+    response.cookies.set('selbar_refresh_token', '', { path: '/', maxAge: 0 });
+    response.cookies.set('selbar_has_session', '', { path: '/', maxAge: 0 });
 
     return response;
   } catch (error: any) {

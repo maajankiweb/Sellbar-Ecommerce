@@ -107,6 +107,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
    * Uses HttpOnly refresh token cookie to obtain a fresh access token without exposing secrets to JS
    */
   const refreshSession = useCallback(async (): Promise<boolean> => {
+    // If user is a guest (no profile cached and no session indicator), skip futile network call
+    if (typeof window !== 'undefined') {
+      const hasSavedProfile = Boolean(localStorage.getItem('selbar_user_profile'));
+      const hasSessionCookie = document.cookie.includes('selbar_has_session');
+      if (!hasSavedProfile && !hasSessionCookie) {
+        setIsLoading(false);
+        return false;
+      }
+    }
+
     try {
       const newToken = await refreshAccessTokenSingleFlight();
       if (newToken) {

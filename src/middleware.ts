@@ -45,14 +45,14 @@ export function middleware(request: NextRequest) {
     );
   }
 
-  // Content-Security-Policy (CSP) configured for Next.js, Google Fonts, and Razorpay
-  const cspHeader = `
+    // Content-Security-Policy (CSP) configured for Next.js, Google Fonts, Razorpay, and CDNs
+    const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://checkout.razorpay.com https://cdn.jsdelivr.net;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    img-src 'self' blob: data: https://images.unsplash.com https://cdn.jsdelivr.net;
+    img-src 'self' blob: data: https: http:;
     font-src 'self' https://fonts.gstatic.com data:;
-    connect-src 'self' https://api.razorpay.com https://lumberjack.razorpay.com;
+    connect-src 'self' https: ws: wss:;
     frame-src 'self' https://api.razorpay.com;
     object-src 'none';
     base-uri 'self';
