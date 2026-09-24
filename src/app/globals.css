@@ -25,6 +25,69 @@ body {
   background: var(--background);
   color: var(--foreground);
   -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ==============================================================================
+   RESPONSIVE DESIGN BREAKPOINT ARCHITECTURE (Mobile-First)
+   ------------------------------------------------------------------------------
+   1. Mobile (Base Default):   0px to 767px (Handheld smartphones 320px+)
+   2. Tablet:                  768px to 1023px (min-width: 768px, Tailwind md:)
+   3. Desktop (Untouched):     1024px and above (min-width: 1024px, Tailwind lg:)
+   4. Large Desktop:           1280px and above (min-width: 1280px, Tailwind xl:)
+   
+   CRITICAL PRESERVATION:
+   The existing desktop styling (>= 1024px) remains 100% pixel-perfect identical.
+   Mobile-first baseline styles ensure touch-friendly interaction, zero horizontal 
+   overflow, and progressive enhancement.
+   ============================================================================== */
+
+/* Responsive Image & Media defaults to prevent layout shifts & overflow */
+img, 
+video, 
+canvas, 
+svg {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Touch-friendly Tap Targets on Touch Devices (WCAG 2.5.5 / Apple HIG minimum 44x44px) */
+@media (pointer: coarse) {
+  button, 
+  [role="button"],
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent iOS Safari auto-zoom on input focus (< 768px requires min 16px font-size) */
+@media (max-width: 767px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Safe Area Inset Support for Modern Mobile Devices (iOS Home Indicator) */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
 /* Custom glowing effects & animations */

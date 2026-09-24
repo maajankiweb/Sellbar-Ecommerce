@@ -399,7 +399,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-700 transition"
+              className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-700 transition"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -1404,7 +1404,7 @@ export default function Header() {
                 <Link
                   href="/repair"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-50"
+                  className="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
                 >
                   <Wrench className="w-4 h-4 text-emerald-600" />
                   <span>Certified Mobile Repair</span>
@@ -1412,7 +1412,7 @@ export default function Header() {
                 <Link
                   href="/recycle"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-50"
+                  className="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
                 >
                   <Recycle className="w-4 h-4 text-teal-600" />
                   <span>Responsible E-Waste Recycling</span>
@@ -1420,7 +1420,7 @@ export default function Header() {
                 <Link
                   href="/partner"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-50"
+                  className="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
                 >
                   <Handshake className="w-4 h-4 text-amber-500" />
                   <span>Partner With Us (Franchise & Retail)</span>
@@ -1428,7 +1428,7 @@ export default function Header() {
                 <Link
                   href="/seller"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-50"
+                  className="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
                 >
                   <Building className="w-4 h-4 text-indigo-600" />
                   <span>Seller Central Portal</span>
@@ -1436,7 +1436,7 @@ export default function Header() {
                 <Link
                   href="/faq"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-50"
+                  className="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
                 >
                   <HelpCircle className="w-4 h-4 text-slate-500" />
                   <span>Help & FAQs</span>
@@ -1450,7 +1450,7 @@ export default function Header() {
                 <Link
                   href="/account"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full py-2.5 px-4 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-between"
+                  className="min-h-[44px] w-full py-2.5 px-4 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-between"
                 >
                   <span>My Account & Orders</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1462,7 +1462,7 @@ export default function Header() {
                     setMobileMenuOpen(false);
                     setIsAuthModalOpen(true);
                   }}
-                  className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 text-white text-xs font-bold text-center shadow-md shadow-emerald-600/20"
+                  className="min-h-[44px] w-full py-2.5 px-4 rounded-xl bg-emerald-600 text-white text-xs font-bold text-center shadow-md shadow-emerald-600/20 flex items-center justify-center"
                 >
                   Login / Create Account
                 </button>
@@ -1473,11 +1473,11 @@ export default function Header() {
       )}
 
       {/* MOBILE STICKY BOTTOM NAVIGATION BAR */}
-      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 py-1.5 px-3 shadow-lg">
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 pt-1.5 px-3 pb-[calc(0.375rem+env(safe-area-inset-bottom,0px))] shadow-lg">
         <div className="grid grid-cols-5 gap-1 text-center">
           <Link
             href="/"
-            className={`flex flex-col items-center justify-center py-1 rounded-xl transition ${
+            className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
               pathname === '/' ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
             }`}
           >
@@ -1487,7 +1487,7 @@ export default function Header() {
 
           <Link
             href="/sell"
-            className={`flex flex-col items-center justify-center py-1 rounded-xl transition ${
+            className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
               pathname.startsWith('/sell') ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
             }`}
           >
@@ -1497,7 +1497,7 @@ export default function Header() {
 
           <Link
             href="/buy"
-            className={`flex flex-col items-center justify-center py-1 rounded-xl transition ${
+            className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
               pathname.startsWith('/buy') ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
             }`}
           >
@@ -1507,7 +1507,7 @@ export default function Header() {
 
           <Link
             href="/repair"
-            className={`flex flex-col items-center justify-center py-1 rounded-xl transition ${
+            className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
               pathname === '/repair' ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
             }`}
           >
@@ -1517,7 +1517,7 @@ export default function Header() {
 
           <Link
             href="/cart"
-            className={`flex flex-col items-center justify-center py-1 rounded-xl relative transition ${
+            className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl relative transition ${
               pathname === '/cart' ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
             }`}
           >
