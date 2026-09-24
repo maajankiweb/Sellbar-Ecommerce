@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:auth": "tsx src/scripts/testAuthSuite.ts"
+    "test:auth": "tsx src/scripts/testAuthSuite.ts",
+    "seed:admin": "tsx src/scripts/seedAdminUser.ts"
   },
   "dependencies": {
     "@types/ioredis": "^4.28.10",
