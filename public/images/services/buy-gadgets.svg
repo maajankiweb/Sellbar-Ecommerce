@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Laptop in Background -->
+  <g transform="translate(18, 25)">
+    <!-- Screen -->
+    <rect x="10" y="5" width="85" height="54" rx="5" fill="#0f172a" stroke="#64748b" stroke-width="2"/>
+    <rect x="13" y="8" width="79" height="48" rx="3" fill="url(#lapScreen)"/>
+    <!-- Keyboard Base -->
+    <path d="M0 59 L105 59 L98 67 L7 67 Z" fill="#94a3b8" stroke="#475569" stroke-width="1.5"/>
+    <rect x="42" y="60" width="22" height="3" rx="1.5" fill="#cbd5e1"/>
+  </g>
+
+  <!-- Smartphone in Foreground Right -->
+  <g transform="translate(100, 48)">
+    <rect x="0" y="0" width="34" height="66" rx="7" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    <rect x="2" y="2" width="30" height="62" rx="5" fill="url(#mobScreen)"/>
+    <!-- Triple Camera Cluster -->
+    <circle cx="9" cy="9" r="2.5" fill="#0f172a" stroke="#38bdf8" stroke-width="0.8"/>
+    <circle cx="9" cy="16" r="2.5" fill="#0f172a" stroke="#38bdf8" stroke-width="0.8"/>
+    <circle cx="16" cy="12.5" r="2.5" fill="#0f172a" stroke="#38bdf8" stroke-width="0.8"/>
+  </g>
+
+  <!-- Smartwatch in Foreground Left -->
+  <g transform="translate(62, 65)">
+    <!-- Straps -->
+    <path d="M8 0 L8 45 M26 0 L26 45" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+    <!-- Watch Case -->
+    <rect x="4" y="8" width="26" height="30" rx="7" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect x="6" y="10" width="22" height="26" rx="5" fill="#020617"/>
+    <!-- Watch Face Digital Dial -->
+    <circle cx="17" cy="23" r="8" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="35 15"/>
+    <circle cx="17" cy="23" r="5" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="20 10"/>
+  </g>
+
+  <defs>
+    <linearGradient id="lapScreen" x1="13" y1="8" x2="92" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f97316"/>
+      <stop offset="0.5" stop-color="#ec4899"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="mobScreen" x1="2" y1="2" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06b6d4"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+</svg>

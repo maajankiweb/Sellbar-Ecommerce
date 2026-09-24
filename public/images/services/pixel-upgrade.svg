@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Phone Body (Back view - Peach/Coral like Pixel 8/7) -->
+  <g transform="translate(48, 14)">
+    <rect x="0" y="0" width="64" height="114" rx="14" fill="#fb923c" stroke="#ea580c" stroke-width="2"/>
+    <!-- Top accent glass section -->
+    <path d="M0 14 Q0 0 14 0 L50 0 Q64 0 64 14 L64 24 L0 24 Z" fill="#fdba74"/>
+
+    <!-- Iconic Horizontal Camera Visor Bar -->
+    <rect x="-2" y="24" width="68" height="24" rx="7" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+    <!-- Camera Lens Cutouts inside Visor -->
+    <ellipse cx="22" cy="36" rx="10" ry="7" fill="#020617"/>
+    <circle cx="17" cy="36" r="4.5" fill="#38bdf8" opacity="0.9"/>
+    <circle cx="27" cy="36" r="4.5" fill="#38bdf8" opacity="0.9"/>
+    <!-- Flash & Sensor -->
+    <circle cx="48" cy="36" r="3.5" fill="#fef08a"/>
+    <circle cx="56" cy="36" r="1.5" fill="#334155"/>
+
+    <!-- Subtle Google 'G' Logo -->
+    <circle cx="32" cy="74" r="7" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.75"/>
+    <line x1="32" y1="74" x2="39" y2="74" stroke="#ffffff" stroke-width="2" opacity="0.75"/>
+
+    <!-- Upward Upgrade Glow Arrow Behind -->
+  </g>
+
+  <!-- Upgrade Sparkle Badge (Top Right) -->
+  <g transform="translate(106, 20)">
+    <circle cx="14" cy="14" r="14" fill="#10b981"/>
+    <path d="M14 6 L16 11 L21 11 L17 14 L19 19 L14 16 L9 19 L11 14 L7 11 L12 11 Z" fill="#ffffff"/>
+  </g>
+</svg>

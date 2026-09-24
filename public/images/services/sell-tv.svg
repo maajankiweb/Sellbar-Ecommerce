@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Soft Base Shadow -->
+  <ellipse cx="80" cy="116" rx="55" ry="6" fill="#0f172a" opacity="0.12" filter="blur(3px)"/>
+
+  <!-- TV Screen Enclosure -->
+  <g transform="translate(18, 26)">
+    <!-- Outer TV Bezel -->
+    <rect x="0" y="0" width="124" height="74" rx="4" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+    
+    <!-- Screen Display -->
+    <rect x="3" y="3" width="118" height="68" rx="2" fill="url(#tvScreenGradient)"/>
+
+    <!-- Fluid Ribbon/Wave Art on TV screen -->
+    <path d="M3 45 C30 15, 60 70, 90 25 C105 10, 115 35, 121 40 L121 71 L3 71 Z" fill="url(#tvRibbonGradient1)" opacity="0.85"/>
+    <path d="M3 55 C40 30, 75 65, 100 40 C110 30, 118 45, 121 50 L121 71 L3 71 Z" fill="url(#tvRibbonGradient2)" opacity="0.7"/>
+
+    <!-- Sleek Glare -->
+    <path d="M3 3 L70 3 L3 71 Z" fill="white" opacity="0.08"/>
+    
+    <!-- Power LED indicator -->
+    <circle cx="62" cy="73" r="0.8" fill="#38bdf8"/>
+  </g>
+
+  <!-- TV Stand Legs -->
+  <!-- Left Stand Leg -->
+  <path d="M36 100 L30 114 L34 114 L40 100 Z" fill="#334155"/>
+  <path d="M40 100 L46 114 L42 114 L37 100 Z" fill="#1e293b"/>
+  <!-- Right Stand Leg -->
+  <path d="M120 100 L114 114 L118 114 L124 100 Z" fill="#334155"/>
+  <path d="M124 100 L130 114 L126 114 L121 100 Z" fill="#1e293b"/>
+
+  <defs>
+    <linearGradient id="tvScreenGradient" x1="3" y1="3" x2="121" y2="71" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1e1b4b"/>
+      <stop offset="0.5" stop-color="#312e81"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="tvRibbonGradient1" x1="3" y1="20" x2="121" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ec4899"/>
+      <stop offset="0.5" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="tvRibbonGradient2" x1="3" y1="40" x2="121" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f43f5e"/>
+      <stop offset="0.6" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+</svg>

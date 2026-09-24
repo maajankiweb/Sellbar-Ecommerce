@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Standing Console (Left) -->
+  <g transform="translate(35, 18)">
+    <rect x="0" y="0" width="34" height="106" rx="4" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+    <!-- Blue Light Strip -->
+    <line x1="17" y1="0" x2="17" y2="106" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="6" y="24" width="2" height="26" fill="#64748b"/> <!-- Disc Slot -->
+    <rect x="22" y="86" width="6" height="3" fill="#334155"/> <!-- USB Port -->
+  </g>
+
+  <!-- Wireless Gamepad Controller (Right / In Front) -->
+  <g transform="translate(62, 54)">
+    <!-- Controller Body -->
+    <path d="M12 18 Q36 6 62 18 Q74 34 66 58 L54 66 Q42 50 38 42 Q30 42 26 42 Q22 50 10 66 L-2 58 Q-10 34 12 18 Z" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <ellipse cx="37" cy="28" rx="14" ry="7" fill="#0f172a"/>
+
+    <!-- Dual Analog Thumbsticks -->
+    <circle cx="26" cy="38" r="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+    <circle cx="48" cy="38" r="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+
+    <!-- D-Pad (Left) -->
+    <rect x="14" y="22" width="10" height="3.5" rx="1" fill="#475569"/>
+    <rect x="17.25" y="18.75" width="3.5" height="10" rx="1" fill="#475569"/>
+
+    <!-- Action Buttons (Right) -->
+    <circle cx="58" cy="20" r="2" fill="#ef4444"/>
+    <circle cx="62" cy="24" r="2" fill="#10b981"/>
+    <circle cx="54" cy="24" r="2" fill="#eab308"/>
+    <circle cx="58" cy="28" r="2" fill="#3b82f6"/>
+  </g>
+</svg>

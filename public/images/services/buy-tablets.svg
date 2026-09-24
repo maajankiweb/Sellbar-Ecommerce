@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Stylus / Pencil (Right) -->
+  <g transform="rotate(25 125 50)">
+    <!-- Stylus Body -->
+    <rect x="122" y="16" width="6" height="85" rx="3" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <!-- Nib Tip -->
+    <polygon points="122,101 128,101 125,108" fill="#475569"/>
+    <!-- Pencil Accent Band -->
+    <rect x="122" y="24" width="6" height="2" fill="#94a3b8"/>
+  </g>
+
+  <!-- Tablet Body (iPad Style) -->
+  <g transform="translate(36, 18)">
+    <rect x="0" y="0" width="76" height="104" rx="10" fill="#0f172a" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="3.5" y="3.5" width="69" height="97" rx="7" fill="url(#tabletVibrantScreen)"/>
+    <!-- Front Camera Hole -->
+    <circle cx="38" cy="7" r="1.8" fill="#020617"/>
+
+    <!-- Colorful Art / Waves on Screen -->
+    <path d="M3.5 55 Q25 25 50 65 T72.5 50 L72.5 100.5 L3.5 100.5 Z" fill="#f97316" opacity="0.8"/>
+    <path d="M3.5 70 Q30 45 55 80 T72.5 75 L72.5 100.5 L3.5 100.5 Z" fill="#ec4899" opacity="0.7"/>
+    <circle cx="56" cy="36" r="14" fill="#fbbf24" opacity="0.85"/>
+  </g>
+
+  <defs>
+    <linearGradient id="tabletVibrantScreen" x1="3.5" y1="3.5" x2="72.5" y2="100.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3b82f6"/>
+      <stop offset="0.4" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+</svg>

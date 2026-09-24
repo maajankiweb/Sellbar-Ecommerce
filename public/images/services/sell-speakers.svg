@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Base Shadow -->
+  <ellipse cx="80" cy="120" rx="55" ry="6" fill="#0f172a" opacity="0.15" filter="blur(3px)"/>
+
+  <!-- Back/Right: Cylinder Home Speaker with Top Loop Handle -->
+  <g transform="translate(85, 20)">
+    <!-- Carry Handle Arc -->
+    <path d="M12 28 C12 6, 38 6, 38 28" stroke="#cbd5e1" stroke-width="3" fill="none" stroke-linecap="round"/>
+    
+    <!-- Cylindrical Mesh Body -->
+    <rect x="8" y="24" width="34" height="66" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect x="11" y="27" width="28" height="60" rx="12" fill="#e2e8f0"/>
+    <!-- Speaker Grill pattern lines -->
+    <line x1="14" y1="42" x2="36" y2="42" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"/>
+    <line x1="14" y1="52" x2="36" y2="52" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"/>
+    <line x1="14" y1="62" x2="36" y2="62" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"/>
+    <line x1="14" y1="72" x2="36" y2="72" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"/>
+    
+    <!-- Top Light Ring -->
+    <ellipse cx="25" cy="27" rx="12" ry="3" fill="#38bdf8"/>
+  </g>
+
+  <!-- Left/Foreground: Portable Mini Pill / Capsule Bluetooth Speaker -->
+  <g transform="rotate(-15 65 40)">
+    <rect x="52" y="32" width="24" height="42" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    <!-- Glowing RGB Ring on top -->
+    <ellipse cx="64" cy="36" rx="9" ry="3" fill="#06b6d4" stroke="#38bdf8" stroke-width="1"/>
+  </g>
+
+  <!-- Bottom Foreground: Party Boombox Speaker with Dual Cones -->
+  <g transform="translate(30, 78)">
+    <!-- Boombox Housing -->
+    <rect x="0" y="0" width="76" height="38" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+    <!-- Top Handle Grips -->
+    <path d="M18 0 L18 -4 C18 -7, 58 -7, 58 -4 L58 0" stroke="#334155" stroke-width="2" fill="none"/>
+
+    <!-- Left Speaker Driver / Subwoofer with RGB Ring -->
+    <circle cx="22" cy="19" r="13" fill="#020617" stroke="#ec4899" stroke-width="2"/>
+    <circle cx="22" cy="19" r="8" fill="#1e293b"/>
+    <circle cx="22" cy="19" r="4" fill="#a855f7"/>
+
+    <!-- Right Speaker Driver / Subwoofer with RGB Ring -->
+    <circle cx="54" cy="19" r="13" fill="#020617" stroke="#ec4899" stroke-width="2"/>
+    <circle cx="54" cy="19" r="8" fill="#1e293b"/>
+    <circle cx="54" cy="19" r="4" fill="#a855f7"/>
+
+    <!-- Center Brand Badge -->
+    <rect x="35" y="17" width="6" height="4" rx="1" fill="#38bdf8"/>
+  </g>
+</svg>

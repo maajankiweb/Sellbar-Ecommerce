@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="selbarGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="50%" stop-color="#0EA5E9" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#2563EB" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Rounded Squircle Badge -->
+  <rect 
+    x="32" 
+    y="32" 
+    width="448" 
+    height="448" 
+    rx="128" 
+    fill="url(#selbarGrad)" 
+    filter="url(#subtleShadow)"
+  />
+
+  <!-- Bold Geometric 'S' -->
+  <text 
+    x="50%" 
+    y="54%" 
+    dominant-baseline="middle" 
+    text-anchor="middle" 
+    fill="#FFFFFF" 
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+    font-weight="900" 
+    font-size="310" 
+    letter-spacing="-10"
+  >S</text>
+</svg>

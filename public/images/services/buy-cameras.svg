@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Secondary Lens (Right) -->
+  <g transform="translate(108, 52)">
+    <rect x="0" y="0" width="36" height="54" rx="4" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+    <rect x="3" y="10" width="30" height="8" fill="#0f172a"/>
+    <!-- Zoom ridges -->
+    <line x1="6" y1="26" x2="30" y2="26" stroke="#64748b" stroke-width="1"/>
+    <line x1="6" y1="30" x2="30" y2="30" stroke="#64748b" stroke-width="1"/>
+    <line x1="6" y1="34" x2="30" y2="34" stroke="#64748b" stroke-width="1"/>
+    <circle cx="18" cy="4" r="14" fill="none" stroke="#ef4444" stroke-width="1"/>
+  </g>
+
+  <!-- DSLR Camera Body (Main) -->
+  <g transform="translate(16, 32)">
+    <!-- Pentaprism hump -->
+    <polygon points="46,12 56,0 76,0 86,12" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <rect x="61" y="2" width="10" height="2" rx="1" fill="#ef4444"/> <!-- Hotshoe -->
+
+    <!-- Main Body Box -->
+    <rect x="12" y="12" width="88" height="64" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <!-- Textured Hand Grip -->
+    <rect x="12" y="16" width="22" height="56" rx="6" fill="#1e293b"/>
+    <circle cx="23" cy="22" r="3.5" fill="#e2e8f0"/> <!-- Shutter button -->
+
+    <!-- Big Lens Barrel -->
+    <rect x="42" y="18" width="46" height="52" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+    <!-- Lens Glass Rings -->
+    <circle cx="65" cy="44" r="22" fill="#020617" stroke="#334155" stroke-width="2"/>
+    <circle cx="65" cy="44" r="17" fill="url(#cameraGlass)" stroke="#0284c7" stroke-width="1.5"/>
+    <circle cx="65" cy="44" r="10" fill="#0369a1"/>
+    <!-- Flare reflection -->
+    <path d="M54 36 A15 15 0 0 1 74 36" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <defs>
+    <radialGradient id="cameraGlass" cx="0.4" cy="0.4" r="0.6">
+      <stop stop-color="#0284c7"/>
+      <stop offset="0.6" stop-color="#0369a1"/>
+      <stop offset="1" stop-color="#082f49"/>
+    </radialGradient>
+  </defs>
+</svg>

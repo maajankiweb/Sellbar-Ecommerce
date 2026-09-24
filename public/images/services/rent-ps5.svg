@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Soft Glow behind console -->
+  <circle cx="80" cy="70" r="45" fill="#38bdf8" opacity="0.15" filter="blur(10px)"/>
+
+  <!-- PS5 Console Vertical Stand -->
+  <ellipse cx="80" cy="118" rx="36" ry="6" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- PS5 Console Body -->
+  <g transform="translate(56, 16)">
+    <!-- Inner Black Core -->
+    <path d="M12 8 L36 8 L36 100 L12 100 Z" fill="#090d16"/>
+    <line x1="24" y1="12" x2="24" y2="96" stroke="#00f0ff" stroke-width="1.5" opacity="0.85"/>
+    <rect x="33" y="45" width="2" height="30" fill="#1e293b"/> <!-- Disc Slot -->
+
+    <!-- Left White Wing (Curved Collar) -->
+    <path d="M12 6 Q2 40 8 100 L14 100 Q10 40 16 10 Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <!-- Right White Wing (Curved Collar) -->
+    <path d="M36 6 Q46 40 40 100 L34 100 Q38 40 32 10 Z" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  </g>
+
+  <!-- PS5 Controller in Foreground -->
+  <g transform="translate(75, 78)">
+    <path d="M8 12 Q20 4 34 4 Q48 4 60 12 Q68 25 62 38 L54 44 Q46 32 44 26 Q34 26 24 26 Q22 32 14 44 L6 38 Q0 25 8 12 Z" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+    <path d="M18 20 L50 20 Q44 32 34 32 Q24 32 18 20 Z" fill="#0f172a"/>
+    <!-- Thumbsticks -->
+    <circle cx="26" cy="27" r="4.5" fill="#1e293b" stroke="#00f0ff" stroke-width="1"/>
+    <circle cx="42" cy="27" r="4.5" fill="#1e293b" stroke="#00f0ff" stroke-width="1"/>
+    <!-- D-pad & Buttons -->
+    <circle cx="16" cy="14" r="2" fill="#64748b"/>
+    <circle cx="52" cy="14" r="2" fill="#64748b"/>
+  </g>
+</svg>

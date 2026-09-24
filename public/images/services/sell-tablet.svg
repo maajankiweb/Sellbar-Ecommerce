@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Base Shadow -->
+  <ellipse cx="80" cy="120" rx="48" ry="6" fill="#0f172a" opacity="0.15" filter="blur(3px)"/>
+
+  <!-- Back Tablet (Rose Gold / Champagne with Camera Module) -->
+  <g transform="translate(36, 16)">
+    <!-- Back Body -->
+    <rect x="0" y="0" width="60" height="92" rx="8" fill="#fde2d0" stroke="#fcd3b6" stroke-width="1.5"/>
+    <!-- Camera Lens & Flash Module -->
+    <rect x="6" y="8" width="8" height="16" rx="4" fill="#fed7aa" stroke="#fb923c" stroke-width="0.8"/>
+    <circle cx="10" cy="13" r="2.5" fill="#0f172a"/>
+    <circle cx="10" cy="20" r="1.2" fill="#fbbf24"/>
+    <!-- Stylus magnetic strip line -->
+    <line x1="10" y1="28" x2="10" y2="70" stroke="#fba779" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  </g>
+
+  <!-- Front Tablet (Slightly overlapping, showing screen wallpaper) -->
+  <g transform="translate(60, 24)">
+    <!-- Front Bezel -->
+    <rect x="0" y="0" width="64" height="96" rx="8" fill="#0f172a" stroke="#cbd5e1" stroke-width="1.5"/>
+    <!-- Screen -->
+    <rect x="3" y="3" width="58" height="90" rx="6" fill="url(#tabScreenGrad)"/>
+    <!-- Front Camera Hole -->
+    <circle cx="32" cy="7" r="1.5" fill="#020617"/>
+    
+    <!-- Abstract Colorful Waves on Screen -->
+    <path d="M3 50 C15 25, 35 65, 61 35 L61 93 L3 93 Z" fill="#fb923c" opacity="0.85"/>
+    <path d="M3 62 C25 40, 40 78, 61 58 L61 93 L3 93 Z" fill="#f43f5e" opacity="0.8"/>
+    <path d="M3 75 C20 60, 45 85, 61 72 L61 93 L3 93 Z" fill="#38bdf8" opacity="0.85"/>
+
+    <!-- Screen Glass Sheen -->
+    <path d="M3 3 L45 3 L3 80 Z" fill="white" opacity="0.12"/>
+  </g>
+
+  <defs>
+    <linearGradient id="tabScreenGrad" x1="3" y1="3" x2="61" y2="93" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f172a"/>
+      <stop offset="0.5" stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+  </defs>
+</svg>

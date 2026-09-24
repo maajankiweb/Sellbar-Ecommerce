@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Retail Packaging Box (Behind) -->
+  <g transform="translate(32, 22)">
+    <rect x="0" y="0" width="46" height="96" rx="6" fill="#090d16" stroke="#00a99d" stroke-width="2"/>
+    <!-- Branded Accent Line -->
+    <rect x="0" y="75" width="46" height="21" rx="0 0 6 6" fill="#00a99d"/>
+    <text x="7" y="89" font-size="7" font-family="sans-serif" font-weight="900" fill="#ffffff" letter-spacing="1">SELBAR</text>
+    <text x="6" y="55" font-size="8" font-family="sans-serif" font-weight="bold" fill="#00a99d" transform="rotate(-90 6 55)">CERTIFIED</text>
+  </g>
+
+  <!-- Smartphone in Foreground (Right/Front) -->
+  <g transform="translate(68, 14)">
+    <rect x="0" y="0" width="56" height="110" rx="12" fill="#0f172a" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="3" y="3" width="50" height="104" rx="9" fill="url(#buyPhoneScreen)"/>
+    <!-- Camera pill -->
+    <rect x="18" y="7" width="20" height="5" rx="2.5" fill="#020617"/>
+    <!-- Display Wallpaper Graphic -->
+    <circle cx="28" cy="55" r="18" fill="url(#sunGlow)"/>
+    <path d="M5 80 Q28 65 51 90 L51 107 L5 107 Z" fill="#047857" opacity="0.6"/>
+  </g>
+
+  <defs>
+    <linearGradient id="buyPhoneScreen" x1="3" y1="3" x2="53" y2="107" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f8fafc"/>
+      <stop offset="0.4" stop-color="#fed7aa"/>
+      <stop offset="1" stop-color="#ea580c"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop stop-color="#fef08a"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </radialGradient>
+  </defs>
+</svg>

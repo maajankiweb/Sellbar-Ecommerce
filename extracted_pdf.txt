@@ -1,0 +1,1073 @@
+Page 1 of 27
+Prepared For Mr. Rahul Kumar
+Prepared By MaaJanki Web Tech
+Project Type Custom ReCommerce Platform
+Technology MERN STACK (Next.js, MongoDB, Express,
+Node.js)
+Date 08/ 09 / 2026
+Document Version 1.0
+Total Budget 82,600 Rs
+
+-- 1 of 27 --
+
+Page 2 of 27
+TABLE OF CONTENTS
+1. Introduction ............................................................... 3
+2. Project Objectives ............................................................... 6
+3. Project Scope & Key Features ............................................................... 9
+4. Technology Stack & Development Approach ............................................................... 13
+5. Project Development Timeline ............................................................... 17
+6. Commercial Proposal ............................................................... 20
+7. Terms & Conditions ............................................................... 23
+8. Acceptance & Signature ............................................................... 26
+
+-- 2 of 27 --
+
+Page 3 of 27
+1. Introduction
+The proposed project aims to design and develop a modern, secure, and fully customized website for
+Selbar (selbar.in) that gives its target audience a single, reliable digital destination — replacing the
+fragmented, template-driven experience that most small and growing businesses are forced to settle
+for today. Most businesses trying to build an online presence end up choosing between slow, generic
+website builders that hurt search visibility and user trust, or expensive, rigid systems that cannot
+evolve as the business grows. Selbar deserves neither compromise.
+The primary objective of this project is to create a powerful, fully custom-built web platform that
+enables Selbar to present its products or services, capture and convert leads, build registered user
+relationships, and manage day-to-day operations with confidence — all through one centralized
+system. The platform will combine business presentation, user account management, content
+publishing, and administrative control into a single integrated solution, eliminating the need to stitch
+together multiple disconnected tools just to run the business online.
+The website will feature a clean, modern, and fully responsive user interface that works seamlessly
+across desktops, tablets, and mobile devices. Every section of the platform will be designed with
+simplicity, speed, and user experience in mind, ensuring that both first-time visitors and returning
+customers can navigate the system effortlessly and find what they came for without friction.
+The homepage will present a complete overview of the Selbar brand, including its core products or
+services, trust-building elements, testimonials, and clear calls to action. This dashboard-style,
+conversion-focused layout will give visitors a confident understanding of who Selbar is and why they
+should engage, within seconds of landing on the site.
+One of the key highlights of the platform will be its secure User Registration & Dashboard system,
+allowing registered members to manage their profile, track their activity, save preferences, and
+access personalized features. Users will be able to sign up, log in, and interact with the platform
+through a fast, secure, and intuitive account experience — making ongoing engagement effortless
+and organized.
+Each core offering will have a dedicated Detail Page containing full descriptions, pricing (where
+applicable), images, specifications, and clear next-step actions. This feature will help visitors
+evaluate what Selbar offers and move confidently toward inquiry, registration, or purchase.
+To keep visitors and customers informed and engaged, the platform will include a Blog & Insights
+section covering business updates, announcements, industry developments, and helpful resources.
+The system will organize this content into categories for quick and easy access, while also
+strengthening Selbar's search engine visibility over time.
+Additional modules such as Pricing & Plans, FAQs, Contact & Support, and Legal Pages will further
+enhance the overall user experience and build the trust signals that convert first-time visitors into
+customers. Registered users will be able to manage their accounts, track interactions, and access
+relevant features through a secure, personalized dashboard.
+A comprehensive administrative panel will also be developed to manage users, content, listings,
+subscriptions, inquiries, reports, and overall website operations. The admin dashboard will simplify
+day-to-day content management while ensuring smooth, dependency-free platform administration for
+Selbar's internal team.
+
+-- 3 of 27 --
+
+Page 4 of 27
+The platform will integrate reliable third-party services for payments, authentication,
+communication, and analytics to ensure accurate, secure, and up-to-date operations. The entire
+application will be developed using the MERN stack — MongoDB, Express.js, React.js / Next.js,
+and Node.js — without using WordPress, Wix, or any ready-made CMS. This custom-built
+architecture, with a single JavaScript/TypeScript codebase across frontend and backend, will provide
+greater flexibility, stronger security, faster development cycles, improved performance, and easier
+future scalability than any template-based alternative.
+The proposed solution will follow modern software development standards, responsive design
+principles, optimized database architecture, secure coding practices, and scalable system architecture.
+Strong security measures — including encrypted JWT-based authentication, role-based access
+control, NoSQL injection prevention, Cross-Site Scripting (XSS) protection, Cross-Site Request
+Forgery (CSRF) protection, secure API communication, and regular backup mechanisms — will be
+implemented throughout the project.
+Backed by these standards, the project is targeted to deliver measurable outcomes from day one: a
+sub-3-second page load time at launch, a fully responsive build capturing the 60–70% of traffic that
+now arrives on mobile, and a structured lead-capture system designed to generate 50+ qualified leads
+per month within three months of go-live.
+Overall, this project is intended to deliver a reliable, scalable, and feature-rich digital platform that
+combines brand presentation, customer engagement, content management, lead generation, and user
+personalization into a single integrated system. The final solution will not only meet Selbar's current
+business requirements but will also provide a strong technical foundation for future enhancements
+such as mobile applications, advanced analytics, loyalty or subscription features, and additional
+digital services.
+About Selbar
+Selbar (selbar.in) is a digital platform conceptualized to provide users with a seamless, value-driven
+online experience — one that feels fast, trustworthy, and effortless from the very first click. Rather
+than settling for a generic, templated presence, Selbar is being built on the foundation of customer
+convenience, modern design, and technology-first thinking, so that every interaction reinforces its
+credibility rather than undermining it.
+Selbar aims to establish itself as a trusted digital brand within its market segment, delivering reliable
+services or products through an intuitive web interface that puts the user's journey — not the
+platform's limitations — at the center of every decision. Whether Selbar operates in e-commerce,
+services, information, or a hybrid model, this proposal outlines a scalable web solution capable of
+supporting all current requirements while remaining flexible enough to accommodate future growth
+and feature additions — so the platform Selbar launches with today is never the ceiling on what it
+can become tomorrow.
+Purpose of This Proposal
+This document serves as the formal project proposal submitted by Maajanki Web Tech to Rahul
+Kumar, laying out exactly how Selbar's vision will be translated into a live, working platform. It
+includes:
+• A detailed description of the proposed Selbar website features and functionality
+• The technology stack and development approach we will follow
+• A phase-wise project development timeline with clear milestones
+• A transparent commercial proposal with itemized pricing
+
+-- 4 of 27 --
+
+Page 5 of 27
+• Terms and conditions governing the project engagement
+• Acceptance and signature section to formally initiate the project
+By accepting this proposal, Rahul Kumar authorizes Maajanki Web Tech to commence work on the
+Selbar website in accordance with the agreed scope, timeline, and payment terms described herein —
+turning this document from a plan into a commitment, and from a proposal into a project.
+
+-- 5 of 27 --
+
+Page 6 of 27
+2. Project Objectives
+The primary objective of this project is to design and develop a modern, secure, and scalable website
+for Selbar (selbar.in) that reflects the brand identity, delivers accurate and well-organized
+information, and provides an exceptional user experience. The platform is intended to serve end
+customers, registered members, business partners, and Selbar's internal team by bringing
+product/service presentation, user engagement, and platform administration together through a
+single, fully custom web-based solution.
+Key Objectives of This Project
+• Develop a fully custom-built web application using the MERN stack — MongoDB,
+Express.js, React.js / Next.js, and Node.js — without using WordPress, Wix, or any ready-
+made CMS.
+• Create a modern, responsive, and user-friendly interface that provides a seamless experience
+across desktop, tablet, and mobile devices.
+• Build a dynamic product/service showcase with categorized listings, rich detail pages, search
+and filter functionality, and clear calls to action.
+• Develop an advanced Screener / Filter Module that enables users to search and compare
+listings using custom and pre-built criteria, save and share filter configurations, and export
+results in CSV or Excel format.
+• Build comprehensive Detail Pages for each listed product, service, or offering — containing
+descriptions, images, specifications, pricing, and related information to support user decision-
+making.
+• Integrate a categorized News & Insights module that delivers updates on business
+developments, announcements, and industry-relevant content, organized for quick and easy
+access.
+• Develop a personalized Watchlist System that allows registered users to save and track their
+preferred items and receive relevant updates in real time.
+• Implement a secure user authentication system with email login, OTP verification, social
+login options, JWT-based session management, password recovery, and Two-Factor
+Authentication (2FA) for enhanced account security.
+• Design and develop a powerful Admin Dashboard for managing users, content, listings,
+subscriptions, screeners, watchlists, reports, and overall platform operations.
+• Integrate essential third-party services, including Payment Gateway (Razorpay), SMS/OTP
+services, Email services, Social Login (Google/Facebook OAuth), and Analytics, to ensure
+accurate and reliable platform functionality.
+• Build a flexible subscription management system that supports Free, Basic, and Premium
+plans, secure payment processing, feature-based access control, and renewal management.
+• Ensure high-level application security by implementing industry-standard practices such as
+NoSQL Injection Protection, Cross-Site Scripting (XSS) Prevention, Cross-Site Request
+
+-- 6 of 27 --
+
+Page 7 of 27
+Forgery (CSRF) Protection, password encryption, secure API communication, role-based
+access control, activity logs, and regular data backups.
+• Optimize website performance through server-side rendering (Next.js), efficient MongoDB
+queries, responsive navigation, and smooth user interactions under increasing traffic.
+• Deliver complete project documentation, including source code, database structure,
+installation guide, API integration details, administrator manual, and user documentation for
+future maintenance and scalability.
+• Develop a future-ready architecture that allows easy integration of additional modules such as
+mobile applications, advanced analytics, multilingual support, and other business
+enhancements without major redevelopment.
+The overall objective of this project is to deliver a reliable, scalable, secure, and high-performance
+digital platform that simplifies information discovery, improves user engagement, supports Selbar's
+business growth, and provides a strong technological foundation for future expansion.
+2.1 Primary Goals
+● Build a fully custom-built, responsive website for Selbar that works seamlessly across all
+devices including desktop, tablet, and mobile
+● Deliver a user-friendly interface that ensures easy navigation, fast loading speed, and a
+positive overall user experience
+● Establish Selbar's credibility and brand authority in its target market through professional
+design and compelling content layout
+● Enable core business functionality including service/product presentation, user interaction,
+lead capture, and customer engagement features
+● Ensure complete data security, user privacy, and website reliability through industry-standard
+security measures
+● Develop a future-ready architecture that supports easy addition of new features, integrations,
+and content without major redevelopment
+2.2 Target Audience
+The Selbar website will primarily serve the following user groups:
+Audience Type Description Priority
+Primary Users End customers visiting selbar.in to explore
+products/services, place orders, or get
+information
+Core Audience
+Registered Members Users who create accounts to access
+personalized features, track orders, or
+manage subscriptions
+Engaged Users
+Business Visitors B2B partners, vendors, or investors
+exploring Selbar's offerings and credibility
+Secondary Audience
+Admin / Staff Internal team managing content, orders,
+users, and platform operations via the admin
+panel
+Internal Users
+
+-- 7 of 27 --
+
+Page 8 of 27
+2.3 Expected Business Outcomes & KPIs
+KPI Target Timeline
+Brand Visibility Professional website that builds brand trust
+and recognition online
+Launch Month 1
+Lead Generation Contact forms, inquiry forms, and call-to-
+action buttons capturing 50+ leads/month
+3 Months Post-Launch
+User Registrations Secure sign-up and login system enabling
+user base growth
+3–6 Months
+Search Engine
+Ranking
+SEO-optimized structure targeting top 10
+Google rankings for key Selbar terms
+6 Months Post-Launch
+Page Load Speed Sub-3-second load time on all pages for
+improved user retention
+At Launch
+Mobile Traffic Fully responsive design capturing mobile
+users (60–70% of web traffic)
+At Launch
+Content
+Management
+Admin team can update website content
+without developer dependency
+At Launch
+2.4 User Experience Objectives
+● Clean, modern, and intuitive design that requires no learning curve for new visitors
+● Clear visual hierarchy guiding users toward primary actions (contact, purchase, register,
+inquire)
+● Consistent branding — colors, fonts, and tone aligned with Selbar's identity throughout
+● Accessibility compliance ensuring the website is usable by users with varying abilities
+● Fast, responsive navigation with logical page structure and breadcrumbs
+● Trust signals including testimonials, certifications, contact information, and secure checkout
+indicators
+2.5 Brand Positioning Goals
+Selbar aims to position itself as a credible, modern, and customer-centric brand in its market
+segment. The website will serve as the primary digital touchpoint and will communicate:
+● Professionalism and quality through premium design aesthetics
+● Transparency through clear product/service information, pricing, and policies
+● Reliability through a well-structured, bug-free, and fast-performing platform
+● Innovation through modern features, integrations, and a future-ready architecture
+
+-- 8 of 27 --
+
+Page 9 of 27
+3. Project Scope & Key Features
+The proposed Selbar platform will be developed as a complete, custom-built web application that
+provides visitors and registered users with a fast, secure, and seamless digital experience. The
+platform will feature a modern and responsive Home Page displaying Selbar's brand story, key
+products or services, trust-building elements, testimonials, and clear calls to action — giving every
+visitor a confident first impression within seconds of arrival. Users will also have access to a
+powerful Screener / Filter Module with custom and pre-built criteria, allowing them to search,
+compare, save, edit, share, and export results in CSV or Excel format. Each listed offering will have
+a dedicated Product / Service Detail Page containing full descriptions, images, specifications,
+pricing, and related information to support confident decision-making.
+The platform will also include a comprehensive News & Insights module that delivers categorized
+updates related to business developments, announcements, and industry-relevant content. Additional
+user-focused features such as personalized Watchlists, a User Dashboard, Pricing & Subscription
+Plans, Blog & Learning Resources, and Contact & Support will enhance the overall functionality of
+the website. Registered users will be able to create and manage watchlists, receive relevant updates,
+save custom screeners, access premium content, manage subscriptions, and personalize their account
+settings through a secure dashboard. The system will support Email Login, OTP Verification, Social
+Login, JWT-based session management, Password Recovery, and Two-Factor Authentication (2FA)
+to ensure a secure and reliable user experience.
+A powerful administrative dashboard will be developed to efficiently manage all website operations,
+including user accounts, content, listings, subscriptions, screeners, watchlists, reports, and system
+settings. The platform will integrate reliable third-party services for payments, authentication,
+communication, and analytics. The entire application will be custom-built using the MERN stack —
+MongoDB, Express.js, React.js / Next.js, and Node.js — without relying on WordPress, Wix, or any
+ready-made CMS. The website will be optimized for speed, security, scalability, and mobile
+responsiveness through server-side rendering (Next.js), while incorporating modern security
+practices such as encrypted JWT-based authentication, role-based access control, NoSQL Injection
+prevention, Cross-Site Scripting (XSS) protection, Cross-Site Request Forgery (CSRF) protection,
+secure API communication, and regular data backup. The final solution will provide a reliable, high-
+performance, and future-ready platform capable of supporting Selbar's business growth and future
+feature enhancements.
+3.1 Website Architecture & Page Structure
+Page / Section Content & Functionality
+Home Page Hero section, brand introduction, key services/products, call-
+to-action, testimonials, latest news/updates, trust badges
+About Us Page Brand story, mission & vision, team introduction, milestones,
+and why choose Selbar
+Services / Products Page Categorized listing with descriptions, images, pricing (if
+applicable), and inquiry/purchase buttons
+Product / Service Detail Page Individual detail pages with full description, images,
+specifications, pricing, reviews, and CTA
+
+-- 9 of 27 --
+
+Page 10 of 27
+Contact & Support Page Contact form, phone/email details, office address, Google
+Maps embed, support ticket option
+User Registration & Login Secure sign-up, login, social login options, OTP verification,
+password recovery, 2FA
+User Dashboard Personalized account area with order history, saved items,
+profile management, notifications, settings
+Blog & Learning Resources Articles, guides, industry news — SEO-optimized content
+management with categories and tags
+Pricing & Plans Page Subscription or pricing tiers (Free/Basic/Premium) with
+feature comparison table
+FAQ Page Categorized frequently asked questions with expandable
+accordion format
+Privacy Policy, T&C,
+Refund Policy
+Legal pages with formal content required for trust and
+compliance
+404 / Error Pages Custom error pages maintaining branding and guiding users
+back to key sections
+3.2 Core Functionality Requirements
+3.2.1 User Authentication System
+● Email + Password registration and login
+● OTP-based phone number or email verification
+● Social login (Google / Facebook OAuth integration)
+● Two-Factor Authentication (2FA) via email or authenticator app
+● Secure password recovery with email link and time-based expiry
+● Session management with automatic timeout and remember-me option
+● Role-based access control (Admin, Editor, Premium User, Free User)
+3.2.2 Product / Service Listing & Management
+● Dynamic category and sub-category structure for organizing listings
+● Rich product/service pages with image galleries, descriptions, specs, and pricing
+● Search and filter functionality (by category, price range, rating, availability)
+● Featured products, best-sellers, and new arrivals sections on homepage
+● Wishlist / Save for Later functionality for registered users
+3.2.3 Advanced Stock Screener / Data Filtering Module
+As referenced in the uploaded proposal document, an advanced screener/filter module will be
+included:
+● Custom and pre-built filter criteria for searching and comparing items/data
+● Save, edit, share, and delete custom filter configurations per user account
+● Export filtered results in CSV and Excel format for offline analysis
+● Real-time data updates within filter results where applicable
+● Shareable filter links for user convenience
+
+-- 10 of 27 --
+
+Page 11 of 27
+3.2.4 Watchlist / Favorites System
+● Registered users can create and manage multiple personalized watchlists
+● Add/remove items from watchlist with a single click
+● Email or in-app notifications for watchlist item updates
+● Watchlist visible and manageable from the user dashboard
+3.2.5 News & Insights Module
+● Categorized news and updates section (industry news, platform updates, announcements)
+● Tag-based and category-based filtering
+● Article detail pages with social sharing buttons
+● Admin-managed content with scheduled publishing capability
+● SEO-optimized article structure with meta titles and descriptions
+3.2.6 Payment & Subscription Integration
+● Subscription plans: Free, Basic, and Premium with feature-gated access
+● Payment gateway integration: Razorpay (primary) for India-based UPI, cards, net banking
+● Secure checkout with order summary and payment confirmation
+● Invoice/receipt generation in PDF format after successful payment
+● Auto-renewal and manual renewal options for subscriptions
+● Prorated billing for plan upgrades mid-cycle
+3.3 Admin Panel Features
+● Secure admin login with 2FA and role-based panel access
+● Dashboard overview: total users, active subscriptions, revenue, content count, recent activity
+● User management: view, edit, suspend, or delete user accounts; manage roles and
+permissions
+● Content management: create, edit, schedule, and publish pages, articles, blogs, and FAQs
+● Product/service management: add, update, categorize, and remove listings with image
+management
+● Order and subscription management: track payments, renewals, cancellations, and refund
+processing
+● Screener and watchlist administration: manage shared screeners and review user-created data
+● API integration management: view connection status, error logs, and usage metrics
+● Reports and analytics: user growth, traffic sources, revenue reports, and engagement metrics
+● SEO settings: meta title, description, canonical URLs, and sitemap management per page
+● Email notification templates: customize automated email content for different user actions
+● Backup management: manual and scheduled database backups with restore functionality
+● System settings: general site configuration, maintenance mode, social media links, contact
+details
+3.4 Responsive Design Requirements
+The Selbar website will be fully responsive and optimized for all screen sizes:
+Device Layout Approach Priority
+Desktop 1280px and above — Full-width layouts,
+multi-column grids, hover interactions
+Primary
+
+-- 11 of 27 --
+
+Page 12 of 27
+Laptop 1024px–1279px — Adjusted grid, all
+desktop features maintained
+Primary
+Tablet 768px–1023px — Two-column layouts,
+touch-friendly navigation
+High
+Mobile (Large) 480px–767px — Single-column, stacked
+layout, mobile menu
+Critical
+Mobile (Small) Below 480px — Compact elements, thumb-
+friendly buttons, fast load
+Critical
+3.5 SEO & Performance Optimization
+● Semantic HTML5 structure for crawler-friendly page architecture
+● On-page SEO: meta titles, descriptions, canonical tags, Open Graph, Twitter Card for every
+page
+● XML sitemap generation and Google Search Console integration
+● Image optimization: WebP format, lazy loading, proper alt text
+● Core Web Vitals compliance: LCP < 2.5s, CLS < 0.1, FID < 100ms
+● Browser caching, GZIP compression, and minified CSS/JS assets
+● Schema markup (JSON-LD) for products, articles, FAQs, and organization data
+● Robots.txt configuration and URL structure optimization
+3.6 Security Features
+● SSL certificate for HTTPS enforcement across all pages
+● SQL Injection prevention via prepared statements and parameterized queries
+● XSS (Cross-Site Scripting) protection via output escaping and Content Security Policy
+headers
+● CSRF (Cross-Site Request Forgery) protection on all form submissions
+● Password hashing using bcrypt (cost factor 12+)
+● Rate limiting on login, OTP, and form submission endpoints
+● Input validation and sanitization on all user-submitted data
+● Secure HTTP headers: HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy
+● Activity logging for admin actions and sensitive user operations
+● Regular automated database backups with off-site storage
+
+-- 12 of 27 --
+
+Page 13 of 27
+4. Technology Stack & Development Approach
+The Selbar website will be developed as a completely custom-built web application using the MERN
+stack (MongoDB, Express.js, React.js, and Node.js) to ensure high performance, security, scalability,
+and long-term reliability. No WordPress, Wix, Shopify, or any ready-made CMS will be used,
+ensuring complete source code ownership, superior flexibility, stronger security, and seamless future
+scalability.
+The platform will follow a modular development approach where each feature — including the
+Home Page, Screener/Filter Module, Product/Service Details, News & Insights, Watchlist, User
+Dashboard, Subscription Management, and Admin Panel — will be developed as an independent yet
+interconnected module using reusable React components and dedicated Express API routes. This
+architecture will make the system easier to maintain, upgrade, and scale as new features are
+introduced, while a single JavaScript codebase across frontend and backend keeps development
+faster and more consistent. The website will also be fully responsive, providing an optimized user
+experience across desktops, laptops, tablets, and smartphones.
+To deliver accurate and real-time information, the platform will integrate trusted third-party APIs
+and services for authentication, payment processing, communication, and analytics through a secure,
+well-structured REST (or GraphQL) API layer. The application will be designed with performance
+optimization techniques such as efficient MongoDB queries and indexing, server-side caching with
+Redis, optimized asset delivery, and code-splitting on the React frontend to ensure fast loading times
+even as traffic and data volume grow.
+Security will be implemented as a core component throughout the development process. The
+application will include secure user authentication (JWT-based sessions), password encryption, role-
+based access control, Two-Factor Authentication (2FA), NoSQL injection prevention, Cross-Site
+Scripting (XSS) protection, Cross-Site Request Forgery (CSRF) protection, secure API
+communication, activity logging, and regular database backup mechanisms. These measures will
+help protect user information and overall system integrity.
+The development process will follow industry-standard coding practices with proper documentation,
+structured schema design, version control, testing, and quality assurance. Upon successful
+completion of the project, the client will receive the complete source code, database structure,
+installation guide, technical documentation, and deployment support. The final solution will be
+scalable, maintainable, and capable of supporting future enhancements such as mobile applications,
+advanced analytics, and additional business modules without requiring major architectural changes.
+4.1 Technology Stack
+Frontend Technologies
+Technology Purpose & Justification
+React.js (18+) / Next.js Component-based UI library for building fast, interactive,
+and reusable interface elements
+React Router Client-side routing for a smooth, single-page-application
+navigation experience
+Redux Toolkit / Context API Centralized state management for user sessions,
+cart/dashboard data, and app-wide state
+
+-- 13 of 27 --
+
+Page 14 of 27
+Tailwind CSS / Bootstrap 5 Responsive grid system, utility classes, and consistent
+component styling
+Axios Promise-based HTTP client for clean, structured API
+communication with the backend
+Chart.js / Recharts Interactive charts and data visualizations for dashboards and
+analytics views
+Vite / Webpack Fast build tooling, bundling, and optimized production builds
+Backend Technologies
+Technology Purpose & Justification
+Node.js (LTS) JavaScript runtime powering a fast, non-blocking, event-
+driven backend
+Express.js Lightweight, flexible framework for building structured
+REST API routes and middleware
+JWT (jsonwebtoken) Secure, stateless token-based authentication for web and
+future mobile clients
+Mongoose ODM Schema-based modeling for MongoDB with built-in
+validation and query building
+REST API Architecture Structured API endpoints for frontend-backend
+communication and future mobile app support
+npm / pnpm JavaScript dependency management for all packages and
+third-party integrations
+Database
+Technology Purpose & Justification
+MongoDB (Atlas) Primary NoSQL database for users, listings, subscriptions,
+content, and platform records
+Redis Caching frequently accessed data, session storage, and rate
+limiting for speed
+Mongoose Schemas &
+Indexes
+Version-controlled schema definitions with indexing for fast,
+reliable queries
+Data Validation Layer Application-level and schema-level validation to ensure
+clean, consistent data
+Hosting & Server Infrastructure for selbar.in
+Component Recommendation
+
+-- 14 of 27 --
+
+Page 15 of 27
+Cloud Hosting AWS EC2 / DigitalOcean Droplet (4GB RAM, 2 vCPU) or a
+managed platform (Render/Railway) — scalable
+infrastructure for production
+Application Runtime Node.js with PM2 process manager for uptime, clustering,
+and auto-restart
+Web Server / Reverse Proxy Nginx (reverse proxy, static asset serving, load balancing)
+Database Hosting MongoDB Atlas (managed, auto-scaling, automated backups)
+SSL Certificate Let's Encrypt (free) or Comodo SSL — auto-renewed HTTPS
+for selbar.in
+Domain selbar.in — registered via GoDaddy, BigRock, or Namecheap
+(client procurement)
+Backups Automated MongoDB Atlas backups; weekly full-server
+snapshots to S3
+Email Server AWS SES or Zoho Mail for transactional and business email
+CDN Cloudflare — global CDN, DDoS protection, DNS, and
+performance optimization
+4.2 Development Methodology
+The project will follow an Agile-Waterfall Hybrid methodology, providing the structure of waterfall
+for planning and the flexibility of agile for iterative development and feedback incorporation.
+• Weekly progress updates shared with client via WhatsApp/email with demo links
+• Each development phase requires client sign-off before the next phase begins
+• Version control using Git (GitHub/GitLab) with branch-based development (main, dev,
+feature branches)
+• Staging environment provided for client testing before production deployment
+4.3 Quality Assurance & Testing
+Test Type Scope When
+Functional Testing Every feature tested against acceptance
+criteria defined in project scope
+Pre-Deployment
+Cross-Browser
+Testing
+Chrome, Firefox, Safari, Edge — latest 2
+versions of each
+Pre-Deployment
+Mobile
+Responsiveness
+Testing on iOS (Safari) and Android
+(Chrome) physical devices + emulators
+Per Phase
+Security Testing OWASP Top 10 vulnerability checks, SQL
+injection tests, XSS scanning
+Pre-Deployment
+
+-- 15 of 27 --
+
+Page 16 of 27
+Performance Testing Google Lighthouse audit targeting 90+
+scores on Performance and SEO
+Pre-Deployment
+API Testing Postman/Jest-based endpoint testing for all
+REST API routes
+Per Phase
+User Acceptance
+Testing
+Client tests all features on staging; bug list
+compiled and resolved before launch
+Final Phase
+4.4 Version Control & Deployment Pipeline
+• Git repository on GitHub (private) with full commit history — handed over at project
+completion
+• Branching strategy: main (production), develop (integration), feature/* (individual features)
+• Deployment via GitHub Actions CI/CD to staging and production servers, with PM2 process
+reload
+• Environment separation: .env files for local, staging, and production configurations
+• Zero-downtime deployment using PM2 reload and health-check protocols
+
+-- 16 of 27 --
+
+Page 17 of 27
+5. Project Development Timeline
+The development of the Selbar website will follow a structured and well-defined development
+process to ensure quality, transparency, and timely project delivery. Each phase of the project has
+been planned carefully to achieve the expected functionality, performance, and security standards,
+with the estimated timeline calculated assuming timely client approvals, content provision, and API
+credential handovers. Any delays from the client side will proportionally extend the timeline.
+The project will begin with the Requirement Analysis & Planning phase, where all business
+requirements, functional modules, API requirements, design expectations, and project objectives will
+be finalized. This phase will ensure that both parties have a clear understanding of the project scope
+before development begins.
+Once the planning phase is completed, the UI/UX Design phase will start. During this stage, the
+website layout, color themes, navigation structure, responsive design, and user interface components
+will be designed and reviewed for approval before moving to development.
+After design approval, the Frontend Development phase will begin, where all user-facing pages,
+responsive React components, charts, navigation menus, dashboards, and interactive elements will be
+developed. This will be followed by the Backend Development phase, where the admin panel, user
+management, content and listing management, subscription management, authentication system, and
+core business logic will be implemented using Node.js and Express.js.
+The next stage will focus on API Integration, where payment gateway, social login, SMS/OTP
+services, email services, analytics, and any third-party data feeds will be integrated and tested to
+ensure smooth platform functionality and accurate data synchronization.
+Once development is completed, the project will undergo Comprehensive Testing & Quality
+Assurance, including functional testing, security testing, performance testing, cross-browser
+compatibility testing, API testing, and mobile responsiveness testing. Any identified issues or bugs
+will be resolved before final deployment.
+The final phase will include Project Deployment, Documentation, and Client Handover. The website
+will be deployed on the production server, all required source code and documentation will be
+delivered, and deployment support will be provided to ensure a successful project launch.
+5.1 Phase-Wise Development Schedule
+Phase Activities Duration
+Phase 1 Requirement Analysis & Planning 5–7 Working Days
+Phase 2 UI/UX Wireframing & Design 10–14 Working Days
+Phase 3 Frontend Development 20–25 Working Days
+Phase 4 Backend Development 25–35 Working Days
+Phase 5 API Integration & Data Modules 10–15 Working Days
+Phase 6 Testing & Quality Assurance 7–10 Working Days
+Phase 7 Deployment, Documentation & Handover 3–5 Working Days
+
+-- 17 of 27 --
+
+Page 18 of 27
+Buffer Time Revisions, change requests, client feedback
+cycles
+7–10 Working Days
+Total Estimated
+Duration
+End-to-end from confirmed start date 90–120 Working Days
+5.2 Detailed Phase Breakdown
+Phase 1 — Requirement Analysis & Planning (5–7 Days)
+• Kick-off meeting with client to finalize all feature requirements and expectations
+• Finalizing API integrations, third-party services, and credential requirements
+• Defining database schema (MongoDB collections), user roles, and system architecture
+• Preparing detailed feature specification document for sign-off
+• Setting up Git repository, project management board, and communication channels
+Phase 2 — UI/UX Wireframing & Design (10–14 Days)
+• Creating low-fidelity wireframes for all key pages (Home, Dashboard, Screener,
+Product/Detail Pages, Admin Panel)
+• Color scheme, typography, and brand identity alignment for Selbar
+• High-fidelity mockups in Figma for client review and approval
+• Mobile-first design pass ensuring all components are responsive
+• Maximum 2 rounds of design revisions included within this phase
+• Client design approval sign-off required before Phase 3 begins
+Phase 3 — Frontend Development (20–25 Days)
+● Converting approved Figma designs into pixel-perfect, component-based React.js UI
+● Building all pages: Home, About, Services, Product/Detail, Blog, Contact, FAQ, Pricing,
+Legal
+● Implementing responsive layouts, navigation menus, sliders, modals, and interactive
+components
+● Integrating Chart.js / Recharts for interactive data visualizations
+● Frontend state management (Redux Toolkit / Context API) for screeners, watchlists, and
+dashboard widgets
+● Performance optimization: image compression, lazy loading, code-splitting, asset
+minification
+Phase 4 — Backend Development (25–35 Days)
+● Node.js + Express.js application setup with modular architecture (Auth, Users, Products,
+Screener, News, Admin)
+● Complete authentication system: registration, login, OTP, social login, JWT-based sessions,
+2FA, password recovery
+● User dashboard APIs: profile management, watchlists, saved screeners, subscription status,
+notifications
+● Admin panel APIs: all user, content, product, subscription, and report management modules
+● Subscription management: plan creation, payment processing, access control, renewal logic
+● MongoDB schema design and optimization using Mongoose: indexing, relationships, and
+validation
+● Security implementation: CSRF protection, XSS filters, rate limiting, activity logs, input
+validation
+
+-- 18 of 27 --
+
+Page 19 of 27
+● Background job queue (Bull/BullMQ with Redis) for email notifications, data sync, and
+report generation
+Phase 5 — API Integration (10–15 Days)
+● Third-party/data API integration (client-selected provider) for real-time data feeds, where
+applicable
+● News/content API integration for categorized and automated content delivery
+● Razorpay payment gateway integration (UPI, cards, net banking, EMI)
+● Google OAuth and Facebook OAuth for social login
+● SMS gateway (MSG91 or Twilio) for OTP and notification delivery
+● Email service (Amazon SES or SendGrid) for transactional emails
+● Google Analytics 4 and Google Tag Manager setup
+● CSV and Excel export functionality using json2csv / exceljs (Node.js packages)
+Phase 6 — Testing & QA (7–10 Days)
+● Functional testing of all modules against approved specifications
+● Cross-browser and cross-device compatibility testing
+● Security audit: NoSQL injection, XSS, CSRF, session/JWT management tests
+● API testing using Postman/Jest for all REST endpoints
+● Performance testing: Google Lighthouse optimization pass (target: 90+ score)
+● Bug documentation, prioritization, and resolution
+● Staging environment deployed for client User Acceptance Testing (UAT)
+● Client feedback incorporated and final regression testing performed
+Phase 7 — Deployment & Handover (3–5 Days)
+● Production server setup and configuration (Nginx, Node.js + PM2, MongoDB Atlas, Redis,
+SSL)
+● Domain DNS configuration for selbar.in pointing to production server
+● HTTPS/SSL certificate installation and verification
+● Final production deployment with zero-downtime (PM2 reload) protocol
+● Delivery of: complete source code, database export, installation guide, admin manual, API
+docs
+● 1-hour walkthrough session with client/admin team on platform usage
+● 30-day post-launch warranty period begins from go-live date
+⏱ Estimated Project Start Date: Within 5 working days of proposal acceptance and advance
+payment receipt
+⏱ Estimated Go-Live Date: 90–120 working days from confirmed project start
+⚠ Note: Timeline is contingent on timely client feedback, content provision, and API
+credential availability.
+
+-- 19 of 27 --
+
+Page 20 of 27
+6. Commercial Proposal
+The estimated cost for designing, developing, testing, and deploying the proposed Selbar website is
+based on the project requirements described throughout this proposal. The quotation covers the
+complete custom development of the web application, including frontend development, backend and
+admin panel, database design, API integrations, security implementation, responsive user interface,
+testing, deployment support, and complete technical documentation.
+The development cost includes all modules described in this proposal — the Home Page, Screener &
+Filter Module, Product/Service Detail Pages, News & Insights, Watchlist, User Dashboard,
+Subscription Management, Blog, Contact & Support, Administrative Dashboard, and all approved
+API integrations. The application will be custom-built using the MERN stack (MongoDB,
+Express.js, React.js, and Node.js) without using WordPress, Wix, or any ready-made Content
+Management System (CMS). All pricing below is in Indian Rupees (INR) and subject to 18% GST
+as applicable.
+6.1 Project Cost Breakdown
+Component / Module Scope Covered Cost (INR)
+UI/UX Design Wireframes, high-fidelity mockups (Figma), design
+system, 2 revision rounds
+Include
+Frontend
+Development
+All public-facing pages, responsive React
+components, interactive elements, chart integration
+₹25,000
+Backend Development Node.js + Express.js application, auth system, user
+dashboard, admin panel, business logic, security
+₹25,000
+Database Design Complete MongoDB schema design (Mongoose),
+optimization, indexing
+Included
+Admin Dashboard Full-featured admin panel with all management
+modules
+Include
+API Integration Payment Gateway, SMS OTP, Social Login,
+News/Content API, Email Service
+Included (Your
+API Keys)
+Stock Screener &
+Filter Module
+Custom screener with save/export/share functionality Included (Your
+API Keys)
+News & Insights
+Module
+Categorized news system with admin management
+and SEO optimization
+Include
+Watchlist &
+Notification System
+User watchlists with in-app and email alerts Your API Keys
+Subscription &
+Payment Module
+Plans, Razorpay integration, invoicing, access control Your API Keys
+
+-- 20 of 27 --
+
+Page 21 of 27
+Testing & Quality
+Assurance
+Functional, security, performance, cross-browser,
+mobile, and API testing
+Included
+Deployment &
+Configuration
+Server setup, SSL, DNS, Nginx config, production
+deployment
+Included
+Technical
+Documentation
+Source code docs, DB schema, installation guide,
+admin manual, API reference
+Included
+SEO Foundation
+Setup
+Meta tags, sitemap, schema markup, robots.txt,
+Google Analytics integration
+₹20,000
+SUBTOTAL (Before GST) ₹70,000
+GST @ 18% (on development services) ₹12,600
+TOTAL PROJECT COST (Inclusive of GST) ₹82,600
+In Words: Indian Rupees Eighty Two Thousand Six Hundreds
+Note: The above quotation covers only the development services mentioned in this proposal. Any
+additional features, change requests, or new modules requested after project approval may be treated
+as additional work and quoted separately after mutual discussion.
+6.2 Third-Party Services (Client to Procure Separately)
+The following services are NOT included in the development cost and must be purchased directly by
+Rahul Kumar or reimbursed to Maajanki Web Tech based on actual invoices:
+Service Recommended Provider Estimated Cost
+Domain Registration
+(selbar.in)
+GoDaddy / BigRock / Namecheap /
+Hostinger
+₹800–1,200/year
+Web Hosting / Cloud
+Server
+DigitalOcean (4GB) / AWS EC2 / Hostinger
+VPS
+₹2,000–6,000/month
+SSL Certificate Let's Encrypt (Free) or Comodo ($50–
+$100/year)
+₹0–8,500/year
+Financial / Stock
+Data API
+Polygon.io / Alpha Vantage / Twelve Data /
+NSE API
+$50–500/month
+News API NewsAPI.org / Currents / Benzinga $50–200/month
+SMS Gateway MSG91 / Twilio (for OTP services) ₹0.15–0.25/SMS
+Email Service Amazon SES / SendGrid (for transactional
+emails)
+$20–100/month
+Payment Gateway
+Charges
+Razorpay transaction fee 2% per transaction
+
+-- 21 of 27 --
+
+Page 22 of 27
+Charting Library
+License
+TradingView / Highcharts (if commercial
+use license required)
+$100–500/year
+The pricing of these services depends on the selected service provider and actual usage requirements.
+6.3 Payment Schedule (Milestone-Based)
+Milestone Amount & Trigger
+Milestone 1 — Project
+Confirmation & Kickoff
+30% = ₹24,780 (incl. GST) — Payable before development
+begins
+Milestone 2 — UI/UX Design
+Approval + Frontend
+Completion
+30% = ₹24,780 (incl. GST) — Payable upon client sign-off
+on design and frontend
+Milestone 3 — Backend
+Development + API
+Integration Complete
+25% = ₹20,650 (incl. GST) — Payable upon staging
+deployment and UAT access
+Milestone 4 — Final Testing,
+Deployment & Project
+Handover
+15% = ₹12,390 (incl. GST) — Payable on go-live and source
+code handover
+6.4 Annual Maintenance Contract (AMC) — Post-Launch
+A dedicated AMC is available to ensure Selbar.in continues to perform optimally after launch. AMC
+is optional but strongly recommended:
+AMC Attribute Details
+AMC Duration 12 months (renewable annually)
+AMC Price ₹20,000–25,000 per year (depending on scope selected)
+Included in AMC Bug fixes, security patches, minor content updates (up to 5
+hours/month), server monitoring, backup verification,
+framework/plugin updates
+Excluded from AMC New feature development, major design changes, third-party
+API subscription costs, server costs
+Response SLA Critical bugs: 24 hours; Major bugs: 48 hours; Minor issues:
+5 working days
+
+-- 22 of 27 --
+
+Page 23 of 27
+7. Terms & Conditions
+The following terms and conditions shall govern the execution and delivery of the Selbar website
+(selbar.in) between Maajanki Web Tech ("Developer") and Rahul Kumar / Selbar ("Client"). These
+terms are intended to ensure transparency, mutual understanding, and a smooth development process
+between both parties. By accepting this proposal, both parties acknowledge and agree to all terms
+stated herein.
+7.1 Project Commencement
+1. The project will officially commence only after written acceptance of this proposal by the
+Client and receipt of the agreed Milestone 1 advance payment (30% of total project cost).
+2. Work will begin within 5 working days of payment confirmation and completion of the
+project kickoff meeting.
+3. The Developer reserves the right to delay commencement if required project information,
+credentials, or content is not provided by the Client within agreed timelines.
+7.2 Client Responsibilities
+1. The Client agrees to provide all required content (text, images, logos, branding assets, product
+data) within the timeline agreed during the kickoff meeting.
+2. The Client will provide timely feedback and approvals at each milestone within 3–5 working
+days of receiving deliverables for review. Delayed approvals may extend the overall project
+timeline.
+3. The Client is responsible for procuring all third-party services listed in Section 6.2 (domain,
+hosting, APIs, payment gateway) and providing necessary credentials to the Developer in a
+timely manner.
+4. The Client must designate a single point of contact (SPOC) for all project communication to
+ensure streamlined decision-making.
+5. The Client must provide access to any existing systems, accounts, or platforms required for
+integration or migration during the development process.
+7.3 Developer Responsibilities
+1. The Developer commits to delivering all features and modules described in the approved
+project scope within the estimated timeline, subject to timely client cooperation.
+2. All code will be written following industry-standard practices including proper
+documentation, version control, security implementation, and performance optimization.
+3. A staging environment will be provided for client review at each major milestone before final
+deployment.
+4. The Developer will maintain strict confidentiality of all client information, business data, and
+project details throughout and after the engagement.
+5. Regular progress updates will be communicated to the Client on a weekly basis via agreed
+communication channels.
+7.4 Revision & Change Request Policy
+1. The project scope, as defined in Sections 3 and 6 of this proposal, serves as the baseline for
+development. Any feature or functionality not explicitly mentioned herein is considered out of
+scope.
+2. Two rounds of design revisions are included within Phase 2 (UI/UX Design). Additional
+revision rounds will be billed at ₹5,000–10,000 per round depending on scope.
+
+-- 23 of 27 --
+
+Page 24 of 27
+3. Minor changes (text edits, color adjustments, small layout tweaks) during development are
+accommodated within the project cost. Major changes affecting architecture, database, or core
+logic will be treated as change requests.
+4. All change requests must be submitted in writing via email. The Developer will provide a cost
+and timeline estimate within 3 working days of receiving the request. Work on the change
+request begins only after written approval and additional payment (if applicable).
+5. Change requests may affect the project delivery timeline depending on their complexity and
+stage of development at which they are requested.
+7.5 Intellectual Property Rights & Ownership
+1. All custom code, design, and content developed specifically for the Selbar project will be the
+sole intellectual property of the Client (Rahul Kumar) upon receipt of 100% of the agreed project
+payment.
+2. Source code ownership transfers to the Client only after final payment is received. Prior to full
+payment, the Developer retains all rights to the work product.
+3. Third-party libraries, frameworks, APIs, and licensed software remain under their respective
+original licenses. The Client is responsible for compliance with these licenses.
+4. The Developer reserves the right to showcase the completed project in their portfolio unless
+the Client explicitly requests otherwise in writing.
+7.6 Confidentiality & Non-Disclosure
+1. Both parties agree to maintain the strict confidentiality of all business information, financial
+details, technical documents, source code, API keys, login credentials, and any other sensitive
+information shared during this engagement.
+2. Neither party shall disclose confidential information to any third party without prior written
+consent from the other party, except as required by applicable law.
+3. This confidentiality obligation survives termination of the project engagement for a period of
+two (2) years.
+7.7 Warranty & Post-Delivery Support
+1. A 30-day warranty period is provided from the date of final project handover and go-live.
+During this period, the Developer will fix any genuine development bugs at no additional charge.
+2. The warranty covers only development-related defects — it does not include new feature
+requests, design changes, content updates, API changes by third-party providers, server-related
+issues, or issues caused by unauthorized modifications by the Client.
+3. After the 30-day warranty period, ongoing support can be availed through the Annual
+Maintenance Contract (AMC) described in Section 6.4.
+4. Critical security vulnerabilities discovered within 60 days of go-live will be addressed as a
+priority even outside the standard warranty scope.
+7.8 Payment Terms & Default
+1. All invoices are payable within 5 working days of issuance.
+2. Failure to make payment within 7 working days of due date will result in a temporary
+suspension of development work without liability to the Developer.
+3. A late payment fee of 2% per month may be applied on overdue invoices.
+4. If any milestone payment remains unpaid for 30+ days, the Developer reserves the right to
+terminate the project and retain all payments received to date as compensation for work
+completed.
+
+-- 24 of 27 --
+
+Page 25 of 27
+7.9 Limitation of Liability
+1. The Developer's total liability under this agreement shall not exceed the total project fee paid
+by the Client to date.
+2. The Developer is not liable for any indirect, incidental, or consequential damages arising from
+the use or inability to use the developed website.
+3. The Developer is not responsible for issues arising from third-party API downtime, data
+inaccuracies from external data providers, server failures, or domain/hosting issues managed by
+the Client.
+7.10 Force Majeure
+1. Neither party shall be held liable for delays caused by circumstances beyond their reasonable
+control, including but not limited to natural disasters, government actions, power outages,
+internet outages, public health emergencies, or similar events.
+2. In such circumstances, the affected party must notify the other party in writing within 3
+working days, and the project timeline will be adjusted by mutual agreement.
+7.11 Termination
+1. Either party may terminate this agreement by providing 14 days' written notice to the other
+party.
+2. In the event of termination by the Client, the Developer shall be entitled to payment for all
+work completed up to the termination date, plus a 10% early termination fee on the remaining
+balance.
+3. In the event of termination by the Developer due to non-payment or breach of terms by the
+Client, all payments received to date will be retained by the Developer as liquidated damages.
+4. Upon termination, the Developer will provide the Client with all completed work up to that
+date in its current state.
+7.12 Dispute Resolution & Governing Law
+1. Both parties agree to first attempt to resolve any disputes through mutual discussion and
+good-faith negotiation within 15 working days of the dispute being raised.
+2. If mutual resolution is not achieved, the dispute shall be referred to arbitration in accordance
+with the Arbitration and Conciliation Act, 1996 (India).
+3. This agreement shall be governed by the laws of India. Any legal proceedings shall be subject
+to the jurisdiction of courts in Brajmala Complex, Bagaha, Bihar, India.
+Proposal Validity: This proposal, including the commercial quotation in Section 6, is valid for 30
+days from the date of submission. Any revision in project requirements, scope, or timeline after this
+period may require a revised proposal and updated commercial quotation.
+By accepting this proposal, both parties acknowledge that they have reviewed and agreed to the
+scope, commercial terms, development process, and conditions mentioned above. The project will
+officially commence upon written confirmation and receipt of the agreed advance payment.
+
+-- 25 of 27 --
+
+Page 26 of 27
+8. Acceptance & Signature
+8.1 Proposal Acceptance Statement
+We at Maajanki Web Tech sincerely appreciate the opportunity to present this proposal for the
+design and development of the Selbar website (selbar.in). We are confident that the proposed
+solution will provide a secure, scalable, and feature-rich digital platform that meets Selbar's business
+objectives while delivering an excellent user experience.
+Our team is committed to maintaining the highest standards of quality, transparency, and
+professionalism throughout the entire development lifecycle. Every phase of the project will be
+executed with careful planning, regular communication, and continuous collaboration to ensure
+successful project delivery within the agreed scope and timeline.
+Upon acceptance of this proposal, the project will commence according to the agreed development
+schedule outlined in Section 5. All development activities will be carried out based on the approved
+project scope, commercial proposal, and terms & conditions detailed in this document.
+We look forward to building a long-term professional relationship with Rahul Kumar and the Selbar
+brand — delivering a solution that supports its business growth and future expansion. Thank you for
+considering our proposal. We appreciate your trust and look forward to working together.
+• ✔ By signing below, the Client (Rahul Kumar) confirms that they have read, understood, and
+accepted all sections of this proposal, including the Project Scope, Commercial Proposal,
+Payment Schedule, and Terms & Conditions.
+• ✔ The project will officially commence upon receipt of signed acceptance and the Milestone
+1 advance payment of ₹24,780 (30% of total project cost inclusive of GST).
+• ✔ This proposal is valid for 30 days from the date of issue (September 2026). After expiry, a
+revised proposal may be required.
+8.2 Signature Block
+✦ Prepared By
+Name: Ashish Kumar
+Designation: Founder & Developer
+Company: Maajanki Web Tech
+Contact: maajankiwebtech.com
+Signature: _______________________
+Date: ____________________________
+✦ Accepted By (Client)
+Name: Rahul Kumar
+Designation: Owner / Authorized Signatory
+Company / Brand: Selbar (selbar.in)
+Contact: 6206664562
+Signature: _______________________
+Date: ____________________________
+8.3 Additional Notes / Amendments
+Any amendments to this proposal agreed upon by both parties must be documented in writing below
+or via a separate Amendment Letter signed by both parties before taking effect:
+Thank You
+
+-- 26 of 27 --
+
+Page 27 of 27
+Thank you for reviewing our proposal. We look forward to the opportunity to work together and
+deliver a modern, secure, and high-performance digital platform for Selbar that creates long-term
+value for the business.
+Maajanki Web Tech · maajankiwebtech.com
+· Brajmala Complex, Bagaha, West Champaran, Bihar, India
+· Ashish Kumar — Founder & Developer
+
+-- 27 of 27 --
+

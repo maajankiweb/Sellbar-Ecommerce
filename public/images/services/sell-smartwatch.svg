@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Base Shadow -->
+  <ellipse cx="85" cy="118" rx="42" ry="6" fill="#0f172a" opacity="0.15" filter="blur(3px)"/>
+
+  <!-- Back Smartwatch (Black Sport Band, angled right) -->
+  <g transform="rotate(25 110 50)">
+    <!-- Top & Bottom Black Silicone Straps -->
+    <path d="M102 12 L118 12 L116 38 L104 38 Z" fill="#1e293b"/>
+    <path d="M104 74 L116 74 L118 100 L102 100 Z" fill="#1e293b"/>
+    <!-- Watch Case -->
+    <rect x="94" y="32" width="32" height="46" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    <rect x="97" y="36" width="26" height="38" rx="6" fill="#020617"/>
+    <!-- Screen display element -->
+    <circle cx="110" cy="55" r="8" fill="#38bdf8" opacity="0.4"/>
+    <text x="103" y="58" font-size="8" font-family="monospace" font-weight="bold" fill="#38bdf8">10:09</text>
+  </g>
+
+  <!-- Foreground Smartwatch (Olive Green Rugged / Ultra Watch) -->
+  <g transform="translate(42, 20)">
+    <!-- Top Green Rugged Strap -->
+    <path d="M18 0 L46 0 L44 26 L20 26 Z" fill="#4d7c0f" stroke="#365314" stroke-width="1"/>
+    <!-- Strap ridges -->
+    <line x1="22" y1="8" x2="42" y2="8" stroke="#365314" stroke-width="1.5"/>
+    <line x1="23" y1="16" x2="41" y2="16" stroke="#365314" stroke-width="1.5"/>
+
+    <!-- Bottom Green Rugged Strap -->
+    <path d="M20 74 L44 74 L46 100 L18 100 Z" fill="#4d7c0f" stroke="#365314" stroke-width="1"/>
+    <line x1="21" y1="84" x2="43" y2="84" stroke="#365314" stroke-width="1.5"/>
+    <line x1="20" y1="92" x2="44" y2="92" stroke="#365314" stroke-width="1.5"/>
+
+    <!-- Rugged Watch Case (Titanium / Olive Green Frame) -->
+    <rect x="8" y="22" width="48" height="56" rx="12" fill="#3f6212" stroke="#1a2e05" stroke-width="2"/>
+    <!-- Bezel corner screws -->
+    <circle cx="13" cy="27" r="1.5" fill="#a3e635"/>
+    <circle cx="51" cy="27" r="1.5" fill="#a3e635"/>
+    <circle cx="13" cy="73" r="1.5" fill="#a3e635"/>
+    <circle cx="51" cy="73" r="1.5" fill="#a3e635"/>
+
+    <!-- Crown & Action Button -->
+    <rect x="56" y="36" width="3" height="12" rx="1" fill="#f97316"/>
+    <rect x="5" y="40" width="3" height="10" rx="1" fill="#84cc16"/>
+
+    <!-- Amoled Display -->
+    <rect x="13" y="27" width="38" height="46" rx="8" fill="#020617"/>
+
+    <!-- Digital Dial Graphics (Activity Rings + Clock) -->
+    <circle cx="32" cy="46" r="14" stroke="#e2e8f0" stroke-width="1.5" opacity="0.2" fill="none"/>
+    <circle cx="32" cy="46" r="11" stroke="#f97316" stroke-width="2" stroke-dasharray="40 60" fill="none"/>
+    <circle cx="32" cy="46" r="8" stroke="#84cc16" stroke-width="1.8" stroke-dasharray="28 40" fill="none"/>
+
+    <!-- Digital Time text -->
+    <text x="21" y="47" font-size="7" font-family="monospace" font-weight="bold" fill="#ffffff">09:41</text>
+    <text x="23" y="55" font-size="5" font-family="sans-serif" font-weight="bold" fill="#a3e635">7,842 STEPS</text>
+  </g>
+</svg>

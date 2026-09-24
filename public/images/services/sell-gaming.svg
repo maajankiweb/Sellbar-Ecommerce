@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Soft Drop Shadow -->
+  <ellipse cx="80" cy="112" rx="50" ry="8" fill="#0f172a" opacity="0.15" filter="blur(4px)"/>
+
+  <!-- PS5 DualSense Wireless Controller -->
+  <g transform="translate(25, 24)">
+    <!-- Controller White Outer Shell -->
+    <path d="M18 20 C32 8, 55 6, 78 8 C101 6, 124 8, 138 20 C148 30, 152 56, 142 84 C136 100, 126 106, 118 94 C112 84, 108 72, 98 70 C90 68, 66 68, 58 70 C48 72, 44 84, 38 94 C30 106, 20 100, 14 84 C4 56, 8 30, 18 20 Z" 
+          fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.8"/>
+
+    <!-- Controller Black Inner Mid-Body Section -->
+    <path d="M42 42 C54 38, 78 37, 90 38 C102 38, 114 42, 114 42 C114 42, 112 70, 98 70 C90 70, 66 70, 58 70 C44 70, 42 42, 42 42 Z" 
+          fill="#0f172a"/>
+
+    <!-- Touchpad (Center White/Silver) -->
+    <path d="M46 16 L110 16 C108 36, 106 38, 100 40 L56 40 C50 38, 48 36, 46 16 Z" 
+          fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+    
+    <!-- Blue Glow Lightbar Under Touchpad -->
+    <path d="M44 16 L44 38 C52 40, 104 40, 112 38 L112 16" 
+          stroke="#00f0ff" stroke-width="1.8" fill="none" opacity="0.9"/>
+
+    <!-- D-Pad (Left) -->
+    <g transform="translate(32, 28)">
+      <rect x="5" y="0" width="6" height="16" rx="2" fill="#334155"/>
+      <rect x="0" y="5" width="16" height="6" rx="2" fill="#334155"/>
+    </g>
+
+    <!-- Action Buttons (Right: Triangle, Circle, Cross, Square) -->
+    <g transform="translate(108, 28)">
+      <circle cx="8" cy="2" r="3" fill="#334155"/>
+      <circle cx="14" cy="8" r="3" fill="#334155"/>
+      <circle cx="8" cy="14" r="3" fill="#334155"/>
+      <circle cx="2" cy="8" r="3" fill="#334155"/>
+    </g>
+
+    <!-- Dual Analog Thumbsticks -->
+    <!-- Left Stick -->
+    <circle cx="56" cy="62" r="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <circle cx="56" cy="62" r="7" fill="#0f172a"/>
+    <!-- Right Stick -->
+    <circle cx="100" cy="62" r="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <circle cx="100" cy="62" r="7" fill="#0f172a"/>
+
+    <!-- PlayStation Home Button -->
+    <path d="M76 49 C76 46, 80 46, 80 49 C80 52, 76 52, 76 49 Z" fill="#00f0ff"/>
+  </g>
+</svg>
