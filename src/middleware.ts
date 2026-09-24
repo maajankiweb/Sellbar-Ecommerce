@@ -13,7 +13,13 @@ export function middleware(request: NextRequest) {
   const accessToken = request.cookies.get('selbar_access_token')?.value;
   const hasAuthSession = Boolean(refreshToken || accessToken);
 
-  if ((isProtectedAdmin || isProtectedSeller || isProtectedAccount) && !hasAuthSession) {
+  if (isProtectedAdmin && !hasAuthSession) {
+    const loginUrl = new URL('/admin/login', request.url);
+    loginUrl.searchParams.set('returnUrl', pathname);
+    return NextResponse.redirect(loginUrl);
+  }
+
+  if ((isProtectedSeller || isProtectedAccount) && !hasAuthSession) {
     const loginUrl = new URL('/login', request.url);
     loginUrl.searchParams.set('returnUrl', pathname);
     return NextResponse.redirect(loginUrl);
