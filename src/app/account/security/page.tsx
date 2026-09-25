@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth, UserSessionInfo } from '@/context/AuthContext';
 import PasswordStrengthMeter from '@/components/auth/PasswordStrengthMeter';
+import AccountLayout from '@/components/account/AccountLayout';
+import AccountHeader from '@/components/account/AccountHeader';
 import {
   ShieldCheck,
   KeyRound,
@@ -140,7 +142,9 @@ export default function SecurityCenterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50/70 py-10 px-4 sm:px-6 lg:px-8">
+    <AccountLayout>
+      <AccountHeader />
+      <div className="flex-1 p-4 sm:p-6 pb-24 lg:pb-8">
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Navigation & Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -361,6 +365,7 @@ export default function SecurityCenterPage() {
           )}
         </div>
       </div>
-    </div>
+      </div>
+    </AccountLayout>
   );
 }
