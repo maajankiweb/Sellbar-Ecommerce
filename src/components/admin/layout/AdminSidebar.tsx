@@ -219,10 +219,10 @@ export function AdminSidebar() {
   };
 
   const sidebarContent = (
-    <div className="flex h-full flex-col bg-slate-900 text-slate-100">
+    <div className="flex h-full flex-col bg-white text-slate-800 border-r border-slate-200">
       {/* Brand Header */}
       <div
-        className={`flex h-16 shrink-0 items-center border-b border-slate-800 transition-all ${
+        className={`flex h-16 shrink-0 items-center border-b border-slate-100 transition-all ${
           sidebarCollapsed ? 'justify-center px-2' : 'justify-between px-4'
         }`}
       >
@@ -230,25 +230,25 @@ export function AdminSidebar() {
           <>
             <Link
               href="/admin/dashboard"
-              className="flex items-center gap-2.5 font-bold tracking-tight text-white hover:opacity-90 transition-opacity"
+              className="flex items-center gap-2.5 font-bold tracking-tight text-slate-900 hover:opacity-90 transition-opacity"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 font-black text-white shadow-md shadow-blue-500/30">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 font-black text-white shadow-xs">
                 S
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-bold tracking-wide text-white">SELBAR ADMIN</span>
-                <span className="text-[10px] font-semibold text-blue-400 uppercase tracking-wider">Enterprise OS</span>
+                <span className="text-sm font-black tracking-wide text-slate-900">SELBAR ADMIN</span>
+                <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider">Enterprise OS</span>
               </div>
             </Link>
 
             {/* Desktop collapse toggle button */}
             <button
               onClick={toggleSidebar}
-              className="hidden lg:flex rounded-lg p-2 text-white bg-slate-800/90 hover:bg-slate-700 hover:text-white transition-all cursor-pointer border border-slate-700 shadow-xs"
+              className="hidden lg:flex rounded-lg p-2 text-slate-500 bg-slate-100 hover:bg-slate-200 hover:text-slate-900 transition-all cursor-pointer border border-slate-200 shadow-xs"
               title="Collapse sidebar"
             >
-              <ChevronLeft className="h-4 w-4 text-white" strokeWidth={2.5} />
+              <ChevronLeft className="h-4 w-4" strokeWidth={2.5} />
             </button>
           </>
         ) : (
@@ -256,10 +256,10 @@ export function AdminSidebar() {
           <div className="flex items-center justify-center w-full">
             <button
               onClick={toggleSidebar}
-              className="flex items-center justify-center h-10 w-10 rounded-xl bg-slate-800 hover:bg-blue-600 text-white transition-all cursor-pointer border border-slate-700/90 hover:border-blue-500 shadow-sm group"
+              className="flex items-center justify-center h-10 w-10 rounded-xl bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-700 transition-all cursor-pointer border border-slate-200 shadow-xs group"
               title="Expand Sidebar"
             >
-              <ChevronRight className="h-5 w-5 text-white group-hover:translate-x-0.5 transition-transform" strokeWidth={2.5} />
+              <ChevronRight className="h-5 w-5 group-hover:translate-x-0.5 transition-transform" strokeWidth={2.5} />
             </button>
           </div>
         )}
@@ -267,14 +267,14 @@ export function AdminSidebar() {
         {/* Mobile close button */}
         <button
           onClick={() => setMobileMenuOpen(false)}
-          className="lg:hidden rounded-lg p-1.5 text-white hover:bg-slate-800"
+          className="lg:hidden rounded-lg p-1.5 text-slate-500 hover:bg-slate-100"
         >
-          <X className="h-5 w-5 text-white" strokeWidth={2.5} />
+          <X className="h-5 w-5" strokeWidth={2.5} />
         </button>
       </div>
 
       {/* Nav List */}
-      <div className="flex-1 overflow-y-auto px-2 py-4 space-y-4 scrollbar-thin scrollbar-thumb-slate-800">
+      <div className="flex-1 overflow-y-auto px-2 py-4 space-y-4 scrollbar-thin scrollbar-thumb-slate-200">
         {navGroups.map(group => {
           const isMain = group.id === 'main';
           // When collapsed, always display all group icons so everything is accessible
@@ -287,7 +287,7 @@ export function AdminSidebar() {
                 !sidebarCollapsed ? (
                   <div
                     onClick={() => toggleGroup(group.id)}
-                    className="flex items-center justify-between px-3 py-1.5 text-[11px] font-bold tracking-wider text-slate-400 uppercase select-none transition-colors cursor-pointer hover:text-white"
+                    className="flex items-center justify-between px-3 py-1.5 text-[11px] font-bold tracking-wider text-slate-400 uppercase select-none transition-colors cursor-pointer hover:text-slate-700"
                   >
                     <span>{group.title}</span>
                     <ChevronDown
@@ -298,7 +298,7 @@ export function AdminSidebar() {
                     />
                   </div>
                 ) : (
-                  <div className="my-2 mx-auto w-8 h-px bg-slate-800" />
+                  <div className="my-2 mx-auto w-8 h-px bg-slate-200" />
                 )
               )}
 
@@ -329,36 +329,38 @@ export function AdminSidebar() {
                         className={`group relative flex items-center transition-all ${
                           sidebarCollapsed
                             ? 'w-11 h-11 mx-auto justify-center rounded-xl'
-                            : 'gap-3 rounded-lg px-3 py-2 text-xs font-semibold'
+                            : 'gap-3 rounded-xl px-3 py-2 text-xs font-semibold'
                         } ${
                           isActive
-                            ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30'
-                            : 'text-white hover:bg-slate-800/90 hover:text-white'
+                            ? 'bg-blue-600 text-white font-bold shadow-xs'
+                            : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                         }`}
                       >
-                        {/* High-contrast bold white icon */}
+                        {/* High-contrast icon */}
                         <Icon
-                          className={`shrink-0 text-white transition-transform group-hover:scale-110 ${
-                            sidebarCollapsed ? 'h-5 w-5' : 'h-4 w-4'
-                          }`}
-                          strokeWidth={2.5}
+                          className={`shrink-0 transition-transform group-hover:scale-110 ${
+                            isActive ? 'text-white' : 'text-slate-500 group-hover:text-slate-900'
+                          } ${sidebarCollapsed ? 'h-5 w-5' : 'h-4 w-4'}`}
+                          strokeWidth={2.3}
                         />
 
                         {!sidebarCollapsed && (
-                          <span className="flex-1 truncate text-white">{item.title}</span>
+                          <span className={`flex-1 truncate ${isActive ? 'text-white font-bold' : 'text-slate-700'}`}>
+                            {item.title}
+                          </span>
                         )}
 
                         {/* Collapsed badge indicator dot */}
                         {sidebarCollapsed && item.badge && (
-                          <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-blue-400 ring-2 ring-slate-900" />
+                          <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-blue-600 ring-2 ring-white" />
                         )}
 
                         {/* Collapsed floating tooltip on hover */}
                         {sidebarCollapsed && (
-                          <div className="pointer-events-none fixed left-[84px] z-50 hidden rounded-md bg-slate-950 px-2.5 py-1 text-xs font-bold text-white shadow-2xl ring-1 ring-slate-700 group-hover:block whitespace-nowrap">
+                          <div className="pointer-events-none fixed left-[84px] z-50 hidden rounded-md bg-slate-900 px-2.5 py-1 text-xs font-bold text-white shadow-xl ring-1 ring-slate-800 group-hover:block whitespace-nowrap">
                             {item.title}
                             {item.badge && (
-                              <span className="ml-1.5 px-1.5 py-0.2 rounded bg-blue-600 text-[10px] text-white">
+                              <span className="ml-1.5 px-1.5 py-0.2 rounded bg-blue-500 text-[10px] text-white">
                                 {item.badge}
                               </span>
                             )}
@@ -369,10 +371,10 @@ export function AdminSidebar() {
                           <span
                             className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-tight ${
                               item.badgeVariant === 'warning'
-                                ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                                ? 'bg-amber-100 text-amber-800 border border-amber-200'
                                 : item.badgeVariant === 'danger'
-                                ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
-                                : 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+                                ? 'bg-rose-100 text-rose-800 border border-rose-200'
+                                : 'bg-blue-100 text-blue-800 border border-blue-200'
                             }`}
                           >
                             {item.badge}
@@ -389,24 +391,24 @@ export function AdminSidebar() {
       </div>
 
       {/* Footer User Profile Card */}
-      <div className="shrink-0 border-t border-slate-800 p-3 bg-slate-950/40">
+      <div className="shrink-0 border-t border-slate-100 p-3 bg-slate-50/70">
         <div className={`flex items-center gap-3 ${sidebarCollapsed ? 'flex-col justify-center' : ''}`}>
           <div className="relative group cursor-pointer" title={sidebarCollapsed ? 'Arjun Nambiar (Super Admin)' : undefined}>
             <img
               src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
               alt="Admin Avatar"
-              className="h-9 w-9 rounded-full object-cover border border-slate-700"
+              className="h-9 w-9 rounded-full object-cover border border-slate-200"
             />
-            <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-slate-900" />
+            <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-white" />
           </div>
 
           {!sidebarCollapsed ? (
             <>
               <div className="flex flex-1 flex-col min-w-0">
-                <span className="text-xs font-semibold text-white truncate">
+                <span className="text-xs font-bold text-slate-900 truncate">
                   Arjun Nambiar
                 </span>
-                <span className="text-[10px] text-blue-400 truncate">
+                <span className="text-[10px] font-semibold text-blue-600 truncate">
                   {currentRole}
                 </span>
               </div>
@@ -414,18 +416,18 @@ export function AdminSidebar() {
               <button
                 onClick={handleLogout}
                 title="Sign Out"
-                className="rounded-lg p-1.5 text-slate-300 hover:bg-slate-800 hover:text-rose-400 transition-colors cursor-pointer"
+                className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-200 hover:text-rose-600 transition-colors cursor-pointer"
               >
-                <LogOut className="h-4 w-4 text-white" strokeWidth={2.4} />
+                <LogOut className="h-4 w-4" strokeWidth={2.4} />
               </button>
             </>
           ) : (
             <button
               onClick={handleLogout}
               title="Sign Out"
-              className="rounded-lg p-1.5 text-slate-300 hover:bg-slate-800 hover:text-rose-400 transition-colors cursor-pointer mt-1"
+              className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-200 hover:text-rose-600 transition-colors cursor-pointer mt-1"
             >
-              <LogOut className="h-4 w-4 text-white" strokeWidth={2.4} />
+              <LogOut className="h-4 w-4" strokeWidth={2.4} />
             </button>
           )}
         </div>
@@ -437,7 +439,7 @@ export function AdminSidebar() {
     <>
       {/* Desktop Fixed Sidebar */}
       <aside
-        className={`hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-30 lg:flex lg:flex-col border-r border-slate-800 transition-all duration-200 ${
+        className={`hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-30 lg:flex lg:flex-col border-r border-slate-200 transition-all duration-200 ${
           sidebarCollapsed ? 'lg:w-20' : 'lg:w-64'
         }`}
       >

@@ -202,15 +202,58 @@ export default function AdminReviewsPage() {
     },
   ];
 
+  const [isSimulatingGoogleReview, setIsSimulatingGoogleReview] = useState(false);
+
+  const handleSimulateGoogleReview = async () => {
+    setIsSimulatingGoogleReview(true);
+    try {
+      const res = await fetch('/api/v1/notifications/google-review', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          authorName: 'Rohan Deshmukh',
+          rating: 5,
+          reviewText: 'Sold my iPhone 14 Pro Max at my doorstep in Mumbai. The SELBAR field executive verified it in 8 minutes and transferred ₹78,500 directly to my UPI. Outstanding transparency and speed!',
+          reviewUrl: 'https://maps.google.com/?cid=selbar-recommerce',
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        addToast({
+          title: 'Google Review Email Dispatched',
+          message: `Nodemailer alert sent via ${data.data?.mailResult?.provider || 'SMTP'} to store managers.`,
+          type: 'success',
+        });
+      } else {
+        addToast({ title: 'Alert Failed', message: data.error, type: 'error' });
+      }
+    } catch (err: any) {
+      addToast({ title: 'Network Error', message: err.message, type: 'error' });
+    } finally {
+      setIsSimulatingGoogleReview(false);
+    }
+  };
+
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-          Product Review Moderation
-        </h1>
-        <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-          Moderate customer feedback, verify purchases, and publish official merchant responses
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Product & Google Review Moderation
+          </h1>
+          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+            Moderate customer feedback, verify purchases, and trigger automated Nodemailer review alerts
+          </p>
+        </div>
+
+        <button
+          onClick={handleSimulateGoogleReview}
+          disabled={isSimulatingGoogleReview}
+          className="px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 transition shadow-sm flex items-center gap-1.5 self-start sm:self-auto cursor-pointer"
+        >
+          <Star className="w-3.5 h-3.5 fill-slate-950" />
+          {isSimulatingGoogleReview ? 'Dispatching Email Alert...' : 'Simulate Google Review Alert (Email)'}
+        </button>
       </div>
 
       <DataTable

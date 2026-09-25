@@ -17,7 +17,7 @@ export function AdminLayoutShell({ children }: { children: React.ReactNode }) {
 
   if (isLoginPage) {
     return (
-      <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col justify-center">
+      <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-center">
         {children}
         <ToastContainer />
       </div>
@@ -25,7 +25,7 @@ export function AdminLayoutShell({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50/70 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <div className="min-h-screen bg-slate-50 text-slate-900">
       {/* Sidebar */}
       <AdminSidebar />
 

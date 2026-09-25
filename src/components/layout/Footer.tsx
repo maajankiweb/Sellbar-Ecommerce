@@ -19,11 +19,15 @@ export default function Footer() {
     { sender: 'bot', text: 'Hi there! 👋 How can we help you with selling, buying, or repairing your gadget today?' }
   ]);
 
-  // Suppress storefront footer on admin, seller, or account dashboard routes
+  // Suppress storefront footer on admin, seller, account, user, manager, staff, or delivery routes
   if (
     pathname.startsWith('/admin') ||
     pathname.startsWith('/seller') ||
-    pathname.startsWith('/account')
+    pathname.startsWith('/account') ||
+    pathname.startsWith('/user') ||
+    pathname.startsWith('/manager') ||
+    pathname.startsWith('/staff') ||
+    pathname.startsWith('/delivery')
   ) {
     return null;
   }

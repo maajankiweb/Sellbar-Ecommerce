@@ -20,6 +20,7 @@ import {
   normalizeUsername,
 } from '@/lib/validators/authValidators';
 import { logAuthEvent } from '@/lib/auth/auditLogger';
+import { sendWelcomeRegistrationEmail } from '@/lib/email/emailNotificationService';
 
 export async function POST(req: NextRequest) {
   try {
@@ -214,6 +215,17 @@ export async function POST(req: NextRequest) {
       req,
       metadata: { username: cleanUsername, email: cleanEmail },
     });
+
+    // 4. Trigger Welcome Email notification via Nodemailer
+    if (cleanEmail) {
+      sendWelcomeRegistrationEmail({
+        email: cleanEmail,
+        name: newUser.name || cleanUsername,
+        username: cleanUsername,
+      }).catch((err) => {
+        console.error('[Nodemailer Registration Error]:', err.message);
+      });
+    }
 
     const response = NextResponse.json(
       {

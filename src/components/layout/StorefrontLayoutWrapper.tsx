@@ -14,12 +14,16 @@ export default function StorefrontLayoutWrapper({
 }) {
   const pathname = usePathname();
 
-  // If inside admin panel, seller dashboard, or account management portal,
+  // If inside admin panel, seller dashboard, customer user panel, manager, staff, or delivery executive portal,
   // completely suppress the storefront Header, Footer, CartDrawer, and AuthModal
   const isDashboardRoute =
     pathname.startsWith('/admin') ||
     pathname.startsWith('/seller') ||
-    pathname.startsWith('/account');
+    pathname.startsWith('/account') ||
+    pathname.startsWith('/user') ||
+    pathname.startsWith('/manager') ||
+    pathname.startsWith('/staff') ||
+    pathname.startsWith('/delivery');
 
   if (isDashboardRoute) {
     return <>{children}</>;

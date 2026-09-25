@@ -148,11 +148,15 @@ export default function Header() {
     router.push(`/sell?search=${encodeURIComponent(searchQuery.trim())}`);
   };
 
-  // Suppress storefront header on admin, seller, or account dashboard routes
+  // Suppress storefront header on admin, seller, account, user, manager, staff, or delivery routes
   if (
     pathname.startsWith('/admin') ||
     pathname.startsWith('/seller') ||
-    pathname.startsWith('/account')
+    pathname.startsWith('/account') ||
+    pathname.startsWith('/user') ||
+    pathname.startsWith('/manager') ||
+    pathname.startsWith('/staff') ||
+    pathname.startsWith('/delivery')
   ) {
     return null;
   }
@@ -364,12 +368,21 @@ export default function Header() {
                       </div>
 
                       <Link
-                        href="/account"
+                        href="/user/profile"
                         onClick={() => setShowUserDropdown(false)}
                         className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold"
                       >
                         <UserIcon className="w-4 h-4 text-emerald-600" />
-                        <span>My Account & Orders</span>
+                        <span>My Profile (/user/profile)</span>
+                      </Link>
+
+                      <Link
+                        href="/account"
+                        onClick={() => setShowUserDropdown(false)}
+                        className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold"
+                      >
+                        <ShoppingBag className="w-4 h-4 text-blue-600" />
+                        <span>Orders & Dashboard</span>
                       </Link>
 
                       <Link

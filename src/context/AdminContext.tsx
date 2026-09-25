@@ -25,8 +25,8 @@ interface AdminContextType {
   toggleSidebar: () => void;
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
-  theme: 'light' | 'dark' | 'system';
-  setTheme: (theme: 'light' | 'dark' | 'system') => void;
+  theme: 'light';
+  setTheme: (theme: 'light') => void;
   isSearchOpen: boolean;
   setIsSearchOpen: (open: boolean) => void;
   currentRole: RoleType;
@@ -39,7 +39,9 @@ interface AdminContextType {
   notifications: AdminNotification[];
   markNotificationAsRead: (id: string) => void;
   markAllNotificationsAsRead: () => void;
+  dismissNotification: (id: string) => void;
   clearNotifications: () => void;
+  resetSampleNotifications: () => void;
   lastUpdated: string;
   refreshDashboard: () => void;
   isRefreshing: boolean;
@@ -49,38 +51,47 @@ const INITIAL_NOTIFICATIONS: AdminNotification[] = [
   {
     id: 'notif-1',
     title: 'New High-Value Order #ORD-10245',
-    message: 'Rahul Sharma placed an order for ₹1,28,994 (Apple iPhone 15 Pro).',
+    message: 'Rahul Sharma placed an order for ₹1,28,994 (Apple iPhone 15 Pro Max).',
     time: '5m ago',
     read: false,
     type: 'order',
-    link: '/admin/orders/ord-10245'
+    link: '/admin/orders'
   },
   {
     id: 'notif-2',
-    title: 'Low Stock Alert: Nike Air Max',
-    message: 'Only 4 units left in inventory. Reorder threshold reached.',
-    time: '25m ago',
+    title: 'Trade-In Approval Pending: ₹87,500',
+    message: 'Inspection Bay #1 finished QC for iPhone 15 Pro. Manager authorization required.',
+    time: '18m ago',
     read: false,
-    type: 'stock',
-    link: '/admin/inventory'
+    type: 'security',
+    link: '/manager/approvals'
   },
   {
     id: 'notif-3',
-    title: 'New 5-Star Customer Review',
-    message: 'Priya Patel reviewed Sony WH-1000XM5: "Silence is unmatched".',
-    time: '1h ago',
+    title: 'Low Stock Alert: Refurbished MacBooks',
+    message: 'Only 3 units left in Mumbai Central Hub Bin-MAC-02. Restocking recommended.',
+    time: '42m ago',
     read: false,
-    type: 'review',
-    link: '/admin/reviews'
+    type: 'stock',
+    link: '/manager/inventory'
   },
   {
     id: 'notif-4',
-    title: 'Payout Processed Successfully',
-    message: 'Weekly settlement of ₹4,82,500 transferred to merchant bank account.',
-    time: '4h ago',
+    title: 'Instant UPI Payout Disbursed',
+    message: '₹38,500 credited to customer Rohit Verma for Doorstep Order #PU-77101.',
+    time: '1h ago',
     read: true,
     type: 'system',
-    link: '/admin/finance'
+    link: '/delivery/payouts'
+  },
+  {
+    id: 'notif-5',
+    title: 'New 5-Star Customer Review',
+    message: 'Priya Patel reviewed Refurbished iPhone 14: "Super fast doorstep cash payout!".',
+    time: '3h ago',
+    read: true,
+    type: 'review',
+    link: '/admin'
   }
 ];
 
@@ -89,7 +100,7 @@ const AdminContext = createContext<AdminContextType | undefined>(undefined);
 export function AdminProvider({ children }: { children: ReactNode }) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [theme, setThemeState] = useState<'light' | 'dark' | 'system'>('light');
+  const theme: 'light' = 'light';
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [currentRole, setCurrentRole] = useState<RoleType>('Super Admin');
   const [dateRange, setDateRange] = useState('30d');
@@ -98,39 +109,22 @@ export function AdminProvider({ children }: { children: ReactNode }) {
   const [lastUpdated, setLastUpdated] = useState('Just now');
   const [isRefreshing, setIsRefreshing] = useState(false);
 
-  // Initialize theme and sidebar preference from localStorage
+  // Initialize and force clean white/light theme everywhere
   useEffect(() => {
     try {
+      localStorage.removeItem('selbar_admin_theme');
       const savedSidebar = localStorage.getItem('selbar_admin_sidebar_collapsed');
       if (savedSidebar !== null) {
         setSidebarCollapsed(savedSidebar === 'true');
       }
+    } catch {}
 
-      const savedTheme = localStorage.getItem('selbar_admin_theme') as 'light' | 'dark' | 'system' | null;
-      if (savedTheme) {
-        setThemeState(savedTheme);
-      }
-    } catch {
-      // Ignore storage errors
+    // Ensure root DOM never has 'dark' class
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.remove('dark');
+      document.body.classList.remove('dark');
     }
   }, []);
-
-  // Sync theme to DOM
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else if (theme === 'light') {
-      root.classList.remove('dark');
-    } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (prefersDark) {
-        root.classList.add('dark');
-      } else {
-        root.classList.remove('dark');
-      }
-    }
-  }, [theme]);
 
   // Global keyboard shortcut for search (Cmd+K / Ctrl+K)
   useEffect(() => {
@@ -154,11 +148,11 @@ export function AdminProvider({ children }: { children: ReactNode }) {
     });
   };
 
-  const setTheme = (newTheme: 'light' | 'dark' | 'system') => {
-    setThemeState(newTheme);
-    try {
-      localStorage.setItem('selbar_admin_theme', newTheme);
-    } catch {}
+  const setTheme = () => {
+    // Permanent light theme
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.remove('dark');
+    }
   };
 
   const addToast = (toast: Omit<AdminToast, 'id'>) => {
@@ -182,9 +176,19 @@ export function AdminProvider({ children }: { children: ReactNode }) {
     addToast({ title: 'Notifications Marked', message: 'All notifications marked as read', type: 'info' });
   };
 
+  const dismissNotification = (id: string) => {
+    setNotifications(prev => prev.filter(n => n.id !== id));
+    addToast({ title: 'Notification Dismissed', message: 'Notification removed from tray', type: 'info' });
+  };
+
   const clearNotifications = () => {
     setNotifications([]);
-    addToast({ title: 'Cleared', message: 'Notification tray cleared', type: 'info' });
+    addToast({ title: 'Tray Cleared', message: 'All notifications cleared', type: 'info' });
+  };
+
+  const resetSampleNotifications = () => {
+    setNotifications(INITIAL_NOTIFICATIONS);
+    addToast({ title: 'Notifications Reset', message: 'Sample notifications restored', type: 'success' });
   };
 
   const refreshDashboard = () => {
@@ -192,7 +196,7 @@ export function AdminProvider({ children }: { children: ReactNode }) {
     setTimeout(() => {
       setLastUpdated('Just now');
       setIsRefreshing(false);
-      addToast({ title: 'Dashboard Refreshed', message: 'Fetched latest operational metrics', type: 'success' });
+      addToast({ title: 'Dashboard Refreshed', message: 'Operational metrics updated', type: 'success' });
     }, 600);
   };
 
@@ -217,7 +221,9 @@ export function AdminProvider({ children }: { children: ReactNode }) {
         notifications,
         markNotificationAsRead,
         markAllNotificationsAsRead,
+        dismissNotification,
         clearNotifications,
+        resetSampleNotifications,
         lastUpdated,
         refreshDashboard,
         isRefreshing
