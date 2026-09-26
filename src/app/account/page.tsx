@@ -11,7 +11,7 @@ import { Order, WishlistProduct, LoyaltyData, Notification } from '@/types/accou
 import {
   Package, Heart, Award, Wallet, RotateCcw, AlertTriangle, Truck,
   Clock, Star, ArrowRight, ShoppingCart, Zap, Gift, Bell,
-  CheckCircle, RefreshCw, MapPin, ChevronRight
+  CheckCircle, RefreshCw, MapPin, ChevronRight, ShieldCheck
 } from 'lucide-react';
 
 // ─── QUICK STAT CARD ──────────────────────────────────────────────────────────
