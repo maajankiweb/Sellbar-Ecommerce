@@ -22,7 +22,8 @@ import {
   SlidersHorizontal,
   Search,
   Check,
-  X
+  X,
+  Navigation
 } from 'lucide-react';
 
 interface RepairService {
@@ -243,6 +244,34 @@ export default function RepairPage() {
 
       {/* 4.1 Interactive Smartphone Anatomy Fault Selector */}
       <RepairFaultSelector />
+
+      {/* 4.2 Live Technician ETA & Dispatch Tracking Banner */}
+      <div className="bg-slate-900 text-white rounded-3xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-800 shadow-md">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30">
+            <Navigation className="w-5 h-5 animate-pulse" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold text-white">Doorstep Technician En Route?</span>
+              <span className="px-2 py-0.5 rounded-full text-[9px] font-black uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                Live GPS ETA
+              </span>
+            </div>
+            <p className="text-[11px] text-slate-400 mt-0.5">
+              Track your certified technician ETA, vehicle location, and background verification badge in real-time.
+            </p>
+          </div>
+        </div>
+
+        <Link
+          href="/repair/tracking"
+          className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-xs flex items-center justify-center gap-1.5 shadow-md shadow-emerald-500/20 transition transform hover:-translate-y-0.5"
+        >
+          <span>Track Live Dispatch Map</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </Link>
+      </div>
 
       {/* Main 2-Column Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
@@ -540,16 +569,26 @@ export default function RepairPage() {
                 <p className="text-xs text-slate-500">
                   Our certified technician will call you within 15 minutes to confirm the technician arrival time at PIN {pincode}.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setBookingModalService(null);
-                    setIsBooked(false);
-                  }}
-                  className="px-5 py-2 bg-emerald-600 text-white font-bold text-xs rounded-xl"
-                >
-                  Done
-                </button>
+                <div className="pt-2 flex flex-col gap-2">
+                  <Link
+                    href="/repair/tracking"
+                    className="w-full py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs rounded-xl shadow-md text-center flex items-center justify-center gap-1.5 transition"
+                  >
+                    <Navigation className="w-3.5 h-3.5 fill-current" />
+                    <span>Track Technician on Live Map &rarr;</span>
+                  </Link>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setBookingModalService(null);
+                      setIsBooked(false);
+                    }}
+                    className="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition"
+                  >
+                    Close
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleBookingSubmit} className="space-y-4">

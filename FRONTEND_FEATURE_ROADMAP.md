@@ -127,10 +127,11 @@ Neeche diye gaye features me se aapko jo bhi section ya design component pehle i
   - Tap on Camera Glass / Charging Port.
 
 ### 4.2 Live Technician ETA & Dispatch Tracking Preview
-- [ ] **Feature:** Uber-style doorstep technician tracking UI card.
+- [x] **Feature:** Uber-style doorstep technician tracking UI card. (Completed ✅)
 - **Details:**
   - Technician Photo, Name, Rating (4.9★), and Verified Police Background Check badge.
   - Live 30-minute doorstep arrival countdown.
+  - Interactive SVG map route visualizer with live vehicle coordinate markers.
 
 ---
 
