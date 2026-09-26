@@ -9,7 +9,6 @@ import {
   ArrowRight,
   Eye,
   EyeOff,
-  Sparkles,
   KeyRound,
   CheckCircle2,
   AlertCircle
@@ -197,22 +196,7 @@ export default function AdminLoginPage() {
             </Button>
           </form>
 
-          {/* Quick 1-Click Access Box */}
-          <div className="mt-6 border-t border-slate-800 pt-5">
-            <div className="text-center text-xs text-slate-400 mb-3">
-              Testing or Client Review?
-            </div>
-            <Button
-              variant="secondary"
-              size="md"
-              onClick={() => performLogin('Super Admin')}
-              isLoading={isLoading}
-              className="w-full bg-blue-950/60 text-blue-300 hover:bg-blue-900/60 border border-blue-800/50"
-              leftIcon={<Sparkles className="h-4 w-4 text-blue-400" />}
-            >
-              Instant 1-Click Demo Login (Super Admin)
-            </Button>
-          </div>
+
         </div>
 
         {/* Security Footer Notice */}
