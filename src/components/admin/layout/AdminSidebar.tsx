@@ -31,7 +31,8 @@ import {
   ChevronLeft,
   X,
   LogOut,
-  Sparkles
+  Sparkles,
+  Wrench
 } from 'lucide-react';
 import { useAdmin } from '@/context/AdminContext';
 
@@ -111,6 +112,7 @@ export function AdminSidebar() {
         { title: 'Add Product', href: '/admin/products/new', icon: Package },
         { title: 'Categories', href: '/admin/categories', icon: Layers },
         { title: 'Inventory', href: '/admin/inventory', icon: Boxes, badge: '4 Low', badgeVariant: 'warning' },
+        { title: 'Refurbishment Hub', href: '/admin/refurbishment', icon: Wrench, badge: 'Phase 3', badgeVariant: 'primary' },
       ],
     },
     {
