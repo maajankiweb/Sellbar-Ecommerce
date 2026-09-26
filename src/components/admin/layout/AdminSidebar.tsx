@@ -32,7 +32,9 @@ import {
   X,
   LogOut,
   Sparkles,
-  Wrench
+  Wrench,
+  Smartphone,
+  ShieldAlert
 } from 'lucide-react';
 import { useAdmin } from '@/context/AdminContext';
 
@@ -117,9 +119,10 @@ export function AdminSidebar() {
     },
     {
       id: 'orders',
-      title: 'ORDERS',
+      title: 'ORDERS & BUYBACK',
       items: [
-        { title: 'All Orders', href: '/admin/orders', icon: ShoppingCart, badge: '5 New', badgeVariant: 'primary' },
+        { title: 'Buyback Quotes', href: '/admin/quotes', icon: Smartphone, badge: '5 New', badgeVariant: 'warning' },
+        { title: 'Store Orders', href: '/admin/orders', icon: ShoppingCart },
         { title: 'Abandoned Carts', href: '/admin/abandoned-carts', icon: ShoppingBag },
       ],
     },
@@ -195,6 +198,7 @@ export function AdminSidebar() {
       items: [
         { title: 'Admin Users', href: '/admin/users', icon: UserCheck },
         { title: 'Roles & Permissions', href: '/admin/roles', icon: KeyRound },
+        { title: 'Fraud & Risk Engine', href: '/admin/fraud', icon: ShieldAlert, badge: 'Live', badgeVariant: 'danger' },
         { title: 'Activity Logs', href: '/admin/activity-logs', icon: History },
       ],
     },
