@@ -16,6 +16,7 @@ import { EcoImpactCounter } from "@/components/home/EcoImpactCounter";
 import { CustomerReviewsCarousel } from "@/components/home/CustomerReviewsCarousel";
 import { ProductUnboxingReviews } from "@/components/home/ProductUnboxingReviews";
 import SellOldVsNewSection from "@/components/home/SellOldVsNewSection";
+import { HeroInstantValuation } from "@/components/home/HeroInstantValuation";
 import {
   Sparkles,
   ArrowRight,
@@ -463,6 +464,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 2. HERO INSTANT VALUATION WIDGET (3-CLICK QUICK ESTIMATOR) */}
+      <HeroInstantValuation />
 
       {/* 3. OUR SERVICES (EXACT CASHIFY 2-ROW IMAGE GRID) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">

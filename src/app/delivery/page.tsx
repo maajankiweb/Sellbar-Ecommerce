@@ -11,6 +11,7 @@ import {
 import { generateNavigationLinks } from '@/lib/location/navigationDeepLinks';
 import { NativeDriverBridge } from '@/lib/delivery/nativeDriverBridge';
 import { io, Socket } from 'socket.io-client';
+import { DoorstepInspectionModal } from '@/components/executive/DoorstepInspectionModal';
 
 interface PickupTrip {
   id: string;
@@ -74,6 +75,32 @@ export default function DeliveryDashboard() {
   const [enteredOtp, setEnteredOtp] = useState('');
   const [isVerifying, setIsVerifying] = useState(false);
   const [toast, setToast] = useState('');
+  const [isInspectionModalOpen, setIsInspectionModalOpen] = useState(false);
+
+  const handleCompleteHandover = (result: {
+    finalPrice: number;
+    imei: string;
+    serial: string;
+    handoverOtp: string;
+    deviceId: string;
+  }) => {
+    setIsInspectionModalOpen(false);
+    if (!activePickup) return;
+    setPickups((prev) =>
+      prev.map((p) =>
+        p.id === activePickup.id
+          ? { ...p, status: 'completed', expectedPrice: result.finalPrice }
+          : p
+      )
+    );
+    setActivePickup((prev) =>
+      prev ? { ...prev, status: 'completed', expectedPrice: result.finalPrice } : null
+    );
+    setToast(
+      `🎉 Verified Handover! ₹${result.finalPrice.toLocaleString('en-IN')} disbursed. Device ID: ${result.deviceId}`
+    );
+    setTimeout(() => setToast(''), 4500);
+  };
 
   // Native Mobile Background Geolocation State
   const [isBgTracking, setIsBgTracking] = useState(false);
@@ -504,6 +531,20 @@ export default function DeliveryDashboard() {
                   </div>
                 ) : (
                   <div className="space-y-4">
+                    {/* 17-Point Hardware Inspection Trigger */}
+                    <button
+                      type="button"
+                      onClick={() => setIsInspectionModalOpen(true)}
+                      className="w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 transition transform hover:-translate-y-0.5 cursor-pointer"
+                    >
+                      <Smartphone className="w-4 h-4" />
+                      <span>Start 17-Point Hardware Inspection & Dynamic Price Recalculation</span>
+                    </button>
+
+                    <div className="flex items-center gap-2 my-2 text-slate-400 text-[10px] uppercase font-bold text-center before:flex-1 before:border-t before:border-slate-200 after:flex-1 after:border-t after:border-slate-200">
+                      Or Direct Quick Handover
+                    </div>
+
                     <div>
                       <div className="flex items-center justify-between text-xs mb-1.5">
                         <label className="font-bold text-slate-700">Enter Customer 4-Digit Pickup OTP</label>
@@ -552,6 +593,23 @@ export default function DeliveryDashboard() {
           </div>
         </div>
       </div>
+
+      {/* Doorstep 17-Point Hardware Inspection & Handover Modal */}
+      {activePickup && (
+        <DoorstepInspectionModal
+          task={{
+            id: activePickup.id,
+            orderNumber: activePickup.orderNumber,
+            customerName: activePickup.customerName,
+            phone: activePickup.phone,
+            device: activePickup.device,
+            expectedPrice: activePickup.expectedPrice,
+          }}
+          isOpen={isInspectionModalOpen}
+          onClose={() => setIsInspectionModalOpen(false)}
+          onCompleteHandover={handleCompleteHandover}
+        />
+      )}
     </div>
   );
 }

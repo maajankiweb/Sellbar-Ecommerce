@@ -23,7 +23,7 @@ Neeche diye gaye features me se aapko jo bhi section ya design component pehle i
 ## Phase 1: Homepage (`/`) Conversions & Trust Widgets
 
 ### 1.1 Hero Instant Valuation Widget (3-Click Quick Estimator)
-- [ ] **Feature:** Hero section me floating glassmorphic card.
+- [x] **Feature:** Hero section me floating glassmorphic card. (Completed ✅)
 - **Details:**
   - Dropdown 1: Select Category (`Mobile Phone`, `Laptop`, `Smartwatch`, `Tablet`).
   - Dropdown 2: Select Brand (`Apple`, `Samsung`, `OnePlus`, etc.).
@@ -79,10 +79,10 @@ Neeche diye gaye features me se aapko jo bhi section ya design component pehle i
   - User ko guarantee milti hai ki doorstep pickup tak price drop nahi hoga.
 
 ### 2.3 Interactive Doorstep Calendar Slot Picker
-- [ ] **Feature:** Real-time pincode serviceability check & slot booking.
+- [x] **Feature:** Real-time pincode serviceability check & slot booking. (Completed ✅)
 - **Details:**
-  - Pincode enter karte hi 2-Hour pickup slots (e.g. `Today 2 PM - 4 PM`, `Tomorrow 10 AM - 12 PM`).
-  - Executive assign hot hi WhatsApp tracking confirmation.
+  - Pincode enter karte hi 2-Hour pickup slots (e.g. `10 AM - 12 PM`, `12 PM - 2 PM`, `2 PM - 4 PM`, `4 PM - 6 PM`).
+  - Real-time capacity monitoring and overbooking prevention engine.
 
 ---
 
@@ -142,12 +142,14 @@ Neeche diye gaye features me se aapko jo bhi section ya design component pehle i
   - Transaction UTR number and receipt preview.
 
 ### 5.2 Downloadable Digital NIST 800-88 Data-Wipe Certificate
-- [ ] **Feature:** Certified PDF download with verified SHA-256 hash.
+- [x] **Feature:** Certified PDF download with verified SHA-256 hash. (Completed ✅)
 - **Details:**
   - Customer Name, Device IMEI, Sanitization Algorithm (NIST 800-88 Purge), Officer Signature.
 
 ### 5.3 1-Click Warranty Claim & Replacement Portal
-- [ ] **Feature:** Order history card se direct 1-click warranty claim.
+- [x] **Feature:** Order history card se direct 1-click warranty claim. (Completed ✅)
+- **Details:**
+  - Upload photo/video of fault, choose replacement doorstep pickup date.
 - **Details:**
   - Upload photo/video of fault, choose replacement doorstep pickup date.
 

@@ -424,6 +424,7 @@ function DashboardContent() {
             <div className="p-4 space-y-2">
               {[
                 { icon: <Truck className="h-4 w-4 text-blue-600" />, label: 'Track Order', href: '/account/orders' },
+                { icon: <ShieldCheck className="h-4 w-4 text-emerald-600" />, label: 'My Devices & Data-Wipe Certificates', href: '/account/devices' },
                 { icon: <RotateCcw className="h-4 w-4 text-amber-600" />, label: 'Returns & Refunds', href: '/account/returns' },
                 { icon: <Zap className="h-4 w-4 text-purple-600" />, label: 'Support Tickets', href: '/account/support' },
                 { icon: <MapPin className="h-4 w-4 text-rose-600" />, label: 'Manage Addresses', href: '/account/addresses' },
