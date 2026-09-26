@@ -1,13 +1,16 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import {
   Truck, CheckCircle2, Clock, MapPin, Phone, AlertTriangle,
   Navigation, Shield, Check, X, ArrowRight, User, RefreshCw,
   QrCode, Award, DollarSign, Smartphone, ChevronRight, Zap,
-  History, CheckSquare
+  History, CheckSquare, Radio, Compass, Power
 } from 'lucide-react';
+import { generateNavigationLinks } from '@/lib/location/navigationDeepLinks';
+import { NativeDriverBridge } from '@/lib/delivery/nativeDriverBridge';
+import { io, Socket } from 'socket.io-client';
 
 interface PickupTrip {
   id: string;
@@ -72,8 +75,102 @@ export default function DeliveryDashboard() {
   const [isVerifying, setIsVerifying] = useState(false);
   const [toast, setToast] = useState('');
 
+  // Native Mobile Background Geolocation State
+  const [isBgTracking, setIsBgTracking] = useState(false);
+  const [platformName, setPlatformName] = useState('web');
+  const [lastGpsPoint, setLastGpsPoint] = useState<{ lat: number; lng: number; time: string } | null>(null);
+  const socketRef = useRef<Socket | null>(null);
+
   const completedCount = pickups.filter(p => p.status === 'completed').length;
   const totalPayout = pickups.reduce((acc, p) => p.status === 'completed' ? acc + p.expectedPrice : acc, 0);
+
+  // Initialize runtime platform and Socket.IO listeners
+  useEffect(() => {
+    setPlatformName(NativeDriverBridge.getPlatform());
+
+    // Connect to Socket.IO for dispatch broadcasts
+    try {
+      const socket = io({
+        path: '/api/socket.io',
+        auth: { token: 'demo-delivery-token' },
+        transports: ['websocket', 'polling'],
+      });
+      socketRef.current = socket;
+
+      socket.on('route:resequenced', (payload: any) => {
+        setToast(`⚡ Dispatch Alert: Route stops re-sequenced by Operations Manager!`);
+        setTimeout(() => setToast(''), 4500);
+
+        if (Array.isArray(payload?.stops)) {
+          // Reorder the local pickups sequence if orders match
+          setPickups(prev => {
+            const reordered: PickupTrip[] = [];
+            payload.stops.forEach((st: any) => {
+              const found = prev.find(p => p.orderNumber.includes(st.orderId) || p.customerName.includes(st.customerName));
+              if (found) reordered.push(found);
+            });
+            // Append any unreferenced
+            prev.forEach(p => {
+              if (!reordered.find(r => r.id === p.id)) reordered.push(p);
+            });
+            return reordered.length > 0 ? reordered : prev;
+          });
+        }
+      });
+
+      return () => {
+        socket.disconnect();
+      };
+    } catch {
+      // Local fallback
+    }
+  }, []);
+
+  const handleToggleBackgroundTracking = async () => {
+    if (isBgTracking) {
+      await NativeDriverBridge.stopBackgroundTracking();
+      setIsBgTracking(false);
+      setToast('Background GPS tracking paused.');
+      setTimeout(() => setToast(''), 2500);
+    } else {
+      const started = await NativeDriverBridge.startBackgroundTracking({
+        driverId: 'DEL-902',
+        orderId: activePickup?.orderNumber,
+        distanceFilterMeters: 10,
+        notificationTitle: 'SELBAR Driver Active',
+        notificationText: 'Sharing background GPS location for active delivery runs',
+        onLocationUpdate: (loc) => {
+          setLastGpsPoint({
+            lat: Math.round(loc.latitude * 10000) / 10000,
+            lng: Math.round(loc.longitude * 10000) / 10000,
+            time: new Date().toLocaleTimeString(),
+          });
+          // Broadcast to socket if open
+          if (socketRef.current?.connected) {
+            socketRef.current.emit('delivery:location:update', {
+              orderId: activePickup?.orderNumber || 'all',
+              deliveryId: 'DEL-902',
+              latitude: loc.latitude,
+              longitude: loc.longitude,
+              heading: loc.heading || 0,
+              speed: loc.speed || 0,
+              accuracy: loc.accuracy || 0,
+            });
+          }
+        },
+        onError: (err) => {
+          setToast(`GPS Error: ${err}`);
+          setTimeout(() => setToast(''), 3000);
+        },
+      });
+
+      if (started) {
+        setIsBgTracking(true);
+        setToast('Background GPS Engine activated. Protected against screen lock.');
+        setTimeout(() => setToast(''), 3000);
+      }
+    }
+  };
 
   const handleVerifyOtpAndPayout = () => {
     if (!activePickup) return;
@@ -102,6 +199,40 @@ export default function DeliveryDashboard() {
           {toast}
         </div>
       )}
+
+      {/* Mobile Background GPS Engine Status Bar */}
+      <div className="bg-slate-900 text-white rounded-3xl p-4 px-6 border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className={`w-3.5 h-3.5 rounded-full ${isBgTracking ? 'bg-emerald-400 animate-ping' : 'bg-slate-600'}`} />
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-black tracking-wide text-slate-100">
+                Native GPS Background Engine
+              </span>
+              <span className="px-2 py-0.5 rounded-md text-[9px] font-bold uppercase bg-slate-800 text-blue-400 border border-slate-700">
+                {platformName === 'capacitor' ? 'Capacitor Native Service' : platformName === 'react-native' ? 'React Native Bridge' : 'PWA Screen WakeLock'}
+              </span>
+            </div>
+            <p className="text-[11px] text-slate-400 mt-0.5">
+              {isBgTracking
+                ? `Active • Coordinates streaming continuous in background even with phone locked (${lastGpsPoint ? `${lastGpsPoint.lat}, ${lastGpsPoint.lng} @ ${lastGpsPoint.time}` : 'Acquiring lock...'})`
+                : 'Standby • Enable to stream live driver position during deliveries'}
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={handleToggleBackgroundTracking}
+          className={`px-4 py-2 rounded-2xl text-xs font-black flex items-center gap-2 transition cursor-pointer shadow-sm ${
+            isBgTracking
+              ? 'bg-rose-600 hover:bg-rose-500 text-white'
+              : 'bg-blue-600 hover:bg-blue-500 text-white'
+          }`}
+        >
+          <Power className="w-3.5 h-3.5" />
+          {isBgTracking ? 'Stop Tracking' : 'Start Background GPS'}
+        </button>
+      </div>
 
       {/* Header in White */}
       <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -276,6 +407,29 @@ export default function DeliveryDashboard() {
                     {pickup.status.replace('_', ' ')}
                   </span>
                 </div>
+
+                {/* Quick Map Action */}
+                <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between">
+                  <a
+                    href={generateNavigationLinks({ address: pickup.address }).googleMapsApp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-[10px] text-blue-600 hover:text-blue-700 font-bold flex items-center gap-1"
+                  >
+                    <Navigation className="w-3 h-3" />
+                    Open Google Maps
+                  </a>
+                  <a
+                    href={generateNavigationLinks({ address: pickup.address }).wazeApp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-[10px] text-cyan-600 hover:text-cyan-700 font-bold"
+                  >
+                    Waze &rarr;
+                  </a>
+                </div>
               </div>
             ))}
           </div>
@@ -316,6 +470,27 @@ export default function DeliveryDashboard() {
                   <div className="flex items-center justify-between">
                     <span className="text-slate-500">Customer Address:</span>
                     <span className="text-slate-700 text-right">{activePickup.address}</span>
+                  </div>
+
+                  {/* Turn-by-Turn Navigation Deep Links */}
+                  <div className="pt-2 border-t border-slate-200/80 flex items-center gap-2">
+                    <a
+                      href={generateNavigationLinks({ address: activePickup.address }).googleMapsApp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 py-2 px-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm transition"
+                    >
+                      <Navigation className="w-3.5 h-3.5 fill-current" />
+                      Google Maps GPS
+                    </a>
+                    <a
+                      href={generateNavigationLinks({ address: activePickup.address }).wazeApp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="py-2 px-3 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm transition"
+                    >
+                      Waze
+                    </a>
                   </div>
                 </div>
 

@@ -66,18 +66,17 @@ async function sendSmsOtp(phone: string, otp: string): Promise<{ success: boolea
     }
   }
 
-  // 2. MSG91 Connector
-  if (process.env.MSG91_AUTH_KEY && process.env.MSG91_OTP_TEMPLATE_ID) {
-    try {
-      const url = `https://control.msg91.com/api/v5/otp?template_id=${process.env.MSG91_OTP_TEMPLATE_ID}&mobile=91${standardPhone}&authkey=${process.env.MSG91_AUTH_KEY}&otp=${otp}`;
-      const res = await fetch(url, { method: 'POST' });
-      const data = await res.json();
-      if (data.type === 'success') {
-        return { success: true, provider: 'MSG91', message: `SMS OTP dispatched via MSG91 to +91 ${standardPhone}` };
-      }
-    } catch (err: any) {
-      console.warn('MSG91 failed, falling back to local sandbox:', err.message);
+  // 2. Primary MSG91 Production Connector with 5,000 Quota & Slack Alert Webhook
+  try {
+    const { Msg91Service } = await import('@/integrations/sms/msg91.service');
+    const msg91Result = await Msg91Service.sendRegistrationOtp(`91${standardPhone}`, otp);
+    if (msg91Result.success) {
+      return { success: true, provider: 'MSG91', message: `SMS OTP dispatched via MSG91 to +91 ${standardPhone}` };
+    } else if (msg91Result.fallbackRequired) {
+      console.warn(`[MSG91 Quota Exceeded / Error] ${msg91Result.error}. Operating with email fallback.`);
     }
+  } catch (err: any) {
+    console.warn('Msg91Service invocation error:', err.message);
   }
 
   // 3. Local Dev Sandbox (Clean console output for developers)

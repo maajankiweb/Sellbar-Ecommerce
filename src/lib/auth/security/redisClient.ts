@@ -184,6 +184,29 @@ export const cacheStore = {
   },
 
   /**
+   * Search keys matching pattern
+   */
+  async keys(pattern: string): Promise<string[]> {
+    if (client && isRedisConnected) {
+      try {
+        return await client.keys(pattern);
+      } catch {
+        // Fall back to memory
+      }
+    }
+
+    const regex = new RegExp('^' + pattern.replace(/\*/g, '.*') + '$');
+    const matched: string[] = [];
+    const now = Date.now();
+    for (const [k, item] of global.__SELBAR_FALLBACK_CACHE__!.entries()) {
+      if (regex.test(k) && item.expiresAt > now) {
+        matched.push(k);
+      }
+    }
+    return matched;
+  },
+
+  /**
    * Inspect status
    */
   isRedisActive(): boolean {

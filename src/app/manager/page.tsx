@@ -4,11 +4,12 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import {
   Building2, Users, CheckCircle2, Clock, AlertTriangle, ArrowUpRight,
-  TrendingUp, Package, ShieldCheck, ChevronRight, Search, Filter,
-  Phone, Mail, Calendar, UserCheck, RefreshCw, Eye, ThumbsUp, ThumbsDown,
   Warehouse, Truck, BarChart3, Bell, ArrowLeft, LogOut, User,
-  CheckSquare, Activity, AlertCircle, ArrowRight
+  CheckSquare, Activity, AlertCircle, ArrowRight, ThumbsUp, ThumbsDown,
+  Package, TrendingUp, ShieldCheck, ChevronRight
 } from 'lucide-react';
+import MultiStopRouteMap from '@/components/manager/MultiStopRouteMap';
+import OperationsHeatmapView from '@/components/manager/OperationsHeatmapView';
 
 interface HighValueApproval {
   id: string;
@@ -270,6 +271,12 @@ export default function ManagerDashboard() {
           </div>
         </Link>
       </div>
+
+      {/* AI Multi-Stop Delivery Route Dispatcher */}
+      <MultiStopRouteMap />
+
+      {/* Geospatial Operations Density Heatmap */}
+      <OperationsHeatmapView />
 
       {/* Live Approval Section Preview in White */}
       <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-xs space-y-4">

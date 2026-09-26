@@ -4,6 +4,8 @@ import React, { useEffect, useState, use } from 'react';
 import Link from 'next/link';
 import { BuyOrder, BuyOrderState, ReturnRequest } from '@/types';
 import ReturnRequestModal from '@/components/order/ReturnRequestModal';
+import LiveTrackingMap from '@/components/delivery/LiveTrackingMap';
+import DeliveryRatingModal from '@/components/order/DeliveryRatingModal';
 import {
   CheckCircle2,
   Package,
@@ -18,6 +20,7 @@ import {
   Clock,
   Printer,
   ChevronRight,
+  Star,
 } from 'lucide-react';
 
 const BUY_TIMELINE: { state: BuyOrderState; title: string; desc: string }[] = [
@@ -38,6 +41,8 @@ export default function BuyOrderTrackingPage({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [isReturnModalOpen, setIsReturnModalOpen] = useState(false);
+  const [isRatingModalOpen, setIsRatingModalOpen] = useState(false);
+  const [hasRated, setHasRated] = useState(false);
 
   useEffect(() => {
     async function fetchOrder() {
@@ -46,6 +51,15 @@ export default function BuyOrderTrackingPage({
         const data = await res.json();
         if (data.success) {
           setOrder(data.data);
+          // If delivered and not yet rated, auto-prompt rating modal
+          const alreadyRated = typeof window !== 'undefined' && localStorage.getItem(`rated_${id}`);
+          if (alreadyRated) {
+            setHasRated(true);
+          } else if (data.data.state === 'DELIVERED') {
+            setTimeout(() => {
+              setIsRatingModalOpen(true);
+            }, 1200);
+          }
         } else {
           setError(data.error || 'Order not found');
         }
@@ -104,6 +118,18 @@ export default function BuyOrderTrackingPage({
         onSuccess={handleReturnSuccess}
       />
 
+      {/* Customer Delivery Rating Modal */}
+      <DeliveryRatingModal
+        isOpen={isRatingModalOpen}
+        onClose={() => setIsRatingModalOpen(false)}
+        orderId={order.id}
+        courierName={order.courierPartner || 'SELBAR Delivery Partner'}
+        onSuccess={() => {
+          setHasRated(true);
+          if (typeof window !== 'undefined') localStorage.setItem(`rated_${order.id}`, 'true');
+        }}
+      />
+
       {/* Top Banner */}
       <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white p-6 sm:p-8 rounded-3xl shadow-xl shadow-emerald-600/20">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -126,16 +152,40 @@ export default function BuyOrderTrackingPage({
               <span className="text-[10px] text-white/80 block mt-0.5">Via {order.paymentMethod}</span>
             </div>
 
-            <Link
-              href={`/order/buy/${order.id}/invoice`}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white text-emerald-800 text-xs font-bold shadow-md hover:bg-emerald-50 transition"
-            >
-              <FileText className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Download Tax Invoice</span>
-            </Link>
+            <div className="flex flex-wrap items-center gap-2">
+              <Link
+                href={`/order/buy/${order.id}/invoice`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white text-emerald-800 text-xs font-bold shadow-md hover:bg-emerald-50 transition"
+              >
+                <FileText className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Download Tax Invoice</span>
+              </Link>
+
+              {order.state === 'DELIVERED' && (
+                <button
+                  onClick={() => setIsRatingModalOpen(true)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-bold shadow-md transition"
+                >
+                  <Star className="w-3.5 h-3.5 fill-current" />
+                  <span>{hasRated ? 'Edit Delivery Rating' : 'Rate Your Delivery'}</span>
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Live Interactive Map with Smooth Marker Interpolation */}
+      {(order.state === 'SHIPPED' || order.state === 'OUT_FOR_DELIVERY' || order.state === 'DELIVERED') && (
+        <LiveTrackingMap
+          orderId={order.id}
+          destination={{
+            lat: 19.076,
+            lng: 72.8777,
+            address: `${order.shippingAddress.flatNo}, ${order.shippingAddress.street}, ${order.shippingAddress.city}, ${order.shippingAddress.pincode}`,
+          }}
+        />
+      )}
 
       {/* Active Return Status Banner (if return requested) */}
       {order.returnRequest && (

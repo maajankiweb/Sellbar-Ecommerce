@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   DollarSign, CheckCircle2, ArrowUpRight, TrendingUp, Calendar,
-  Wallet, ShieldCheck, Download, RefreshCw, CreditCard
+  Wallet, ShieldCheck, Download, RefreshCw, CreditCard, Zap
 } from 'lucide-react';
+import { io } from 'socket.io-client';
 
 interface PayoutTransaction {
   id: string;
@@ -58,6 +59,47 @@ const INITIAL_TRANSACTIONS: PayoutTransaction[] = [
 export default function DeliveryPayoutsPage() {
   const [transactions, setTransactions] = useState<PayoutTransaction[]>(INITIAL_TRANSACTIONS);
   const [toast, setToast] = useState('');
+  const [fuelAllowance, setFuelAllowance] = useState(350);
+  const [incentiveEarned, setIncentiveEarned] = useState(500);
+
+  useEffect(() => {
+    try {
+      const socket = io({
+        path: '/api/socket.io',
+        auth: { token: 'demo-delivery-token' },
+      });
+
+      socket.on('payout:disbursed', (payload: any) => {
+        setToast(`⚡ Daily Payout Credited! ₹${payload.amount.toLocaleString('en-IN')} sent to your UPI (UTR: ${payload.utrNumber})`);
+        setTimeout(() => setToast(''), 5000);
+
+        if (payload.breakdown) {
+          if (payload.breakdown.fuelAllowance) setFuelAllowance(payload.breakdown.fuelAllowance);
+          if (payload.breakdown.completionIncentive) setIncentiveEarned(payload.breakdown.completionIncentive);
+        }
+
+        const newTx: PayoutTransaction = {
+          id: `tx-payout-${Date.now()}`,
+          orderNumber: payload.transferId || 'DAILY-EARNINGS',
+          customerName: 'SELBAR Partner Payout',
+          device: `Fuel ₹${payload.breakdown?.fuelAllowance || 350} + Incentive ₹${payload.breakdown?.completionIncentive || 500}`,
+          amount: payload.amount,
+          time: 'Just now',
+          method: 'UPI Instant Payout',
+          refNumber: payload.utrNumber || 'UPI/BANK_SETTLEMENT',
+          status: 'settled',
+        };
+
+        setTransactions(prev => [newTx, ...prev]);
+      });
+
+      return () => {
+        socket.disconnect();
+      };
+    } catch {
+      // Local fallback
+    }
+  }, []);
 
   const totalDisbursed = transactions.reduce((acc, t) => acc + t.amount, 0);
 
