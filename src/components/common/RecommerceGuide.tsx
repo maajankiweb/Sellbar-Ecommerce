@@ -43,7 +43,7 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
   ];
 
   return (
-    <section className={`w-full bg-white border-t border-slate-200/80 py-12 md:py-16 ${className}`}>
+    <section className={`w-full bg-white border-t border-slate-200/80 pt-10 sm:pt-12 pb-6 sm:pb-8 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Header Badge & Title */}
         <div className="space-y-4 max-w-4xl">

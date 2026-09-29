@@ -171,10 +171,10 @@ export function BrandMarquee() {
   return (
     <div className="relative w-full overflow-hidden py-3">
       {/* Gradient Mask on Left (Smooth Fade) */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-slate-100 via-slate-100/80 to-transparent z-10" />
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-r from-[#fafbfc] via-[#fafbfc]/80 to-transparent z-10" />
 
       {/* Gradient Mask on Right (Smooth Fade) */}
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-slate-100 via-slate-100/80 to-transparent z-10" />
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-l from-[#fafbfc] via-[#fafbfc]/80 to-transparent z-10" />
 
       {/* Infinite Scrolling Track (Right to Left) */}
       <div className="animate-marquee-infinite flex items-center gap-4 sm:gap-6 py-1">

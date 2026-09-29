@@ -211,9 +211,57 @@ export default function ManagerInventoryPage() {
         </div>
       </div>
 
-      {/* Table in White */}
+      {/* Table in White with Responsive Mobile Cards (Section 114 & 134) */}
       <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xs">
-        <div className="overflow-x-auto">
+        {/* Mobile Cards (Section 114) */}
+        <div className="sm:hidden divide-y divide-slate-100">
+          {filtered.map(bin => (
+            <div key={bin.id} className="p-4 space-y-3">
+              <div className="flex items-start justify-between gap-2">
+                <div>
+                  <div className="font-mono font-bold text-slate-900 text-xs">{bin.binCode}</div>
+                  <h4 className="text-xs font-bold text-slate-900 mt-0.5">{bin.category}</h4>
+                  <div className="text-[10px] text-slate-500">{bin.hubLocation}</div>
+                </div>
+                <span className={`px-2 py-0.5 rounded-full text-[10px] font-black shrink-0 ${
+                  bin.grade === 'Grade A+' ? 'bg-emerald-100 text-emerald-800' :
+                  bin.grade === 'Grade A' ? 'bg-blue-100 text-blue-800' :
+                  bin.grade === 'Grade B' ? 'bg-amber-100 text-amber-800' : 'bg-rose-100 text-rose-800'
+                }`}>
+                  {bin.grade}
+                </span>
+              </div>
+
+              <div className="flex items-center justify-between text-xs pt-1 border-t border-slate-50">
+                <div>
+                  <span className="text-[10px] text-slate-400 block uppercase font-bold">Units / Safety</span>
+                  <div className="font-mono text-xs font-black text-slate-900">
+                    {bin.currentUnits} <span className="text-slate-400 font-normal">/ {bin.safetyThreshold} min</span>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <span className="text-[10px] text-slate-400 block uppercase font-bold">Status</span>
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
+                    bin.status === 'optimal'
+                      ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                      : bin.status === 'low_stock'
+                      ? 'bg-amber-100 text-amber-800 border border-amber-300'
+                      : 'bg-rose-100 text-rose-800 border border-rose-300'
+                  }`}>
+                    {bin.status.replace('_', ' ')}
+                  </span>
+                </div>
+              </div>
+
+              <div className="text-[10px] text-slate-400 font-mono flex items-center justify-between pt-1">
+                <span>Audited: {bin.lastAudited}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop / Tablet Table */}
+        <div className="hidden sm:block overflow-x-auto">
           <table className="w-full text-left text-xs text-slate-700">
             <thead className="bg-slate-50 text-[11px] uppercase font-bold text-slate-500 border-b border-slate-200">
               <tr>

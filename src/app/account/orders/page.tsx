@@ -91,28 +91,30 @@ function OrderCard({ order }: { order: Order }) {
       <div className="flex flex-wrap gap-2 px-5 pb-4">
         <Link
           href={`/account/orders/${order.orderId}`}
-          className="px-4 py-2 rounded-xl bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 transition flex items-center gap-1.5"
+          className="min-h-[44px] px-4 py-2 rounded-xl bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 transition flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
         >
           {isActive ? <><Truck className="h-3.5 w-3.5" /> Track Order</> : <><ChevronRight className="h-3.5 w-3.5" /> View Details</>}
         </Link>
-        <Link
-          href={`/account/orders/${order.orderId}`}
-          className="px-4 py-2 rounded-xl border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition"
-        >
-          View Details
-        </Link>
-        <button className="px-4 py-2 rounded-xl border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition flex items-center gap-1.5">
+        {!isActive && (
+          <Link
+            href={`/account/orders/${order.orderId}`}
+            className="min-h-[44px] px-4 py-2 rounded-xl border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition flex items-center justify-center cursor-pointer"
+          >
+            View Details
+          </Link>
+        )}
+        <button className="min-h-[44px] px-4 py-2 rounded-xl border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition flex items-center justify-center gap-1.5 cursor-pointer">
           <Download className="h-3.5 w-3.5" />
           Invoice
         </button>
-        <button className="px-4 py-2 rounded-xl border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition flex items-center gap-1.5">
+        <button className="min-h-[44px] px-4 py-2 rounded-xl border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition flex items-center justify-center gap-1.5 cursor-pointer">
           <ShoppingCart className="h-3.5 w-3.5" />
           Reorder
         </button>
         {canReturn && (
           <Link
             href="/account/returns"
-            className="px-4 py-2 rounded-xl border border-amber-200 bg-amber-50 text-amber-700 text-xs font-semibold hover:bg-amber-100 transition flex items-center gap-1.5"
+            className="min-h-[44px] px-4 py-2 rounded-xl border border-amber-200 bg-amber-50 text-amber-700 text-xs font-semibold hover:bg-amber-100 transition flex items-center justify-center gap-1.5 cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             Return Item

@@ -61,6 +61,11 @@ export default function Header() {
 
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Dedicated sticky action pages (product detail & quote finalization) take over the mobile bottom area
+  const isProductDetailPage = pathname.startsWith('/buy/') && pathname.split('/').filter(Boolean).length === 2;
+  const isQuotePage = pathname.startsWith('/sell/quote/');
+  const hideBottomNav = isProductDetailPage || isQuotePage;
+
   // Sync with localStorage on client mount & listen for window scroll
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -1512,66 +1517,68 @@ export default function Header() {
       )}
 
       {/* MOBILE STICKY BOTTOM NAVIGATION BAR */}
-      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 pt-1.5 px-3 pb-[calc(0.375rem+env(safe-area-inset-bottom,0px))] shadow-lg">
-        <div className="grid grid-cols-5 gap-1 text-center">
-          <Link
-            href="/"
-            className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
-              pathname === '/' ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
-            }`}
-          >
-            <Home className="w-4 h-4" />
-            <span className="text-[10px] mt-0.5">Home</span>
-          </Link>
+      {!hideBottomNav && (
+        <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 pt-1.5 px-3 pb-[calc(0.375rem+env(safe-area-inset-bottom,0px))] shadow-lg">
+          <div className="grid grid-cols-5 gap-1 text-center">
+            <Link
+              href="/"
+              className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
+                pathname === '/' ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
+              }`}
+            >
+              <Home className="w-4 h-4" />
+              <span className="text-[10px] mt-0.5">Home</span>
+            </Link>
 
-          <Link
-            href="/sell"
-            className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
-              pathname.startsWith('/sell') ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
-            }`}
-          >
-            <Smartphone className="w-4 h-4" />
-            <span className="text-[10px] mt-0.5">Sell</span>
-          </Link>
+            <Link
+              href="/sell"
+              className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
+                pathname.startsWith('/sell') ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
+              }`}
+            >
+              <Smartphone className="w-4 h-4" />
+              <span className="text-[10px] mt-0.5">Sell</span>
+            </Link>
 
-          <Link
-            href="/buy"
-            className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
-              pathname.startsWith('/buy') ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
-            }`}
-          >
-            <ShoppingBag className="w-4 h-4" />
-            <span className="text-[10px] mt-0.5">Buy</span>
-          </Link>
-
-          <Link
-            href="/repair"
-            className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
-              pathname === '/repair' ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
-            }`}
-          >
-            <Wrench className="w-4 h-4" />
-            <span className="text-[10px] mt-0.5">Repair</span>
-          </Link>
-
-          <Link
-            href="/cart"
-            className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl relative transition ${
-              pathname === '/cart' ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
-            }`}
-          >
-            <div className="relative">
+            <Link
+              href="/buy"
+              className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
+                pathname.startsWith('/buy') ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
+              }`}
+            >
               <ShoppingBag className="w-4 h-4" />
-              {totalCount > 0 && (
-                <span className="absolute -top-1.5 -right-2 w-4 h-4 bg-emerald-600 text-white rounded-full text-[9px] font-black flex items-center justify-center">
-                  {totalCount}
-                </span>
-              )}
-            </div>
-            <span className="text-[10px] mt-0.5">Cart</span>
-          </Link>
-        </div>
-      </nav>
+              <span className="text-[10px] mt-0.5">Buy</span>
+            </Link>
+
+            <Link
+              href="/repair"
+              className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
+                pathname === '/repair' ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
+              }`}
+            >
+              <Wrench className="w-4 h-4" />
+              <span className="text-[10px] mt-0.5">Repair</span>
+            </Link>
+
+            <Link
+              href="/cart"
+              className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl relative transition ${
+                pathname === '/cart' ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
+              }`}
+            >
+              <div className="relative">
+                <ShoppingBag className="w-4 h-4" />
+                {totalCount > 0 && (
+                  <span className="absolute -top-1.5 -right-2 w-4 h-4 bg-emerald-600 text-white rounded-full text-[9px] font-black flex items-center justify-center">
+                    {totalCount}
+                  </span>
+                )}
+              </div>
+              <span className="text-[10px] mt-0.5">Cart</span>
+            </Link>
+          </div>
+        </nav>
+      )}
 
       <VoiceSearchModal
         isOpen={voiceModal.isOpen}

@@ -234,7 +234,7 @@ export default function CartCheckoutPage() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pb-28 lg:pb-10 space-y-8">
       {/* Payment / COD OTP Modal */}
       <PaymentModal
         isOpen={isPaymentModalOpen}
@@ -801,7 +801,7 @@ export default function CartCheckoutPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-sm shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 transition disabled:opacity-50"
+              className="w-full min-h-[48px] py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-sm shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 transition disabled:opacity-50 cursor-pointer active:scale-98"
             >
               <span>
                 {isSubmitting
@@ -813,6 +813,23 @@ export default function CartCheckoutPage() {
           </div>
         </div>
       </form>
+
+      {/* Mobile Sticky Checkout Bar (Section 119 & 141) */}
+      <div className="lg:hidden fixed bottom-14 sm:bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 p-3 shadow-2xl flex items-center justify-between gap-3 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))]">
+        <div>
+          <span className="text-[10px] text-slate-400 font-bold uppercase block">Total Payable</span>
+          <span className="text-base font-black text-emerald-700">₹{finalPayableAmount.toLocaleString('en-IN')}</span>
+        </div>
+        <button
+          type="button"
+          onClick={handleCheckoutSubmit}
+          disabled={isSubmitting}
+          className="min-h-[44px] px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-extrabold text-xs shadow-md shadow-emerald-600/25 flex items-center gap-1.5 active:scale-95 cursor-pointer disabled:opacity-50"
+        >
+          <span>{isSubmitting ? 'Processing...' : 'Pay Now'}</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </button>
+      </div>
     </div>
   );
 }

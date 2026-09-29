@@ -52,7 +52,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#F8FAFC] border-t border-slate-200 text-slate-700 pt-16 pb-12 select-none">
+    <footer className="bg-[#F8FAFC] border-t border-slate-200 text-slate-700 pt-10 sm:pt-12 pb-24 lg:pb-12 select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-10">
           {/* Column 1: Brand & Socials */}
@@ -248,7 +248,7 @@ export default function Footer() {
 
       {/* Interactive Chat Dialog */}
       {isChatOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-in slide-in-from-bottom-5 duration-200">
+        <div className="fixed inset-x-3 bottom-16 sm:bottom-6 sm:right-6 sm:left-auto z-50 w-auto sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-in slide-in-from-bottom-5 duration-200">
           {/* Header */}
           <div className="bg-[#14B8A6] p-4 text-white flex items-center justify-between">
             <div className="flex items-center gap-2">

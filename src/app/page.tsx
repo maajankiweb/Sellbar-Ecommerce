@@ -354,14 +354,15 @@ export default function HomePage() {
   );
 
   return (
-    <div className="space-y-16 pb-20 overflow-hidden bg-[#fafbfc]">
+    <>
+      <div className="space-y-16 overflow-hidden bg-[#fafbfc]">
       {/* 1. HERO SECTION: FULL-WIDTH IMAGE CAROUSEL SLIDER */}
       <section
         className="relative bg-slate-950 text-white overflow-hidden"
         onMouseEnter={() => setIsSliderHovered(true)}
         onMouseLeave={() => setIsSliderHovered(false)}
       >
-        <div className="relative min-h-[440px] sm:min-h-[480px] md:min-h-[500px] flex items-center">
+        <div className="relative min-h-[560px] sm:min-h-[500px] md:min-h-[480px] flex items-center">
           {HERO_SLIDES.map((slide, index) => {
             const isActive = index === currentSlide;
             return (
@@ -373,21 +374,21 @@ export default function HomePage() {
                     : "opacity-0 z-0 pointer-events-none"
                 } bg-gradient-to-r ${slide.bgGradient}`}
               >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-12 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
                   {/* Left Text & CTA */}
-                  <div className="space-y-4 max-w-xl text-center md:text-left">
+                  <div className="space-y-3 sm:space-y-4 max-w-xl text-center md:text-left">
                     <div
-                      className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold border backdrop-blur-sm shadow-xs ${slide.badgeColor}`}
+                      className={`inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-bold border backdrop-blur-sm shadow-xs ${slide.badgeColor}`}
                     >
-                      <Sparkles className="w-3.5 h-3.5" />
+                      <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       <span>{slide.badge}</span>
                     </div>
 
-                    <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12]">
+                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15]">
                       {slide.title}
                     </h1>
 
-                    <p className="text-xs sm:text-base text-slate-200 leading-relaxed font-normal">
+                    <p className="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed font-normal">
                       {slide.subtitle}
                     </p>
 
@@ -395,10 +396,10 @@ export default function HomePage() {
                       ✓ {slide.tagline}
                     </div>
 
-                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5 sm:gap-3 pt-1 sm:pt-2">
                       <Link
                         href={slide.ctaHref}
-                        className="px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-slate-950 font-black text-xs sm:text-sm shadow-xl hover:shadow-2xl transition transform hover:-translate-y-0.5 flex items-center gap-2"
+                        className="min-h-[44px] px-5 sm:px-6 py-3 sm:py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-slate-950 font-black text-xs sm:text-sm shadow-xl hover:shadow-2xl transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2 active:scale-95"
                       >
                         <span>{slide.ctaText}</span>
                         <ArrowRight className="w-4 h-4" />
@@ -406,7 +407,7 @@ export default function HomePage() {
 
                       <Link
                         href={slide.secondaryHref}
-                        className="px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 transition backdrop-blur-sm"
+                        className="min-h-[44px] px-4 sm:px-5 py-3 sm:py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 transition backdrop-blur-sm flex items-center justify-center active:scale-95"
                       >
                         {slide.secondaryText}
                       </Link>
@@ -414,8 +415,8 @@ export default function HomePage() {
                   </div>
 
                   {/* Right Image Graphic */}
-                  <div className="relative w-72 sm:w-80 md:w-96 aspect-square shrink-0 flex items-center justify-center">
-                    <div className="absolute inset-0 bg-white/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+                  <div className="relative w-44 sm:w-64 md:w-80 lg:w-96 aspect-square shrink-0 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-white/10 rounded-full blur-2xl sm:blur-3xl -z-10 animate-pulse"></div>
                     <img
                       src={slide.image}
                       alt={slide.title}
@@ -427,12 +428,12 @@ export default function HomePage() {
             );
           })}
 
-          {/* Left / Right Arrow Controls */}
+          {/* Left / Right Arrow Controls - Hidden on small mobile to avoid covering content */}
           <button
             type="button"
             onClick={prevSlide}
             aria-label="Previous Slide"
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition hover:scale-110"
+            className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white items-center justify-center backdrop-blur-md border border-white/20 transition hover:scale-110 min-h-[44px] min-w-[44px]"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
@@ -441,7 +442,7 @@ export default function HomePage() {
             type="button"
             onClick={nextSlide}
             aria-label="Next Slide"
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition hover:scale-110"
+            className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white items-center justify-center backdrop-blur-md border border-white/20 transition hover:scale-110 min-h-[44px] min-w-[44px]"
           >
             <ArrowRight className="w-5 h-5" />
           </button>
@@ -476,7 +477,7 @@ export default function HomePage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-4 sm:grid-cols-8 gap-3 sm:gap-4 md:gap-5">
+        <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 sm:gap-4 md:gap-5">
           {SERVICES_GRID.map((srv) => (
             <Link
               key={srv.id}
@@ -484,7 +485,7 @@ export default function HomePage() {
               className="flex flex-col items-center group transition"
             >
               {/* Soft mint/teal card box with high-res service product photo */}
-              <div className="w-full aspect-[1.12] sm:h-24 md:h-28 rounded-2xl bg-[#eef7f6] hover:bg-[#e4f3f1] border border-teal-100/60 p-2 sm:p-2.5 flex items-center justify-center transition-all duration-200 group-hover:scale-105 group-hover:shadow-sm">
+              <div className="w-full aspect-[1.08] sm:h-24 md:h-28 rounded-2xl bg-[#eef7f6] hover:bg-[#e4f3f1] border border-teal-100/60 p-2 sm:p-2.5 flex items-center justify-center transition-all duration-200 group-hover:scale-105 group-hover:shadow-sm">
                 <img
                   src={srv.image}
                   alt={srv.title}
@@ -493,7 +494,7 @@ export default function HomePage() {
                 />
               </div>
               {/* Service Name below */}
-              <span className="text-xs sm:text-[13px] font-bold text-slate-800 group-hover:text-emerald-700 transition-colors text-center mt-2 leading-tight">
+              <span className="text-[10px] sm:text-xs md:text-[13px] font-bold text-slate-800 group-hover:text-emerald-700 transition-colors text-center mt-1.5 leading-tight line-clamp-2">
                 {srv.title}
               </span>
             </Link>
@@ -1114,9 +1115,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. BRAND PARTNERS STRIP */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
-        <div className="text-center text-xs font-bold text-slate-400 uppercase tracking-wider">
+      {/* 10. BRAND PARTNERS STRIP — FULL DISPLAY EDGE-TO-EDGE */}
+      <section className="w-full overflow-hidden space-y-3">
+        <div className="text-center text-xs font-bold text-slate-400 uppercase tracking-wider px-4">
           Certified Recommerce For All Major Brands
         </div>
 
@@ -1345,9 +1346,10 @@ export default function HomePage() {
 
       {/* 15. RECOMMERCE & BUYBACK GUIDE SECTION (BEFORE FOOTER) */}
       <RecommerceGuide />
-
-      {/* LIVE RECENT ACTIVITY FLOATING TICKER */}
-      <LiveActivityTicker />
     </div>
+
+    {/* LIVE RECENT ACTIVITY FLOATING TICKER (Outside flow container to prevent phantom whitespace) */}
+    <LiveActivityTicker />
+  </>
   );
 }

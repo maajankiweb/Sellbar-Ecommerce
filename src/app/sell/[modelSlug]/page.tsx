@@ -242,13 +242,13 @@ export default function ModelEvaluationPage({
           </div>
         )}
 
-        {/* Navigation Buttons */}
-        <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
+        {/* Navigation Buttons (Sticky on Mobile for effortless one-handed thumb navigation) */}
+        <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 sm:static sm:p-0 sm:bg-transparent sm:border-0 sm:pt-4 sm:border-t sm:border-slate-100 flex items-center justify-between gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] sm:shadow-none pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))] sm:pb-0">
           <button
             type="button"
             disabled={currentStepIndex === 0}
             onClick={() => setCurrentStepIndex((prev) => Math.max(0, prev - 1))}
-            className="px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition flex items-center gap-1.5"
+            className="min-h-[44px] px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition flex items-center gap-1.5 active:scale-95 cursor-pointer"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Previous</span>
@@ -258,7 +258,7 @@ export default function ModelEvaluationPage({
             <button
               type="button"
               onClick={() => setCurrentStepIndex((prev) => Math.min(totalQuestions - 1, prev + 1))}
-              className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition flex items-center gap-1.5"
+              className="min-h-[44px] flex-1 sm:flex-initial px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
             >
               <span>Next Question</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -268,10 +268,10 @@ export default function ModelEvaluationPage({
               type="button"
               disabled={isSubmitting}
               onClick={handleGetExactQuote}
-              className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-emerald-600/25 transition flex items-center gap-2"
+              className="min-h-[44px] flex-1 sm:flex-initial px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-emerald-600/25 transition flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
             >
               <Sparkles className="w-4 h-4 text-emerald-200" />
-              <span>{isSubmitting ? 'Calculating Exact Value...' : 'Calculate My Final Cash Quote'}</span>
+              <span>{isSubmitting ? 'Calculating...' : 'Calculate Cash Quote'}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           )}
@@ -279,7 +279,7 @@ export default function ModelEvaluationPage({
       </div>
 
       {/* Bottom Trust Banner */}
-      <div className="flex items-center justify-center gap-4 text-slate-400 text-xs text-center">
+      <div className="flex items-center justify-center gap-4 text-slate-400 text-xs text-center pb-16 sm:pb-0">
         <span className="flex items-center gap-1.5">
           <ShieldCheck className="w-4 h-4 text-emerald-600" />
           Transparent deduction formula with 72-hour price lock

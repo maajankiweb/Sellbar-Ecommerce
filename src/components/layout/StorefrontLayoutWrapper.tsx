@@ -32,7 +32,7 @@ export default function StorefrontLayoutWrapper({
   return (
     <>
       <Header />
-      <main className="flex-1 pb-16 lg:pb-0">
+      <main className="flex-1">
         {children}
       </main>
       <CartDrawer />

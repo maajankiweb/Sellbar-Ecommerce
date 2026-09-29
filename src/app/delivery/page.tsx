@@ -435,27 +435,38 @@ export default function DeliveryDashboard() {
                   </span>
                 </div>
 
-                {/* Quick Map Action */}
-                <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between">
+                {/* Primary Quick Actions for Field Executive (Section 108) */}
+                <div className="mt-3 pt-3 border-t border-slate-100 grid grid-cols-2 gap-2">
                   <a
                     href={generateNavigationLinks({ address: pickup.address }).googleMapsApp}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="text-[10px] text-blue-600 hover:text-blue-700 font-bold flex items-center gap-1"
+                    className="min-h-[44px] py-2.5 px-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-xs transition active:scale-95"
                   >
-                    <Navigation className="w-3 h-3" />
-                    Open Google Maps
+                    <Navigation className="w-3.5 h-3.5 fill-current" />
+                    <span>NAVIGATE</span>
                   </a>
-                  <a
-                    href={generateNavigationLinks({ address: pickup.address }).wazeApp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="text-[10px] text-cyan-600 hover:text-cyan-700 font-bold"
-                  >
-                    Waze &rarr;
-                  </a>
+
+                  {pickup.status !== 'completed' ? (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActivePickup(pickup);
+                        setIsInspectionModalOpen(true);
+                      }}
+                      className="min-h-[44px] py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-xs transition active:scale-95 cursor-pointer"
+                    >
+                      <Smartphone className="w-3.5 h-3.5" />
+                      <span>START</span>
+                    </button>
+                  ) : (
+                    <div className="min-h-[44px] py-2 px-3 rounded-xl bg-emerald-50 text-emerald-700 font-bold text-xs flex items-center justify-center gap-1 border border-emerald-200">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      <span>DONE</span>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

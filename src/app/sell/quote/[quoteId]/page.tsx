@@ -243,7 +243,7 @@ export default function QuotePage({
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 sm:pb-8 space-y-8">
       {/* Top Banner with 72-hr Price Lock */}
       <div className="bg-emerald-600 text-white p-4 rounded-3xl shadow-lg shadow-emerald-600/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
         <div className="flex items-center gap-2.5">
@@ -352,7 +352,7 @@ export default function QuotePage({
           </div>
         )}
 
-        <form onSubmit={handleConfirmPickup} className="space-y-6">
+        <form id="pickup-form" onSubmit={handleConfirmPickup} className="space-y-6">
           {/* Inline Pincode Checker (West Champaran Authorized Locations) */}
           <div>
             <div className="flex items-center justify-between mb-1.5">
@@ -701,13 +701,31 @@ export default function QuotePage({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 transition"
+            className="w-full min-h-[48px] py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 transition cursor-pointer active:scale-98"
           >
             <Sparkles className="w-5 h-5 text-emerald-200" />
             <span>{isSubmitting ? 'Booking Doorstep Slot...' : `Confirm Pickup & Lock ₹${quote.finalPrice.toLocaleString('en-IN')}`}</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </form>
+      </div>
+
+      {/* Mobile Sticky Action Bar (Section 107 & 122) */}
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 p-3 shadow-2xl flex items-center justify-between gap-3 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))]">
+        <div>
+          <span className="text-[10px] text-slate-400 font-bold uppercase block">Instant Cash</span>
+          <span className="text-base font-black text-emerald-600">₹{quote.finalPrice.toLocaleString('en-IN')}</span>
+        </div>
+        <button
+          type="submit"
+          form="pickup-form"
+          disabled={isSubmitting}
+          className="min-h-[44px] px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-extrabold text-xs shadow-md shadow-emerald-600/25 flex items-center gap-1.5 active:scale-95 cursor-pointer"
+        >
+          <Sparkles className="w-3.5 h-3.5 text-emerald-200" />
+          <span>{isSubmitting ? 'Booking...' : 'Confirm Pickup'}</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </button>
       </div>
     </div>
   );

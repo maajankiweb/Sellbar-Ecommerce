@@ -298,7 +298,7 @@ export function AdminHeader() {
           </button>
 
           {notificationsOpen && (
-            <div className="absolute right-0 mt-2 w-80 sm:w-96 rounded-2xl border border-slate-200 bg-white shadow-2xl z-50 overflow-hidden">
+            <div className="absolute right-0 mt-2 w-[calc(100vw-24px)] max-w-sm sm:w-96 rounded-2xl border border-slate-200 bg-white shadow-2xl z-50 overflow-hidden">
               {/* Header */}
               <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3 bg-slate-50/50">
                 <div className="flex items-center gap-2">
@@ -466,7 +466,7 @@ export function AdminHeader() {
           </button>
 
           {profileOpen && (
-            <div className="absolute right-0 mt-2 w-72 rounded-2xl border border-slate-200 bg-white py-1.5 shadow-2xl z-50 animate-in fade-in-0 zoom-in-95 duration-100">
+            <div className="absolute right-0 mt-2 w-[calc(100vw-24px)] max-w-xs sm:w-72 rounded-2xl border border-slate-200 bg-white py-1.5 shadow-2xl z-50 animate-in fade-in-0 zoom-in-95 duration-100">
               <div className="border-b border-slate-100 px-3.5 py-2.5 flex items-center justify-between">
                 <div>
                   <p className="text-xs font-bold text-slate-900">

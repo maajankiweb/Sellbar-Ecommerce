@@ -353,18 +353,20 @@ export default function StaffDashboard() {
                   </div>
                 </div>
 
-                <div className="pt-2 flex items-center justify-between border-t border-slate-100">
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 border-t border-slate-100">
                   <button
+                    type="button"
                     onClick={() => completeQc(false)}
-                    className="px-4 py-2.5 rounded-xl border border-rose-200 text-rose-700 hover:bg-rose-50 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+                    className="min-h-[44px] px-4 py-2.5 rounded-xl border border-rose-200 text-rose-700 hover:bg-rose-50 text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
                   >
                     <X className="w-3.5 h-3.5" /> Flag Defect
                   </button>
 
                   <button
+                    type="button"
                     onClick={() => completeQc(true)}
                     disabled={!allChecksPassed}
-                    className={`px-5 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                    className={`min-h-[44px] px-5 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer active:scale-95 ${
                       allChecksPassed
                         ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm'
                         : 'bg-slate-100 text-slate-400 cursor-not-allowed'

@@ -164,6 +164,16 @@ const BRANDS_LIST = [
   'Lenovo'
 ];
 
+const REPAIR_CATEGORIES = [
+  { id: 'all', label: 'All Issues' },
+  { id: 'screen', label: '📱 Screen Replacement' },
+  { id: 'battery', label: '🔋 Battery Issue' },
+  { id: 'charging', label: '⚡ Charging Port' },
+  { id: 'audio', label: '🔊 Mic & Speaker' },
+  { id: 'camera', label: '📷 Camera Glass' },
+  { id: 'body', label: '🔄 Back Glass & Body' }
+];
+
 export default function RepairPage() {
   const [selectedDeviceType, setSelectedDeviceType] = useState<'all' | 'mobile' | 'laptop' | 'tablet'>('all');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -347,15 +357,7 @@ export default function RepairPage() {
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1.5">Common Issues</label>
               <div className="space-y-1 text-xs">
-                {[
-                  { id: 'all', label: 'All Issues' },
-                  { id: 'screen', label: '📱 Screen Replacement' },
-                  { id: 'battery', label: '🔋 Battery Issue' },
-                  { id: 'charging', label: '⚡ Charging Port' },
-                  { id: 'audio', label: '🔊 Mic & Speaker' },
-                  { id: 'camera', label: '📷 Camera Glass' },
-                  { id: 'body', label: '🔄 Back Glass & Body' }
-                ].map((cat) => (
+                {REPAIR_CATEGORIES.map((cat) => (
                   <button
                     key={cat.id}
                     type="button"
@@ -539,10 +541,13 @@ export default function RepairPage() {
         </main>
       </div>
 
-      {/* Booking Modal */}
+      {/* Booking Modal (Responsive Bottom Sheet on Mobile) */}
       {bookingModalService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-          <div className="relative w-full max-w-md bg-white rounded-3xl p-6 shadow-2xl space-y-4">
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-xs">
+          <div className="relative w-full sm:max-w-md bg-white rounded-t-3xl sm:rounded-3xl p-6 shadow-2xl space-y-4 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] max-h-[90vh] overflow-y-auto">
+            {/* Sheet Handle for Mobile */}
+            <div className="w-12 h-1.5 bg-slate-200 rounded-full mx-auto sm:hidden -mt-1 mb-2" />
+
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <div>
                 <h3 className="text-sm font-bold text-slate-900">Schedule Device Repair</h3>
@@ -554,7 +559,7 @@ export default function RepairPage() {
                   setBookingModalService(null);
                   setIsBooked(false);
                 }}
-                className="p-1 text-slate-400 hover:text-slate-700"
+                className="p-1.5 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -572,7 +577,7 @@ export default function RepairPage() {
                 <div className="pt-2 flex flex-col gap-2">
                   <Link
                     href="/repair/tracking"
-                    className="w-full py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs rounded-xl shadow-md text-center flex items-center justify-center gap-1.5 transition"
+                    className="w-full min-h-[44px] py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs rounded-xl shadow-md text-center flex items-center justify-center gap-1.5 transition active:scale-98"
                   >
                     <Navigation className="w-3.5 h-3.5 fill-current" />
                     <span>Track Technician on Live Map &rarr;</span>
@@ -584,7 +589,7 @@ export default function RepairPage() {
                       setBookingModalService(null);
                       setIsBooked(false);
                     }}
-                    className="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition"
+                    className="w-full min-h-[44px] px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition cursor-pointer"
                   >
                     Close
                   </button>
@@ -601,7 +606,7 @@ export default function RepairPage() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="Enter 10-digit mobile"
-                    className="w-full px-3 py-2 text-xs font-bold rounded-xl border border-slate-200 focus:outline-none focus:border-emerald-500"
+                    className="w-full px-3 py-2.5 text-xs font-bold rounded-xl border border-slate-200 focus:outline-none focus:border-emerald-500"
                   />
                 </div>
 
@@ -614,7 +619,7 @@ export default function RepairPage() {
                     value={pincode}
                     onChange={(e) => setPincode(e.target.value)}
                     placeholder="e.g. 800001"
-                    className="w-full px-3 py-2 text-xs font-bold rounded-xl border border-slate-200 focus:outline-none focus:border-emerald-500"
+                    className="w-full px-3 py-2.5 text-xs font-bold rounded-xl border border-slate-200 focus:outline-none focus:border-emerald-500"
                   />
                 </div>
 
@@ -625,12 +630,116 @@ export default function RepairPage() {
 
                 <button
                   type="submit"
-                  className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-xs transition"
+                  className="w-full min-h-[48px] py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-xs transition cursor-pointer active:scale-98"
                 >
                   Confirm Doorstep Technician
                 </button>
               </form>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Mobile Filter Bottom Sheet (Section 115) */}
+      {isMobileFilterOpen && (
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-xs p-0 sm:p-4">
+          <div className="bg-white w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-5 shadow-2xl max-h-[85vh] flex flex-col space-y-4 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))]">
+            {/* Sheet Handle */}
+            <div className="w-12 h-1.5 bg-slate-200 rounded-full mx-auto sm:hidden" />
+
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div className="flex items-center gap-2 font-bold text-base text-slate-900">
+                <SlidersHorizontal className="w-4 h-4 text-emerald-600" />
+                <span>Filter Repairs</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsMobileFilterOpen(false)}
+                className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-slate-200 cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="overflow-y-auto space-y-4 flex-1 pr-1">
+              {/* Search */}
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">Search Issue</label>
+                <div className="relative">
+                  <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    placeholder="Screen, battery, mic..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-8 pr-3 py-2 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-emerald-500"
+                  />
+                </div>
+              </div>
+
+              {/* Device Type */}
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">Device Type</label>
+                <div className="grid grid-cols-3 gap-1.5">
+                  {(['all', 'mobile', 'laptop'] as const).map((t) => (
+                    <button
+                      key={t}
+                      type="button"
+                      onClick={() => setSelectedDeviceType(t)}
+                      className={`px-3 py-2 rounded-xl text-xs font-semibold capitalize transition cursor-pointer ${
+                        selectedDeviceType === t
+                          ? 'bg-emerald-600 text-white shadow-xs'
+                          : 'bg-slate-50 text-slate-700 border border-slate-200'
+                      }`}
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Category */}
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">Issue Category</label>
+                <div className="grid grid-cols-2 gap-1.5">
+                  {REPAIR_CATEGORIES.map((cat) => (
+                    <button
+                      key={cat.id}
+                      type="button"
+                      onClick={() => setSelectedCategory(cat.id)}
+                      className={`px-3 py-2 rounded-xl text-xs font-semibold text-left transition cursor-pointer ${
+                        selectedCategory === cat.id
+                          ? 'bg-emerald-600 text-white shadow-xs'
+                          : 'bg-slate-50 text-slate-700 border border-slate-200'
+                      }`}
+                    >
+                      {cat.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex gap-2 pt-2 border-t border-slate-100">
+              <button
+                type="button"
+                onClick={() => {
+                  resetFilters();
+                  setIsMobileFilterOpen(false);
+                }}
+                className="flex-1 min-h-[44px] py-2.5 rounded-xl border border-slate-200 text-slate-700 font-bold text-xs cursor-pointer active:scale-95"
+              >
+                Clear
+              </button>
+              <button
+                type="button"
+                onClick={() => setIsMobileFilterOpen(false)}
+                className="flex-1 min-h-[44px] py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-md shadow-emerald-600/25 cursor-pointer active:scale-95"
+              >
+                Apply ({filteredServices.length} Repairs)
+              </button>
+            </div>
           </div>
         </div>
       )}

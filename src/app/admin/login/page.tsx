@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
   ShieldCheck,
@@ -17,7 +17,7 @@ import { Button } from '@/components/admin/ui/Button';
 import { useAdmin } from '@/context/AdminContext';
 import { RoleType } from '@/types/admin';
 
-export default function AdminLoginPage() {
+function AdminLoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const returnUrl = searchParams.get('returnUrl') || '/admin/dashboard';
@@ -207,3 +207,12 @@ export default function AdminLoginPage() {
     </div>
   );
 }
+
+export default function AdminLoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-slate-400">Loading admin portal...</div>}>
+      <AdminLoginContent />
+    </Suspense>
+  );
+}
+
