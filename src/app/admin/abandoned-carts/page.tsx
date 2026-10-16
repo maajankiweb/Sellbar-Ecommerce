@@ -215,7 +215,7 @@ export default function AdminAbandonedCartsPage() {
         data={carts}
         keyField="id"
         searchPlaceholder="Search abandoned carts by customer name or phone..."
-        exportFilename="selbar_abandoned_carts"
+        exportFilename="sellbar_abandoned_carts"
       />
     </div>
   );

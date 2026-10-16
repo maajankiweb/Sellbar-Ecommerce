@@ -5,7 +5,7 @@ import { verifyRefreshToken, hashToken } from '@/lib/auth/jwt';
 
 export async function POST(req: NextRequest) {
   try {
-    const cookieToken = req.cookies.get('selbar_refresh_token')?.value;
+    const cookieToken = req.cookies.get('sellbar_refresh_token')?.value;
     const body = await req.json().catch(() => ({}));
     const refreshToken = cookieToken || body.refreshToken;
     const logoutAll = Boolean(body.logoutAll);
@@ -40,8 +40,8 @@ export async function POST(req: NextRequest) {
     });
 
     // Clear cookies across the entire site
-    response.cookies.set('selbar_refresh_token', '', { path: '/', maxAge: 0 });
-    response.cookies.set('selbar_has_session', '', { path: '/', maxAge: 0 });
+    response.cookies.set('sellbar_refresh_token', '', { path: '/', maxAge: 0 });
+    response.cookies.set('sellbar_has_session', '', { path: '/', maxAge: 0 });
 
     return response;
   } catch (error: any) {

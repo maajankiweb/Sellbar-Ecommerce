@@ -34,7 +34,7 @@ const CITY_STORES: Record<string, {
   reviews: number;
 }> = {
   bettiah: {
-    name: 'SELBAR Experience Centre — Bettiah Flagship',
+    name: 'Sellbar Experience Centre — Bettiah Flagship',
     address: 'Shop 12-14, Ground Floor, Station Road, Near Supriya Cinema, Bettiah (845438)',
     phone: '+91 98765 43210',
     timing: '10:00 AM – 08:30 PM (All 7 Days Open)',
@@ -42,7 +42,7 @@ const CITY_STORES: Record<string, {
     reviews: 428
   },
   bagaha: {
-    name: 'SELBAR Store — Bagaha Main Market',
+    name: 'Sellbar Store — Bagaha Main Market',
     address: 'Gandhi Chowk, Main Bazaar Road, Bagaha-1, West Champaran (845105)',
     phone: '+91 98765 43211',
     timing: '10:00 AM – 08:00 PM',
@@ -50,7 +50,7 @@ const CITY_STORES: Record<string, {
     reviews: 312
   },
   narkatiaganj: {
-    name: 'SELBAR Hub — Narkatiaganj Station Road',
+    name: 'Sellbar Hub — Narkatiaganj Station Road',
     address: 'Station Road, Near Railway Junction Gate 1, Narkatiaganj (845455)',
     phone: '+91 98765 43212',
     timing: '10:00 AM – 08:00 PM',
@@ -58,7 +58,7 @@ const CITY_STORES: Record<string, {
     reviews: 245
   },
   patna: {
-    name: 'SELBAR Super Experience Hub — Boring Road',
+    name: 'Sellbar Super Experience Hub — Boring Road',
     address: 'Plot 104, Boring Road Crossing, Near Alankar Jewellers, Patna (800001)',
     phone: '+91 98765 43213',
     timing: '10:00 AM – 09:00 PM',
@@ -66,7 +66,7 @@ const CITY_STORES: Record<string, {
     reviews: 1120
   },
   gorakhpur: {
-    name: 'SELBAR Experience Hub — Golghar',
+    name: 'Sellbar Experience Hub — Golghar',
     address: 'Shop 4-5, City Center Mall, Golghar Main Road, Gorakhpur (273001)',
     phone: '+91 98765 43214',
     timing: '10:00 AM – 08:30 PM',
@@ -74,7 +74,7 @@ const CITY_STORES: Record<string, {
     reviews: 580
   },
   motihari: {
-    name: 'SELBAR Store — Chhatauni Chawk',
+    name: 'Sellbar Store — Chhatauni Chawk',
     address: 'Near Old Bus Stand, Chhatauni, Motihari (845401)',
     phone: '+91 98765 43215',
     timing: '10:00 AM – 08:00 PM',
@@ -82,7 +82,7 @@ const CITY_STORES: Record<string, {
     reviews: 310
   },
   muzaffarpur: {
-    name: 'SELBAR Store — Motijheel Commercial Area',
+    name: 'Sellbar Store — Motijheel Commercial Area',
     address: 'Motijheel Road, Opposite City Hospital, Muzaffarpur (842001)',
     phone: '+91 98765 43216',
     timing: '10:00 AM – 08:30 PM',
@@ -90,7 +90,7 @@ const CITY_STORES: Record<string, {
     reviews: 440
   },
   'delhi-ncr': {
-    name: 'SELBAR Hub — Sector 18 Noida & Connaught Place',
+    name: 'Sellbar Hub — Sector 18 Noida & Connaught Place',
     address: 'Block K, Connaught Place, New Delhi & Sector 18 Commercial Hub, Noida',
     phone: '+91 98765 43217',
     timing: '09:30 AM – 09:30 PM',
@@ -121,7 +121,7 @@ const CITY_REVIEWS: Record<string, Array<{ name: string; device: string; comment
     {
       name: 'Rajnish Kumar',
       device: 'Sold OnePlus 11R',
-      comment: 'Bazaar me shop wale 20k de rahe the, SELBAR ne 24,500 direct account me credit kiya. Zero hassle.',
+      comment: 'Bazaar me shop wale 20k de rahe the, Sellbar ne 24,500 direct account me credit kiya. Zero hassle.',
       rating: 5,
       area: 'Gandhi Chowk'
     }
@@ -180,7 +180,7 @@ export default function CityDetailPage() {
       a: `Every device undergoes our certified NIST SP 800-88 data sanitization process. You receive an official digital certificate with a verifiable SHA-256 hash.`
     },
     {
-      q: `Can I visit the local SELBAR Experience Store in ${city.name}?`,
+      q: `Can I visit the local Sellbar Experience Store in ${city.name}?`,
       a: `Yes, you can visit our local store at ${store.address} to buy certified refurbished smartphones or get 30-minute screen and battery repairs.`
     }
   ];
@@ -382,7 +382,7 @@ export default function CityDetailPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-slate-900">
-            What Customers in {city.name} Say About SELBAR
+            What Customers in {city.name} Say About Sellbar
           </h2>
           <p className="mt-1 text-xs text-slate-500">
             Real verified doorstep transactions from your neighbourhood.

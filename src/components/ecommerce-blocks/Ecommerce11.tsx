@@ -53,7 +53,7 @@ const INITIAL_CART_ITEMS: CartItem[] = [
     quantity: 1,
     image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&auto=format&fit=crop&q=80',
     inStock: true,
-    warranty: '12 Months SELBAR Full Coverage',
+    warranty: '12 Months Sellbar Full Coverage',
   },
   {
     id: 'cart-2',
@@ -78,7 +78,7 @@ const INITIAL_CART_ITEMS: CartItem[] = [
     quantity: 1,
     image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&auto=format&fit=crop&q=80',
     inStock: true,
-    warranty: '6 Months SELBAR Express Replacement',
+    warranty: '6 Months Sellbar Express Replacement',
   },
 ];
 
@@ -113,7 +113,7 @@ export function Ecommerce11({ onCheckout }: Ecommerce11Props = {}) {
         quantity: gItem.quantity,
         image: gItem.image,
         inStock: true,
-        warranty: `${gItem.warrantyMonths || 12} Months SELBAR Assured`,
+        warranty: `${gItem.warrantyMonths || 12} Months Sellbar Assured`,
       }));
       setItems(mapped);
     }
@@ -150,13 +150,13 @@ export function Ecommerce11({ onCheckout }: Ecommerce11Props = {}) {
   const handleApplyCoupon = (e: React.FormEvent) => {
     e.preventDefault();
     const clean = couponCode.trim().toUpperCase();
-    if (clean === 'SELBARPROMO' || clean === 'REACTBITS') {
+    if (clean === 'SellbarPROMO' || clean === 'REACTBITS') {
       setAppliedDiscount(2500);
       setCouponError('');
     } else if (clean === '') {
       setCouponError('Please enter a voucher code');
     } else {
-      setCouponError('Invalid promo code. Try "SELBARPROMO" or "REACTBITS"');
+      setCouponError('Invalid promo code. Try "SellbarPROMO" or "REACTBITS"');
     }
   };
 
@@ -417,7 +417,7 @@ export function Ecommerce11({ onCheckout }: Ecommerce11Props = {}) {
                     maxLength={160}
                     value={giftNote}
                     onChange={(e) => setGiftNote(e.target.value)}
-                    placeholder="Write your personal message here. It will be printed with pride on SELBAR eco-stationery..."
+                    placeholder="Write your personal message here. It will be printed with pride on Sellbar eco-stationery..."
                     className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#00a599] text-slate-800 resize-none"
                   />
                 </div>
@@ -454,7 +454,7 @@ export function Ecommerce11({ onCheckout }: Ecommerce11Props = {}) {
                       setCouponCode(e.target.value);
                       setCouponError('');
                     }}
-                    placeholder="Enter SELBARPROMO"
+                    placeholder="Enter SellbarPROMO"
                     className="w-full pl-8 pr-3 py-2 text-xs uppercase rounded-xl border border-slate-300 bg-white text-slate-900 placeholder:normal-case placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00a599]"
                   />
                   <Tag className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5" />

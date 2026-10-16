@@ -22,7 +22,7 @@ import {
 const STORES = [
   {
     id: 'bettiah-1',
-    name: 'SELBAR Experience Centre — Bettiah Flagship',
+    name: 'Sellbar Experience Centre — Bettiah Flagship',
     address: 'Shop 12-14, Ground Floor, Station Road, Near Supriya Cinema, Bettiah',
     state: 'Bihar',
     city: 'Bettiah',
@@ -35,7 +35,7 @@ const STORES = [
   },
   {
     id: 'bagaha-1',
-    name: 'SELBAR Store — Bagaha Main Market',
+    name: 'Sellbar Store — Bagaha Main Market',
     address: 'Gandhi Chowk, Main Bazaar Road, Bagaha-1, West Champaran',
     state: 'Bihar',
     city: 'Bagaha',
@@ -48,7 +48,7 @@ const STORES = [
   },
   {
     id: 'narkatiaganj-1',
-    name: 'SELBAR Experience Hub — Narkatiaganj Station',
+    name: 'Sellbar Experience Hub — Narkatiaganj Station',
     address: 'Station Road, Near Railway Junction Gate 1, Narkatiaganj',
     state: 'Bihar',
     city: 'Narkatiaganj',
@@ -61,7 +61,7 @@ const STORES = [
   },
   {
     id: 'ramnagar-1',
-    name: 'SELBAR Store — Ramnagar Cinema Chowk',
+    name: 'Sellbar Store — Ramnagar Cinema Chowk',
     address: 'Cinema Road, Main Market, Ramnagar, West Champaran',
     state: 'Bihar',
     city: 'Ramnagar',
@@ -74,7 +74,7 @@ const STORES = [
   },
   {
     id: 'lauriya-1',
-    name: 'SELBAR Hub — Lauriya Chowk',
+    name: 'Sellbar Hub — Lauriya Chowk',
     address: 'Near Ashok Pillar Historical Chowk, Main Road, Lauriya',
     state: 'Bihar',
     city: 'Lauriya',
@@ -87,7 +87,7 @@ const STORES = [
   },
   {
     id: 'valmikinagar-1',
-    name: 'SELBAR Service Point — Valmikinagar',
+    name: 'Sellbar Service Point — Valmikinagar',
     address: 'Main Gate Complex, Near Valmiki Tiger Reserve, Valmikinagar',
     state: 'Bihar',
     city: 'Valmikinagar',
@@ -156,7 +156,7 @@ export default function StoresPage() {
             <span>50+ Experience Centres & Verification Hubs</span>
           </div>
           <h1 className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight">
-            Find A SELBAR Store <span className="text-emerald-600">Near You</span>
+            Find A Sellbar Store <span className="text-emerald-600">Near You</span>
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
             Walk in to sell your old device for instant cash, experience certified refurbished phones, or get screen repair in 30 minutes.
@@ -304,7 +304,7 @@ export default function StoresPage() {
           {/* Active Chips & Count Bar */}
           <div className="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-xs flex flex-wrap items-center justify-between gap-3">
             <div className="text-xs font-medium text-slate-600">
-              Showing <strong className="text-slate-900">{filteredStores.length}</strong> official SELBAR experience centres
+              Showing <strong className="text-slate-900">{filteredStores.length}</strong> official Sellbar experience centres
             </div>
 
             {isFiltered && (

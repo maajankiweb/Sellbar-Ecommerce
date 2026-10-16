@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# SELBAR — Automated Daily MongoDB Backup to Cloudflare R2 / AWS S3
+# Sellbar — Automated Daily MongoDB Backup to Cloudflare R2 / AWS S3
 # Designed for MongoDB Atlas Free/Shared tiers (M0/M2/M5) without continuous backup.
 #
 # Requirements:
@@ -8,14 +8,14 @@
 # - aws-cli or rclone configured with Cloudflare R2 endpoint
 #
 # Recommended Cron (Daily at 02:00 AM UTC):
-# 0 2 * * * /path/to/Sellbar/src/scripts/backupDatabase.sh >> /var/log/selbar-backup.log 2>&1
+# 0 2 * * * /path/to/Sellbar/src/scripts/backupDatabase.sh >> /var/log/sellbar-backup.log 2>&1
 # ==============================================================================
 
 set -euo pipefail
 
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-BACKUP_DIR="/tmp/selbar_mongo_backups"
-ARCHIVE_NAME="selbar_backup_${TIMESTAMP}.gz"
+BACKUP_DIR="/tmp/sellbar_mongo_backups"
+ARCHIVE_NAME="sellbar_backup_${TIMESTAMP}.gz"
 ARCHIVE_PATH="${BACKUP_DIR}/${ARCHIVE_NAME}"
 
 # Ensure backup directory exists

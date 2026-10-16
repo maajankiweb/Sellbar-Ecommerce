@@ -14,7 +14,7 @@ async function handlePayoutCron(req: NextRequest) {
     // 1. Authorize: Check CRON_SECRET or MANAGER token
     const authHeader = req.headers.get('authorization') || '';
     const token = authHeader.replace(/^Bearer\s+/i, '');
-    const cronSecret = process.env.CRON_SECRET || 'selbar_cron_secret_key_2026';
+    const cronSecret = process.env.CRON_SECRET || 'sellbar_cron_secret_key_2026';
 
     if (!token || token !== cronSecret) {
       return NextResponse.json(

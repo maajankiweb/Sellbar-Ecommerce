@@ -1,5 +1,5 @@
 /**
- * SELBAR Centralized Location Management System
+ * Sellbar Centralized Location Management System
  * 
  * Target Zone: West Champaran, Bihar
  * Authorized Hubs: Bagaha, Bettiah, Lauriya, Ramnagar, Valmikinagar, Narkatiaganj
@@ -99,7 +99,7 @@ export const AUTHORIZED_LOCATIONS: AuthorizedLocation[] = [
 ];
 
 export const SERVICE_RESTRICTION_ERROR_MESSAGE =
-  'Currently, SELBAR services (Sell, Buy & Repair) are exclusively active in West Champaran, Bihar (Bagaha, Bettiah, Lauriya, Ramnagar, Valmikinagar, Narkatiaganj). Service in other areas will launch soon!';
+  'Currently, Sellbar services (Sell, Buy & Repair) are exclusively active in West Champaran, Bihar (Bagaha, Bettiah, Lauriya, Ramnagar, Valmikinagar, Narkatiaganj). Service in other areas will launch soon!';
 
 /**
  * Checks if a city name matches any authorized location in West Champaran

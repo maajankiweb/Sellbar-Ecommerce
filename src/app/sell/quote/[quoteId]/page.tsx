@@ -146,7 +146,7 @@ export default function QuotePage({
       return;
     }
     if (serviceability && !serviceability.serviceable) {
-      setBookingError('Currently, SELBAR services are exclusively active in West Champaran, Bihar (Bagaha, Bettiah, Lauriya, Ramnagar, Valmikinagar, Narkatiaganj). Doorstep pickup is not available outside this region.');
+      setBookingError('Currently, Sellbar services are exclusively active in West Champaran, Bihar (Bagaha, Bettiah, Lauriya, Ramnagar, Valmikinagar, Narkatiaganj). Doorstep pickup is not available outside this region.');
       return;
     }
 
@@ -155,7 +155,7 @@ export default function QuotePage({
 
     // Auto-login user if not logged in
     if (!isLoggedIn) {
-      login(phone, fullName || 'SELBAR Customer');
+      login(phone, fullName || 'Sellbar Customer');
     }
 
     try {
@@ -417,7 +417,7 @@ export default function QuotePage({
                       ⚠️ Unsupported Location (PIN: {serviceability.pincode})
                     </p>
                     <p className="text-[11px] text-rose-700 leading-relaxed">
-                      Currently, SELBAR services are exclusively active in <strong>West Champaran, Bihar</strong> (Bagaha, Bettiah, Lauriya, Ramnagar, Valmikinagar, Narkatiaganj). Transactions outside this area cannot be processed.
+                      Currently, Sellbar services are exclusively active in <strong>West Champaran, Bihar</strong> (Bagaha, Bettiah, Lauriya, Ramnagar, Valmikinagar, Narkatiaganj). Transactions outside this area cannot be processed.
                     </p>
                     {!notifySaved ? (
                       <div className="flex gap-2 pt-1">

@@ -142,7 +142,7 @@ function HelpContent() {
         {[
           { icon: <MessageSquare className="h-5 w-5 text-blue-600" />, bg: 'bg-blue-50', title: 'Live Chat', desc: 'Chat with our support team. Avg. response < 2 min.', cta: 'Start Chat', href: '/account/support' },
           { icon: <Star className="h-5 w-5 text-amber-500" />, bg: 'bg-amber-50', title: 'Raise a Ticket', desc: 'Submit a detailed support request. We\'ll respond in 4 hours.', cta: 'Create Ticket', href: '/account/support' },
-          { icon: <ExternalLink className="h-5 w-5 text-emerald-600" />, bg: 'bg-emerald-50', title: 'Email Support', desc: 'Email us at support@selbar.in for non-urgent queries.', cta: 'Send Email', href: 'mailto:support@selbar.in' },
+          { icon: <ExternalLink className="h-5 w-5 text-emerald-600" />, bg: 'bg-emerald-50', title: 'Email Support', desc: 'Email us at support@sellbar.in for non-urgent queries.', cta: 'Send Email', href: 'mailto:support@sellbar.in' },
         ].map(item => (
           <Link
             key={item.title}

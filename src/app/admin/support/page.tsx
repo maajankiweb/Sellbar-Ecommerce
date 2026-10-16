@@ -153,7 +153,7 @@ export default function AdminSupportPage() {
         data={tickets}
         keyField="id"
         searchPlaceholder="Search tickets by subject, ID or customer..."
-        exportFilename="selbar_support_tickets"
+        exportFilename="sellbar_support_tickets"
       />
 
       {/* Ticket Inspect Modal */}

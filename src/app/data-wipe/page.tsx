@@ -115,7 +115,7 @@ export default function DataWipePage() {
                 <span className="w-7 h-7 rounded-lg bg-emerald-600 text-white font-bold text-xs flex items-center justify-center">2</span>
                 <h4 className="text-sm font-bold text-slate-900">Lab Diagnostic Intake</h4>
                 <p className="text-xs text-slate-500">
-                  Device connected to isolated SELBAR security terminal with write-blocking hardware.
+                  Device connected to isolated Sellbar security terminal with write-blocking hardware.
                 </p>
               </div>
 
@@ -200,7 +200,7 @@ export default function DataWipePage() {
           <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-md space-y-6 text-xs sm:text-sm text-slate-700 leading-relaxed">
             <div className="border-b border-slate-100 pb-4">
               <h2 className="text-xl font-black text-slate-900">
-                SELBAR Privacy Policy (Compliant with India DPDP Act 2023)
+                Sellbar Privacy Policy (Compliant with India DPDP Act 2023)
               </h2>
               <p className="text-xs text-slate-500 mt-1">Last Updated: September 2026</p>
             </div>
@@ -208,12 +208,12 @@ export default function DataWipePage() {
             <div className="space-y-4">
               <h3 className="text-sm font-bold text-slate-900">1. Data Fiduciary Commitment</h3>
               <p>
-                SELBAR Recommerce Technologies Private Limited operates as a certified Data Fiduciary under the Digital Personal Data Protection (DPDP) Act 2023. We collect personal identifiers solely for doorstep buyback logistics, KYC identity verification, and GST billing.
+                Sellbar Recommerce Technologies Private Limited operates as a certified Data Fiduciary under the Digital Personal Data Protection (DPDP) Act 2023. We collect personal identifiers solely for doorstep buyback logistics, KYC identity verification, and GST billing.
               </p>
 
               <h3 className="text-sm font-bold text-slate-900">2. Device Data Destruction</h3>
               <p>
-                Under our Zero-Residual Data Guarantee, any pre-owned smartphone, laptop, or tablet received by SELBAR is sanitized through automated NIST 800-88 cryptographic wiping before diagnostic refurbishing or parts harvesting. No employee or customer has access to residual files.
+                Under our Zero-Residual Data Guarantee, any pre-owned smartphone, laptop, or tablet received by Sellbar is sanitized through automated NIST 800-88 cryptographic wiping before diagnostic refurbishing or parts harvesting. No employee or customer has access to residual files.
               </p>
 
               <h3 className="text-sm font-bold text-slate-900">3. Grievance Officer</h3>
@@ -222,7 +222,7 @@ export default function DataWipePage() {
                 <br />
                 <strong>Grievance Officer:</strong> Amitav Sen, Data Protection Lead
                 <br />
-                <strong>Email:</strong> privacy@selbar.in | <strong>Address:</strong> Station Road, Bettiah, Bihar 845438
+                <strong>Email:</strong> privacy@sellbar.in | <strong>Address:</strong> Station Road, Bettiah, Bihar 845438
               </p>
             </div>
           </div>
@@ -234,7 +234,7 @@ export default function DataWipePage() {
         <div className="space-y-8 animate-in fade-in duration-200">
           <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-md space-y-6 text-xs sm:text-sm text-slate-700 leading-relaxed">
             <div className="border-b border-slate-100 pb-4">
-              <h2 className="text-xl font-black text-slate-900">SELBAR Cookie & LocalStorage Policy</h2>
+              <h2 className="text-xl font-black text-slate-900">Sellbar Cookie & LocalStorage Policy</h2>
               <p className="text-xs text-slate-500 mt-1">Last Updated: September 2026</p>
             </div>
 
@@ -246,7 +246,7 @@ export default function DataWipePage() {
 
               <h3 className="text-sm font-bold text-slate-900">2. Third-Party Trackers</h3>
               <p>
-                SELBAR does NOT sell your behavioral browsing data to third-party ad networks. Analytics are anonymized to ensure lightning-fast website performance.
+                Sellbar does NOT sell your behavioral browsing data to third-party ad networks. Analytics are anonymized to ensure lightning-fast website performance.
               </p>
             </div>
           </div>

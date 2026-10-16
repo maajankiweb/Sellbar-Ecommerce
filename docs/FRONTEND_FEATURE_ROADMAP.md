@@ -1,4 +1,4 @@
-# 🚀 SELBAR Frontend Feature & Design Roadmap
+# 🚀 Sellbar Frontend Feature & Design Roadmap
 > **Comprehensive UI/UX, Page-Wise Sections & Interactive Component Catalog**
 > *Status: Ready for Selection & Implementation*
 
@@ -35,7 +35,7 @@ Neeche diye gaye features me se aapko jo bhi section ya design component pehle i
 - [x] **Feature:** Split before/after interactive savings visualizer. (Completed ✅)
 - **Details:**
   - Left Side: Brand New Store Price (e.g. `MRP ₹79,900`).
-  - Right Side: SELBAR Certified Refurbished Grade A (e.g. `₹38,999`).
+  - Right Side: Sellbar Certified Refurbished Grade A (e.g. `₹38,999`).
   - Bottom Banner: *"You Save ₹40,901 (51% Off) + 12 Months Assured Warranty"*.
   - Interactive budget slider (₹15k, ₹30k, ₹50k, ₹80k) with top device recommendations.
 
@@ -159,7 +159,7 @@ Neeche diye gaye features me se aapko jo bhi section ya design component pehle i
 ### 6.1 WhatsApp Floating Instant Concierge Button
 - [x] **Feature:** Bottom-right corner par animated WhatsApp chat pill. (Completed ✅)
 - **Details:**
-  - Click karte hi pre-filled message: *"Hi SELBAR team, I want to sell/buy a gadget."*
+  - Click karte hi pre-filled message: *"Hi Sellbar team, I want to sell/buy a gadget."*
 
 ### 6.2 Luxury Dark Mode / Light Mode Toggle
 - [x] **Feature:** Header me sleek theme switch. (Completed ✅)

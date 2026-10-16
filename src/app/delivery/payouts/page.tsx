@@ -81,7 +81,7 @@ export default function DeliveryPayoutsPage() {
         const newTx: PayoutTransaction = {
           id: `tx-payout-${Date.now()}`,
           orderNumber: payload.transferId || 'DAILY-EARNINGS',
-          customerName: 'SELBAR Partner Payout',
+          customerName: 'Sellbar Partner Payout',
           device: `Fuel ₹${payload.breakdown?.fuelAllowance || 350} + Incentive ₹${payload.breakdown?.completionIncentive || 500}`,
           amount: payload.amount,
           time: 'Just now',
@@ -170,7 +170,7 @@ export default function DeliveryPayoutsPage() {
         <div className="bg-white border border-slate-200 p-4 rounded-3xl shadow-xs">
           <div className="text-xs font-bold text-slate-500">Escrow Balance Remaining</div>
           <div className="text-2xl font-black text-blue-600 mt-1">₹1,80,500</div>
-          <div className="text-[10px] text-slate-400 mt-1">SELBAR corporate float pool</div>
+          <div className="text-[10px] text-slate-400 mt-1">Sellbar corporate float pool</div>
         </div>
       </div>
 

@@ -98,7 +98,7 @@ export class DriverPayoutAutomationService {
           completionIncentive,
           totalKmCovered: metric.totalDistanceKm || 45,
         },
-        narration: `SELBAR Daily Earnings ${dateStr} - Fuel ₹${fuelAllowance} + Incentive ₹${completionIncentive}`,
+        narration: `Sellbar Daily Earnings ${dateStr} - Fuel ₹${fuelAllowance} + Incentive ₹${completionIncentive}`,
       });
 
       transfers.push(payoutResult);

@@ -110,7 +110,7 @@ export default function AdminActivityLogsPage() {
         data={logs}
         keyField="id"
         searchPlaceholder="Search audit trail by admin, action or details..."
-        exportFilename="selbar_security_audit_logs"
+        exportFilename="sellbar_security_audit_logs"
       />
     </div>
   );

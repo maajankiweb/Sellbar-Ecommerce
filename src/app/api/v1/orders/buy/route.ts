@@ -122,7 +122,7 @@ export async function POST(request: Request) {
       totalAmount,
       state: 'PLACED',
       trackingNumber,
-      courierPartner: 'SELBAR Express Doorstep',
+      courierPartner: 'Sellbar Express Doorstep',
       createdAt: nowIso,
       updatedAt: nowIso,
     };

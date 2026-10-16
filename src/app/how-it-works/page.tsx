@@ -32,7 +32,7 @@ export default function HowItWorksPage() {
           <span>Frictionless Recommerce Experience</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight leading-tight">
-          How <span className="text-emerald-600">SELBAR</span> Works
+          How <span className="text-emerald-600">Sellbar</span> Works
         </h1>
         <p className="text-xs sm:text-base text-slate-600 leading-relaxed">
           From doorstep device sell-offs with spot cash to certified refurbished smartphones with 1-year warranty, explore our transparent workflows and corporate story.
@@ -163,7 +163,7 @@ export default function HowItWorksPage() {
                 <span className="w-8 h-8 rounded-xl bg-blue-600 text-white font-bold text-xs flex items-center justify-center shadow-xs">3</span>
                 <h3 className="text-sm font-bold text-slate-900">Free Express Delivery</h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  Shipped securely in a tamper-proof SELBAR branded box containing a compatible fast-charging cable and official warranty card.
+                  Shipped securely in a tamper-proof Sellbar branded box containing a compatible fast-charging cable and official warranty card.
                 </p>
               </div>
 
@@ -260,10 +260,10 @@ export default function HowItWorksPage() {
                 Democratizing Transparent Recommerce in Tier-2 & Tier-3 India
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Founded by <strong>Maajanki Web Tech</strong>, SELBAR was created to solve the fundamental lack of trust in India's secondary smartphone market. Traditional local mobile shops often lack transparent pricing, fail to guarantee data erasure, and offer no warranty on refurbished gadgets.
+                Founded by <strong>Maajanki Web Tech</strong>, Sellbar was created to solve the fundamental lack of trust in India's secondary smartphone market. Traditional local mobile shops often lack transparent pricing, fail to guarantee data erasure, and offer no warranty on refurbished gadgets.
               </p>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                SELBAR combines an in-house algorithmic pricing engine, CPCB-authorized electronic recycling compliance, and a doorstep delivery network across Bihar and Uttar Pradesh, making recommerce safe, fair, and rewarding for everyday citizens.
+                Sellbar combines an in-house algorithmic pricing engine, CPCB-authorized electronic recycling compliance, and a doorstep delivery network across Bihar and Uttar Pradesh, making recommerce safe, fair, and rewarding for everyday citizens.
               </p>
             </div>
 
@@ -302,7 +302,7 @@ export default function HowItWorksPage() {
               </div>
               <h4 className="text-base font-bold text-white">Media Coverage & Institutional Relations</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                For corporate inquiries, research citations, or franchise partnerships, contact our communications desk at <strong className="text-white">press@selbar.in</strong>.
+                For corporate inquiries, research citations, or franchise partnerships, contact our communications desk at <strong className="text-white">press@sellbar.in</strong>.
               </p>
             </div>
           </div>

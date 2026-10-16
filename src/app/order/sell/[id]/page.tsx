@@ -252,7 +252,7 @@ export default function SellOrderTrackingPage({
               <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-700">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="text-base font-black text-slate-950">SELBAR Certified Data Erasure Guarantee</h3>
+              <h3 className="text-base font-black text-slate-950">Sellbar Certified Data Erasure Guarantee</h3>
               <p className="text-xs text-slate-500">Official Certificate of Destruction & Digital Sanitation</p>
             </div>
 

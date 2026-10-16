@@ -105,7 +105,7 @@ export default function MemberRoleBar() {
                 <Layers className="w-3.5 h-3.5" />
               </div>
               <div>
-                <div className="text-xs font-black">SELBAR Member Portals</div>
+                <div className="text-xs font-black">Sellbar Member Portals</div>
                 <div className="text-[10px] text-slate-400">All Role Dashboards & Profiles</div>
               </div>
             </div>

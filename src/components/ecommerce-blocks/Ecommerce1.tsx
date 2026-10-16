@@ -104,7 +104,7 @@ const DEMO_PRODUCT: ProductData = {
     },
     {
       id: 'warranty',
-      title: '12-Month Comprehensive SELBAR Warranty',
+      title: '12-Month Comprehensive Sellbar Warranty',
       icon: Sparkles,
       content:
         'Includes 1-year coverage for motherboard, screen components, audio receivers, and battery performance. Free doorstep pickup and priority repair if any hardware defect arises.',
@@ -121,7 +121,7 @@ const DEMO_PRODUCT: ProductData = {
       title: 'Battery Health & Packaging Specs',
       icon: Battery,
       content:
-        'Certified OEM battery health audited at 92% to 98%. Ships in tamper-proof SELBAR Eco-Kraft recycled box with MFi-certified fast braided charging cable and SIM ejector tool.',
+        'Certified OEM battery health audited at 92% to 98%. Ships in tamper-proof Sellbar Eco-Kraft recycled box with MFi-certified fast braided charging cable and SIM ejector tool.',
     },
   ],
 };
@@ -142,7 +142,7 @@ export function Ecommerce1({ product, onAddToCart, onBuyNow }: Ecommerce1Props =
         originalPrice: product.originalMrp || product.price || DEMO_PRODUCT.originalPrice,
         rating: product.rating || 4.9,
         reviewsCount: product.reviewCount || 340,
-        sku: product.id || product.slug || 'SELBAR-CERT-01',
+        sku: product.id || product.slug || 'Sellbar-CERT-01',
         images:
           Array.isArray(product.images) && product.images.length > 0
             ? product.images

@@ -257,7 +257,7 @@ export default function AdminOrdersPage() {
         keyField="id"
         searchPlaceholder="Search orders by ID, customer name or email..."
         searchField={o => `${o.orderNumber} ${o.customerName} ${o.customerEmail}`}
-        exportFilename="selbar_orders_report"
+        exportFilename="sellbar_orders_report"
         filterOptions={[
           {
             label: 'Payment Method',

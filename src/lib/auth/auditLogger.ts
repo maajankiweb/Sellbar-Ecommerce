@@ -14,11 +14,11 @@ interface LogEventParams {
 
 declare global {
   // eslint-disable-next-line no-var
-  var __SELBAR_AUDIT_FALLBACK_LOGS__: any[] | undefined;
+  var __Sellbar_AUDIT_FALLBACK_LOGS__: any[] | undefined;
 }
 
-if (!global.__SELBAR_AUDIT_FALLBACK_LOGS__) {
-  global.__SELBAR_AUDIT_FALLBACK_LOGS__ = [];
+if (!global.__Sellbar_AUDIT_FALLBACK_LOGS__) {
+  global.__Sellbar_AUDIT_FALLBACK_LOGS__ = [];
 }
 
 /**
@@ -46,9 +46,9 @@ export async function logAuthEvent(params: LogEventParams): Promise<void> {
   };
 
   // Always keep in fast local memory ring buffer (last 500 entries)
-  global.__SELBAR_AUDIT_FALLBACK_LOGS__!.unshift(logEntry);
-  if (global.__SELBAR_AUDIT_FALLBACK_LOGS__!.length > 500) {
-    global.__SELBAR_AUDIT_FALLBACK_LOGS__!.pop();
+  global.__Sellbar_AUDIT_FALLBACK_LOGS__!.unshift(logEntry);
+  if (global.__Sellbar_AUDIT_FALLBACK_LOGS__!.length > 500) {
+    global.__Sellbar_AUDIT_FALLBACK_LOGS__!.pop();
   }
 
   // Persist to MongoDB Atlas asynchronously
@@ -74,5 +74,5 @@ export async function getRecentAuditLogs(limit = 50) {
   } catch {
     // fallback to memory
   }
-  return (global.__SELBAR_AUDIT_FALLBACK_LOGS__ || []).slice(0, limit);
+  return (global.__Sellbar_AUDIT_FALLBACK_LOGS__ || []).slice(0, limit);
 }

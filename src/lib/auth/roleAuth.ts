@@ -111,13 +111,13 @@ export function verifyRoleCredentials(
 
   // Set authenticated session in localStorage
   if (typeof window !== 'undefined') {
-    localStorage.setItem(`selbar_session_${cred.role}`, JSON.stringify({
+    localStorage.setItem(`sellbar_session_${cred.role}`, JSON.stringify({
       authenticatedAt: new Date().toISOString(),
       role: cred.role,
       user: cred.name,
       email: cred.defaultEmail,
     }));
-    localStorage.setItem('selbar_current_active_role', cred.role);
+    localStorage.setItem('sellbar_current_active_role', cred.role);
   }
 
   return { success: true, credential: cred };
@@ -129,7 +129,7 @@ export function verifyRoleCredentials(
 export function isRoleAuthenticated(role: string): boolean {
   if (typeof window === 'undefined') return false;
   try {
-    const raw = localStorage.getItem(`selbar_session_${role}`);
+    const raw = localStorage.getItem(`sellbar_session_${role}`);
     return Boolean(raw);
   } catch {
     return false;
@@ -141,5 +141,5 @@ export function isRoleAuthenticated(role: string): boolean {
  */
 export function logoutRoleSession(role: string): void {
   if (typeof window === 'undefined') return;
-  localStorage.removeItem(`selbar_session_${role}`);
+  localStorage.removeItem(`sellbar_session_${role}`);
 }

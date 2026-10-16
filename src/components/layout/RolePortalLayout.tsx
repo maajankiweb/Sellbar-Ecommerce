@@ -285,7 +285,7 @@ export default function RolePortalLayout({
                 S
               </div>
               <div className="leading-tight">
-                <div className="text-xs font-black tracking-tight text-slate-900">SELBAR</div>
+                <div className="text-xs font-black tracking-tight text-slate-900">Sellbar</div>
                 <div className="text-[10px] text-slate-500 font-bold uppercase">{cred.title}</div>
               </div>
             </div>

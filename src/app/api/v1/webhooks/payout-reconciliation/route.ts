@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
       req.headers.get('x-webhook-signature');
 
     const payoutWebhookSecret =
-      process.env.PAYOUT_WEBHOOK_SECRET || process.env.RAZORPAY_WEBHOOK_SECRET || 'selbar_payout_webhook_secret_2026';
+      process.env.PAYOUT_WEBHOOK_SECRET || process.env.RAZORPAY_WEBHOOK_SECRET || 'sellbar_payout_webhook_secret_2026';
 
     // Verify HMAC signature if provided
     if (signature && payoutWebhookSecret && !payoutWebhookSecret.includes('xxxx')) {

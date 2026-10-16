@@ -206,8 +206,8 @@ export function AdminHeader() {
   };
 
   const handleLogout = () => {
-    document.cookie = 'selbar_access_token=; path=/; max-age=0;';
-    document.cookie = 'selbar_refresh_token=; path=/; max-age=0;';
+    document.cookie = 'sellbar_access_token=; path=/; max-age=0;';
+    document.cookie = 'sellbar_refresh_token=; path=/; max-age=0;';
     router.push('/admin/login');
   };
 

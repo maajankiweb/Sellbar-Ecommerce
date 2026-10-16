@@ -112,8 +112,8 @@ export function AdminProvider({ children }: { children: ReactNode }) {
   // Initialize and force clean white/light theme everywhere
   useEffect(() => {
     try {
-      localStorage.removeItem('selbar_admin_theme');
-      const savedSidebar = localStorage.getItem('selbar_admin_sidebar_collapsed');
+      localStorage.removeItem('sellbar_admin_theme');
+      const savedSidebar = localStorage.getItem('sellbar_admin_sidebar_collapsed');
       if (savedSidebar !== null) {
         setSidebarCollapsed(savedSidebar === 'true');
       }
@@ -142,7 +142,7 @@ export function AdminProvider({ children }: { children: ReactNode }) {
     setSidebarCollapsed(prev => {
       const next = !prev;
       try {
-        localStorage.setItem('selbar_admin_sidebar_collapsed', String(next));
+        localStorage.setItem('sellbar_admin_sidebar_collapsed', String(next));
       } catch {}
       return next;
     });

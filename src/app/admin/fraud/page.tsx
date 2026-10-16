@@ -252,7 +252,7 @@ export default function AdminFraudRiskPage() {
       setLookupResult({
         checked: true,
         clean: true,
-        details: 'Verified Clean: No records in CEIR or SELBAR Fraud Network.',
+        details: 'Verified Clean: No records in CEIR or Sellbar Fraud Network.',
         gsmaStatus: 'CLEAN_VERIFIED'
       });
     }

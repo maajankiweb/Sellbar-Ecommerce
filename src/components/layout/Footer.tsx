@@ -45,7 +45,7 @@ export default function Footer() {
         ...prev,
         {
           sender: 'bot',
-          text: 'Thanks for reaching out! Our doorstep technician / support specialist will connect with you in under 2 minutes. You can also call us at 1800-SELBAR-HELP.'
+          text: 'Thanks for reaching out! Our doorstep technician / support specialist will connect with you in under 2 minutes. You can also call us at 1800-Sellbar-HELP.'
         }
       ]);
     }, 800);
@@ -158,7 +158,7 @@ export default function Footer() {
               <li><Link href="/partner" className="hover:text-[#14B8A6] transition-colors">Careers</Link></li>
               <li><Link href="/faq" className="hover:text-[#14B8A6] transition-colors">Articles</Link></li>
               <li><Link href="/how-it-works" className="hover:text-[#14B8A6] transition-colors">Press Releases</Link></li>
-              <li><Link href="/partner" className="hover:text-[#14B8A6] transition-colors">Become SELBAR Partner</Link></li>
+              <li><Link href="/partner" className="hover:text-[#14B8A6] transition-colors">Become Sellbar Partner</Link></li>
               <li><Link href="/partner" className="hover:text-[#14B8A6] transition-colors">Become Supersale Partner</Link></li>
               <li><Link href="/how-it-works" className="hover:text-[#14B8A6] transition-colors">Corporate Information</Link></li>
             </ul>
@@ -186,8 +186,9 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs text-slate-600 font-medium">
               <li><Link href="/faq" className="hover:text-[#14B8A6] transition-colors">FAQ</Link></li>
               <li><Link href="/stores" className="hover:text-[#14B8A6] transition-colors">Contact Us</Link></li>
-              <li><Link href="/warranty" className="hover:text-[#14B8A6] transition-colors">Warranty Policy</Link></li>
-              <li><Link href="/warranty" className="hover:text-[#14B8A6] transition-colors">Refund Policy</Link></li>
+              <li><Link href="/legal/warranty" className="hover:text-[#14B8A6] transition-colors">Warranty Policy</Link></li>
+              <li><Link href="/legal/refund" className="hover:text-[#14B8A6] transition-colors">Refund & Replacement</Link></li>
+              <li><Link href="/legal/grievance" className="hover:text-[#14B8A6] transition-colors">Grievance Redressal</Link></li>
             </ul>
           </div>
 
@@ -195,19 +196,18 @@ export default function Footer() {
           <div className="space-y-6">
             <div>
               <h4 className="text-sm font-bold text-slate-800 mb-4 tracking-tight">
-                More Info
+                Legal & Compliance
               </h4>
               <ul className="space-y-2.5 text-xs text-slate-600 font-medium">
-                <li><Link href="/faq" className="hover:text-[#14B8A6] transition-colors">Terms & Conditions</Link></li>
-                <li><Link href="/data-wipe" className="hover:text-[#14B8A6] transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/faq" className="hover:text-[#14B8A6] transition-colors">Terms of Use</Link></li>
-                <li><Link href="/recycle" className="hover:text-[#14B8A6] transition-colors">E-Waste Policy</Link></li>
-                <li><Link href="/data-wipe" className="hover:text-[#14B8A6] transition-colors">Cookie Policy</Link></li>
-                <li><Link href="/warranty" className="hover:text-[#14B8A6] transition-colors">What is Refurbished</Link></li>
+                <li><Link href="/legal/terms" className="hover:text-[#14B8A6] transition-colors">Terms of Use</Link></li>
+                <li><Link href="/legal/privacy" className="hover:text-[#14B8A6] transition-colors">Privacy Policy (DPDP)</Link></li>
+                <li><Link href="/legal/cookies" className="hover:text-[#14B8A6] transition-colors">Cookie Policy</Link></li>
+                <li><Link href="/legal/e-waste" className="hover:text-[#14B8A6] transition-colors">E-Waste Policy</Link></li>
+                <li><Link href="/legal/warranty" className="hover:text-[#14B8A6] transition-colors">Warranty Terms</Link></li>
               </ul>
             </div>
 
-            {/* Chat with Us Widget Card (Exactly as in screenshot) */}
+            {/* Chat with Us Widget Card */}
             <div
               onClick={() => setIsChatOpen(true)}
               className="bg-[#2DD4BF] hover:bg-[#14B8A6] text-white p-3.5 rounded-2xl shadow-md cursor-pointer transition-all flex items-center gap-3 group"
@@ -226,7 +226,7 @@ export default function Footer() {
         {/* Bottom copyright line */}
         <div className="mt-12 pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
-            © 2026 SELBAR. All rights reserved. Built By{' '}
+            © 2026 Sellbar. All rights reserved. Built By{' '}
             <a
               href="https://maajankiwebtech.com"
               target="_blank"
@@ -237,11 +237,13 @@ export default function Footer() {
             </a>
           </p>
           <div className="flex items-center gap-4 text-[11px]">
-            <Link href="/warranty" className="hover:text-[#14B8A6]">Warranty Policy</Link>
+            <Link href="/legal/warranty" className="hover:text-[#14B8A6]">Warranty</Link>
             <span>•</span>
-            <Link href="/data-wipe" className="hover:text-[#14B8A6]">DPDP Act 2023</Link>
+            <Link href="/legal/privacy" className="hover:text-[#14B8A6]">Privacy (DPDP)</Link>
             <span>•</span>
-            <Link href="/faq" className="hover:text-[#14B8A6]">Help & FAQs</Link>
+            <Link href="/legal/terms" className="hover:text-[#14B8A6]">Terms</Link>
+            <span>•</span>
+            <Link href="/legal/grievance" className="hover:text-[#14B8A6]">Grievance</Link>
           </div>
         </div>
       </div>
@@ -256,7 +258,7 @@ export default function Footer() {
                 <MessageSquare className="w-4 h-4 text-white" />
               </div>
               <div>
-                <h4 className="text-sm font-bold">SELBAR Live Support</h4>
+                <h4 className="text-sm font-bold">Sellbar Live Support</h4>
                 <span className="text-[10px] text-white/80 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-300" />
                   Online • Typically replies instantly

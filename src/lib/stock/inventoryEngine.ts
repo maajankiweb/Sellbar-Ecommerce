@@ -14,11 +14,11 @@ export interface StockAuditLog {
 
 declare global {
   // eslint-disable-next-line no-var
-  var __SELBAR_STOCK_LOGS__: StockAuditLog[] | undefined;
+  var __Sellbar_STOCK_LOGS__: StockAuditLog[] | undefined;
 }
 
-if (!global.__SELBAR_STOCK_LOGS__) {
-  global.__SELBAR_STOCK_LOGS__ = [];
+if (!global.__Sellbar_STOCK_LOGS__) {
+  global.__Sellbar_STOCK_LOGS__ = [];
 }
 
 export async function getInventorySummary() {
@@ -96,7 +96,7 @@ export async function deductStockForOrder(items: Array<{ productId?: string; id?
       timestamp: new Date().toISOString(),
     };
 
-    global.__SELBAR_STOCK_LOGS__!.unshift(log);
+    global.__Sellbar_STOCK_LOGS__!.unshift(log);
     logs.push(log);
   }
 
@@ -124,7 +124,7 @@ export async function restoreStock(productId: string, quantity: number, action: 
     timestamp: new Date().toISOString(),
   };
 
-  global.__SELBAR_STOCK_LOGS__!.unshift(log);
+  global.__Sellbar_STOCK_LOGS__!.unshift(log);
   return log;
 }
 
@@ -149,10 +149,10 @@ export async function adjustStockManual(productId: string, newStockAmount: numbe
     timestamp: new Date().toISOString(),
   };
 
-  global.__SELBAR_STOCK_LOGS__!.unshift(log);
+  global.__Sellbar_STOCK_LOGS__!.unshift(log);
   return log;
 }
 
 export function getStockAuditLogs(limit = 50): StockAuditLog[] {
-  return (global.__SELBAR_STOCK_LOGS__ || []).slice(0, limit);
+  return (global.__Sellbar_STOCK_LOGS__ || []).slice(0, limit);
 }

@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
     await user.save();
 
     // 5. Revoke other sessions (keep current session active if refresh token provided)
-    const currentRefreshToken = req.cookies.get('selbar_refresh_token')?.value;
+    const currentRefreshToken = req.cookies.get('sellbar_refresh_token')?.value;
     if (currentRefreshToken) {
       const currentTokenHash = hashToken(currentRefreshToken);
       await Session.updateMany(
@@ -102,12 +102,12 @@ export async function POST(req: NextRequest) {
     if (userEmail) {
       await sendEmailNotification({
         to: userEmail,
-        subject: 'SELBAR Security: Your Password Was Changed',
+        subject: 'Sellbar Security: Your Password Was Changed',
         htmlContent: `
           <div style="font-family: Arial, sans-serif; max-width: 580px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px;">
             <h2 style="color: #047857; margin-top: 0;">Password Successfully Changed</h2>
             <p style="color: #475569; font-size: 14px;">Your account password was updated. Other active device sessions have been automatically signed out.</p>
-            <p style="color: #64748b; font-size: 12px;">If you made this change, you can safely disregard this email. If not, contact security@selbar.in immediately.</p>
+            <p style="color: #64748b; font-size: 12px;">If you made this change, you can safely disregard this email. If not, contact security@sellbar.in immediately.</p>
           </div>
         `,
       }).catch(() => {});

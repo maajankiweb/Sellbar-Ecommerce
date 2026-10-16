@@ -9,8 +9,8 @@ export function middleware(request: NextRequest) {
   const isProtectedSeller = pathname.startsWith('/seller') && !pathname.startsWith('/seller/login');
   const isProtectedAccount = pathname.startsWith('/account');
 
-  const refreshToken = request.cookies.get('selbar_refresh_token')?.value;
-  const accessToken = request.cookies.get('selbar_access_token')?.value;
+  const refreshToken = request.cookies.get('sellbar_refresh_token')?.value;
+  const accessToken = request.cookies.get('sellbar_access_token')?.value;
   const hasAuthSession = Boolean(refreshToken || accessToken);
 
   if (isProtectedAdmin && !hasAuthSession) {

@@ -5,7 +5,7 @@ import Order from '@/lib/db/models/Order';
 import { cacheStore } from '@/lib/auth/security/redisClient';
 import { verifyAccessToken } from '@/lib/auth/jwt';
 
-const OTP_PEPPER = process.env.OTP_HMAC_SECRET || 'selbar_secure_otp_pepper_secret_2026';
+const OTP_PEPPER = process.env.OTP_HMAC_SECRET || 'sellbar_secure_otp_pepper_secret_2026';
 
 function hashDeliveryOtp(code: string): string {
   return crypto.createHmac('sha256', OTP_PEPPER).update(code.trim()).digest('hex');

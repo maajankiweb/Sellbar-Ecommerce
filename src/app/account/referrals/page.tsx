@@ -34,9 +34,9 @@ function ReferralsContent() {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: 'Join SELBAR!',
+        title: 'Join Sellbar!',
         text: `Use my referral code ${REFERRAL_CODE} and we both get ₹${EARN_PER_REFERRAL} wallet credit when you make your first purchase!`,
-        url: `https://selbar.in/register?ref=${REFERRAL_CODE}`,
+        url: `https://sellbar.in/register?ref=${REFERRAL_CODE}`,
       });
     } else {
       handleCopy();
@@ -71,7 +71,7 @@ function ReferralsContent() {
             You both get <span className="text-yellow-300">₹{EARN_PER_REFERRAL}</span>
           </h2>
           <p className="text-white/80 text-sm mb-6">
-            Share your code. When your friend makes their first purchase, you both get ₹{EARN_PER_REFERRAL} as SELBAR wallet credit.
+            Share your code. When your friend makes their first purchase, you both get ₹{EARN_PER_REFERRAL} as Sellbar wallet credit.
           </p>
 
           {/* Referral Code */}

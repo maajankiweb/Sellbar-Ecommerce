@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json().catch(() => ({}));
     const type = body.type || 'welcome';
-    const email = body.email || 'customer.test@selbar.in';
+    const email = body.email || 'customer.test@sellbar.in';
     const name = body.name || 'Priya Patel';
 
     if (type === 'welcome') {
@@ -68,7 +68,7 @@ export async function POST(req: NextRequest) {
       const result = await sendSubscriptionRenewalReminderEmail({
         userEmail: email,
         userName: name,
-        planName: body.planName || 'SELBAR VIP Protection Pass',
+        planName: body.planName || 'Sellbar VIP Protection Pass',
         renewalDate: body.renewalDate || '12 Oct 2026',
         renewalAmount: Number(body.amount) || 1299,
         billingCycle: 'Annual',
@@ -86,7 +86,7 @@ export async function POST(req: NextRequest) {
       const result = await sendSubscriptionCancellationEmail({
         userEmail: email,
         userName: name,
-        planName: body.planName || 'SELBAR VIP Protection Pass',
+        planName: body.planName || 'Sellbar VIP Protection Pass',
         cancellationDate: 'Today',
         effectiveUntilDate: body.effectiveUntilDate || '12 Oct 2026',
         reason: body.reason || 'Switched device brand',

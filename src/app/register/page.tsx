@@ -125,7 +125,7 @@ function RegisterForm() {
         <div className="inline-flex p-3 bg-emerald-50 rounded-2xl border border-emerald-100 text-emerald-600 mb-2">
           <ShieldCheck className="w-8 h-8" />
         </div>
-        <h1 className="text-2xl font-black text-slate-900 tracking-tight">Create Your SELBAR Account</h1>
+        <h1 className="text-2xl font-black text-slate-900 tracking-tight">Create Your Sellbar Account</h1>
         <p className="text-xs text-slate-500">Sell old tech for instant cash or buy certified refurbished devices with 12 months warranty.</p>
       </div>
 
@@ -282,7 +282,7 @@ function RegisterForm() {
               <Link href="/faq" className="text-emerald-600 underline font-medium">
                 Terms of Service
               </Link>{' '}
-              and acknowledge SELBAR&apos;s NIST 800-88 compliant certified data wipe protocol and privacy policy.
+              and acknowledge Sellbar&apos;s NIST 800-88 compliant certified data wipe protocol and privacy policy.
             </span>
           </label>
         </div>
@@ -308,7 +308,7 @@ function RegisterForm() {
       </form>
 
       <div className="pt-4 border-t border-slate-100 text-center text-xs text-slate-500">
-        Already have a SELBAR account?{' '}
+        Already have a Sellbar account?{' '}
         <Link
           href={`/login${returnUrl !== '/account' ? `?returnUrl=${encodeURIComponent(returnUrl)}` : ''}`}
           className="font-bold text-emerald-600 hover:text-emerald-700"

@@ -66,7 +66,7 @@ const MOCK_WIPED_DEVICES: DataWipeRecord[] = [
     wipedAt: '24 Sep 2026, 04:30 PM',
     sha256Hash: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
     securityOfficer: 'Dr. Arindam Sen, CISSP',
-    hubLocation: 'SELBAR Secure Diagnostics Hub, West Champaran (Patna Central)',
+    hubLocation: 'Sellbar Secure Diagnostics Hub, West Champaran (Patna Central)',
   },
 ];
 

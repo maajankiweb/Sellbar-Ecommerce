@@ -137,7 +137,7 @@ export default function CartDrawer() {
 
               <div className="flex items-center gap-2 py-2 px-3 bg-emerald-50 rounded-xl border border-emerald-200 text-emerald-800 text-[11px]">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Includes 12-Month SELBAR Warranty & 15-Day Replacement</span>
+                <span>Includes 12-Month Sellbar Warranty & 15-Day Replacement</span>
               </div>
 
               <Link

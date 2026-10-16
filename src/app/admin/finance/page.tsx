@@ -129,7 +129,7 @@ export default function AdminFinancePage() {
           </p>
         </div>
 
-        <ExportDropdown filename="selbar_financial_statement" data={transactions} />
+        <ExportDropdown filename="sellbar_financial_statement" data={transactions} />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
@@ -169,7 +169,7 @@ export default function AdminFinancePage() {
         data={transactions}
         keyField="id"
         searchPlaceholder="Search transactions by reference number..."
-        exportFilename="selbar_transactions_ledger"
+        exportFilename="sellbar_transactions_ledger"
       />
     </div>
   );

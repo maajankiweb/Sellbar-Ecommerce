@@ -11,7 +11,7 @@ export interface WelcomeEmailParams {
 }
 
 export async function sendWelcomeRegistrationEmail(params: WelcomeEmailParams): Promise<SendMailResult> {
-  const displayName = params.name || params.username || 'SELBAR Member';
+  const displayName = params.name || params.username || 'Sellbar Member';
   const cleanEmail = params.email.trim().toLowerCase();
 
   const html = `
@@ -20,7 +20,7 @@ export async function sendWelcomeRegistrationEmail(params: WelcomeEmailParams): 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to SELBAR</title>
+  <title>Welcome to Sellbar</title>
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 24px; color: #1e293b;">
   <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 24px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
@@ -40,7 +40,7 @@ export async function sendWelcomeRegistrationEmail(params: WelcomeEmailParams): 
     <div style="padding: 32px 28px;">
       <h1 style="font-size: 22px; font-weight: 800; color: #0f172a; margin: 0 0 12px;">Hello ${displayName},</h1>
       <p style="font-size: 14px; line-height: 1.6; color: #475569; margin: 0 0 20px;">
-        Thank you for joining <strong>SELBAR</strong>. Your account has been successfully created and secured. You now have full access to doorstep gadget buybacks, certified refurbished devices, and premium device trade-in pricing.
+        Thank you for joining <strong>Sellbar</strong>. Your account has been successfully created and secured. You now have full access to doorstep gadget buybacks, certified refurbished devices, and premium device trade-in pricing.
       </p>
 
       <!-- Key Benefits Card -->
@@ -73,10 +73,10 @@ export async function sendWelcomeRegistrationEmail(params: WelcomeEmailParams): 
 
       <!-- Action Buttons -->
       <div style="text-align: center; margin: 28px 0 16px;">
-        <a href="https://selbar.in/sell" style="display: inline-block; background: #059669; color: #ffffff; text-decoration: none; padding: 13px 26px; border-radius: 12px; font-size: 14px; font-weight: 700; margin: 4px; box-shadow: 0 4px 12px rgba(5,150,105,0.25);">
+        <a href="https://sellbar.in/sell" style="display: inline-block; background: #059669; color: #ffffff; text-decoration: none; padding: 13px 26px; border-radius: 12px; font-size: 14px; font-weight: 700; margin: 4px; box-shadow: 0 4px 12px rgba(5,150,105,0.25);">
           Sell Old Device →
         </a>
-        <a href="https://selbar.in/user/profile" style="display: inline-block; background: #0f172a; color: #ffffff; text-decoration: none; padding: 13px 26px; border-radius: 12px; font-size: 14px; font-weight: 700; margin: 4px;">
+        <a href="https://sellbar.in/user/profile" style="display: inline-block; background: #0f172a; color: #ffffff; text-decoration: none; padding: 13px 26px; border-radius: 12px; font-size: 14px; font-weight: 700; margin: 4px;">
           Complete My Profile
         </a>
       </div>
@@ -92,8 +92,8 @@ export async function sendWelcomeRegistrationEmail(params: WelcomeEmailParams): 
 
     <!-- Footer -->
     <div style="background: #f1f5f9; padding: 20px; text-align: center; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; line-height: 1.6;">
-      <p style="margin: 0;">SELBAR Recommerce India (Maajanki Web Tech) • Bettiah, West Champaran, Bihar - 845438</p>
-      <p style="margin: 4px 0 0;">Need assistance? Reply directly to this email or visit our <a href="https://selbar.in/account/help" style="color: #059669; text-decoration: none; font-weight: 600;">24/7 Help Desk</a>.</p>
+      <p style="margin: 0;">Sellbar Recommerce India (Maajanki Web Tech) • Bettiah, West Champaran, Bihar - 845438</p>
+      <p style="margin: 4px 0 0;">Need assistance? Reply directly to this email or visit our <a href="https://sellbar.in/account/help" style="color: #059669; text-decoration: none; font-weight: 600;">24/7 Help Desk</a>.</p>
     </div>
   </div>
 </body>
@@ -102,7 +102,7 @@ export async function sendWelcomeRegistrationEmail(params: WelcomeEmailParams): 
 
   return sendEmail({
     to: cleanEmail,
-    subject: `Welcome to SELBAR, ${displayName}! 🎉 Your account is ready`,
+    subject: `Welcome to Sellbar, ${displayName}! 🎉 Your account is ready`,
     html,
   });
 }
@@ -121,12 +121,12 @@ export interface GoogleReviewNotificationParams {
 }
 
 export async function sendGoogleReviewNotificationEmail(params: GoogleReviewNotificationParams): Promise<SendMailResult> {
-  const recipient = params.adminEmail || process.env.ADMIN_NOTIFICATION_EMAIL || process.env.SMTP_USER || 'admin@selbar.in';
+  const recipient = params.adminEmail || process.env.ADMIN_NOTIFICATION_EMAIL || process.env.SMTP_USER || 'admin@sellbar.in';
   const stars = '★'.repeat(Math.max(1, Math.min(5, Math.round(params.rating)))) + '☆'.repeat(5 - Math.max(1, Math.min(5, Math.round(params.rating))));
   const isPositive = params.rating >= 4;
   const isCritical = params.rating <= 2;
   const reviewTime = params.time || 'Just now';
-  const gmbUrl = params.reviewUrl || 'https://maps.google.com/?cid=selbar-recommerce';
+  const gmbUrl = params.reviewUrl || 'https://maps.google.com/?cid=sellbar-recommerce';
 
   const badgeColor = isPositive ? '#059669' : isCritical ? '#dc2626' : '#d97706';
   const badgeBg = isPositive ? '#ecfdf5' : isCritical ? '#fef2f2' : '#fffbeb';
@@ -147,7 +147,7 @@ export async function sendGoogleReviewNotificationEmail(params: GoogleReviewNoti
     <div style="background: #0f172a; padding: 24px 28px; color: #ffffff; display: flex; align-items: center; justify-content: space-between;">
       <div>
         <div style="font-size: 20px; font-weight: 800; color: #38bdf8;">Google Business Profile Alert</div>
-        <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">SELBAR Official Store & Doorstep Hub</div>
+        <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">Sellbar Official Store & Doorstep Hub</div>
       </div>
     </div>
 
@@ -189,7 +189,7 @@ export async function sendGoogleReviewNotificationEmail(params: GoogleReviewNoti
         <a href="${gmbUrl}" style="display: inline-block; background: #0284c7; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 10px; font-size: 13px; font-weight: 700; margin-right: 8px;">
           Reply on Google Maps →
         </a>
-        <a href="https://selbar.in/admin/reviews" style="display: inline-block; background: #0f172a; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 10px; font-size: 13px; font-weight: 700;">
+        <a href="https://sellbar.in/admin/reviews" style="display: inline-block; background: #0f172a; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 10px; font-size: 13px; font-weight: 700;">
           Open Admin Reviews Desk
         </a>
       </div>
@@ -197,7 +197,7 @@ export async function sendGoogleReviewNotificationEmail(params: GoogleReviewNoti
 
     <!-- Footer -->
     <div style="background: #f1f5f9; padding: 16px; text-align: center; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0;">
-      Automated dispatch via SELBAR Nodemailer Integration • Google Business API Webhook
+      Automated dispatch via Sellbar Nodemailer Integration • Google Business API Webhook
     </div>
   </div>
 </body>
@@ -228,7 +228,7 @@ export interface SubscriptionRenewalParams {
 
 export async function sendSubscriptionRenewalReminderEmail(params: SubscriptionRenewalParams): Promise<SendMailResult> {
   const cleanEmail = params.userEmail.trim().toLowerCase();
-  const manageLink = params.manageUrl || 'https://selbar.in/user/profile';
+  const manageLink = params.manageUrl || 'https://sellbar.in/user/profile';
   const cycle = params.billingCycle || 'Annual';
 
   const html = `
@@ -309,13 +309,13 @@ export async function sendSubscriptionRenewalReminderEmail(params: SubscriptionR
       </div>
 
       <p style="font-size: 12px; color: #94a3b8; text-align: center; margin-top: 20px;">
-        If you wish to change your payment method or cancel auto-renewal, you can do so anytime before ${params.renewalDate} from your SELBAR User Portal.
+        If you wish to change your payment method or cancel auto-renewal, you can do so anytime before ${params.renewalDate} from your Sellbar User Portal.
       </p>
     </div>
 
     <!-- Footer -->
     <div style="background: #f1f5f9; padding: 18px; text-align: center; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0;">
-      SELBAR Warranty & Protection Services • Maajanki Web Tech • Bettiah, Bihar
+      Sellbar Warranty & Protection Services • Maajanki Web Tech • Bettiah, Bihar
     </div>
   </div>
 </body>
@@ -346,7 +346,7 @@ export interface SubscriptionCancellationParams {
 export async function sendSubscriptionCancellationEmail(params: SubscriptionCancellationParams): Promise<SendMailResult> {
   const cleanEmail = params.userEmail.trim().toLowerCase();
   const cancelDate = params.cancellationDate || new Date().toLocaleDateString('en-IN');
-  const resubscribeLink = params.resubscribeUrl || 'https://selbar.in/warranty';
+  const resubscribeLink = params.resubscribeUrl || 'https://sellbar.in/warranty';
 
   const html = `
 <!DOCTYPE html>
@@ -360,7 +360,7 @@ export async function sendSubscriptionCancellationEmail(params: SubscriptionCanc
     
     <!-- Top Header -->
     <div style="background: #334155; padding: 28px; text-align: center; color: #ffffff;">
-      <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">SELBAR</div>
+      <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">Sellbar</div>
       <p style="margin: 4px 0 0; font-size: 12px; color: #cbd5e1; text-transform: uppercase;">Subscription Update</p>
     </div>
 
@@ -408,7 +408,7 @@ export async function sendSubscriptionCancellationEmail(params: SubscriptionCanc
 
     <!-- Footer -->
     <div style="background: #f1f5f9; padding: 18px; text-align: center; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0;">
-      SELBAR Support Desk • Have questions? Contact us at support@selbar.in
+      Sellbar Support Desk • Have questions? Contact us at support@sellbar.in
     </div>
   </div>
 </body>

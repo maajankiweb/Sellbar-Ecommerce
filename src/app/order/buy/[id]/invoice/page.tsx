@@ -90,13 +90,13 @@ export default function BuyOrderInvoicePage({
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-8 border-b-2 border-slate-900 gap-4">
           <div>
             <div className="text-2xl font-black text-slate-950 tracking-tight flex items-center gap-2">
-              <span className="text-emerald-700">SELBAR</span>
+              <span className="text-emerald-700">Sellbar</span>
               <span className="text-xs px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold uppercase">
                 Recommerce
               </span>
             </div>
             <p className="text-xs text-slate-500 mt-1">
-              SELBAR Recommerce India Pvt. Ltd.<br />
+              Sellbar Recommerce India Pvt. Ltd.<br />
               Supriya Cinema Road, Bettiah, West Champaran, Bihar - 845438<br />
               GSTIN: <strong className="font-mono text-slate-900">10AABCS1429B1Z8</strong> • State Code: 10
             </p>
@@ -189,7 +189,7 @@ export default function BuyOrderInvoicePage({
                 <tr className="py-2.5">
                   <td className="py-3 font-mono text-slate-400">{order.items.length + 1}</td>
                   <td className="py-3 pr-4">
-                    <div className="font-bold text-slate-900">SELBAR Complete Care Protection Plan</div>
+                    <div className="font-bold text-slate-900">Sellbar Complete Care Protection Plan</div>
                     <div className="text-[11px] text-slate-500">+1 Year Screen & Liquid Spill Coverage</div>
                   </td>
                   <td className="py-3 font-mono text-slate-600">9971</td>
@@ -249,7 +249,7 @@ export default function BuyOrderInvoicePage({
           <div className="space-y-1">
             <strong className="text-slate-800 block text-xs">Terms & 5-Day Policy:</strong>
             <p>
-              1. Goods once sold are backed by SELBAR 12-month hardware warranty.<br />
+              1. Goods once sold are backed by Sellbar 12-month hardware warranty.<br />
               2. <strong>5-Day Return/Replacement Window:</strong> Customer may raise return or replacement within 5 days of delivery for hardware defects.<br />
               3. Reverse pickup is executed at customer doorstep across authorized West Champaran hubs.
             </p>
@@ -261,7 +261,7 @@ export default function BuyOrderInvoicePage({
                 Authorized Signatory
               </span>
             </div>
-            <p className="text-slate-600 font-semibold">For SELBAR Recommerce India Pvt. Ltd.</p>
+            <p className="text-slate-600 font-semibold">For Sellbar Recommerce India Pvt. Ltd.</p>
           </div>
         </div>
       </div>

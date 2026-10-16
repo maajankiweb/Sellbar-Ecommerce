@@ -7,8 +7,8 @@ export function WhatsAppFloatingButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
 
-  const defaultText = 'Hi SELBAR, I want to inquire about selling/buying a gadget!';
-  const whatsappNumber = '919876543210'; // Official SELBAR WhatsApp Business Number
+  const defaultText = 'Hi Sellbar, I want to inquire about selling/buying a gadget!';
+  const whatsappNumber = '919876543210'; // Official Sellbar WhatsApp Business Number
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ export function WhatsAppFloatingButton() {
                 💬
               </div>
               <div>
-                <h4 className="text-sm font-bold leading-tight">SELBAR WhatsApp Desk</h4>
+                <h4 className="text-sm font-bold leading-tight">Sellbar WhatsApp Desk</h4>
                 <span className="text-[10px] text-emerald-100 flex items-center gap-1 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
                   Online • Typically replies in 60s
@@ -52,7 +52,7 @@ export function WhatsAppFloatingButton() {
             <div className="bg-white p-3 rounded-2xl border border-slate-200/80 shadow-2xs space-y-1 text-slate-700">
               <p className="font-bold text-slate-900 flex items-center gap-1.5 text-xs">
                 <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-                Namaste! Welcome to SELBAR.
+                Namaste! Welcome to Sellbar.
               </p>
               <p className="text-[11px] text-slate-600 leading-relaxed">
                 Connect directly with our support specialists for instant sell quotes, refurbished stocks, or certified device repairs!
@@ -103,7 +103,7 @@ export function WhatsAppFloatingButton() {
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="group relative flex items-center gap-2 px-4 py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-xl shadow-[#25D366]/30 transition-all hover:scale-105 active:scale-95"
-        aria-label="Chat with SELBAR on WhatsApp"
+        aria-label="Chat with Sellbar on WhatsApp"
       >
         {/* Pulsing halo */}
         <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">

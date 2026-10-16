@@ -69,7 +69,7 @@ export default function Header() {
   // Sync with localStorage on client mount & listen for window scroll
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('selbar_selected_city');
+      const saved = localStorage.getItem('sellbar_selected_city');
       if (saved) {
         setSelectedCity(saved);
       }
@@ -86,8 +86,8 @@ export default function Header() {
     setSelectedCity(location.displayName);
     setShowCityPicker(false);
     if (typeof window !== 'undefined') {
-      localStorage.setItem('selbar_selected_city', location.displayName);
-      window.dispatchEvent(new CustomEvent('selbar_location_change', { detail: location }));
+      localStorage.setItem('sellbar_selected_city', location.displayName);
+      window.dispatchEvent(new CustomEvent('sellbar_location_change', { detail: location }));
     }
   };
 
@@ -368,7 +368,7 @@ export default function Header() {
                   {showUserDropdown && (
                     <div className="absolute top-full right-0 mt-2.5 w-60 bg-white/98 backdrop-blur-2xl rounded-3xl shadow-2xl border border-slate-100 p-3 z-50 text-xs animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-150 ring-1 ring-slate-900/5 space-y-1">
                       <div className="px-3 py-2 border-b border-slate-100 mb-1">
-                        <div className="font-black text-slate-900 truncate">{user?.name || 'SELBAR Member'}</div>
+                        <div className="font-black text-slate-900 truncate">{user?.name || 'Sellbar Member'}</div>
                         <div className="text-[10px] text-slate-500 truncate">{user?.phone || user?.email}</div>
                       </div>
 
@@ -534,7 +534,7 @@ export default function Header() {
                         { id: 'buyGadgets', label: 'Buy Gadgets', href: '/buy' },
                         { id: 'recycle', label: 'Recycle', href: '/recycle' },
                         { id: 'findNewPhone', label: 'Find New Phone', href: '/buy?category=new-phone' },
-                        { id: 'store', label: 'SELBAR Store', href: '/stores' },
+                        { id: 'store', label: 'Sellbar Store', href: '/stores' },
                       ].map((item) => (
                         <Link
                           key={item.id}
@@ -557,7 +557,7 @@ export default function Header() {
                   {allSubMenu && (
                     <div className="w-[230px] p-4 text-xs animate-in fade-in-0 duration-100">
                       <div className="text-[11px] text-slate-400 font-medium mb-2">
-                        More in {allSubMenu === 'phone' ? 'Sell Phone' : allSubMenu === 'laptop' ? 'Sell Laptop' : allSubMenu === 'smartwatch' ? 'Sell Smartwatch' : allSubMenu === 'tablet' ? 'Sell Tablet' : allSubMenu === 'more' ? 'More Devices' : allSubMenu === 'repair' ? 'Repair' : allSubMenu === 'sellGadgets' ? 'Sell Gadgets' : allSubMenu === 'buyGadgets' ? 'Buy Gadgets' : allSubMenu === 'recycle' ? 'Recycle' : allSubMenu === 'findNewPhone' ? 'New Phone' : 'SELBAR Store'}
+                        More in {allSubMenu === 'phone' ? 'Sell Phone' : allSubMenu === 'laptop' ? 'Sell Laptop' : allSubMenu === 'smartwatch' ? 'Sell Smartwatch' : allSubMenu === 'tablet' ? 'Sell Tablet' : allSubMenu === 'more' ? 'More Devices' : allSubMenu === 'repair' ? 'Repair' : allSubMenu === 'sellGadgets' ? 'Sell Gadgets' : allSubMenu === 'buyGadgets' ? 'Buy Gadgets' : allSubMenu === 'recycle' ? 'Recycle' : allSubMenu === 'findNewPhone' ? 'New Phone' : 'Sellbar Store'}
                       </div>
 
                       {allSubMenu === 'laptop' ? (
@@ -1186,7 +1186,7 @@ export default function Header() {
               )}
             </div>
 
-            {/* 7. SELBAR Store Dropdown (Single Card) */}
+            {/* 7. Sellbar Store Dropdown (Single Card) */}
             <div
               className="relative"
               onMouseEnter={() => handleMouseEnter('store')}
@@ -1200,7 +1200,7 @@ export default function Header() {
                     : 'text-slate-900 hover:text-[#00a599]'
                 }`}
               >
-                <span>SELBAR Store</span>
+                <span>Sellbar Store</span>
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${
                     activeMegaMenu === 'store' ? 'rotate-180 text-[#00a599]' : 'text-slate-700'

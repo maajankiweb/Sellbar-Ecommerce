@@ -199,7 +199,7 @@ export function NistDataWipeCertificateModal({
                 Chief Security & Quality Officer
               </div>
               <div className="text-[9px] text-emerald-700 font-mono mt-0.5">
-                SELBAR Secure Diagnostics Hub
+                Sellbar Secure Diagnostics Hub
               </div>
             </div>
           </div>

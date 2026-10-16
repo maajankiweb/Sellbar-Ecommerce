@@ -6,11 +6,11 @@ This document records all architectural decisions, overrides to the original Tec
 
 ## 1. Architectural Overrides to the TRD
 
-The original TRD (`SELBAR-TRD.md`) specified enterprise-scale infrastructure (separate Express backend, Vercel frontend, MongoDB Atlas M10+, AWS S3, Amazon SES, Twilio, RazorpayX, Native Android). To adhere to the strict budget constraint (**total build under ₹50,000**) and leverage the **already-purchased client VPS and domain**, the following overrides have been adopted:
+The original TRD (`Sellbar-TRD.md`) specified enterprise-scale infrastructure (separate Express backend, Vercel frontend, MongoDB Atlas M10+, AWS S3, Amazon SES, Twilio, RazorpayX, Native Android). To adhere to the strict budget constraint (**total build under ₹50,000**) and leverage the **already-purchased client VPS and domain**, the following overrides have been adopted:
 
 | # | TRD Requirement | Approved Decision | Rational & Budget Impact |
 |---|---|---|---|
-| **AD-01** | Separate Express backend (`selbar-backend`) | **Unified Next.js Route Handlers** (`src/app/api/v1/*`) with modular domain services (`src/modules/*`) + Node background worker process. | Eliminates dual-repo complexity, halves VPS memory usage, simplifies zero-downtime deployment. |
+| **AD-01** | Separate Express backend (`sellbar-backend`) | **Unified Next.js Route Handlers** (`src/app/api/v1/*`) with modular domain services (`src/modules/*`) + Node background worker process. | Eliminates dual-repo complexity, halves VPS memory usage, simplifies zero-downtime deployment. |
 | **AD-02** | Frontend on Vercel | **Self-hosted on client VPS** via Docker Compose + Nginx proxy behind Cloudflare (Free CDN/SSL/WAF). | Vercel Free tier prohibits commercial commerce. VPS is already paid by client. Saves ₹1,800/mo ($20/mo). |
 | **AD-03** | MongoDB Atlas M10+ (₹4,500/mo) | **Staging: Atlas M0 (Free)**.<br>**Production: Self-hosted MongoDB on VPS** in Docker with automated nightly `mongodump` encrypted and uploaded to Cloudflare R2 (14 daily + 8 weekly retention). **A full backup restore drill is REQUIRED before production launch.** | Eliminates recurring ₹4,000–₹5,000/mo database cost. Zero-cost production DB with proven restore capability verified before live traffic. *(Client can upgrade to Atlas M10 later).* |
 | **AD-04** | Redis Cloud / Upstash (Paid) | **Self-hosted Redis container** on the same VPS, powering BullMQ and rate-limiting. | Free self-hosted container. Saves ~₹800–₹1,500/mo. |
@@ -52,7 +52,7 @@ The following defaults are **to be applied in Phase 1** pending formal client si
    - *Default to apply in Phase 1:* **`SB-`** (e.g., `SB-2026-000101`). This format is consistently applied across both documentation and state machines.
 
 7. **SMS DLT 6-Letter Header & OTP Template:**
-   - *Rule:* Must NOT use `SELBAR` (brand violation).
+   - *Rule:* Must NOT use `Sellbar` (brand violation).
    - *Proposal:* Propose **`SLLBAR`** (or approved 6-character variant like `SLBARS`), subject to availability verification on the operator DLT portal. OTP template text will match:
      `{#var#} is your verification code for Sellbar. Valid for 5 minutes. Do not share this OTP with anyone.`
 
@@ -80,4 +80,4 @@ The following defaults are **to be applied in Phase 1** pending formal client si
 
 - **Brand Name:** Strictly **"Sellbar"** (Title Case: capital `S`, double `l`, lowercase `bar`).
 - **Domain:** **`sellbar.in`** (no other domain or sub-brand).
-- **Zero Tolerance Policy:** No occurrences of `SELBAR`, `Selbar`, `selbar.in` in public UI, meta tags, JSON-LD, emails, invoices, or customer-facing documentation.
+- **Zero Tolerance Policy:** No occurrences of `Sellbar`, `Sellbar`, `sellbar.in` in public UI, meta tags, JSON-LD, emails, invoices, or customer-facing documentation.

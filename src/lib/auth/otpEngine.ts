@@ -18,17 +18,17 @@ export interface RegisteredUserRecord {
 
 declare global {
   // eslint-disable-next-line no-var
-  var __SELBAR_OTP_STORE__: Map<string, OtpRecord> | undefined;
+  var __Sellbar_OTP_STORE__: Map<string, OtpRecord> | undefined;
   // eslint-disable-next-line no-var
-  var __SELBAR_REGISTERED_USERS__: Map<string, RegisteredUserRecord> | undefined;
+  var __Sellbar_REGISTERED_USERS__: Map<string, RegisteredUserRecord> | undefined;
 }
 
-if (!global.__SELBAR_OTP_STORE__) {
-  global.__SELBAR_OTP_STORE__ = new Map();
+if (!global.__Sellbar_OTP_STORE__) {
+  global.__Sellbar_OTP_STORE__ = new Map();
 }
 
-if (!global.__SELBAR_REGISTERED_USERS__) {
-  global.__SELBAR_REGISTERED_USERS__ = new Map();
+if (!global.__Sellbar_REGISTERED_USERS__) {
+  global.__Sellbar_REGISTERED_USERS__ = new Map();
 }
 
 /**
@@ -49,7 +49,7 @@ export function maskEmail(email: string): string {
  */
 export function getUserRegistrationStatus(phone: string): RegisteredUserRecord | null {
   const cleanPhone = phone.replace(/\D/g, '');
-  return global.__SELBAR_REGISTERED_USERS__!.get(cleanPhone) || null;
+  return global.__Sellbar_REGISTERED_USERS__!.get(cleanPhone) || null;
 }
 
 /**
@@ -61,17 +61,17 @@ export function markUserAsRegistered(params: {
   name?: string;
 }): RegisteredUserRecord {
   const cleanPhone = params.phone.replace(/\D/g, '');
-  const existing = global.__SELBAR_REGISTERED_USERS__!.get(cleanPhone);
+  const existing = global.__Sellbar_REGISTERED_USERS__!.get(cleanPhone);
 
   const record: RegisteredUserRecord = {
     phone: cleanPhone,
-    name: params.name || existing?.name || 'SELBAR Member',
+    name: params.name || existing?.name || 'Sellbar Member',
     email: params.email || existing?.email,
     hasCompletedFirstTimeOtp: true,
     registeredAt: existing?.registeredAt || new Date().toISOString(),
   };
 
-  global.__SELBAR_REGISTERED_USERS__!.set(cleanPhone, record);
+  global.__Sellbar_REGISTERED_USERS__!.set(cleanPhone, record);
   return record;
 }
 
@@ -101,7 +101,7 @@ export async function requestAuthCode(params: {
 
   if (isFirstTime) {
     // 1. FIRST TIME USER: Send Mobile OTP for signup verification
-    global.__SELBAR_OTP_STORE__!.set(cleanPhone, {
+    global.__Sellbar_OTP_STORE__!.set(cleanPhone, {
       target: cleanPhone,
       code,
       expiresAt: Date.now() + ttlMs,
@@ -111,8 +111,8 @@ export async function requestAuthCode(params: {
 
     createNotification({
       recipient: cleanPhone,
-      title: 'SELBAR First-Time Signup Mobile Verification',
-      message: `Welcome to SELBAR! Your first-time mobile verification OTP is ${code}. Mobile OTP will not be required for future logins. Valid for 5 minutes.`,
+      title: 'Sellbar First-Time Signup Mobile Verification',
+      message: `Welcome to Sellbar! Your first-time mobile verification OTP is ${code}. Mobile OTP will not be required for future logins. Valid for 5 minutes.`,
       type: 'SYSTEM_ANNOUNCEMENT',
       metadata: { phone: cleanPhone, code },
     });
@@ -128,10 +128,10 @@ export async function requestAuthCode(params: {
     };
   } else {
     // 2. EXISTING USER: NO MOBILE OTP EVER SENT. Send verification code to registered email!
-    const userEmail = existingUser.email || params.email || 'customer@selbar.in';
+    const userEmail = existingUser.email || params.email || 'customer@sellbar.in';
     const masked = maskEmail(userEmail);
 
-    global.__SELBAR_OTP_STORE__!.set(cleanPhone, {
+    global.__Sellbar_OTP_STORE__!.set(cleanPhone, {
       target: userEmail,
       code,
       expiresAt: Date.now() + ttlMs,
@@ -142,15 +142,15 @@ export async function requestAuthCode(params: {
     // Send Amazon-style security email to registered email address
     await sendEmailNotification({
       to: userEmail,
-      subject: 'SELBAR Security: Your One-Time Sign-In Code',
+      subject: 'Sellbar Security: Your One-Time Sign-In Code',
       htmlContent: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px;">
-          <h2 style="color: #047857; margin-bottom: 8px;">SELBAR Account Security</h2>
+          <h2 style="color: #047857; margin-bottom: 8px;">Sellbar Account Security</h2>
           <p style="color: #475569; font-size: 14px;">As an existing member, mobile OTP has been permanently disabled for your security. Here is your sign-in verification code:</p>
           <div style="background: #f8fafc; border: 2px dashed #059669; border-radius: 8px; padding: 16px; text-align: center; margin: 20px 0;">
             <span style="font-size: 32px; font-weight: bold; letter-spacing: 6px; color: #0f172a;">${code}</span>
           </div>
-          <p style="color: #64748b; font-size: 12px;">This code expires in 5 minutes. If you did not make this request, please contact SELBAR West Champaran customer care immediately.</p>
+          <p style="color: #64748b; font-size: 12px;">This code expires in 5 minutes. If you did not make this request, please contact Sellbar West Champaran customer care immediately.</p>
         </div>
       `,
     });
@@ -177,20 +177,20 @@ export function verifyInHouseOtp(
   name?: string
 ): { valid: boolean; isFirstTime?: boolean; user?: RegisteredUserRecord; error?: string } {
   const cleanPhone = phone.replace(/\D/g, '');
-  const record = global.__SELBAR_OTP_STORE__!.get(cleanPhone);
+  const record = global.__Sellbar_OTP_STORE__!.get(cleanPhone);
 
   if (!record) {
     return { valid: false, error: 'No active verification code found. Please request a new code.' };
   }
 
   if (Date.now() > record.expiresAt) {
-    global.__SELBAR_OTP_STORE__!.delete(cleanPhone);
+    global.__Sellbar_OTP_STORE__!.delete(cleanPhone);
     return { valid: false, error: 'Verification code has expired. Please request a new code.' };
   }
 
   record.attempts += 1;
   if (record.attempts > 3) {
-    global.__SELBAR_OTP_STORE__!.delete(cleanPhone);
+    global.__Sellbar_OTP_STORE__!.delete(cleanPhone);
     return { valid: false, error: 'Too many incorrect attempts. Please request a new code.' };
   }
 
@@ -201,7 +201,7 @@ export function verifyInHouseOtp(
   // Verification passed: mark user as registered so mobile OTP is never sent again
   const wasFirstTime = record.isFirstTime;
   const user = markUserAsRegistered({ phone: cleanPhone, email, name });
-  global.__SELBAR_OTP_STORE__!.delete(cleanPhone);
+  global.__Sellbar_OTP_STORE__!.delete(cleanPhone);
 
   return { valid: true, isFirstTime: wasFirstTime, user };
 }

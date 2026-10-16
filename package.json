@@ -1,5 +1,5 @@
 {
-  "name": "selbar-app",
+  "name": "sellbar-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "test:auth": "tsx src/scripts/testAuthSuite.ts",
-    "seed:admin": "tsx src/scripts/seedAdminUser.ts"
+    "seed:admin": "tsx src/scripts/seedAdminUser.ts",
+    "check:brand": "tsx scripts/checkBrandIntegrity.ts",
+    "test:smoke": "tsx scripts/smokeTestProductUrls.ts"
   },
   "dependencies": {
     "@types/ioredis": "^4.28.10",

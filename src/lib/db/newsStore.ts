@@ -4,7 +4,7 @@ export interface NewsArticle {
   title: string;
   excerpt: string;
   content: string;
-  category: 'gadgets' | 'recommerce' | 'tips' | 'selbar-updates';
+  category: 'gadgets' | 'recommerce' | 'tips' | 'sellbar-updates';
   tags: string[];
   author: string;
   readTime: string;
@@ -30,13 +30,13 @@ export const INITIAL_ARTICLES: NewsArticle[] = [
   },
   {
     id: 'art_2',
-    slug: 'selbar-32-point-quality-inspection-guide',
-    title: 'Inside SELBAR: How Our 32-Point Quality Check Works',
+    slug: 'sellbar-32-point-quality-inspection-guide',
+    title: 'Inside Sellbar: How Our 32-Point Quality Check Works',
     excerpt: 'A behind-the-scenes look at how every pre-owned device is tested for display, motherboard, camera sensors, and battery health.',
     content: 'Every phone that arrives at our West Champaran inspection center goes through multi-stage diagnostics including touch responsiveness, biometric sensors, thermal performance, and NIST 800-88 certified data wipe...',
     category: 'recommerce',
     tags: ['Quality Check', 'Certification', 'Warranty'],
-    author: 'SELBAR Tech Team',
+    author: 'Sellbar Tech Team',
     readTime: '5 min read',
     imageUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800',
     publishedAt: '2026-09-12T14:30:00Z',
@@ -47,10 +47,10 @@ export const INITIAL_ARTICLES: NewsArticle[] = [
     slug: 'west-champaran-doorstep-sell-service-launch',
     title: 'Doorstep Device Buyback Expands Across West Champaran',
     excerpt: 'Residents of Bettiah, Bagaha, Narkatiaganj, and Ramnagar can now schedule 2-hour doorstep pickups with instant UPI payment.',
-    content: 'We are excited to expand our localized express doorstep service to 6 key hubs in West Champaran. Customers can generate an instant quote on selbar.in and have an executive inspect the device at their home...',
-    category: 'selbar-updates',
+    content: 'We are excited to expand our localized express doorstep service to 6 key hubs in West Champaran. Customers can generate an instant quote on sellbar.in and have an executive inspect the device at their home...',
+    category: 'sellbar-updates',
     tags: ['West Champaran', 'Doorstep Pickup', 'Instant UPI'],
-    author: 'SELBAR Operations',
+    author: 'Sellbar Operations',
     readTime: '3 min read',
     imageUrl: 'https://images.unsplash.com/photo-1526367790999-0150786686a2?w=800',
     publishedAt: '2026-09-14T09:00:00Z',
@@ -60,15 +60,15 @@ export const INITIAL_ARTICLES: NewsArticle[] = [
 
 declare global {
   // eslint-disable-next-line no-var
-  var __SELBAR_NEWS__: NewsArticle[] | undefined;
+  var __Sellbar_NEWS__: NewsArticle[] | undefined;
 }
 
-if (!global.__SELBAR_NEWS__) {
-  global.__SELBAR_NEWS__ = [...INITIAL_ARTICLES];
+if (!global.__Sellbar_NEWS__) {
+  global.__Sellbar_NEWS__ = [...INITIAL_ARTICLES];
 }
 
 export function getAllArticles(category?: string): NewsArticle[] {
-  let list = global.__SELBAR_NEWS__ || [];
+  let list = global.__Sellbar_NEWS__ || [];
   if (category && category !== 'all') {
     list = list.filter((a) => a.category === category);
   }
@@ -76,7 +76,7 @@ export function getAllArticles(category?: string): NewsArticle[] {
 }
 
 export function getArticleBySlug(slug: string): NewsArticle | undefined {
-  return (global.__SELBAR_NEWS__ || []).find((a) => a.slug === slug);
+  return (global.__Sellbar_NEWS__ || []).find((a) => a.slug === slug);
 }
 
 export function createArticle(article: Omit<NewsArticle, 'id' | 'publishedAt'>): NewsArticle {
@@ -86,12 +86,12 @@ export function createArticle(article: Omit<NewsArticle, 'id' | 'publishedAt'>):
     publishedAt: new Date().toISOString(),
   };
 
-  global.__SELBAR_NEWS__!.unshift(newArticle);
+  global.__Sellbar_NEWS__!.unshift(newArticle);
   return newArticle;
 }
 
 export function deleteArticle(id: string): boolean {
-  const initial = (global.__SELBAR_NEWS__ || []).length;
-  global.__SELBAR_NEWS__ = (global.__SELBAR_NEWS__ || []).filter((a) => a.id !== id);
-  return (global.__SELBAR_NEWS__ || []).length < initial;
+  const initial = (global.__Sellbar_NEWS__ || []).length;
+  global.__Sellbar_NEWS__ = (global.__Sellbar_NEWS__ || []).filter((a) => a.id !== id);
+  return (global.__Sellbar_NEWS__ || []).length < initial;
 }

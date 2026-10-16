@@ -127,7 +127,7 @@ export default function DiagnosticsPage() {
               Diagnostic Hardware Test Suite
             </span>
             <span className="text-slate-300">•</span>
-            <span className="text-xs text-slate-500 font-mono">SELBAR V5.4 Precision Rig</span>
+            <span className="text-xs text-slate-500 font-mono">Sellbar V5.4 Precision Rig</span>
           </div>
           <h1 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
             <Wrench className="w-6 h-6 text-cyan-600" />

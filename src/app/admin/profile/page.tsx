@@ -70,7 +70,7 @@ export default function AdminProfilePage() {
   };
 
   const handleCopyApiKey = () => {
-    navigator.clipboard?.writeText('sk_live_selbar_enterprise_998342_prod');
+    navigator.clipboard?.writeText('sk_live_sellbar_enterprise_998342_prod');
     setCopiedKey(true);
     setTimeout(() => setCopiedKey(false), 2000);
     addToast({
@@ -312,7 +312,7 @@ export default function AdminProfilePage() {
 
               <div className="flex items-center gap-2 mt-4 p-2.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                 <code className="text-xs font-mono text-slate-800 dark:text-slate-200 flex-1 truncate px-2">
-                  sk_live_selbar_enterprise_998342_prod
+                  sk_live_sellbar_enterprise_998342_prod
                 </code>
                 <button
                   onClick={handleCopyApiKey}
@@ -463,7 +463,7 @@ export default function AdminProfilePage() {
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs">
               <h4 className="text-xs font-black uppercase tracking-wider text-slate-400 mb-3">Password Management</h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
-                Last changed 42 days ago. SELBAR enterprise policy mandates a password refresh every 90 days.
+                Last changed 42 days ago. Sellbar enterprise policy mandates a password refresh every 90 days.
               </p>
               <button
                 onClick={() => setShowPasswordModal(true)}

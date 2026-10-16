@@ -80,7 +80,7 @@ export function RefurbVsNewSlider() {
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-snug">
-            Brand New Retail vs <span className="text-emerald-600">SELBAR Refurbished</span>
+            Brand New Retail vs <span className="text-emerald-600">Sellbar Refurbished</span>
           </h2>
 
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
@@ -173,7 +173,7 @@ export function RefurbVsNewSlider() {
               </div>
             </div>
 
-            {/* Column B: SELBAR Certified Refurbished */}
+            {/* Column B: Sellbar Certified Refurbished */}
             <div className="bg-gradient-to-b from-emerald-50/70 to-white rounded-2xl border-2 border-emerald-500/80 p-6 flex flex-col justify-between space-y-5 shadow-lg relative">
               {/* Highlight Tag */}
               <div className="absolute -top-3.5 right-6 px-3 py-0.5 rounded-full bg-emerald-600 text-white text-[10px] font-black uppercase tracking-wider shadow-xs">
@@ -183,7 +183,7 @@ export function RefurbVsNewSlider() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
-                    SELBAR Certified
+                    Sellbar Certified
                   </span>
                   <span className="text-xs font-bold text-emerald-700">{selectedItem.grade}</span>
                 </div>

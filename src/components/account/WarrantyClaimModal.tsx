@@ -153,7 +153,7 @@ export function WarrantyClaimModal({
             <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-3.5 flex items-center justify-between text-xs">
               <div>
                 <span className="text-[10px] font-bold text-emerald-800 uppercase block">Active Coverage</span>
-                <span className="font-bold text-emerald-950">12 Months Comprehensive SELBAR Shield</span>
+                <span className="font-bold text-emerald-950">12 Months Comprehensive Sellbar Shield</span>
               </div>
               <span className="text-emerald-700 font-semibold font-mono text-[11px]">
                 Valid until {device.warrantyValidUntil}

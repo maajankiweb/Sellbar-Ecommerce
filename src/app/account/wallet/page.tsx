@@ -43,7 +43,7 @@ function WalletContent() {
 
   return (
     <div className="flex-1 p-4 sm:p-6 pb-24 lg:pb-8 max-w-3xl mx-auto w-full">
-      <PageHeader title="Wallet & Store Credit" description="Manage your SELBAR wallet balance and store credits" />
+      <PageHeader title="Wallet & Store Credit" description="Manage your Sellbar wallet balance and store credits" />
 
       {/* Balance Card */}
       <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-6 mb-6 text-white relative overflow-hidden">

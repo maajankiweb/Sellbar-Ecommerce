@@ -1,5 +1,5 @@
 /**
- * SELBAR Native Driver Mobile Bridge
+ * Sellbar Native Driver Mobile Bridge
  * 
  * Provides unified cross-platform background geolocation management:
  * 1. Capacitor Native (Android Foreground Service / iOS Background Location)
@@ -199,8 +199,8 @@ class NativeDriverBridgeService {
         const bgGeo = window.Capacitor.Plugins.BackgroundGeolocation;
         const watchResult = await bgGeo.addWatcher(
           {
-            backgroundMessage: options.notificationText || 'Sharing live GPS coordinates for SELBAR dispatch',
-            backgroundTitle: options.notificationTitle || 'SELBAR Driver Active',
+            backgroundMessage: options.notificationText || 'Sharing live GPS coordinates for Sellbar dispatch',
+            backgroundTitle: options.notificationTitle || 'Sellbar Driver Active',
             requestPermissions: true,
             stale: false,
             distanceFilter: options.distanceFilterMeters || 10,
@@ -243,7 +243,7 @@ class NativeDriverBridgeService {
               driverId: options.driverId,
               orderId: options.orderId,
               distanceFilter: options.distanceFilterMeters || 10,
-              notificationTitle: options.notificationTitle || 'SELBAR Driver Active',
+              notificationTitle: options.notificationTitle || 'Sellbar Driver Active',
               notificationText: options.notificationText || 'Tracking delivery trip in background',
             },
           })

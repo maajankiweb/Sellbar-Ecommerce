@@ -53,7 +53,7 @@ This document outlines the complete cost breakdown for **Sellbar** (https://sell
 
 ### 2.3 MSG91 SMS & DLT Compliance
 - **DLT Entity Approval:** Mandatory under TRAI regulations. One-time fee typically ranges between ~₹5,000–₹6,000 depending on the principal operator portal (Vilpower, Jio DLT, Airtel). Must be verified directly on the chosen portal.
-- **DLT Headers:** Proposed 6-character header **`SLLBAR`** (or approved variant; must check availability on operator portal). Do not use `SELBAR`.
+- **DLT Headers:** Proposed 6-character header **`SLLBAR`** (or approved variant; must check availability on operator portal). Do not use `Sellbar`.
 - **DLT Template:** Approved transactional/service implicit OTP template:
   > `{#var#} is your verification code for Sellbar. Valid for 5 minutes. Do not share this OTP with anyone.`
 - **Monthly Cost:** ~₹500 (Pay-as-you-go prepaid wallet for verification OTPs only).

@@ -1,7 +1,7 @@
-# SELBAR Production Authentication System Architecture
+# Sellbar Production Authentication System Architecture
 
 ## Overview
-SELBAR implements a multi-tenant, horizontally scalable authentication and authorization system designed to support both single-vendor e-commerce and a multi-vendor recommerce marketplace with 1M+ registered users.
+Sellbar implements a multi-tenant, horizontally scalable authentication and authorization system designed to support both single-vendor e-commerce and a multi-vendor recommerce marketplace with 1M+ registered users.
 
 ---
 

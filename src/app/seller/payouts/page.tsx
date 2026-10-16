@@ -133,7 +133,7 @@ export default function SellerPayoutsPage() {
                 <th className="py-3.5 px-4">Billing Cycle</th>
                 <th className="py-3.5 px-4">Payout Date</th>
                 <th className="py-3.5 px-4 text-right">Gross GMV</th>
-                <th className="py-3.5 px-4 text-right">SELBAR Fee (7%)</th>
+                <th className="py-3.5 px-4 text-right">Sellbar Fee (7%)</th>
                 <th className="py-3.5 px-4 text-right">Net Credited Payout</th>
                 <th className="py-3.5 px-4">Bank UTR Number</th>
                 <th className="py-3.5 px-4 text-center">Status</th>

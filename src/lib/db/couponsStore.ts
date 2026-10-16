@@ -3,7 +3,7 @@ import { Coupon } from '@/types';
 export const INITIAL_COUPONS: Coupon[] = [
   {
     id: 'coup-selbar500',
-    code: 'SELBAR500',
+    code: 'Sellbar500',
     discountType: 'flat',
     discountValue: 500,
     minOrderValue: 9999,

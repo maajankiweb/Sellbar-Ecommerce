@@ -68,7 +68,7 @@ export async function GET(req: Request) {
       `${p.replacementDays || 5} Days Easy Return`,
       `${p.qcPointsCount || 32}-Point Tested`,
       p.rating || 4.8,
-      `https://selbar.in/buy/${p.slug || p.id}`,
+      `https://sellbar.in/buy/${p.slug || p.id}`,
     ]);
 
     const csvContent = [
@@ -76,7 +76,7 @@ export async function GET(req: Request) {
       ...rows.map((r) => r.map(escapeCsvCell).join(',')),
     ].join('\r\n');
 
-    const filename = `selbar_inventory_screener_${new Date().toISOString().slice(0, 10)}.csv`;
+    const filename = `sellbar_inventory_screener_${new Date().toISOString().slice(0, 10)}.csv`;
 
     return new NextResponse(csvContent, {
       status: 200,

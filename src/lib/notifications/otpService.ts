@@ -28,11 +28,11 @@ interface MemoryOtp {
 
 declare global {
   // eslint-disable-next-line no-var
-  var __SELBAR_MEMORY_OTPS__: Map<string, MemoryOtp> | undefined;
+  var __Sellbar_MEMORY_OTPS__: Map<string, MemoryOtp> | undefined;
 }
 
-if (!global.__SELBAR_MEMORY_OTPS__) {
-  global.__SELBAR_MEMORY_OTPS__ = new Map();
+if (!global.__Sellbar_MEMORY_OTPS__) {
+  global.__Sellbar_MEMORY_OTPS__ = new Map();
 }
 
 /**
@@ -81,7 +81,7 @@ async function sendSmsOtp(phone: string, otp: string): Promise<{ success: boolea
 
   // 3. Local Dev Sandbox (Clean console output for developers)
   console.log(`\n======================================================`);
-  console.log(`📱 [SELBAR SMS OTP SANDBOX] To: +91 ${standardPhone}`);
+  console.log(`📱 [Sellbar SMS OTP SANDBOX] To: +91 ${standardPhone}`);
   console.log(`🔑 Verification Code: ${otp}`);
   console.log(`⏰ Valid for: 5 Minutes (Expires at: ${new Date(Date.now() + 5 * 60000).toLocaleTimeString()})`);
   console.log(`======================================================\n`);
@@ -106,7 +106,7 @@ async function sendEmailOtp(email: string, otp: string): Promise<{ success: bool
     <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 30px;">
       <div style="max-width: 520px; margin: 0 auto; background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
         <div style="background: linear-gradient(135deg, #059669 0%, #0d9488 100%); padding: 30px; text-align: center; color: #ffffff;">
-          <h1 style="margin: 0; font-size: 26px; font-weight: 900; letter-spacing: -0.5px;">SELBAR</h1>
+          <h1 style="margin: 0; font-size: 26px; font-weight: 900; letter-spacing: -0.5px;">Sellbar</h1>
           <p style="margin: 6px 0 0 0; font-size: 13px; color: #ccfbf1;">India's Trusted Electronics Recommerce Platform</p>
         </div>
         <div style="padding: 35px 30px; text-align: center;">
@@ -115,10 +115,10 @@ async function sendEmailOtp(email: string, otp: string): Promise<{ success: bool
           <div style="margin: 25px auto; padding: 18px 24px; background: #f1f5f9; border-radius: 12px; display: inline-block; letter-spacing: 8px; font-family: monospace; font-size: 32px; font-weight: 800; color: #047857; border: 1px dashed #cbd5e1;">
             ${otp}
           </div>
-          <p style="font-size: 12px; color: #94a3b8; margin-top: 25px;">If you did not request this verification, please ignore this email or contact support@selbar.in immediately.</p>
+          <p style="font-size: 12px; color: #94a3b8; margin-top: 25px;">If you did not request this verification, please ignore this email or contact support@sellbar.in immediately.</p>
         </div>
         <div style="background: #f8fafc; padding: 16px; text-align: center; border-top: 1px solid #f1f5f9; font-size: 11px; color: #64748b;">
-          © ${new Date().getFullYear()} SELBAR (Maajanki Web Tech). Bettiah, West Champaran, Bihar.
+          © ${new Date().getFullYear()} Sellbar (Maajanki Web Tech). Bettiah, West Champaran, Bihar.
         </div>
       </div>
     </body>
@@ -139,9 +139,9 @@ async function sendEmailOtp(email: string, otp: string): Promise<{ success: bool
       });
 
       await transporter.sendMail({
-        from: process.env.SMTP_FROM || `"SELBAR Security" <${process.env.SMTP_USER}>`,
+        from: process.env.SMTP_FROM || `"Sellbar Security" <${process.env.SMTP_USER}>`,
         to: cleanEmail,
-        subject: `${otp} is your SELBAR Verification Code`,
+        subject: `${otp} is your Sellbar Verification Code`,
         html: emailHtml,
       });
 
@@ -161,9 +161,9 @@ async function sendEmailOtp(email: string, otp: string): Promise<{ success: bool
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'SELBAR <auth@selbar.in>',
+          from: 'Sellbar <auth@sellbar.in>',
           to: [cleanEmail],
-          subject: `${otp} is your SELBAR Verification Code`,
+          subject: `${otp} is your Sellbar Verification Code`,
           html: emailHtml,
         }),
       });
@@ -177,7 +177,7 @@ async function sendEmailOtp(email: string, otp: string): Promise<{ success: bool
 
   // 3. Local Dev Sandbox
   console.log(`\n======================================================`);
-  console.log(`📧 [SELBAR EMAIL OTP SANDBOX] To: ${cleanEmail}`);
+  console.log(`📧 [Sellbar EMAIL OTP SANDBOX] To: ${cleanEmail}`);
   console.log(`🔑 Verification Code: ${otp}`);
   console.log(`⏰ Valid for: 10 Minutes`);
   console.log(`======================================================\n`);
@@ -205,7 +205,7 @@ export async function generateAndSendOtp(params: SendOtpParams): Promise<{
 
   // 1. Check Cooldown (60 seconds)
   const memoryKey = `${params.type}:${cleanId}`;
-  const memoryOtp = global.__SELBAR_MEMORY_OTPS__!.get(memoryKey);
+  const memoryOtp = global.__Sellbar_MEMORY_OTPS__!.get(memoryKey);
 
   if (memoryOtp && memoryOtp.cooldownUntil > now) {
     const remainingCooldown = Math.ceil((memoryOtp.cooldownUntil - now) / 1000);
@@ -226,7 +226,7 @@ export async function generateAndSendOtp(params: SendOtpParams): Promise<{
   const cooldownUntil = now + 60 * 1000; // 60s cooldown
 
   // 3. Store in Memory Fallback
-  global.__SELBAR_MEMORY_OTPS__!.set(memoryKey, {
+  global.__Sellbar_MEMORY_OTPS__!.set(memoryKey, {
     code: otp,
     hash: otpHash,
     expiresAt: now + ttlMs,
@@ -332,7 +332,7 @@ export async function verifyOtp(params: VerifyOtpParams): Promise<{
 
     // Success: Delete OTP to prevent reuse
     await OtpVerification.deleteOne({ _id: record._id });
-    global.__SELBAR_MEMORY_OTPS__!.delete(memoryKey);
+    global.__Sellbar_MEMORY_OTPS__!.delete(memoryKey);
 
     await logAuthEvent({
       identifier: cleanId,
@@ -346,18 +346,18 @@ export async function verifyOtp(params: VerifyOtpParams): Promise<{
   }
 
   // Fallback: Check in-memory store
-  const mem = global.__SELBAR_MEMORY_OTPS__!.get(memoryKey);
+  const mem = global.__Sellbar_MEMORY_OTPS__!.get(memoryKey);
   if (!mem) {
     return { success: false, message: 'No active verification code found or it has expired.' };
   }
 
   if (mem.expiresAt < now) {
-    global.__SELBAR_MEMORY_OTPS__!.delete(memoryKey);
+    global.__Sellbar_MEMORY_OTPS__!.delete(memoryKey);
     return { success: false, message: 'Verification code has expired.' };
   }
 
   if (mem.attempts >= 3) {
-    global.__SELBAR_MEMORY_OTPS__!.delete(memoryKey);
+    global.__Sellbar_MEMORY_OTPS__!.delete(memoryKey);
     return { success: false, message: 'Maximum attempts exceeded. Please request a new code.' };
   }
 
@@ -369,6 +369,6 @@ export async function verifyOtp(params: VerifyOtpParams): Promise<{
   }
 
   // Success: Clear memory OTP
-  global.__SELBAR_MEMORY_OTPS__!.delete(memoryKey);
+  global.__Sellbar_MEMORY_OTPS__!.delete(memoryKey);
   return { success: true, message: 'Verification successful!' };
 }

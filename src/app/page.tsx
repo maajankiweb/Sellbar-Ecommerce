@@ -628,7 +628,7 @@ export default function HomePage() {
                         </div>
                         <div className="bg-black text-white px-1.5 py-0.5 rounded leading-none flex flex-col items-center">
                           <span className="text-[7px] font-black tracking-wider text-white">
-                            SELBAR
+                            Sellbar
                           </span>
                           <span className="text-[5px] font-bold text-slate-300 tracking-wider">
                             ASSURED
@@ -805,7 +805,7 @@ export default function HomePage() {
                         </div>
                         <div className="bg-black text-white px-1.5 py-0.5 rounded leading-none flex flex-col items-center">
                           <span className="text-[7px] font-black tracking-wider text-white">
-                            SELBAR
+                            Sellbar
                           </span>
                           <span className="text-[5px] font-bold text-slate-300 tracking-wider">
                             ASSURED
@@ -942,7 +942,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. HOW SELBAR WORKS (3 SIMPLE STEPS) */}
+      {/* 8. HOW Sellbar WORKS (3 SIMPLE STEPS) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-xs font-bold text-emerald-600 uppercase tracking-wider">
@@ -1060,7 +1060,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed italic">
-                  "Purchased a refurbished Galaxy S23 from Selbar. Honestly, I
+                  "Purchased a refurbished Galaxy S23 from Sellbar. Honestly, I
                   couldn't find a single scratch. Battery health is 98%, and
                   came with an official 1-year warranty card. Saved ₹36,000!"
                 </p>
@@ -1116,10 +1116,10 @@ export default function HomePage() {
         <BrandMarquee />
       </section>
 
-      {/* 11. SELBAR EXCLUSIVES & PROMO DEALS */}
+      {/* 11. Sellbar EXCLUSIVES & PROMO DEALS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
         <h2 className="text-xl sm:text-2xl font-black text-slate-950">
-          Selbar Exclusives
+          Sellbar Exclusives
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -1157,7 +1157,7 @@ export default function HomePage() {
               ₹500 App Welcome Bonus
             </h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Download the SELBAR mobile app and get a ₹500 instant voucher on
+              Download the Sellbar mobile app and get a ₹500 instant voucher on
               your first buyback order.
             </p>
           </div>

@@ -3,7 +3,7 @@ import { cacheStore } from './redisClient';
 import connectToDatabase from '@/lib/db/mongodb';
 import OtpVerification from '@/lib/db/models/OtpVerification';
 
-const OTP_PEPPER = process.env.OTP_HMAC_SECRET || 'selbar_secure_otp_pepper_secret_2026';
+const OTP_PEPPER = process.env.OTP_HMAC_SECRET || 'sellbar_secure_otp_pepper_secret_2026';
 const OTP_EXPIRY_SECONDS = 300; // 5 minutes
 const RESEND_COOLDOWN_SECONDS = 60; // 60 seconds
 const MAX_VERIFY_ATTEMPTS = 5;

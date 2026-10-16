@@ -465,7 +465,7 @@ export default function AdminRefurbishmentPage() {
                   Publish <strong>{selectedDevice.modelName}</strong> ({selectedDevice.storage}, Grade {selectedDevice.grade}) to the live Refurbished Store at <strong>₹{selectedDevice.financials.sellingPrice.toLocaleString('en-IN')}</strong>.
                 </p>
                 <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-900 font-medium">
-                  ✓ Automatically attaches 12-Month SELBAR Warranty and 15-Day Replacement guarantee.
+                  ✓ Automatically attaches 12-Month Sellbar Warranty and 15-Day Replacement guarantee.
                 </div>
               </div>
             )}

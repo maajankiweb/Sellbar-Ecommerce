@@ -16,7 +16,7 @@ export interface LocationPayload {
 let ioInstance: SocketIOServer | null = null;
 
 export function getSocketIO(): SocketIOServer | null {
-  return ioInstance || (global as any).__selbar_io || null;
+  return ioInstance || (global as any).__sellbar_io || null;
 }
 
 export async function broadcastRouteResequenced(driverId: string, payload: any): Promise<void> {
@@ -49,7 +49,7 @@ export function initializeSocketServer(httpServer: any): SocketIOServer {
   });
 
   ioInstance = io;
-  (global as any).__selbar_io = io;
+  (global as any).__sellbar_io = io;
 
   // Authentication Middleware
   io.use((socket: Socket, next) => {

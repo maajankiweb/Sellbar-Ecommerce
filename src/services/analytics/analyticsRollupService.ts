@@ -57,7 +57,7 @@ export class AnalyticsRollupService {
             ],
           },
           courierName: {
-            $ifNull: ['$buyDetails.courierPartner', 'Fleet Partner (SELBAR)'],
+            $ifNull: ['$buyDetails.courierPartner', 'Fleet Partner (Sellbar)'],
           },
           deliveryRating: { $ifNull: ['$deliveryRating', 5] },
           deliveryRatingTags: { $ifNull: ['$deliveryRatingTags', []] },

@@ -70,7 +70,7 @@ export default function PaymentModal({
             </div>
             <div>
               <h3 className="text-sm font-black tracking-tight">
-                {method === 'Cash on Delivery' ? 'COD Verification' : 'SELBAR Secure Gateway'}
+                {method === 'Cash on Delivery' ? 'COD Verification' : 'Sellbar Secure Gateway'}
               </h3>
               <p className="text-[11px] text-emerald-100 font-medium">
                 256-bit Bank Grade Encrypted Payment

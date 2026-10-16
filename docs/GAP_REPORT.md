@@ -15,7 +15,7 @@ Sellbar has a rich, modern Next.js 16 (App Router) codebase with UI prototypes, 
 > [!WARNING]
 > **CRITICAL DISCREPANCY: LOCAL REPO VS LIVE PRODUCTION SERVER**
 > - The live production site at `https://sellbar.in` is **still running an earlier unpatched deployment**.
-> - The live site still contains uppercase `SELBAR` in titles, header, and footer, fabricated reviews, live ticker, unverified claims ("NIST 800-88", "Best Price Guaranteed", "12-Month Warranty"), and the "Rent PS5 → /screener" link.
+> - The live site still contains uppercase `Sellbar` in titles, header, and footer, fabricated reviews, live ticker, unverified claims ("NIST 800-88", "Best Price Guaranteed", "12-Month Warranty"), and the "Rent PS5 → /screener" link.
 > - **Fixes previously committed to git (such as removing secrets from README or fixing 404 routes in code) are committed and pushed to GitHub (`origin/main`), but HAVE NOT YET BEEN DEPLOYED TO PRODUCTION.**
 > - **Real credential rotation must be performed directly on the production database by the client.** Scrubbing credentials from repo files does not invalidate live MongoDB users or rotate compromised API keys.
 
@@ -45,7 +45,7 @@ Sellbar has a rich, modern Next.js 16 (App Router) codebase with UI prototypes, 
 | **FR-C2** (Trust strip) | Yes | **Broken** | Currently displays hardcoded contradictory claims. Wire to `SiteSettings` singleton (Free Pickup, Instant Valuation, Certified Data Wipe, 6-Month Warranty). |
 | **FR-C3** (Testimonials & Social Proof) | Yes | **Broken** | Currently displays 15 fake hardcoded testimonials with Unsplash photos and a fake scrolling marquee. Replace with real admin-moderated reviews tied to completed orders; render empty state when no reviews exist. |
 | **TRD §2.3** (ISR / SSR Architecture) | No | **Broken** | Root `page.tsx` and catalog pages use `'use client'`, causing poor LCP and blank crawler indexing. Implement ISR (1 hour revalidation) on static storefront pages and SSR with query parameters on `/buy`. |
-| **P0-12** (Brand Spelling & Domain) | Yes | **Broken** | Root layout, navigation, and footer show `SELBAR`. Standardize to **Sellbar** and `https://sellbar.in` across all UI and metadata. |
+| **P0-12** (Brand Spelling & Domain) | Yes | **Broken** | Root layout, navigation, and footer show `Sellbar`. Standardize to **Sellbar** and `https://sellbar.in` across all UI and metadata. |
 | **Homepage Links** | Yes | **Partial** | Fixed 404 links on `/buy/[slug]` in code. "Rent PS5" points to `/screener` (must be removed or mapped to disabled category with email capture). |
 
 ### 3.2 Sell Flow (Mobile Phones: FR-S1 – FR-S13)
@@ -194,5 +194,5 @@ Sellbar has a rich, modern Next.js 16 (App Router) codebase with UI prototypes, 
 | **Footer Social** | `Footer.tsx` | Bare `facebook.com`, `instagram.com`, `youtube.com` links | Incomplete links | **Wire to `SiteSettings.socialLinks`**. |
 | **Services Rail** | `page.tsx` (Line 233) | `"Rent PS5" -> href: "/screener"` | Misleading link | **Remove** "Rent PS5" service tile. |
 | **SEO Meta** | `layout.tsx` | `keywords: "... cashify alternative ..."` | Competitor keyword spam | **Remove competitor keywords**; focus on brand and recommerce terms. |
-| **Root Layout** | `layout.tsx` | `title: "SELBAR — Sell Old Electronics..."` | Incorrect brand casing | **Rename to "Sellbar"**. |
+| **Root Layout** | `layout.tsx` | `title: "Sellbar — Sell Old Electronics..."` | Incorrect brand casing | **Rename to "Sellbar"**. |
 | **Warranty Claims** | Multiple components | Mixed claims of "12-Month Warranty", "6-Month Warranty", "15-Day Return", "5-Day Replacement" | Contradictory policies | **Normalize to `SiteSettings`** (Defaults: 6 Months Warranty, 15 Days Replacement). |

@@ -255,14 +255,14 @@ export default function AuthModal() {
           </button>
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-medium backdrop-blur-md mb-2">
             <Sparkles className="w-3.5 h-3.5 text-emerald-200" />
-            <span>SELBAR Secure Member Portal</span>
+            <span>Sellbar Secure Member Portal</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-black tracking-tight">
             {authMode === 'otp_fallback'
               ? 'Instant OTP Login'
               : authModalTab === 'login'
-              ? 'Welcome Back to SELBAR'
-              : 'Create Your SELBAR Account'}
+              ? 'Welcome Back to Sellbar'
+              : 'Create Your Sellbar Account'}
           </h2>
           <p className="text-xs sm:text-sm text-emerald-100/90 mt-1">
             {authMode === 'otp_fallback'
@@ -707,7 +707,7 @@ export default function AuthModal() {
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
             <span>256-bit SSL & DPDP 2023 Compliant</span>
           </div>
-          <span>SELBAR v1.0</span>
+          <span>Sellbar v1.0</span>
         </div>
       </div>
     </div>

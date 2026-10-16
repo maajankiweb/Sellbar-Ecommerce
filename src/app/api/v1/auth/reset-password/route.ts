@@ -118,12 +118,12 @@ export async function POST(req: NextRequest) {
     if (recipientEmail) {
       await sendEmailNotification({
         to: recipientEmail,
-        subject: 'SELBAR Security Alert: Password Reset Completed',
+        subject: 'Sellbar Security Alert: Password Reset Completed',
         htmlContent: `
           <div style="font-family: Arial, sans-serif; max-width: 580px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px;">
             <h2 style="color: #047857; margin-top: 0;">Password Successfully Reset</h2>
-            <p style="color: #475569; font-size: 14px;">The password for your SELBAR account was just changed. All existing sessions on your devices have been signed out for security.</p>
-            <p style="color: #dc2626; font-size: 13px; font-weight: bold;">If you did NOT perform this change, please contact SELBAR security support at support@selbar.in immediately.</p>
+            <p style="color: #475569; font-size: 14px;">The password for your Sellbar account was just changed. All existing sessions on your devices have been signed out for security.</p>
+            <p style="color: #dc2626; font-size: 13px; font-weight: bold;">If you did NOT perform this change, please contact Sellbar security support at support@sellbar.in immediately.</p>
           </div>
         `,
       }).catch(() => {});

@@ -15,8 +15,8 @@ export interface CapacitorConfig {
 }
 
 const config: CapacitorConfig = {
-  appId: 'in.selbar.driver',
-  appName: 'SELBAR Driver',
+  appId: 'in.sellbar.app',
+  appName: 'Sellbar',
   webDir: 'out',
   bundledWebRuntime: false,
   server: {
@@ -28,10 +28,10 @@ const config: CapacitorConfig = {
   },
   plugins: {
     BackgroundGeolocation: {
-      notificationTitle: 'SELBAR Driver Tracking Active',
+      notificationTitle: 'Sellbar Tracking Active',
       notificationText: 'Sharing background GPS coordinates for scheduled pickups and deliveries',
       notificationIcon: 'ic_launcher_round',
-      notificationChannel: 'selbar_driver_background_tracking',
+      notificationChannel: 'sellbar_background_tracking',
       enableHighAccuracy: true,
       distanceFilter: 10, // Minimum distance in meters before an update event is generated
       interval: 5000, // Desired interval in milliseconds
@@ -45,15 +45,15 @@ const config: CapacitorConfig = {
       stationaryRadius: 25, // meters
     },
     App: {
-      urlScheme: 'selbar',
+      urlScheme: 'sellbar',
       deepLinks: [
         {
           scheme: 'https',
-          host: 'selbar.in',
+          host: 'sellbar.in',
           pathPrefix: '/delivery',
         },
         {
-          scheme: 'selbar',
+          scheme: 'sellbar',
           host: 'delivery',
         },
       ],

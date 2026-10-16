@@ -38,8 +38,8 @@ export default function AdminMediaPage() {
     { id: 'm-2', name: 'sony-wh1000xm5-black.jpg', url: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80', type: 'image', dimensions: '1920 × 1080 px', size: '512 KB', uploadedAt: 'Sep 22, 2026' },
     { id: 'm-3', name: 'macbook-air-m3-starlight.jpg', url: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&auto=format&fit=crop&q=80', type: 'image', dimensions: '2400 × 1600 px', size: '820 KB', uploadedAt: 'Sep 20, 2026' },
     { id: 'm-4', name: 'nike-air-max-pulse-roam.jpg', url: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80', type: 'image', dimensions: '1200 × 1200 px', size: '280 KB', uploadedAt: 'Sep 18, 2026' },
-    { id: 'm-5', name: 'selbar-heavyweight-hoodie.jpg', url: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80', type: 'image', dimensions: '1400 × 1400 px', size: '410 KB', uploadedAt: 'Sep 15, 2026' },
-    { id: 'm-6', name: 'selbar-brand-guidelines-2026.pdf', url: 'https://selbar.com/assets/guidelines.pdf', type: 'document', dimensions: 'A4 Document', size: '2.4 MB', uploadedAt: 'Sep 10, 2026' },
+    { id: 'm-5', name: 'sellbar-heavyweight-hoodie.jpg', url: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80', type: 'image', dimensions: '1400 × 1400 px', size: '410 KB', uploadedAt: 'Sep 15, 2026' },
+    { id: 'm-6', name: 'sellbar-brand-guidelines-2026.pdf', url: 'https://selbar.com/assets/guidelines.pdf', type: 'document', dimensions: 'A4 Document', size: '2.4 MB', uploadedAt: 'Sep 10, 2026' },
   ]);
 
   const filteredFiles = files.filter(f =>

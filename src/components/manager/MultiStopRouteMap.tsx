@@ -189,7 +189,7 @@ export default function MultiStopRouteMap({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-selbar-webhook-secret': 'selbar_dispatch_secret_2026',
+          'x-sellbar-webhook-secret': 'sellbar_dispatch_secret_2026',
         },
         body: JSON.stringify({
           courierId,

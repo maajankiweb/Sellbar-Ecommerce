@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StorefrontLayoutWrapper from "@/components/layout/StorefrontLayoutWrapper";
+import CookieConsentBanner from "@/components/common/CookieConsentBanner";
 import { CartProvider } from "@/context/CartContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -91,6 +92,7 @@ export default function RootLayout({
             <CartProvider>
               <StorefrontLayoutWrapper>
                 {children}
+                <CookieConsentBanner />
               </StorefrontLayoutWrapper>
             </CartProvider>
           </AuthProvider>

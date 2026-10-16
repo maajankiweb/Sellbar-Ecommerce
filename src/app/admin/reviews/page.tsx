@@ -213,8 +213,8 @@ export default function AdminReviewsPage() {
         body: JSON.stringify({
           authorName: 'Rohan Deshmukh',
           rating: 5,
-          reviewText: 'Sold my iPhone 14 Pro Max at my doorstep in Mumbai. The SELBAR field executive verified it in 8 minutes and transferred ₹78,500 directly to my UPI. Outstanding transparency and speed!',
-          reviewUrl: 'https://maps.google.com/?cid=selbar-recommerce',
+          reviewText: 'Sold my iPhone 14 Pro Max at my doorstep in Mumbai. The Sellbar field executive verified it in 8 minutes and transferred ₹78,500 directly to my UPI. Outstanding transparency and speed!',
+          reviewUrl: 'https://maps.google.com/?cid=sellbar-recommerce',
         }),
       });
       const data = await res.json();
@@ -261,7 +261,7 @@ export default function AdminReviewsPage() {
         data={reviews}
         keyField="id"
         searchPlaceholder="Search reviews by product name or buyer..."
-        exportFilename="selbar_product_reviews"
+        exportFilename="sellbar_product_reviews"
       />
 
       {/* Reply Modal */}

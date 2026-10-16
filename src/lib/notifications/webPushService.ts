@@ -7,7 +7,7 @@ const VAPID_PUBLIC_KEY =
   'BEl62iUYgUivxIkv69yViEuiBIa-Ib9-SkvMeAtA3LFgDzkrxZJjSgSnfckjBJuBkr3qBUYIHBQFLXYp5Nksh8U';
 const VAPID_PRIVATE_KEY =
   process.env.VAPID_PRIVATE_KEY || 'UUxI4O8vXjY7P9x6Dq1rI7f9m8h6K5n2B0v4T8w2X1Q';
-const VAPID_SUBJECT = process.env.VAPID_SUBJECT || 'mailto:admin@selbar.in';
+const VAPID_SUBJECT = process.env.VAPID_SUBJECT || 'mailto:admin@sellbar.in';
 
 webpush.setVapidDetails(VAPID_SUBJECT, VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
 

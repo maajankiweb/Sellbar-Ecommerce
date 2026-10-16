@@ -164,7 +164,7 @@ export default function DeliveryDashboard() {
         driverId: 'DEL-902',
         orderId: activePickup?.orderNumber,
         distanceFilterMeters: 10,
-        notificationTitle: 'SELBAR Driver Active',
+        notificationTitle: 'Sellbar Driver Active',
         notificationText: 'Sharing background GPS location for active delivery runs',
         onLocationUpdate: (loc) => {
           setLastGpsPoint({

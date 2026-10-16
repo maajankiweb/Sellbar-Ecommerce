@@ -43,7 +43,7 @@ export const CITIES_DATA: CityHub[] = [
     experienceStoresCount: 1,
     popularModels: ['iPhone 13', 'OnePlus 11R', 'Galaxy S23', 'Redmi Note 12 Pro'],
     serviceablePincodes: ['845438', '845456', '845439', '845454'],
-    tagline: 'SELBAR Flagship Recommerce Hub with 30-min Express Screen Repair and Instant Doorstep Cash Payout.',
+    tagline: 'Sellbar Flagship Recommerce Hub with 30-min Express Screen Repair and Instant Doorstep Cash Payout.',
     isFlagship: true
   },
   {
@@ -157,7 +157,7 @@ export default function CitiesDirectoryPage() {
             <Sparkles className="h-3.5 w-3.5" /> Direct Doorstep Service Across Bihar & Beyond
           </div>
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            SELBAR Service Hubs & <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Doorstep Coverage</span>
+            Sellbar Service Hubs & <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Doorstep Coverage</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-slate-300 sm:text-lg">
             Experience lightning-fast smartphone buyback, certified refurbishment, and instant doorstep UPI payments in your city. Select your town below.

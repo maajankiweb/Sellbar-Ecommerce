@@ -1,5 +1,5 @@
 /**
- * SELBAR Authentication & Security Verification Suite
+ * Sellbar Authentication & Security Verification Suite
  * Executes automated unit and integration tests across the security utilities.
  */
 
@@ -23,7 +23,7 @@ import {
 
 async function runTestSuite() {
   console.log('====================================================');
-  console.log('  SELBAR AUTHENTICATION & SECURITY TEST SUITE       ');
+  console.log('  Sellbar AUTHENTICATION & SECURITY TEST SUITE       ');
   console.log('====================================================\n');
 
   let passed = 0;
@@ -160,8 +160,8 @@ async function runTestSuite() {
     const phoneNorm = normalizeMobileNumber('9876543210');
     assert(phoneNorm.isValid && phoneNorm.normalized === '+919876543210', 'normalizeMobileNumber formats 10-digit number correctly');
 
-    const emailNorm = normalizeEmail('  Test.User@SELBAR.COM  ');
-    assert(emailNorm === 'test.user@selbar.com', 'normalizeEmail cleans whitespace and lowercases');
+    const emailNorm = normalizeEmail('  Test.User@Sellbar.COM  ');
+    assert(emailNorm === 'test.user@sellbar.com', 'normalizeEmail cleans whitespace and lowercases');
 
     const userNorm = normalizeUsername('  SuperSeller_2026 ');
     assert(userNorm === 'superseller_2026', 'normalizeUsername normalizes casing');

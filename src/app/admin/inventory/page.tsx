@@ -234,7 +234,7 @@ export default function AdminInventoryPage() {
         keyField="id"
         searchPlaceholder="Search inventory by product name or SKU..."
         searchField={i => `${i.name} ${i.sku}`}
-        exportFilename="selbar_warehouse_inventory"
+        exportFilename="sellbar_warehouse_inventory"
         filterOptions={[
           {
             label: 'Status',

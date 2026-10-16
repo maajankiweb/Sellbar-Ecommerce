@@ -37,7 +37,7 @@ const FAQ_DATA: FaqItem[] = [
     id: 's-1',
     category: 'selling',
     tag: 'Doorstep Valuation',
-    q: 'How does SELBAR compute my phone valuation?',
+    q: 'How does Sellbar compute my phone valuation?',
     a: 'We evaluate your device using our proprietary real-time algorithmic pricing engine based on brand, exact storage/RAM variant, physical cosmetic wear, screen scratches, and hardware tests. The itemized price breakdown is completely transparent with zero hidden deductibles.'
   },
   {
@@ -82,14 +82,14 @@ const FAQ_DATA: FaqItem[] = [
     category: 'buying',
     tag: 'Warranty Coverage',
     q: 'Does a refurbished phone come with a warranty and return window?',
-    a: 'Yes! Every refurbished device comes with a 12-Month SELBAR Assured Hardware Warranty and a 15-Day Hassle-Free Replacement / Refund window.'
+    a: 'Yes! Every refurbished device comes with a 12-Month Sellbar Assured Hardware Warranty and a 15-Day Hassle-Free Replacement / Refund window.'
   },
   {
     id: 'b-3',
     category: 'buying',
     tag: 'Box Contents',
     q: 'What accessories come inside the box?',
-    a: 'Your phone arrives in an official SELBAR branded shockproof box containing a certified fast-charging cable, SIM ejector tool, quality test report card, and a stamped warranty certificate.'
+    a: 'Your phone arrives in an official Sellbar branded shockproof box containing a certified fast-charging cable, SIM ejector tool, quality test report card, and a stamped warranty certificate.'
   },
   {
     id: 'b-4',
@@ -134,7 +134,7 @@ const FAQ_DATA: FaqItem[] = [
     id: 'p-2',
     category: 'privacy',
     tag: 'Legal Compliance',
-    q: 'Is SELBAR compliant with the India DPDP Act 2023?',
+    q: 'Is Sellbar compliant with the India DPDP Act 2023?',
     a: 'Yes. We strictly adhere to India’s Digital Personal Data Protection Act 2023 as a registered Data Fiduciary with dedicated Grievance Officer oversight.'
   },
 
@@ -395,7 +395,7 @@ export default function FAQPage() {
                 className="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs rounded-xl transition border border-slate-700 flex items-center justify-center gap-2"
               >
                 <PhoneCall className="w-4 h-4 text-teal-400" />
-                <span>1800-SELBAR</span>
+                <span>1800-Sellbar</span>
               </a>
             </div>
           </div>

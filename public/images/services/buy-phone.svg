@@ -4,7 +4,7 @@
     <rect x="0" y="0" width="46" height="96" rx="6" fill="#090d16" stroke="#00a99d" stroke-width="2"/>
     <!-- Branded Accent Line -->
     <rect x="0" y="75" width="46" height="21" rx="0 0 6 6" fill="#00a99d"/>
-    <text x="7" y="89" font-size="7" font-family="sans-serif" font-weight="900" fill="#ffffff" letter-spacing="1">SELBAR</text>
+    <text x="7" y="89" font-size="7" font-family="sans-serif" font-weight="900" fill="#ffffff" letter-spacing="1">Sellbar</text>
     <text x="6" y="55" font-size="8" font-family="sans-serif" font-weight="bold" fill="#00a99d" transform="rotate(-90 6 55)">CERTIFIED</text>
   </g>
 

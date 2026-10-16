@@ -76,7 +76,7 @@ export function calculateProfileCompletion(u: User | null): number {
   if (u.isMobileVerified || u.phoneVerified || u.hasCompletedFirstTimeOtp) score += 20;
 
   // 2. Full Name Provided (20%)
-  if (u.name && u.name.trim().length > 2 && u.name !== 'SELBAR Member') score += 20;
+  if (u.name && u.name.trim().length > 2 && u.name !== 'Sellbar Member') score += 20;
 
   // 3. Registered Primary Email Added (20%)
   if (u.email && u.email.includes('@') && u.email.trim().length > 5) score += 20;
@@ -109,8 +109,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const refreshSession = useCallback(async (): Promise<boolean> => {
     // If user is a guest (no profile cached and no session indicator), skip futile network call
     if (typeof window !== 'undefined') {
-      const hasSavedProfile = Boolean(localStorage.getItem('selbar_user_profile'));
-      const hasSessionCookie = document.cookie.includes('selbar_has_session');
+      const hasSavedProfile = Boolean(localStorage.getItem('sellbar_user_profile'));
+      const hasSessionCookie = document.cookie.includes('sellbar_has_session');
       if (!hasSavedProfile && !hasSessionCookie) {
         setIsLoading(false);
         return false;
@@ -123,7 +123,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         updateAccessToken(newToken);
 
         // Restore cached user profile metadata
-        const saved = localStorage.getItem('selbar_user_profile');
+        const saved = localStorage.getItem('sellbar_user_profile');
         if (saved) {
           try {
             const parsed = JSON.parse(saved);
@@ -141,7 +141,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       } else {
         updateAccessToken(null);
         setUser(null);
-        localStorage.removeItem('selbar_user_profile');
+        localStorage.removeItem('sellbar_user_profile');
         return false;
       }
     } catch {
@@ -203,7 +203,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const completeUser: User = {
         id: incomingUser.id || incomingUser._id,
         phone: incomingUser.phone,
-        name: incomingUser.name || 'SELBAR Member',
+        name: incomingUser.name || 'Sellbar Member',
         email: incomingUser.email,
         username: incomingUser.username,
         role: incomingUser.role || 'customer',
@@ -217,7 +217,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       };
 
       setUser(completeUser);
-      localStorage.setItem('selbar_user_profile', JSON.stringify(completeUser));
+      localStorage.setItem('sellbar_user_profile', JSON.stringify(completeUser));
       setIsAuthModalOpen(false);
 
       return { success: true };
@@ -275,7 +275,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       };
 
       setUser(completeUser);
-      localStorage.setItem('selbar_user_profile', JSON.stringify(completeUser));
+      localStorage.setItem('sellbar_user_profile', JSON.stringify(completeUser));
       setIsAuthModalOpen(false);
 
       return { success: true };
@@ -291,7 +291,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const baseUser: User = {
       id: user?.id || `usr_${Date.now()}`,
       phone,
-      name: name || user?.name || (isFirstTime ? 'SELBAR Member' : 'Verified Member'),
+      name: name || user?.name || (isFirstTime ? 'Sellbar Member' : 'Verified Member'),
       email: email || user?.email,
       isMobileVerified: true,
       hasCompletedFirstTimeOtp: true,
@@ -304,7 +304,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       isProfileComplete: percent === 100,
     };
     setUser(completeUser);
-    localStorage.setItem('selbar_user_profile', JSON.stringify(completeUser));
+    localStorage.setItem('sellbar_user_profile', JSON.stringify(completeUser));
     setIsAuthModalOpen(false);
   };
 
@@ -325,8 +325,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
     updateAccessToken(null);
     setUser(null);
-    localStorage.removeItem('selbar_user_profile');
-    localStorage.removeItem('selbar_user');
+    localStorage.removeItem('sellbar_user_profile');
+    localStorage.removeItem('sellbar_user');
   };
 
   /**
@@ -405,7 +405,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     updatedUser.isProfileComplete = newScore === 100;
 
     setUser(updatedUser);
-    localStorage.setItem('selbar_user_profile', JSON.stringify(updatedUser));
+    localStorage.setItem('sellbar_user_profile', JSON.stringify(updatedUser));
   };
 
   const addAddress = (addr: Omit<Address, 'id'>): Address => {

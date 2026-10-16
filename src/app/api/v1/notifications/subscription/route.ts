@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
     }
 
     const userName = body.userName || body.name || 'Valued Member';
-    const planName = body.planName || 'SELBAR Complete Care+ (1-Year Device Protection)';
+    const planName = body.planName || 'Sellbar Complete Care+ (1-Year Device Protection)';
 
     // Action 1: Renewal Reminder Email
     if (action === 'renewal_reminder' || action === 'renewal') {
@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
       const renewalAmount = Number(body.renewalAmount || body.amount) || 1499;
       const billingCycle = body.billingCycle || 'Annual (12 Months)';
       const paymentMethodSnippet = body.paymentMethodSnippet || body.paymentMethod || 'UPI Auto-pay (•••• 9842)';
-      const manageUrl = body.manageUrl || 'https://selbar.in/user/profile';
+      const manageUrl = body.manageUrl || 'https://sellbar.in/user/profile';
 
       const mailResult = await sendSubscriptionRenewalReminderEmail({
         userEmail,
@@ -88,7 +88,7 @@ export async function POST(req: NextRequest) {
           year: 'numeric',
         });
       const reason = body.reason || 'User opted not to renew auto-protection';
-      const resubscribeUrl = body.resubscribeUrl || 'https://selbar.in/warranty';
+      const resubscribeUrl = body.resubscribeUrl || 'https://sellbar.in/warranty';
 
       const mailResult = await sendSubscriptionCancellationEmail({
         userEmail,
@@ -145,7 +145,7 @@ export async function GET() {
       action: 'renewal_reminder',
       userEmail: 'customer@example.com',
       userName: 'Karan Sharma',
-      planName: 'SELBAR Care+ Extended Warranty',
+      planName: 'Sellbar Care+ Extended Warranty',
       renewalDate: '15 Oct 2026',
       renewalAmount: 1499,
       billingCycle: 'Annual',
@@ -154,7 +154,7 @@ export async function GET() {
       action: 'cancellation',
       userEmail: 'customer@example.com',
       userName: 'Karan Sharma',
-      planName: 'SELBAR Care+ Extended Warranty',
+      planName: 'Sellbar Care+ Extended Warranty',
       effectiveUntilDate: '15 Oct 2026',
       reason: 'Upgraded to a new phone',
     },

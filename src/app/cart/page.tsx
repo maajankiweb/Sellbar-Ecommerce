@@ -147,7 +147,7 @@ export default function CartCheckoutPage() {
     setIsSubmitting(true);
 
     if (!isLoggedIn) {
-      login(phoneNumber, fullName || 'SELBAR Member');
+      login(phoneNumber, fullName || 'Sellbar Member');
     }
 
     try {
@@ -156,7 +156,7 @@ export default function CartCheckoutPage() {
         customer: {
           name: fullName,
           phone: phoneNumber,
-          email: `${phoneNumber}@customer.selbar.in`,
+          email: `${phoneNumber}@customer.sellbar.in`,
         },
         shippingAddress: {
           id: `addr_${Date.now()}`,
@@ -385,7 +385,7 @@ export default function CartCheckoutPage() {
                   <span>Value Added Protection</span>
                 </div>
                 <h3 className="text-sm font-bold text-white">
-                  SELBAR Complete Care (+1 Year Screen & Liquid Damage Cover)
+                  Sellbar Complete Care (+1 Year Screen & Liquid Damage Cover)
                 </h3>
                 <p className="text-xs text-slate-300">
                   Protect against accidental drops, liquid spills & screen cracks with 100% free doorstep pickup in West Champaran.
@@ -469,7 +469,7 @@ export default function CartCheckoutPage() {
                     value={giftNote}
                     onChange={(e) => setGiftNote(e.target.value)}
                     maxLength={160}
-                    placeholder="e.g. Happy Birthday! Enjoy your certified flagship device from SELBAR."
+                    placeholder="e.g. Happy Birthday! Enjoy your certified flagship device from Sellbar."
                     className="w-full p-2.5 text-xs rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a599]/20 resize-none"
                   />
                   <div className="text-[10px] text-slate-400 text-right">
@@ -685,7 +685,7 @@ export default function CartCheckoutPage() {
                     type="text"
                     value={couponInput}
                     onChange={(e) => setCouponInput(e.target.value.toUpperCase())}
-                    placeholder="Enter promo code (e.g. SELBAR500)"
+                    placeholder="Enter promo code (e.g. Sellbar500)"
                     className="flex-1 px-3 py-2 text-xs font-mono font-bold uppercase rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
                   />
                   <button
@@ -714,7 +714,7 @@ export default function CartCheckoutPage() {
                     Available Offers
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    {['SELBAR500', 'WELCOME10', 'FESTIVE2000', 'CHAMPARAN300'].map((code) => (
+                    {['Sellbar500', 'WELCOME10', 'FESTIVE2000', 'CHAMPARAN300'].map((code) => (
                       <button
                         key={code}
                         type="button"

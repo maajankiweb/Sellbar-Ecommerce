@@ -51,14 +51,14 @@ function normalizeInitialProduct(p: RefurbProduct): any {
 // Global in-memory cache to ensure state persists across HMR/hot-reloads in Node runtime
 declare global {
   // eslint-disable-next-line no-var
-  var __SELBAR_PRODUCTS_STORE__: any[] | undefined;
+  var __Sellbar_PRODUCTS_STORE__: any[] | undefined;
 }
 
-let memoryProducts: any[] = global.__SELBAR_PRODUCTS_STORE__ || [];
+let memoryProducts: any[] = global.__Sellbar_PRODUCTS_STORE__ || [];
 
-if (!global.__SELBAR_PRODUCTS_STORE__ || global.__SELBAR_PRODUCTS_STORE__.length === 0) {
+if (!global.__Sellbar_PRODUCTS_STORE__ || global.__Sellbar_PRODUCTS_STORE__.length === 0) {
   memoryProducts = REFURB_PRODUCTS.map(normalizeInitialProduct);
-  global.__SELBAR_PRODUCTS_STORE__ = memoryProducts;
+  global.__Sellbar_PRODUCTS_STORE__ = memoryProducts;
 }
 
 export async function getAllProducts(filters?: {
@@ -373,8 +373,8 @@ export async function deleteProduct(id: string): Promise<boolean> {
   // 2. Memory Store
   const prevLen = memoryProducts.length;
   memoryProducts = memoryProducts.filter((p) => p.id !== id && p.slug !== id && p._id !== id);
-  if (global.__SELBAR_PRODUCTS_STORE__) {
-    global.__SELBAR_PRODUCTS_STORE__ = memoryProducts;
+  if (global.__Sellbar_PRODUCTS_STORE__) {
+    global.__Sellbar_PRODUCTS_STORE__ = memoryProducts;
   }
   return memoryProducts.length < prevLen;
 }
@@ -382,7 +382,7 @@ export async function deleteProduct(id: string): Promise<boolean> {
 // In-memory custom categories store
 declare global {
   // eslint-disable-next-line no-var
-  var __SELBAR_CUSTOM_CATEGORIES__: string[] | undefined;
+  var __Sellbar_CUSTOM_CATEGORIES__: string[] | undefined;
 }
 
 const DEFAULT_CATEGORIES = [
@@ -402,8 +402,8 @@ const DEFAULT_CATEGORIES = [
   'accessories',
 ];
 
-if (!global.__SELBAR_CUSTOM_CATEGORIES__) {
-  global.__SELBAR_CUSTOM_CATEGORIES__ = [];
+if (!global.__Sellbar_CUSTOM_CATEGORIES__) {
+  global.__Sellbar_CUSTOM_CATEGORIES__ = [];
 }
 
 export async function getDistinctCategories(): Promise<string[]> {
@@ -416,8 +416,8 @@ export async function getDistinctCategories(): Promise<string[]> {
   });
 
   // Add custom registered categories
-  if (global.__SELBAR_CUSTOM_CATEGORIES__) {
-    global.__SELBAR_CUSTOM_CATEGORIES__.forEach((c) => categoriesSet.add(c));
+  if (global.__Sellbar_CUSTOM_CATEGORIES__) {
+    global.__Sellbar_CUSTOM_CATEGORIES__.forEach((c) => categoriesSet.add(c));
   }
 
   // Add from MongoDB
@@ -439,11 +439,11 @@ export async function getDistinctCategories(): Promise<string[]> {
 export async function addCustomCategory(categoryName: string): Promise<string> {
   const clean = categoryName.toLowerCase().trim().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/(^-|-$)/g, '');
   if (!clean) return '';
-  if (!global.__SELBAR_CUSTOM_CATEGORIES__) {
-    global.__SELBAR_CUSTOM_CATEGORIES__ = [];
+  if (!global.__Sellbar_CUSTOM_CATEGORIES__) {
+    global.__Sellbar_CUSTOM_CATEGORIES__ = [];
   }
-  if (!global.__SELBAR_CUSTOM_CATEGORIES__.includes(clean)) {
-    global.__SELBAR_CUSTOM_CATEGORIES__.push(clean);
+  if (!global.__Sellbar_CUSTOM_CATEGORIES__.includes(clean)) {
+    global.__Sellbar_CUSTOM_CATEGORIES__.push(clean);
   }
   return clean;
 }

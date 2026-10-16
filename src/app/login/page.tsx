@@ -59,7 +59,7 @@ function LoginForm() {
         <div className="inline-flex p-3 bg-emerald-50 rounded-2xl border border-emerald-100 text-emerald-600 mb-2">
           <ShieldCheck className="w-8 h-8" />
         </div>
-        <h1 className="text-2xl font-black text-slate-900 tracking-tight">Sign In to SELBAR</h1>
+        <h1 className="text-2xl font-black text-slate-900 tracking-tight">Sign In to Sellbar</h1>
         <p className="text-xs text-slate-500">Access your device sell quotes, orders, warranty, and seller portal.</p>
       </div>
 
@@ -88,7 +88,7 @@ function LoginForm() {
               setCredential(val);
               setError('');
             }}
-            placeholder="e.g. 9876543210 or name@selbar.in or rohit_01"
+            placeholder="e.g. 9876543210 or name@sellbar.in or rohit_01"
             disabled={loading}
           />
         </div>

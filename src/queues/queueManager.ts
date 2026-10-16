@@ -21,7 +21,7 @@ try {
 }
 
 // Queue instances
-export const emailQueue = new Queue('selbar-email-queue', {
+export const emailQueue = new Queue('sellbar-email-queue', {
   connection: redisConn as any,
   defaultJobOptions: {
     attempts: 3,
@@ -31,7 +31,7 @@ export const emailQueue = new Queue('selbar-email-queue', {
   },
 });
 
-export const notificationQueue = new Queue('selbar-notification-queue', {
+export const notificationQueue = new Queue('sellbar-notification-queue', {
   connection: redisConn as any,
   defaultJobOptions: {
     attempts: 3,
@@ -41,7 +41,7 @@ export const notificationQueue = new Queue('selbar-notification-queue', {
   },
 });
 
-export const deliverySyncQueue = new Queue('selbar-delivery-sync-queue', {
+export const deliverySyncQueue = new Queue('sellbar-delivery-sync-queue', {
   connection: redisConn as any,
   defaultJobOptions: {
     attempts: 5,
@@ -307,7 +307,7 @@ export class QueueManager {
     error: string;
     data: any;
   }) {
-    const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'admin@selbar.in';
+    const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'admin@sellbar.in';
     const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
     const timestamp = new Date().toISOString();
 

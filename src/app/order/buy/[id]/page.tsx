@@ -123,7 +123,7 @@ export default function BuyOrderTrackingPage({
         isOpen={isRatingModalOpen}
         onClose={() => setIsRatingModalOpen(false)}
         orderId={order.id}
-        courierName={order.courierPartner || 'SELBAR Delivery Partner'}
+        courierName={order.courierPartner || 'Sellbar Delivery Partner'}
         onSuccess={() => {
           setHasRated(true);
           if (typeof window !== 'undefined') localStorage.setItem(`rated_${order.id}`, 'true');
@@ -140,7 +140,7 @@ export default function BuyOrderTrackingPage({
             </div>
             <h1 className="text-xl sm:text-2xl font-black">Order #{order.id}</h1>
             <p className="text-xs text-emerald-100">
-              Courier Partner: <strong className="text-white">{order.courierPartner || 'SELBAR Express'}</strong> • AWB:{' '}
+              Courier Partner: <strong className="text-white">{order.courierPartner || 'Sellbar Express'}</strong> • AWB:{' '}
               <strong className="font-mono text-white">{order.trackingNumber}</strong>
             </p>
           </div>
@@ -299,7 +299,7 @@ export default function BuyOrderTrackingPage({
           </div>
 
           <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span className="text-slate-500">SELBAR 12-Month Warranty:</span>
+            <span className="text-slate-500">Sellbar 12-Month Warranty:</span>
             <span className="font-bold text-emerald-700">Active ✓</span>
           </div>
         </div>
