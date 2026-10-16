@@ -102,6 +102,7 @@ export interface Quote {
   breakdown: QuoteBreakdownItem[];
   conditionAnswers: Record<string, string | string[]>;
   validUntil: string;
+  expiresAt?: string;
   status: 'active' | 'expired' | 'converted';
   createdAt: string;
 }

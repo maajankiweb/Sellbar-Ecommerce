@@ -1227,8 +1227,8 @@ export default function SellbarRefurbishedProductPage({
                     <Shield className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">Up to 12-month warranty</h4>
-                    <p className="text-xs text-slate-500">Comprehensive hardware protection & free doorstep repairs pan-India</p>
+                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">Verified 6-month warranty</h4>
+                    <p className="text-xs text-slate-500">Comprehensive hardware protection & free doorstep repairs</p>
                   </div>
                 </div>
 
@@ -1237,18 +1237,18 @@ export default function SellbarRefurbishedProductPage({
                     <RotateCcw className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">15-day easy returns</h4>
-                    <p className="text-xs text-slate-500">No-questions-asked doorstep return or instant device replacement</p>
+                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">15-day easy replacement</h4>
+                    <p className="text-xs text-slate-500">Doorstep verification with hassle-free device replacement</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4 bg-white/80 backdrop-blur-xs p-4 rounded-2xl border border-slate-200/70 shadow-2xs">
                   <div className="w-12 h-12 rounded-2xl bg-[#42c8b7] text-white flex items-center justify-center shrink-0 shadow-sm shadow-[#42c8b7]/20">
-                    <MapPin className="w-6 h-6" />
+                    <Truck className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">200+ stores Pan-India</h4>
-                    <p className="text-xs text-slate-500">Walk into any authorized Sellbar experience store for instant support</p>
+                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">Doorstep Express Delivery</h4>
+                    <p className="text-xs text-slate-500">Direct doorstep fulfillment and open-box verification</p>
                   </div>
                 </div>
               </div>

@@ -172,9 +172,9 @@ export default function BuyOrderInvoicePage({
             <div className="text-slate-600 space-y-1">
               <div>Payment Mode: <strong className="text-slate-900 font-semibold">{order.paymentMethod}</strong></div>
               <div>Payment Status: <strong className="text-emerald-700 font-semibold">PAID IN FULL ✓</strong></div>
-              <div>Coverage: <strong className="text-slate-900 font-semibold">12-Month Hardware Warranty</strong></div>
+              <div>Coverage: <strong className="text-slate-900 font-semibold">{settings?.warrantyMonthsDefault || 6}-Month Hardware Warranty</strong></div>
               <div className="font-bold text-emerald-800 bg-emerald-50 px-2 py-1 rounded inline-block">
-                5-Day Hassle-Free Replacement Guarantee Active
+                {settings?.replacementWindowDays || 15}-Day Hassle-Free Replacement Guarantee Active
               </div>
             </div>
           </div>

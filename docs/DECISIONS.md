@@ -75,3 +75,27 @@ The original TRD specified enterprise-scale infrastructure (separate Express bac
 | **SD-05** | **Coming Soon & Contact Routing** | **APPROVED** | Out-of-scope categories route to `/coming-soon/[category]` with email waitlist capture. Storefront contact centralized at `/contact` displaying support channels, operational hours, and authorized pickup hubs. |
 | **SD-06** | **Floating WhatsApp Help Desk** | **APPROVED** | Sticky WhatsApp floating button positioned above the mobile bottom nav (`bottom-20 lg:bottom-6`), reading `supportPhone` from `SiteSettings` with prefilled inquiry message. |
 
+---
+
+## 6. Phase 2 — Sell Flow Diagnostics & Quote Engine Decisions
+
+| # | Topic | Status | Formal Decision & Implementation Details |
+|---|---|---|---|
+| **SF-01** | **Diagnostic Hard-Fail Screen** | **APPROVED** | In condition wizard (`/sell/[modelSlug]`), selecting non-operational power (`q_switch_on === 'power_no'`) immediately displays a friendly hard-fail screen explaining the diagnostic requirement, with a direct WhatsApp concierge link (`supportPhone`) and option to change answers. |
+| **SF-02** | **72-Hour Price Lock Countdown & Expiry** | **APPROVED** | Dynamic client countdown on `/sell/quote/[quoteId]` calculating remaining validity from `quote.expiresAt` (or `quote.validUntil`). On expiry, banner switches to red alert disabling checkout with a "Recalculate Price" CTA to re-evaluate valuation against current market prices. |
+| **SF-03** | **Statutory Device Ownership Consent** | **APPROVED** | Mandatory consent checkbox (`[x] I certify that I am the rightful legal owner...`) added before pickup order scheduling. Submit button is strictly disabled until explicit affirmative consent is provided. |
+| **SF-04** | **Centralized Serviceability Guard** | **APPROVED** | Serviceability error strings unified to `SERVICE_RESTRICTION_ERROR_MESSAGE` referencing confirmed hubs (Patna & Bettiah staging test hubs, West Champaran). |
+
+---
+
+## 7. Phase 3 — Buy Flow, PDP, Cart & Invoicing Decisions
+
+| # | Topic | Status | Formal Decision & Implementation Details |
+|---|---|---|---|
+| **BF-01** | **15-Minute Unit Inventory Reservation** | **APPROVED** | Refurbished phones are single 1-of-1 inventory units. Checkout cart displays a prominent 15-minute countdown reservation bar holding unit inventory during checkout. If time lapses, user is prompted to refresh availability before payment. |
+| **BF-02** | **Razorpay Standard Checkout & Resilience** | **APPROVED** | Integrated `openRazorpayModal` for prepaid transactions (UPI, cards, NetBanking) communicating with `/api/v1/payments/create-order` and `/api/v1/payments/verify`. Falls back cleanly to secure verification modal in offline/sandbox mode so testing is never blocked. |
+| **BF-03** | **Strict COD Control (CD-11)** | **APPROVED** | Per Client Decision CD-11, Cash on Delivery is disabled for launch (`codEnabled: false`). In cart, COD option is visually disabled with a badge *"Prepaid only for pilot launch (CD-11)"* and automatically redirects to UPI. |
+| **BF-04** | **Tax Invoice Draft Watermark (CD-06)** | **APPROVED** | Invoices rendered at `/order/buy/[id]/invoice` display a prominent diagonal "DRAFT TEMPLATE" watermark and alert banner pending CA confirmation of standard GST vs margin scheme. |
+| **BF-05** | **Zero Hardcoded Policy Numbers (CD-01)** | **APPROVED** | Replaced all legacy hardcoded "12-month" and "5-day" strings across PDP, cart, invoice, and admin refurbishment screens with dynamic `settings.warrantyMonthsDefault` (6 months) and `settings.replacementWindowDays` (15 days). |
+
+

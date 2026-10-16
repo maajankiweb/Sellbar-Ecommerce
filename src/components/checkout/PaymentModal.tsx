@@ -187,7 +187,7 @@ export default function PaymentModal({
 
               <div className="flex items-center justify-center gap-2 text-xs font-semibold text-slate-700 bg-slate-100 py-1.5 px-3 rounded-lg">
                 <QrCode className="w-3.5 h-3.5 text-emerald-600" />
-                <span>UPI ID: <strong className="font-mono text-slate-900">selbar.recommerce@upi</strong></span>
+                <span>UPI ID: <strong className="font-mono text-slate-900">sellbar.recommerce@upi</strong></span>
               </div>
 
               <button
@@ -312,7 +312,7 @@ export default function PaymentModal({
 
           <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>5-Day Replacement Guarantee & Open-Box Verification Protected</span>
+            <span>15-Day Replacement Guarantee & Open-Box Verification Protected</span>
           </div>
         </div>
       </div>

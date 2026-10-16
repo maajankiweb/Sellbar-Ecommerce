@@ -53,7 +53,7 @@ export async function POST(
 
     return NextResponse.json({
       success: true,
-      message: `5-Day return request raised successfully with Ticket ID #${returnId}`,
+      message: `15-Day return request raised successfully with Ticket ID #${returnId}`,
       returnRequest,
     });
   } catch (err: unknown) {

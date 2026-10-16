@@ -23,6 +23,11 @@ import {
   User,
   Phone
 } from 'lucide-react';
+import {
+  AUTHORIZED_LOCATIONS,
+  STAGING_SEEDED_LOCATIONS,
+  SERVICE_RESTRICTION_ERROR_MESSAGE,
+} from '@/lib/location/config';
 
 export default function QuotePage({
   params,
@@ -37,10 +42,21 @@ export default function QuotePage({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
+  // 72-hour dynamic countdown timer
+  const [timeLeft, setTimeLeft] = useState<{ hours: number; minutes: number; seconds: number; isExpired: boolean }>({
+    hours: 71,
+    minutes: 59,
+    seconds: 59,
+    isExpired: false,
+  });
+
+  // Statutory consent checkbox
+  const [hasConsented, setHasConsented] = useState(false);
+
   // Breakdown collapsible toggle
   const [showBreakdown, setShowBreakdown] = useState(false);
 
-  // Inline Pincode Check (West Champaran Authorized Zone)
+  // Inline Pincode Check
   const [pincode, setPincode] = useState('845438');
   const [pincodeChecking, setPincodeChecking] = useState(false);
   const [serviceability, setServiceability] = useState<ServiceabilityResult | null>({
@@ -95,6 +111,31 @@ export default function QuotePage({
     fetchQuote();
   }, [quoteId]);
 
+  // Dynamic 72-hour countdown timer
+  useEffect(() => {
+    if (!quote) return;
+    const createdTime = quote.createdAt ? new Date(quote.createdAt).getTime() : Date.now();
+    const targetExpiry = quote.expiresAt || quote.validUntil;
+    const expiresTime = targetExpiry ? new Date(targetExpiry).getTime() : createdTime + 72 * 3600 * 1000;
+
+    function updateTimer() {
+      const now = Date.now();
+      const diff = expiresTime - now;
+      if (diff <= 0) {
+        setTimeLeft({ hours: 0, minutes: 0, seconds: 0, isExpired: true });
+      } else {
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        setTimeLeft({ hours, minutes, seconds, isExpired: false });
+      }
+    }
+
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
+    return () => clearInterval(interval);
+  }, [quote]);
+
   useEffect(() => {
     if (user) {
       if (!fullName) setFullName(user.name);
@@ -137,6 +178,14 @@ export default function QuotePage({
     e.preventDefault();
     if (!quote) return;
 
+    if (timeLeft.isExpired) {
+      setBookingError('This quote has expired. Please recalculate your device valuation to receive a fresh price lock.');
+      return;
+    }
+    if (!hasConsented) {
+      setBookingError('Please confirm device ownership and agree to the Terms of Use.');
+      return;
+    }
     if (!phone || phone.length < 10) {
       setBookingError('Please provide a valid 10-digit phone number');
       return;
@@ -146,7 +195,7 @@ export default function QuotePage({
       return;
     }
     if (serviceability && !serviceability.serviceable) {
-      setBookingError('Currently, Sellbar services are exclusively active in West Champaran, Bihar (Bagaha, Bettiah, Lauriya, Ramnagar, Valmikinagar, Narkatiaganj). Doorstep pickup is not available outside this region.');
+      setBookingError(SERVICE_RESTRICTION_ERROR_MESSAGE);
       return;
     }
 
@@ -244,27 +293,51 @@ export default function QuotePage({
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 sm:pb-8 space-y-8">
-      {/* Top Banner with 72-hr Price Lock */}
-      <div className="bg-emerald-600 text-white p-4 rounded-3xl shadow-lg shadow-emerald-600/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center text-white">
-            <Clock className="w-5 h-5" />
-          </div>
-          <div>
-            <div className="text-xs font-black uppercase tracking-wider text-emerald-200">
-              72-Hour Guaranteed Price Lock
+      {/* Top Banner with 72-hr Price Lock or Expired Status */}
+      {timeLeft.isExpired ? (
+        <div className="bg-rose-50 border border-rose-200 text-rose-900 p-4 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left shadow-sm">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-rose-600 text-white flex items-center justify-center">
+              <AlertTriangle className="w-5 h-5" />
             </div>
-            <div className="text-xs text-white/90">
-              Lock this valuation today to protect against market price drops.
+            <div>
+              <div className="text-xs font-black uppercase tracking-wider text-rose-700">
+                Price Lock Expired
+              </div>
+              <div className="text-xs text-rose-800">
+                The 72-hour valuation window has concluded. Re-evaluate to get a fresh guaranteed price lock.
+              </div>
             </div>
           </div>
+          <Link
+            href="/sell"
+            className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold shrink-0 transition"
+          >
+            Recalculate Price
+          </Link>
         </div>
+      ) : (
+        <div className="bg-emerald-600 text-white p-4 rounded-3xl shadow-lg shadow-emerald-600/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center text-white">
+              <Clock className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-xs font-black uppercase tracking-wider text-emerald-200">
+                72-Hour Guaranteed Price Lock
+              </div>
+              <div className="text-xs text-white/90">
+                Lock this valuation today to protect against market price drops.
+              </div>
+            </div>
+          </div>
 
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/20 text-xs font-mono font-bold">
-          <Clock className="w-3.5 h-3.5 text-emerald-300" />
-          <span>Valid for 71h 59m</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/20 text-xs font-mono font-bold">
+            <Clock className="w-3.5 h-3.5 text-emerald-300" />
+            <span>Valid for {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</span>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Main Quote Hero Card */}
       <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-md">
@@ -697,10 +770,35 @@ export default function QuotePage({
             </ul>
           </div>
 
+          {/* Ownership Consent Checkbox */}
+          <div className="flex items-start gap-2.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
+            <input
+              id="consent"
+              type="checkbox"
+              required
+              checked={hasConsented}
+              onChange={(e) => {
+                setHasConsented(e.target.checked);
+                setBookingError('');
+              }}
+              className="mt-0.5 w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 cursor-pointer shrink-0"
+            />
+            <label htmlFor="consent" className="text-xs text-slate-700 font-medium cursor-pointer leading-relaxed">
+              I certify that I am the rightful legal owner of this device and agree to Sellbar&apos;s{' '}
+              <Link href="/legal/terms" target="_blank" className="text-emerald-700 underline font-bold">
+                Terms of Use
+              </Link>{' '}
+              and{' '}
+              <Link href="/legal/privacy" target="_blank" className="text-emerald-700 underline font-bold">
+                Privacy Policy
+              </Link>.
+            </label>
+          </div>
+
           {/* Confirm & Book Pickup Button */}
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !hasConsented || timeLeft.isExpired}
             className="w-full min-h-[48px] py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 transition cursor-pointer active:scale-98"
           >
             <Sparkles className="w-5 h-5 text-emerald-200" />
@@ -719,7 +817,7 @@ export default function QuotePage({
         <button
           type="submit"
           form="pickup-form"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !hasConsented || timeLeft.isExpired}
           className="min-h-[44px] px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-extrabold text-xs shadow-md shadow-emerald-600/25 flex items-center gap-1.5 active:scale-95 cursor-pointer"
         >
           <Sparkles className="w-3.5 h-3.5 text-emerald-200" />
