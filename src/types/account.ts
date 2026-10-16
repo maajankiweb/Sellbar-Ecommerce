@@ -50,11 +50,25 @@ export interface OrderTimeline {
   isCurrent: boolean;
 }
 
+export type OrderType = 'BUY' | 'SELL';
+
+export type SellOrderStatus = 
+  | 'PICKUP_SCHEDULED'
+  | 'EXECUTIVE_ASSIGNED'
+  | 'OUT_FOR_PICKUP'
+  | 'INSPECTED'
+  | 'REVISED_PRICE_PENDING'
+  | 'PAYMENT_PENDING'
+  | 'COMPLETED'
+  | 'CANCELLED';
+
 export interface Order {
   id: string;
   orderId: string;
+  orderType?: OrderType;
   placedAt: string;
   status: OrderStatus;
+  sellStatus?: SellOrderStatus;
   items: OrderItem[];
   subtotal: number;
   discount: number;
@@ -80,6 +94,36 @@ export interface Order {
   deliveredAt?: string;
   invoiceUrl?: string;
   timeline: OrderTimeline[];
+  sellDevice?: {
+    brand: string;
+    model: string;
+    variant: string;
+    image: string;
+    conditionGrade?: string;
+  };
+  quotedPrice?: number;
+  revisedPrice?: number;
+  revisedPriceReasons?: { label: string; deduction: number }[];
+  actualPaidPrice?: number;
+  pickupSlot?: {
+    date: string;
+    window: string;
+  };
+  rescheduleCount?: number;
+  executive?: {
+    name: string;
+    phone: string;
+    maskedPhone?: string;
+    photo?: string;
+  };
+  payoutMode?: 'UPI' | 'Bank Transfer' | 'Instant Cash';
+  payoutDetails?: {
+    upiId?: string;
+    accountNumber?: string;
+    ifsc?: string;
+    accountHolderName?: string;
+  };
+  dataWipeCertificateUrl?: string;
 }
 
 export interface Return {

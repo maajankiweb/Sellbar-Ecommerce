@@ -54,6 +54,7 @@ const navGroups = [
   {
     label: 'PAYMENTS',
     items: [
+      { href: '/account/payout', label: 'Sell Payout Details', icon: CreditCard },
       { href: '/account/payment-methods', label: 'Payment Methods', icon: CreditCard },
       { href: '/account/transactions', label: 'Transactions', icon: RotateCcw },
       { href: '/account/wallet', label: 'Wallet / Store Credit', icon: Wallet },
@@ -79,6 +80,7 @@ const navGroups = [
     label: 'SECURITY',
     items: [
       { href: '/account/security', label: 'Password & Security', icon: ShieldCheck },
+      { href: '/account/privacy', label: 'Privacy & Data Export', icon: ShieldCheck },
       { href: '/account/login-activity', label: 'Login Activity', icon: ActivitySquare },
       { href: '/account/settings', label: 'Account Settings', icon: Settings },
     ],

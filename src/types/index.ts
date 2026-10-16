@@ -19,7 +19,11 @@ export type SellOrderState =
   | 'QUOTED' 
   | 'PICKUP_SCHEDULED' 
   | 'EXECUTIVE_ASSIGNED' 
+  | 'OUT_FOR_PICKUP'
   | 'INSPECTED' 
+  | 'REVISED_PRICE_PENDING'
+  | 'PAYMENT_PENDING'
+  | 'COMPLETED'
   | 'PAID' 
   | 'CANCELLED';
 

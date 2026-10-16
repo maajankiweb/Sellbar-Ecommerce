@@ -100,16 +100,18 @@ function CurrentOrderCard({ order }: { order: Order }) {
                 Out for Delivery
               </span>
             </div>
-            <p className="font-bold text-lg leading-tight">{order.items[0].name}</p>
+            <p className="font-bold text-lg leading-tight">{order.items[0]?.name || 'Refurbished Device'}</p>
             {order.items.length > 1 && (
               <p className="text-white/70 text-xs mt-0.5">+ {order.items.length - 1} other item{order.items.length > 2 ? 's' : ''}</p>
             )}
           </div>
-          <img
-            src={order.items[0].image}
-            alt={order.items[0].name}
-            className="h-14 w-14 rounded-xl object-cover border-2 border-white/30 shrink-0"
-          />
+          {order.items[0]?.image && (
+            <img
+              src={order.items[0].image}
+              alt={order.items[0].name}
+              className="h-14 w-14 rounded-xl object-cover border-2 border-white/30 shrink-0"
+            />
+          )}
         </div>
 
         <div className="flex items-center gap-4 mb-4">
@@ -246,7 +248,8 @@ function DashboardContent() {
     });
   }, []);
 
-  const activeOrder = orders.find(o => ['PLACED', 'PROCESSING', 'PACKED', 'SHIPPED', 'OUT_FOR_DELIVERY'].includes(o.status));
+  const pendingRevisedPriceOrder = orders.find(o => o.sellStatus === 'REVISED_PRICE_PENDING');
+  const activeOrder = orders.find(o => o.orderType !== 'SELL' && ['PLACED', 'PROCESSING', 'PACKED', 'SHIPPED', 'OUT_FOR_DELIVERY'].includes(o.status));
   const activeReturn = orders.find(o => ['RETURN_REQUESTED', 'REFUND_PROCESSING'].includes(o.status));
   const pendingReviewOrders = orders.filter(o => o.status === 'DELIVERED' && o.items.some(i => !i.isReviewed));
   const wishlistDrops = wishlist.filter(w => w.priceDropped);
@@ -256,7 +259,17 @@ function DashboardContent() {
 
   // Action required items
   const actionItems = [
-    ...(activeOrder ? [{
+    ...(pendingRevisedPriceOrder ? [{
+      icon: <AlertTriangle className="h-5 w-5 text-amber-700" />,
+      iconBg: 'bg-amber-100',
+      label: 'Action Required',
+      title: `${pendingRevisedPriceOrder.sellDevice?.brand} ${pendingRevisedPriceOrder.sellDevice?.model} — Revised Offer Awaiting Decision`,
+      message: `Diagnostic revised offer: ₹${pendingRevisedPriceOrder.revisedPrice?.toLocaleString('en-IN')}. Accept or decline with zero cancellation fee.`,
+      ctaLabel: 'Review Offer',
+      ctaHref: `/account/orders/${pendingRevisedPriceOrder.orderId}`,
+      type: 'warning' as const,
+    }] : []),
+    ...(activeOrder && activeOrder.items.length > 0 ? [{
       icon: <Truck className="h-5 w-5 text-blue-600" />,
       iconBg: 'bg-blue-100',
       label: 'Delivery Today',
@@ -300,12 +313,33 @@ function DashboardContent() {
 
   return (
     <div className="flex-1 p-4 sm:p-6 pb-24 lg:pb-8 max-w-5xl xl:max-w-6xl mx-auto w-full">
-      {/* Welcome */}
-      <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-black text-slate-900">
-          {greeting}, {displayName}! 👋
-        </h1>
-        <p className="text-sm text-slate-500 mt-1">Here's what's happening with your account today.</p>
+      {/* Welcome & Pincode */}
+      <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-black text-slate-900">
+            {greeting}, {displayName}! 👋
+          </h1>
+          <p className="text-sm text-slate-500 mt-1">Here's what's happening with your Sellbar account today.</p>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <div className="px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 flex items-center gap-1.5">
+            <MapPin className="h-3.5 w-3.5 text-emerald-600" />
+            Serviceable: 800001 (Patna)
+          </div>
+          <Link
+            href="/sell"
+            className="px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 transition shadow-sm"
+          >
+            + Sell Phone
+          </Link>
+          <Link
+            href="/buy"
+            className="px-3.5 py-1.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition shadow-sm"
+          >
+            Buy Phone
+          </Link>
+        </div>
       </div>
 
       {/* Quick Stats */}
@@ -360,35 +394,56 @@ function DashboardContent() {
               </div>
             ) : (
               <div className="divide-y divide-slate-100">
-                {orders.slice(0, 3).map(order => (
-                  <div key={order.id} className="px-5 py-4 hover:bg-slate-50 transition">
-                    <div className="flex items-start gap-3">
-                      <img
-                        src={order.items[0].image}
-                        alt={order.items[0].name}
-                        className="h-14 w-14 rounded-xl object-cover bg-slate-100 shrink-0"
-                      />
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-start justify-between gap-2">
-                          <div className="min-w-0">
-                            <p className="text-xs font-bold text-slate-500">{order.orderId}</p>
-                            <p className="text-sm font-semibold text-slate-900 line-clamp-1">{order.items[0].name}</p>
-                            {order.items.length > 1 && <p className="text-xs text-slate-400">+{order.items.length - 1} more</p>}
-                          </div>
-                          <StatusBadge status={order.status} />
+                {orders.slice(0, 3).map(order => {
+                  const isSell = order.orderType === 'SELL' || order.orderId.startsWith('ORD-SELL-');
+                  const title = isSell
+                    ? `${order.sellDevice?.brand} ${order.sellDevice?.model}`
+                    : order.items[0]?.name || 'Refurbished Device';
+                  const subtitle = isSell
+                    ? order.sellDevice?.variant
+                    : order.items.length > 1
+                    ? `+${order.items.length - 1} more items`
+                    : order.items[0]?.variant;
+                  const image = isSell ? order.sellDevice?.image : order.items[0]?.image;
+
+                  return (
+                    <div key={order.id} className="px-5 py-4 hover:bg-slate-50 transition">
+                      <div className="flex items-start gap-3">
+                        <div className="h-14 w-14 rounded-xl bg-slate-50 border border-slate-100 p-1 flex items-center justify-center shrink-0">
+                          {image ? (
+                            <img
+                              src={image}
+                              alt={title}
+                              className="max-h-full max-w-full object-contain"
+                            />
+                          ) : (
+                            <Package className="h-6 w-6 text-slate-400" />
+                          )}
                         </div>
-                        <div className="flex items-center justify-between mt-2">
-                          <span className="text-sm font-black text-slate-900">₹{order.total.toLocaleString('en-IN')}</span>
-                          <div className="flex gap-2">
-                            <Link href={`/account/orders/${order.orderId}`} className="text-xs text-blue-600 font-semibold hover:underline">
-                              View Details
-                            </Link>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start justify-between gap-2">
+                            <div className="min-w-0">
+                              <p className="text-xs font-bold text-slate-500 font-mono">{order.orderId}</p>
+                              <p className="text-sm font-semibold text-slate-900 line-clamp-1">{title}</p>
+                              {subtitle && <p className="text-xs text-slate-400">{subtitle}</p>}
+                            </div>
+                            <StatusBadge status={order.sellStatus || order.status} />
+                          </div>
+                          <div className="flex items-center justify-between mt-2">
+                            <span className="text-sm font-black text-slate-900">
+                              ₹{(order.revisedPrice || order.quotedPrice || order.total).toLocaleString('en-IN')}
+                            </span>
+                            <div className="flex gap-2">
+                              <Link href={`/account/orders/${order.orderId}`} className="text-xs text-emerald-700 font-bold hover:underline">
+                                View Details →
+                              </Link>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </SectionCard>

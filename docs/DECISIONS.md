@@ -98,4 +98,15 @@ The original TRD specified enterprise-scale infrastructure (separate Express bac
 | **BF-04** | **Tax Invoice Draft Watermark (CD-06)** | **APPROVED** | Invoices rendered at `/order/buy/[id]/invoice` display a prominent diagonal "DRAFT TEMPLATE" watermark and alert banner pending CA confirmation of standard GST vs margin scheme. |
 | **BF-05** | **Zero Hardcoded Policy Numbers (CD-01)** | **APPROVED** | Replaced all legacy hardcoded "12-month" and "5-day" strings across PDP, cart, invoice, and admin refurbishment screens with dynamic `settings.warrantyMonthsDefault` (6 months) and `settings.replacementWindowDays` (15 days). |
 
+## 8. Stage C — User Dashboard & Account Operations Decisions
+
+| # | Topic | Status | Formal Decision & Implementation Details |
+|---|---|---|---|
+| **AC-01** | **Unified Recommerce Orders Hub (`/account/orders`)** | **APPROVED** | Implemented three dedicated tabs (All Orders, Sell Phone Pickups, Refurbished Purchases). Replaced generic e-commerce mock cards with authentic phone cards featuring IMEI/grade specs, warranty badges, and pickup scheduling windows. |
+| **AC-02** | **Diagnostic Revised Price Decision Engine** | **APPROVED** | For Sell orders with status `REVISED_PRICE_PENDING`, prominent alert banner and order detail card display the itemized deduction breakdown (e.g. screen scratches, missing box). Customer can Accept (triggers instant payout processing) or Decline (zero cancellation fee, phone returned on the spot). |
+| **AC-03** | **Doorstep Pickup Rescheduling & Handover Verification** | **APPROVED** | Sell order details show the 4-digit Handover Verification Code required by executive before taking possession. Customers can reschedule pickup slot up to 2 times before the executive goes `OUT_FOR_PICKUP`. |
+| **AC-04** | **Dedicated Selling Payout Destination (`/account/payout`)** | **APPROVED** | Built `/account/payout` allowing users to configure either an Instant UPI ID (VPA) or Direct Bank Account (double entry validation + IFSC bank name lookup). Changes require mandatory 6-digit OTP verification. |
+| **AC-05** | **DPDP Privacy & Data Portability (`/account/privacy`)** | **APPROVED** | Built `/account/privacy` with immutable consent history, one-click personal data export request (JSON + PDF archive), and 30-day grace period account deletion with statutory 8-year tax/invoice retention notice. |
+
+
 
