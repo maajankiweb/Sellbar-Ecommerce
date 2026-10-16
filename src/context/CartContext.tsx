@@ -40,18 +40,18 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('selbar_cart');
+      const saved = localStorage.getItem('sellbar_cart');
       if (saved) {
         setItems(JSON.parse(saved));
       }
-      const savedCoupon = localStorage.getItem('selbar_coupon');
+      const savedCoupon = localStorage.getItem('sellbar_coupon');
       if (savedCoupon) {
         const parsed = JSON.parse(savedCoupon);
         setCouponCode(parsed.code);
         setCouponDiscount(parsed.discount);
         setAppliedCoupon(parsed.coupon);
       }
-      const savedProtection = localStorage.getItem('selbar_protection');
+      const savedProtection = localStorage.getItem('sellbar_protection');
       if (savedProtection) {
         setWarrantyProtection(JSON.parse(savedProtection));
       }
@@ -64,7 +64,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (mounted) {
       try {
-        localStorage.setItem('selbar_cart', JSON.stringify(items));
+        localStorage.setItem('sellbar_cart', JSON.stringify(items));
       } catch {
         // ignore
       }
@@ -75,13 +75,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     if (mounted) {
       try {
         if (appliedCoupon) {
-          localStorage.setItem('selbar_coupon', JSON.stringify({
+          localStorage.setItem('sellbar_coupon', JSON.stringify({
             code: couponCode,
             discount: couponDiscount,
             coupon: appliedCoupon
           }));
         } else {
-          localStorage.removeItem('selbar_coupon');
+          localStorage.removeItem('sellbar_coupon');
         }
       } catch {
         // ignore
@@ -92,7 +92,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (mounted) {
       try {
-        localStorage.setItem('selbar_protection', JSON.stringify(warrantyProtection));
+        localStorage.setItem('sellbar_protection', JSON.stringify(warrantyProtection));
       } catch {
         // ignore
       }

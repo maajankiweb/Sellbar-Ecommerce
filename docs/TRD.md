@@ -1,8 +1,8 @@
-# SELBAR — Complete Technical Requirements Document (TRD) & Production PRD
-**Platform:** SELBAR (Recommerce & Electronics Marketplace)  
+# Sellbar — Complete Technical Requirements Document (TRD) & Production PRD
+**Platform:** Sellbar (Recommerce & Electronics Marketplace)  
 **Document Version:** 2.0 (Production-Ready Architecture)  
 **Target Stack:** Next.js (Frontend) + Express.js / Node.js (Backend) + MongoDB / Mongoose (Database) + Razorpay (Payment Gateway)  
-**Companion Documents:** `SELBAR-PRD.md`, API Specifications, Wireframes  
+**Companion Documents:** `Sellbar-PRD.md`, API Specifications, Wireframes  
 
 ---
 
@@ -113,7 +113,7 @@
 
 ### 2.2 Server Components vs Client Components Usage Pattern
 
-| Component Type | File Directives | Use Cases in SELBAR |
+| Component Type | File Directives | Use Cases in Sellbar |
 |---|---|---|
 | **Server Component (RSC)** | Default (no directive) | - Device Brand & Model Catalog (`/sell/brands`, `/buy`)<br>- Static SEO Content (`/about`, `/privacy`, `/faq`, `/terms`)<br>- Initial server data fetching with direct caching tags<br>- Blog / News / Article listing |
 | **Client Component** | `'use client'` at top | - Condition Q&A Interactive Wizard (`/sell/quote`)<br>- Dynamic Price Gauge & Deduction Calculator<br>- Interactive Screener Table & Filtering (`/screener`)<br>- Interactive Charts (Recharts/Chart.js analytics)<br>- Razorpay Modal invocation & payment handlers<br>- Redux Toolkit / Context API Consumers |
@@ -153,7 +153,7 @@
 ### 3.1 Directory Organization (Clean 3-Tier Modular Structure)
 
 ```
-selbar-backend/
+sellbar-backend/
 ├── src/
 │   ├── config/                 # DB, Redis, Razorpay, Environment configurations
 │   │   ├── database.js         # Mongoose connection with pooling options
@@ -262,7 +262,7 @@ const authorizeRoles = (...allowedRoles) => {
 
 ### 3.4 Production Security Middlewares Suite
 1. **Helmet:** Set strict security HTTP headers (`Content-Security-Policy`, `X-Frame-Options`, `HSTS`).
-2. **CORS:** Whitelist only allowed origins (`https://selbar.in`, `https://admin.selbar.in`).
+2. **CORS:** Whitelist only allowed origins (`https://sellbar.in`, `https://admin.sellbar.in`).
 3. **Express Rate Limit:**
    - Global API limiter: 200 requests / 15 mins per IP.
    - OTP generation limiter: 5 requests / hour per mobile number.
@@ -601,7 +601,7 @@ exports.handleWebhook = async (req, res) => {
 |---|---|---|---|
 | `NODE_ENV` | All | `production` / `development` | Runtime environment flag |
 | `PORT` | Backend | `5000` | Port for Express HTTP server |
-| `MONGO_URI` | Backend | `mongodb+srv://selbar:pass@cluster.mongodb.net/selbar_prod?retryWrites=true&w=majority` | Atlas connection string |
+| `MONGO_URI` | Backend | `mongodb+srv://selbar:pass@cluster.mongodb.net/sellbar_prod?retryWrites=true&w=majority` | Atlas connection string |
 | `REDIS_URL` | Backend | `rediss://default:pass@redis-host.com:6379` | Queue and cache Redis URL |
 | `JWT_ACCESS_SECRET` | Backend | `64_char_crypto_random_hex_string` | Signs 15m access tokens |
 | `JWT_REFRESH_SECRET` | Backend | `64_char_crypto_random_hex_string` | Signs 30d refresh tokens |
@@ -610,10 +610,10 @@ exports.handleWebhook = async (req, res) => {
 | `RAZORPAY_WEBHOOK_SECRET` | Backend | `whsec_xxxxxxxxxxxx` | Secret for HMAC webhook verification |
 | `MSG91_AUTH_KEY` | Backend | `auth_token_msg91` | SMS OTP sending key |
 | `MSG91_OTP_TEMPLATE_ID` | Backend | `649a1b2c3d4e5f6` | DLT registered template ID |
-| `AWS_S3_BUCKET` | Backend | `selbar-assets-prod` | Media & document bucket |
+| `AWS_S3_BUCKET` | Backend | `sellbar-assets-prod` | Media & document bucket |
 | `AWS_ACCESS_KEY_ID` | Backend | `AKIAIOSFODNN7EXAMPLE` | S3 IAM user key |
 | `AWS_SECRET_ACCESS_KEY` | Backend | `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY` | S3 secret |
-| `NEXT_PUBLIC_API_BASE_URL` | Frontend | `https://api.selbar.in/api/v1` | Public API endpoint for Axios |
+| `NEXT_PUBLIC_API_BASE_URL` | Frontend | `https://api.sellbar.in/api/v1` | Public API endpoint for Axios |
 | `NEXT_PUBLIC_RAZORPAY_KEY_ID`| Frontend | `rzp_live_xxxxxxxxxxxx` | Public key for frontend checkout modal |
 
 ### 6.2 Security Rules
@@ -634,7 +634,7 @@ exports.handleWebhook = async (req, res) => {
 ### 7.2 GitHub Actions CI/CD Pipeline
 ```yaml
 # .github/workflows/deploy.yml
-name: SELBAR CI/CD Pipeline
+name: Sellbar CI/CD Pipeline
 
 on:
   push:
@@ -682,7 +682,7 @@ jobs:
           username: ${{ secrets.PROD_SSH_USER }}
           key: ${{ secrets.PROD_SSH_KEY }}
           script: |
-            cd /var/www/selbar-backend
+            cd /var/www/sellbar-backend
             git pull origin main
             npm ci --production
             pm2 reload ecosystem.config.js --env production
@@ -748,7 +748,7 @@ jobs:
 - Kick-off meeting with client to finalize all feature requirements, pricing algorithm rules, and expectations.
 - Finalizing third-party credentials (Razorpay API keys, MSG91 SMS DLT credentials, AWS S3 bucket, MongoDB Atlas cluster).
 - Defining detailed Mongoose schemas, user roles (`customer`, `executive`, `admin`, `super_admin`), and system architecture.
-- Initializing Git repositories (`selbar-frontend`, `selbar-backend`), setting up commit conventions, and branch rules.
+- Initializing Git repositories (`sellbar-frontend`, `sellbar-backend`), setting up commit conventions, and branch rules.
 
 ### Phase 2 — UI/UX Wireframing & Design (10–14 Days)
 - Low-fidelity wireframes covering Sell wizard, Refurbished Store, Cart/Checkout, User Dashboard, and Admin management.
@@ -786,11 +786,11 @@ jobs:
 
 ### Phase 7 — Deployment & Handover (3–5 Days)
 - Production server provisioning: VPS / Cloud server with Nginx reverse proxy, Node.js + PM2 (cluster mode), SSL (Certbot).
-- Vercel production deployment for Next.js frontend with custom domain mapping (`selbar.in`).
+- Vercel production deployment for Next.js frontend with custom domain mapping (`sellbar.in`).
 - MongoDB Atlas M10+ replica set configuration with IP allowlisting and automated daily backups.
 - Delivery of: Full source code, Postman API collections with environment variables, database seed scripts, admin manual.
 - 1-hour live walkthrough session with client and administrative team.
 - 30-day post-launch warranty and bug-fix support commences.
 
 ---
-*Document approved for engineering handoff. All modules, schemas, and endpoints comply with SELBAR Product Architecture v2.0.*
+*Document approved for engineering handoff. All modules, schemas, and endpoints comply with Sellbar Product Architecture v2.0.*

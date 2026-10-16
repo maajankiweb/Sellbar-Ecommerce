@@ -1,8 +1,8 @@
-# SELBAR Mobile-First Responsive Design System & Breakpoint Architecture
+# Sellbar Mobile-First Responsive Design System & Breakpoint Architecture
 
 ## 1. Executive Summary & Design Preservation Guarantee
 
-This document defines the responsive architecture for the SELBAR recommerce platform.
+This document defines the responsive architecture for the Sellbar recommerce platform.
 The primary directive is **Strict Desktop Design Preservation**:
 - The desktop viewport (**1024px and above**) remains **100% pixel-perfect and visually identical** to the existing production specification.
 - No colors, typography, desktop margins, grid structures, or desktop mega-menus have been altered.
@@ -39,7 +39,7 @@ In adherence to WCAG 2.5.5 Target Size guidelines and Apple Human Interface Guid
 
 ### 3.2 iOS Safari Auto-Zoom Prevention
 On mobile viewports (`< 768px`), iOS Safari automatically zooms in on any input element with a font size smaller than 16px, causing page layout disorientation.
-- Global rule configured in [globals.css](file:///f:/Project%20My%20Agency/SELBAR/Website/src/app/globals.css):
+- Global rule configured in [globals.css](file:///f:/Project%20My%20Agency/Sellbar/Website/src/app/globals.css):
   ```css
   @media (max-width: 767px) {
     input[type="text"],
@@ -82,7 +82,7 @@ To prevent Cumulative Layout Shift (CLS) and horizontal overflow:
    - Product thumbnails and banners maintain explicit aspect ratios (`aspect-square`, `aspect-[4/3]`, `aspect-[16/9]`).
    - Image elements utilize `object-contain` or `object-cover` to prevent distortion across device orientations.
 3. **Remote CDN Optimization**:
-   - [next.config.ts](file:///f:/Project%20My%20Agency/SELBAR/Website/next.config.ts) configured with `remotePatterns` supporting all image domains over HTTPS without quality degradation or blocking.
+   - [next.config.ts](file:///f:/Project%20My%20Agency/Sellbar/Website/next.config.ts) configured with `remotePatterns` supporting all image domains over HTTPS without quality degradation or blocking.
 
 ---
 

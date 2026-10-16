@@ -14,7 +14,7 @@ async function handleRollup(req: NextRequest) {
     // 1. Authorize: Verify CRON_SECRET header
     const authHeader = req.headers.get('authorization') || '';
     const token = authHeader.replace(/^Bearer\s+/i, '');
-    const cronSecret = process.env.CRON_SECRET || 'selbar_cron_secret_key_2026';
+    const cronSecret = process.env.CRON_SECRET || 'sellbar_cron_secret_key_2026';
 
     if (!token || token !== cronSecret) {
       return NextResponse.json(

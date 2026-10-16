@@ -1,8 +1,8 @@
-# SELBAR — Enterprise E-Commerce & Recommerce Marketplace
+# Sellbar — Enterprise E-Commerce & Recommerce Marketplace
 
 <div align="center">
 
-![SELBAR Platform](https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=1200&auto=format&fit=crop&q=80)
+![Sellbar Platform](https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=1200&auto=format&fit=crop&q=80)
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.3.5_(Turbopack)-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2.8-blue?style=for-the-badge&logo=react)](https://react.dev/)
@@ -14,7 +14,7 @@
 **India's Next-Generation Recommerce & E-Commerce Platform**  
 *Instant Device Valuation • Doorstep Buyback • Certified Refurbished Flagships • Multi-Vendor Marketplace • Mobile Device Diagnostics*
 
-[Live Platform](https://selbar.in) • [Admin Portal](https://selbar.in/admin) • [Local Dev](http://localhost:3000) • [Documentation](docs/) • [Architecture](docs/responsive-design-system.md)
+[Live Platform](https://sellbar.in) • [Admin Portal](https://sellbar.in/admin) • [Local Dev](http://localhost:3000) • [Documentation](docs/) • [Architecture](docs/responsive-design-system.md)
 
 </div>
 
@@ -38,7 +38,7 @@
 
 ## 🌟 Overview & Core Value Propositions
 
-**SELBAR** is a high-performance recommerce and multi-vendor marketplace designed to scale to **1M+ registered users** and handle high-traffic spike campaigns. The platform facilitates both **single-vendor direct sales** and **multi-vendor store operations** across the circular electronics lifecycle:
+**Sellbar** is a high-performance recommerce and multi-vendor marketplace designed to scale to **1M+ registered users** and handle high-traffic spike campaigns. The platform facilitates both **single-vendor direct sales** and **multi-vendor store operations** across the circular electronics lifecycle:
 
 * **Sell Old Electronics**: Instant algorithmic price quote, 32-point doorstep diagnostic inspection, and instant UPI bank payouts.
 * **Certified Refurbished Store**: 12-month comprehensive warranty, 7-day replacement guarantee, and certified data sanitization certificates (NIST 800-88).
@@ -131,7 +131,7 @@ The platform implements a **Mobile-First CSS strategy** while **strictly preserv
 ## 📁 Project Structure
 
 ```text
-SELBAR/Website/
+Sellbar/Website/
 ├── docs/                               # Comprehensive Documentation
 │   ├── authentication.md               # Auth architecture & flow diagrams
 │   ├── rbac.md                         # Role & Permission matrix
@@ -205,7 +205,7 @@ JWT_REFRESH_SECRET=your_384_bit_refresh_secret
 OTP_HMAC_SECRET=your_384_bit_otp_pepper_secret
 
 # Master Admin In-House API Key (Generate via openssl rand -hex 32)
-SELBAR_MASTER_API_KEY=your_generated_master_api_key_here
+Sellbar_MASTER_API_KEY=your_generated_master_api_key_here
 ```
 
 ---
@@ -249,9 +249,9 @@ A **Super Administrator** account is provisioned in the database with full root 
 
 | Parameter | Configuration |
 | :--- | :--- |
-| **Login Portal** | [/login](http://localhost:3000/login) (or `https://selbar.in/login`) |
-| **Admin Operations Dashboard** | [/admin](http://localhost:3000/admin) (or `https://selbar.in/admin`) |
-| **Identifier (Email / Username)** | Configured via `ADMIN_EMAIL` / `ADMIN_USERNAME` in `.env.local` (Default: `admin@selbar.in` / `admin`) |
+| **Login Portal** | [/login](http://localhost:3000/login) (or `https://sellbar.in/login`) |
+| **Admin Operations Dashboard** | [/admin](http://localhost:3000/admin) (or `https://sellbar.in/admin`) |
+| **Identifier (Email / Username)** | Configured via `ADMIN_EMAIL` / `ADMIN_USERNAME` in `.env.local` (Default: `admin@sellbar.in` / `admin`) |
 | **Password** | Configured via `ADMIN_PASSWORD` in `.env.local` (Generated securely by `npm run seed:admin` if omitted) |
 | **Access Tier** | `super_admin` (Full root access across orders, products, and tenants) |
 
@@ -273,7 +273,7 @@ npm run test:auth
 
 ```text
 ====================================================
-  SELBAR AUTHENTICATION & SECURITY TEST SUITE       
+  Sellbar AUTHENTICATION & SECURITY TEST SUITE       
 ====================================================
 
 [1/4] Testing Password Hashing & Verification (Argon2id + Bcrypt Migration)...
@@ -338,5 +338,5 @@ Detailed engineering documentation is available in the [`docs/`](docs/) director
 ---
 
 <div align="center">
-  <b>SELBAR Technologies India Pvt. Ltd.</b> • Built for Performance, Trust, and Circular Recommerce.
+  <b>Sellbar Technologies India Pvt. Ltd.</b> • Built for Performance, Trust, and Circular Recommerce.
 </div>

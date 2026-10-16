@@ -24,7 +24,7 @@ import {
 const PARTNER_TIERS = [
   {
     id: 'franchise',
-    title: 'SELBAR Retail Experience Franchise',
+    title: 'Sellbar Retail Experience Franchise',
     subtitle: 'Exclusive Branded Showroom',
     investment: '₹5L – ₹10L Capital',
     roi: '12–18 Months Payback',
@@ -44,7 +44,7 @@ const PARTNER_TIERS = [
     investment: '₹0 Upfront Investment',
     roi: 'Instant Commission per device',
     features: [
-      'Use SELBAR Pricing Engine app to quote walk-in customers',
+      'Use Sellbar Pricing Engine app to quote walk-in customers',
       'Earn ₹500 – ₹1,500 instant commission per phone buyback',
       'Zero risk: We handle doorstep collection and QC',
       'Free promotional standees, posters & digital banners',
@@ -60,7 +60,7 @@ const PARTNER_TIERS = [
     roi: 'Wholesale Margins 20–35%',
     features: [
       'Verified wholesale inventory lots (Grade A / B / C)',
-      '32-point inspection report for every IMEI in the batch',
+      'quality inspection report for every IMEI in the batch',
       'GST input tax credit compliant tax invoices',
       'Fast pan-India dispatch with transit insurance',
       'Dedicated institutional relationship manager'
@@ -95,13 +95,13 @@ export default function PartnerPage() {
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider shadow-xs">
           <Handshake className="w-3.5 h-3.5" />
-          <span>SELBAR Partner & Franchise Network</span>
+          <span>Sellbar Partner & Franchise Network</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight leading-tight">
           Partner With India's Fastest-Growing <span className="text-emerald-600">Recommerce</span> Platform.
         </h1>
         <p className="text-xs sm:text-base text-slate-600 leading-relaxed">
-          Whether you own a local mobile store wanting to offer instant buyback, or an entrepreneur planning a branded SELBAR Experience Centre, grow your revenue with zero dead-stock risk.
+          Whether you own a local mobile store wanting to offer instant buyback, or an entrepreneur planning a branded Sellbar Experience Centre, grow your revenue with zero dead-stock risk.
         </p>
 
         {/* Quick Stats */}
@@ -209,7 +209,7 @@ export default function PartnerPage() {
               Calculate Your Monthly Retail Commission
             </h3>
             <p className="text-xs text-slate-500">
-              Estimate how much extra revenue your store can generate with SELBAR Buyback.
+              Estimate how much extra revenue your store can generate with Sellbar Buyback.
             </p>
           </div>
 
@@ -258,7 +258,7 @@ export default function PartnerPage() {
             <span>Fast-Track Onboarding</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">
-            Join the SELBAR Partner Network
+            Join the Sellbar Partner Network
           </h2>
           <p className="text-xs text-slate-500">
             Submit your details below. Our regional franchise manager will connect with you within 24 hours.

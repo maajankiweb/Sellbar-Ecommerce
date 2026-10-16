@@ -22,8 +22,8 @@ export function checkPincodeServiceability(pincode: string): ServiceabilityResul
     return {
       pincode: cleanPin,
       serviceable: true,
-      city: `${location.name}, West Champaran`,
-      state: 'Bihar',
+      city: location.displayName,
+      state: location.state,
       deliveryDays: location.deliveryDays,
       pickupAvailable: true,
     };
@@ -52,8 +52,8 @@ export function checkLocationServiceability(cityOrPincode: string): {
     if (byPin) {
       return {
         serviceable: true,
-        city: `${byPin.name}, West Champaran`,
-        state: 'Bihar',
+        city: byPin.displayName,
+        state: byPin.state,
         deliveryDays: byPin.deliveryDays,
         pickupAvailable: true,
       };
@@ -65,8 +65,8 @@ export function checkLocationServiceability(cityOrPincode: string): {
   if (byCity) {
     return {
       serviceable: true,
-      city: `${byCity.name}, West Champaran`,
-      state: 'Bihar',
+      city: byCity.displayName,
+      state: byCity.state,
       deliveryDays: byCity.deliveryDays,
       pickupAvailable: true,
     };

@@ -113,7 +113,7 @@ function GiftCardsContent() {
 
   return (
     <div className="flex-1 p-4 sm:p-6 pb-24 lg:pb-8 max-w-3xl mx-auto w-full">
-      <PageHeader title="Gift Cards" description="Manage and redeem your SELBAR gift cards" />
+      <PageHeader title="Gift Cards" description="Manage and redeem your Sellbar gift cards" />
 
       {/* Redeem Form */}
       <SectionCard className="mb-6">

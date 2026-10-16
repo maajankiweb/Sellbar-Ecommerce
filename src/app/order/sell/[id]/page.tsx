@@ -104,7 +104,7 @@ export default function SellOrderTrackingPage({
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       {/* Top Success Card */}
-      <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white p-6 sm:p-8 rounded-3xl shadow-xl shadow-emerald-600/20">
+      <div className="bg-linear-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white p-6 sm:p-8 rounded-3xl shadow-xl shadow-emerald-600/20">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-xs font-bold backdrop-blur-md">
@@ -231,7 +231,7 @@ export default function SellOrderTrackingPage({
             <ShieldCheck className="w-8 h-8 text-emerald-700 shrink-0" />
             <div>
               <h4 className="text-xs font-bold text-emerald-950">Data-Wipe Certificate</h4>
-              <p className="text-[11px] text-emerald-700">DoD 5220.22-M military grade compliance</p>
+              <p className="text-[11px] text-emerald-700">Cryptographic erasure protocol verified</p>
             </div>
           </div>
           <button
@@ -252,8 +252,8 @@ export default function SellOrderTrackingPage({
               <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-700">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="text-base font-black text-slate-950">SELBAR Certified Data Erasure Guarantee</h3>
-              <p className="text-xs text-slate-500">Official Certificate of Destruction & Digital Sanitation</p>
+              <h3 className="text-base font-black text-slate-950">Sellbar Data Erasure Guarantee</h3>
+              <p className="text-xs text-slate-500">Official Certificate of Data Eradication & Digital Sanitation</p>
             </div>
 
             <div className="py-4 space-y-2.5 text-xs text-slate-700 font-mono bg-slate-50 p-4 rounded-2xl my-4 border border-slate-200">
@@ -261,7 +261,7 @@ export default function SellOrderTrackingPage({
               <div className="flex justify-between"><span>Device Model:</span><span className="font-bold text-slate-900">{order.deviceSummary.model}</span></div>
               <div className="flex justify-between"><span>Variant:</span><span>{order.deviceSummary.variant}</span></div>
               <div className="flex justify-between"><span>Order Ref:</span><span>#{order.id}</span></div>
-              <div className="flex justify-between"><span>Erasure Standard:</span><span className="text-emerald-700 font-bold">NIST 800-88 / DoD 5220.22-M</span></div>
+              <div className="flex justify-between"><span>Erasure Standard:</span><span className="text-emerald-700 font-bold">Cryptographic Purge & Multi-Pass Overwrite</span></div>
               <div className="flex justify-between"><span>Compliance:</span><span>India DPDP Act 2023</span></div>
             </div>
 

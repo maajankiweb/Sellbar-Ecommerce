@@ -105,7 +105,7 @@ export default function SellerDashboard() {
               <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition" />
             </h3>
             <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-              Upload refurbished devices, set Grade A/B/C pricing, toggle SELBAR 1-year warranty badges, and manage stock thresholds.
+              Upload refurbished devices, set Grade A/B/C pricing, toggle Sellbar 1-year warranty badges, and manage stock thresholds.
             </p>
           </div>
           <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold text-blue-600">

@@ -1,18 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAllApiKeys, generateApiKey, revokeApiKey, verifyApiKey } from '@/lib/auth/apiKeyAuth';
+import { listAllApiKeys, generateApiKey, revokeApiKey } from '@/lib/auth/apiKeyAuth';
 import { withAuth, AuthUserContext } from '@/lib/auth/middleware/authMiddleware';
 
 // GET /api/v1/admin/api-keys (List all Custom API Keys) - strictly Admin/Super Admin only
 export const GET = withAuth(
-  async (req: NextRequest, user: AuthUserContext) => {
+  async (_req: NextRequest, user: AuthUserContext) => {
     try {
-      const { searchParams } = new URL(req.url);
-      const showFullKey = searchParams.get('reveal') === 'true';
-
-      const allKeys = getAllApiKeys().map((k) => ({
-        ...k,
-        key: showFullKey ? k.key : `${k.key.substring(0, 14)}...${k.key.substring(k.key.length - 4)}`,
-      }));
+      const allKeys = await listAllApiKeys();
 
       return NextResponse.json({
         success: true,
@@ -27,7 +21,7 @@ export const GET = withAuth(
       );
     }
   },
-  { roles: ['admin', 'super_admin'], permission: 'security:audit_view' }
+  { roles: ['admin', 'super_admin'] }
 );
 
 // POST /api/v1/admin/api-keys (Generate a new Custom API Key) - strictly Admin/Super Admin only
@@ -43,16 +37,17 @@ export const POST = withAuth(
         );
       }
 
-      const createdKey = generateApiKey({
+      const createdKey = await generateApiKey({
         name: body.name,
         environment: body.environment === 'test' ? 'test' : 'live',
-        scopes: Array.isArray(body.scopes) ? body.scopes : ['*'],
+        scopes: Array.isArray(body.scopes) ? body.scopes : ['read:catalog'],
+        createdBy: user.userId,
       });
 
       return NextResponse.json(
         {
           success: true,
-          message: 'Custom API Key generated successfully. Save this key safely.',
+          message: 'Custom API Key generated successfully. Save this secret key now — it cannot be retrieved again.',
           apiKey: createdKey,
           generatedBy: user.userId,
         },
@@ -82,7 +77,7 @@ export const DELETE = withAuth(
         );
       }
 
-      const revoked = revokeApiKey(keyId);
+      const revoked = await revokeApiKey(keyId);
       if (!revoked) {
         return NextResponse.json(
           { success: false, message: 'API key not found or already revoked.' },

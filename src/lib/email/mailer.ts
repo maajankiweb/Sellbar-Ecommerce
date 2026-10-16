@@ -109,7 +109,7 @@ export async function sendEmail(options: SendMailOptions): Promise<SendMailResul
   const defaultFrom =
     process.env.SMTP_FROM ||
     process.env.GMAIL_USER ||
-    `"SELBAR Notifications" <notifications@selbar.in>`;
+    `"Sellbar Notifications" <notifications@sellbar.in>`;
 
   // 1. If transporter is configured, attempt real email delivery via Nodemailer
   if (transporter) {
@@ -149,7 +149,7 @@ export async function sendEmail(options: SendMailOptions): Promise<SendMailResul
   const plainText = options.text || options.html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   
   console.log(`\n======================================================`);
-  console.log(`📧 [SELBAR NODEMAILER EMAIL SANDBOX]`);
+  console.log(`📧 [Sellbar NODEMAILER EMAIL SANDBOX]`);
   console.log(`📤 Provider: ${provider}`);
   console.log(`👤 To: ${recipient}`);
   console.log(`📝 Subject: ${options.subject}`);

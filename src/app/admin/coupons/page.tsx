@@ -200,7 +200,7 @@ export default function AdminCouponsPage() {
         data={coupons}
         keyField="id"
         searchPlaceholder="Search coupons by code or description..."
-        exportFilename="selbar_discount_coupons"
+        exportFilename="sellbar_discount_coupons"
       />
 
       {/* Create Coupon Modal */}

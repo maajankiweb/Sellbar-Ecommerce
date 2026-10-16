@@ -19,11 +19,11 @@ export async function POST(req: NextRequest) {
     // 1. Authorize: Check Bearer token (MANAGER or ADMIN) or Webhook secret header
     const authHeader = req.headers.get('authorization') || '';
     const token = authHeader.replace(/^Bearer\s+/i, '');
-    const webhookSecret = req.headers.get('x-selbar-webhook-secret');
+    const webhookSecret = req.headers.get('x-sellbar-webhook-secret');
 
     let authorizedUser: any = null;
 
-    if (webhookSecret && webhookSecret === (process.env.DISPATCH_WEBHOOK_SECRET || 'selbar_dispatch_secret_2026')) {
+    if (webhookSecret && webhookSecret === (process.env.DISPATCH_WEBHOOK_SECRET || 'sellbar_dispatch_secret_2026')) {
       authorizedUser = { userId: 'system:webhook', role: 'MANAGER' };
     } else if (token) {
       const decoded = verifyAccessToken(token);
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
           success: false,
           error: {
             code: 'UNAUTHORIZED',
-            message: 'Requires MANAGER or ADMIN privileges, or valid X-Selbar-Webhook-Secret',
+            message: 'Requires MANAGER or ADMIN privileges, or valid X-Sellbar-Webhook-Secret',
           },
         },
         { status: 401 }

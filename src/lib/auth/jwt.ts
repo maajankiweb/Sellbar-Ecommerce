@@ -3,9 +3,9 @@ import type { SignOptions } from 'jsonwebtoken';
 import crypto from 'crypto';
 
 const ACCESS_SECRET =
-  process.env.JWT_ACCESS_SECRET || 'selbar_fallback_access_secret_2026';
+  process.env.JWT_ACCESS_SECRET || 'sellbar_fallback_access_secret_2026';
 const REFRESH_SECRET =
-  process.env.JWT_REFRESH_SECRET || 'selbar_fallback_refresh_secret_2026';
+  process.env.JWT_REFRESH_SECRET || 'sellbar_fallback_refresh_secret_2026';
 
 import type { UserRole } from '@/lib/db/models/User';
 
@@ -69,7 +69,7 @@ export function evaluatePasswordStrength(password: string) {
 export function signAccessToken(payload: TokenPayload): string {
   const options: SignOptions = {
     expiresIn: '15m',
-    issuer: 'selbar.in',
+    issuer: 'sellbar.in',
   };
   return jwt.sign(payload, ACCESS_SECRET, options);
 }
@@ -85,7 +85,7 @@ export function signRefreshToken(payload: TokenPayload, rememberMe: boolean = fa
   const expiresInSeconds = rememberMe ? 30 * 24 * 60 * 60 : 24 * 60 * 60;
   const options: SignOptions = {
     expiresIn: expiresInSeconds,
-    issuer: 'selbar.in',
+    issuer: 'sellbar.in',
   };
   const token = jwt.sign(payload, REFRESH_SECRET, options);
   const expiresAt = new Date(Date.now() + expiresInSeconds * 1000);
@@ -98,7 +98,7 @@ export function signRefreshToken(payload: TokenPayload, rememberMe: boolean = fa
  */
 export function verifyAccessToken(token: string): TokenPayload | null {
   try {
-    return jwt.verify(token, ACCESS_SECRET, { issuer: 'selbar.in' }) as TokenPayload;
+    return jwt.verify(token, ACCESS_SECRET, { issuer: 'sellbar.in' }) as TokenPayload;
   } catch {
     return null;
   }
@@ -109,7 +109,7 @@ export function verifyAccessToken(token: string): TokenPayload | null {
  */
 export function verifyRefreshToken(token: string): TokenPayload | null {
   try {
-    return jwt.verify(token, REFRESH_SECRET, { issuer: 'selbar.in' }) as TokenPayload;
+    return jwt.verify(token, REFRESH_SECRET, { issuer: 'sellbar.in' }) as TokenPayload;
   } catch {
     return null;
   }

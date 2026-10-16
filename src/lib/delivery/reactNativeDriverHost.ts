@@ -1,7 +1,7 @@
 /**
  * React Native Driver Host Bridge (Companion Spec)
  *
- * For native React Native mobile projects wrapping the SELBAR web app inside <WebView>.
+ * For native React Native mobile projects wrapping the Sellbar web app inside <WebView>.
  * This file specifies the native contract, event schemas, and Android background service config.
  */
 
@@ -50,7 +50,7 @@ export interface RNLocationPayload {
  *           notification: {
  *             title: data.payload.notificationTitle,
  *             text: data.payload.notificationText,
- *             channelName: 'SELBAR Delivery Tracking',
+ *             channelName: 'Sellbar Delivery Tracking',
  *           }
  *         }, (state) => {
  *           if (!state.enabled) BackgroundGeolocation.start();
@@ -82,7 +82,7 @@ export interface RNLocationPayload {
  *   return (
  *     <WebView
  *       ref={webViewRef}
- *       source={{ uri: 'https://selbar.in/delivery' }}
+ *       source={{ uri: 'https://sellbar.in/delivery' }}
  *       onMessage={onMessage}
  *       allowsInlineMediaPlayback
  *       mediaPlaybackRequiresUserAction={false}

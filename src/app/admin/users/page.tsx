@@ -157,7 +157,7 @@ export default function AdminUsersPage() {
         data={users}
         keyField="id"
         searchPlaceholder="Search admin staff by name or email..."
-        exportFilename="selbar_admin_team"
+        exportFilename="sellbar_admin_team"
       />
 
       <Modal

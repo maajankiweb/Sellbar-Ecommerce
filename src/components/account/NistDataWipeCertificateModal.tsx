@@ -55,7 +55,7 @@ export function NistDataWipeCertificateModal({
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-emerald-400" />
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
-              Official NIST 800-88 Rev. 1 Certificate
+              Official Cryptographic Secure Erase Rev. 1 Certificate
             </span>
           </div>
 
@@ -95,7 +95,7 @@ export function NistDataWipeCertificateModal({
               CERTIFICATE OF DATA SANITIZATION
             </h1>
             <p className="text-xs text-slate-500 font-medium">
-              Pursuant to NIST SP 800-88 Guidelines for Media Sanitization & DPDP Act 2023
+              Pursuant to Cryptographic Media Sanitization Guidelines & DPDP Act 2023
             </p>
           </div>
 
@@ -199,7 +199,7 @@ export function NistDataWipeCertificateModal({
                 Chief Security & Quality Officer
               </div>
               <div className="text-[9px] text-emerald-700 font-mono mt-0.5">
-                SELBAR Secure Diagnostics Hub
+                Sellbar Secure Diagnostics Hub
               </div>
             </div>
           </div>

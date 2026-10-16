@@ -53,15 +53,15 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-snug">
-            Sell Your Old Phone & Buy Old Mobile Phones with SELBAR
+            Sell Your Old Phone & Buy Old Mobile Phones with Sellbar
           </h2>
 
           <div className="space-y-3 text-sm text-slate-600 leading-relaxed">
             <p>
-              SELBAR is the best platform if you are looking to sell your old mobile phone. It offers a hassle-free experience, and you can sell your old mobile phone in less than five minutes.
+              Sellbar is the best platform if you are looking to sell your old mobile phone. It offers a hassle-free experience, and you can sell your old mobile phone in less than five minutes.
             </p>
             <p>
-              When you sell an old mobile phone with SELBAR, you can easily upgrade to a new one. SELBAR ensures that the phones you sell are in top condition so that people get good quality when they buy them.
+              When you sell an old mobile phone with Sellbar, you can easily upgrade to a new one. Sellbar ensures that the phones you sell are in top condition so that people get good quality when they buy them.
             </p>
           </div>
         </div>
@@ -84,7 +84,7 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Ready to sell old mobile phone? With SELBAR, you can easily get cash for your old mobile phone without leaving home. Just share your phone’s details, and we’ll offer you the best price. It’s that simple:
+                Ready to sell old mobile phone? With Sellbar, you can easily get cash for your old mobile phone without leaving home. Just share your phone’s details, and we’ll offer you the best price. It’s that simple:
               </p>
 
               <div className="space-y-2.5 pt-1">
@@ -122,7 +122,7 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
             </div>
           </div>
 
-          {/* Card 2: Which Mobile Phone Brands Can Be Sold and Bought On SELBAR? */}
+          {/* Card 2: Which Mobile Phone Brands Can Be Sold and Bought On Sellbar? */}
           <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-teal-300 transition-colors shadow-xs">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -131,14 +131,14 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">
-                    Which Mobile Phone Brands Can Be Sold and Bought On SELBAR?
+                    Which Mobile Phone Brands Can Be Sold and Bought On Sellbar?
                   </h3>
                   <span className="text-xs text-slate-500 font-medium">Over 20+ Leading Global Brands</span>
                 </div>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                You can buy or sell almost all mobile phone brands in India. Popular laptops, tablets, and gaming consoles are also available on the go. SELBAR has more than 20 phone brands, and for every device you sell. Apart from this, we offer:
+                You can buy or sell almost all mobile phone brands in India. Popular laptops, tablets, and gaming consoles are also available on the go. Sellbar has more than 20 phone brands, and for every device you sell. Apart from this, we offer:
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
@@ -191,7 +191,7 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                SELBAR offers an affordable way to upgrade to a new phone. You can explore the vast selection of refurbished phones at low price. With SELBAR, you can be assured that you will get a highly functional phone. All refurbished phones are tested with proper quality checks to maintain the quality. On top of that, you get:
+                Sellbar offers an affordable way to upgrade to a new phone. You can explore the vast selection of refurbished phones at low price. With Sellbar, you can be assured that you will get a highly functional phone. All refurbished phones are tested with proper quality checks to maintain the quality. On top of that, you get:
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
@@ -202,7 +202,7 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
 
                 <div className="flex items-start gap-2.5 bg-white p-3 rounded-xl border border-slate-200/60 shadow-xs">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs text-slate-700"><strong>32-point</strong> quality checks</span>
+                  <span className="text-xs text-slate-700"><strong>Rigorous hardware</strong> quality checks</span>
                 </div>
 
                 <div className="flex items-start gap-2.5 bg-white p-3 rounded-xl border border-slate-200/60 shadow-xs">
@@ -232,7 +232,7 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
             </div>
           </div>
 
-          {/* Card 4: How to Buy Old Phone From SELBAR */}
+          {/* Card 4: How to Buy Old Phone From Sellbar */}
           <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-teal-300 transition-colors shadow-xs">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -241,14 +241,14 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">
-                    How to Buy Old Phone From SELBAR
+                    How to Buy Old Phone From Sellbar
                   </h3>
                   <span className="text-xs text-slate-500 font-medium">Simple 5-Step Order Process</span>
                 </div>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Buying old mobile phone from SELBAR is very easy and convenient. You just need to follow the steps below:
+                Buying old mobile phone from Sellbar is very easy and convenient. You just need to follow the steps below:
               </p>
 
               <div className="space-y-2 pt-1">
@@ -292,7 +292,7 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
         </div>
 
         {/* Data Privacy & Brand Flexibility Banner */}
-        <div className="mt-8 bg-gradient-to-r from-teal-50 via-emerald-50 to-blue-50 border border-teal-200/70 rounded-2xl p-6 sm:p-8 space-y-4">
+        <div className="mt-8 bg-linear-to-r from-teal-50 via-emerald-50 to-blue-50 border border-teal-200/70 rounded-2xl p-6 sm:p-8 space-y-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-white shadow-xs border border-teal-200 flex items-center justify-center text-teal-600 shrink-0">
               <Lock className="w-6 h-6" />
@@ -302,13 +302,13 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
                 100% Data Privacy & Certified Sanitization
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                With SELBAR, your privacy is safe. We carefully clean every old phone to ensure that all your data is removed and secured.
+                With Sellbar, your privacy is safe. We carefully clean every old phone to ensure that all your data is removed and secured.
               </p>
             </div>
           </div>
 
           <div className="pt-4 border-t border-teal-200/60 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            You don’t need to worry about your old phone’s brand when selling or buying through SELBAR. We accept phones from most brands, so selling is easy. Pick the phone category, brand, and model you want to sell. You can also choose your brand from the quick links below.
+            You don’t need to worry about your old phone’s brand when selling or buying through Sellbar. We accept phones from most brands, so selling is easy. Pick the phone category, brand, and model you want to sell. You can also choose your brand from the quick links below.
           </div>
         </div>
 

@@ -107,7 +107,7 @@ export function SellerOnboardingWizard({
               S
             </div>
             <div>
-              <h2 className="text-base font-bold text-white">SELBAR Seller Onboarding</h2>
+              <h2 className="text-base font-bold text-white">Sellbar Seller Onboarding</h2>
               <p className="text-xs text-slate-400">Complete KYC to start receiving buyback orders</p>
             </div>
           </div>

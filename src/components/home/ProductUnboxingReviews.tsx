@@ -62,7 +62,7 @@ const UNBOXING_VIDEOS: UnboxingVideo[] = [
     reviewerAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80',
     summary: 'Full unboxing inspection of a Grade A certified iPhone 14 Pro. Testing TrueTone, Dynamic Island, 120Hz ProMotion, and 94% OEM battery capacity.',
     pros: ['Pristine Ceramic Shield screen', '94% Original Battery Health', 'Full FaceID & LiDAR verified'],
-    cons: ['Ships in SELBAR Eco-Kraft retail box (non-Apple box)'],
+    cons: ['Ships in Sellbar Eco-Kraft retail box (non-Apple box)'],
     refurbGrade: 'Grade A (Superb)',
     buyUrl: '/buy?category=old-phone&brand=Apple',
     sellUrl: '/sell?category=phone',
@@ -83,7 +83,7 @@ const UNBOXING_VIDEOS: UnboxingVideo[] = [
     reviewerRole: 'Mac Hardware Architect',
     reviewerAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80',
     summary: 'Complete benchmark stress test: 4K timeline rendering, 15-tab multitasking, keyboard tactile travel inspection, and 30-watt magnetic charger testing.',
-    pros: ['Silent fanless thermal design', 'Battery health at 91% (148 cycles)', '1-Year SELBAR warranty card included'],
+    pros: ['Silent fanless thermal design', 'Battery health at 91% (148 cycles)', '1-Year Sellbar warranty card included'],
     cons: ['Maximum 1 external monitor output natively'],
     refurbGrade: 'Grade A (Superb)',
     buyUrl: '/buy?category=old-laptop&brand=Apple',
@@ -232,10 +232,10 @@ export function ProductUnboxingReviews() {
       embedUrl: `https://www.youtube-nocookie.com/embed/${video.youtubeId}`,
       publisher: {
         '@type': 'Organization',
-        name: 'SELBAR Recommerce India',
+        name: 'Sellbar Recommerce India',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://selbar.in/images/logo/logo.svg',
+          url: 'https://sellbar.in/images/logo/logo.svg',
         },
       },
     })),
@@ -262,7 +262,7 @@ export function ProductUnboxingReviews() {
             {/* Tag badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/70 text-emerald-700 text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-              <span>32-Point Quality Diagnostics</span>
+              <span>Quality Inspection Diagnostics</span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">

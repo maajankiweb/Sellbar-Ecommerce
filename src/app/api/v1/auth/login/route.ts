@@ -326,7 +326,7 @@ export async function POST(req: NextRequest) {
       { status: 200 }
     );
 
-    response.cookies.set('selbar_refresh_token', refreshToken, {
+    response.cookies.set('sellbar_refresh_token', refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
@@ -334,7 +334,7 @@ export async function POST(req: NextRequest) {
       maxAge: expiresInSeconds,
     });
 
-    response.cookies.set('selbar_has_session', '1', {
+    response.cookies.set('sellbar_has_session', '1', {
       httpOnly: false,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',

@@ -40,8 +40,8 @@ function AdminLoginContent() {
     setTimeout(() => {
       // Set cookies for middleware authentication
       const maxAge = rememberMe ? 60 * 60 * 24 * 7 : 60 * 60 * 24;
-      document.cookie = `selbar_access_token=demo_token_${Date.now()}; path=/; max-age=${maxAge}; SameSite=Lax`;
-      document.cookie = `selbar_refresh_token=demo_refresh_${Date.now()}; path=/; max-age=${maxAge}; SameSite=Lax`;
+      document.cookie = `sellbar_access_token=demo_token_${Date.now()}; path=/; max-age=${maxAge}; SameSite=Lax`;
+      document.cookie = `sellbar_refresh_token=demo_refresh_${Date.now()}; path=/; max-age=${maxAge}; SameSite=Lax`;
 
       setCurrentRole(role);
       addToast({
@@ -78,7 +78,7 @@ function AdminLoginContent() {
             S
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-white">
-            SELBAR Admin Portal
+            Sellbar Admin Portal
           </h1>
           <p className="mt-1.5 text-xs text-slate-400">
             Sign in to manage catalog, orders, logistics, and store settings
@@ -201,7 +201,7 @@ function AdminLoginContent() {
 
         {/* Security Footer Notice */}
         <div className="mt-6 text-center text-xs text-slate-500">
-          Protected by Selbar Cryptographic Auth • Session IP Monitored
+          Protected by Sellbar Cryptographic Auth • Session IP Monitored
         </div>
       </div>
     </div>

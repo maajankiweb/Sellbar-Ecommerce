@@ -144,7 +144,7 @@ Catalog searching, inventory status filtering, price adjustments, and batch stat
 |  [ ] Under Quality Check (QC) (7)                           |
 +-------------------------------------------------------------+
 | FULFILLMENT TYPE                                        [-] |
-|  [✓] SELBAR Verified Pickup (380)                           |
+|  [✓] Sellbar Verified Pickup (380)                           |
 |  [ ] Seller Self-Ship (60)                                  |
 +-------------------------------------------------------------+
 ```
@@ -250,7 +250,7 @@ Flipkart Flow:
 - **Visuals:** Country code prefix `+91` fixed on the left with Indian tricolor flag icon.
 - **Validation:** 
   - Regex: `^[6-9]\d{9}$` (Valid Indian 10-digit mobile number starting with 6, 7, 8, or 9).
-  - Floating label with clear microcopy: *"By continuing, you agree to SELBAR's Terms of Use & Privacy Policy"*.
+  - Floating label with clear microcopy: *"By continuing, you agree to Sellbar's Terms of Use & Privacy Policy"*.
 - **Actions:**
   - Primary CTA: `Continue with OTP` (Vibrant `#EA580C` or `#2563EB`, height 48px, bold 15px).
   - Alternative link: `Sign in with Password` or `Use Work Email`.
@@ -325,7 +325,7 @@ Loading (CTA):
 
 ```
 +---------------------------------------------------------------------------------------+
-| TOPBAR: [SELBAR Seller Central]    [Global Search ⌘K]    [🔔 (3)]  [Store: TechStore ▾] |
+| TOPBAR: [Sellbar Seller Central]    [Global Search ⌘K]    [🔔 (3)]  [Store: TechStore ▾] |
 +------------------+--------------------------------------------------------------------+
 | SIDEBAR (240px)  | MAIN CONTENT (Fluid)                                               |
 |                  |                                                                    |
@@ -360,7 +360,7 @@ Loading (CTA):
      `Order Received` ➔ `Quality Check Passed` ➔ `Pickup Scheduled` ➔ `In Transit` ➔ `Delivered`.
    - **Contextual Action Bar:**
      - Primary action: `Download Tax Invoice` (PDF), `Print Shipping Label`.
-     - Secondary action: `Cancel Order`, `Contact Buyer / SELBAR Support`.
+     - Secondary action: `Cancel Order`, `Contact Buyer / Sellbar Support`.
 
 ---
 
@@ -436,7 +436,7 @@ Loading (CTA):
 
 ## 6. Seller Dashboard Reusable Component Architecture
 
-The following modular components are designed for direct integration into the Next.js / React seller dashboard (`f:\Project My Agency\SELBAR\Website`).
+The following modular components are designed for direct integration into the Next.js / React seller dashboard (`f:\Project My Agency\Sellbar\Website`).
 
 ```
 src/components/dashboard/

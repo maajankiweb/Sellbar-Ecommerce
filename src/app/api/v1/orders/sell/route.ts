@@ -41,7 +41,9 @@ export async function POST(request: Request) {
     }
 
     const quote = db.quotes.get(quoteId);
-    const id = `SEL-${Math.floor(100000 + Math.random() * 900000)}`;
+    const year = new Date().getFullYear();
+    const randomSuffix = Math.floor(100000 + Math.random() * 900000);
+    const id = `SB-${year}-${randomSuffix}`;
 
     const newOrder: SellOrder = {
       id,

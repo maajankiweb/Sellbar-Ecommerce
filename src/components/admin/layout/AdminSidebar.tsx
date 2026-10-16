@@ -218,8 +218,8 @@ export function AdminSidebar() {
 
   const handleLogout = () => {
     // Clear cookies
-    document.cookie = 'selbar_access_token=; path=/; max-age=0;';
-    document.cookie = 'selbar_refresh_token=; path=/; max-age=0;';
+    document.cookie = 'sellbar_access_token=; path=/; max-age=0;';
+    document.cookie = 'sellbar_refresh_token=; path=/; max-age=0;';
     addToast({ title: 'Logged Out', message: 'You have been safely signed out.', type: 'info' });
     router.push('/admin/login');
   };
@@ -243,7 +243,7 @@ export function AdminSidebar() {
                 S
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-black tracking-wide text-slate-900">SELBAR ADMIN</span>
+                <span className="text-sm font-black tracking-wide text-slate-900">Sellbar ADMIN</span>
                 <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider">Enterprise OS</span>
               </div>
             </Link>

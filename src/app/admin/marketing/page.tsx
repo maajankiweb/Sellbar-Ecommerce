@@ -203,7 +203,7 @@ export default function AdminMarketingPage() {
         data={campaigns}
         keyField="id"
         searchPlaceholder="Search campaigns by title or channel..."
-        exportFilename="selbar_marketing_campaigns"
+        exportFilename="sellbar_marketing_campaigns"
       />
 
       <Modal

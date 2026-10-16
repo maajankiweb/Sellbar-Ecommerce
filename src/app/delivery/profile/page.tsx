@@ -182,7 +182,7 @@ export default function DeliveryProfilePage() {
               <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
                 <div>
                   <div className="font-bold text-slate-900">Device Diagnostics Training</div>
-                  <div className="text-[10px] text-slate-500">SELBAR Level 1 Field Cert</div>
+                  <div className="text-[10px] text-slate-500">Sellbar Level 1 Field Cert</div>
                 </div>
                 <span className="text-emerald-700 font-black">CERTIFIED</span>
               </div>

@@ -539,10 +539,10 @@ export function Ecommerce2({
           <div className="p-3 bg-white border border-slate-200/80 rounded-xl space-y-1.5 text-xs text-slate-600">
             <div className="font-bold text-slate-900 flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>SELBAR Guarantee</span>
+              <span>Sellbar Guarantee</span>
             </div>
             <p className="text-[11px] leading-tight text-slate-500">
-              1-year official warranty, 32-point QC checklist, and 15-day return window on every unit.
+              1-year official warranty, Quality QC checklist, and 15-day return window on every unit.
             </p>
           </div>
         </aside>

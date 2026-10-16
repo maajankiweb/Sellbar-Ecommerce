@@ -13,6 +13,7 @@ import {
   AlertCircle,
   HelpCircle
 } from 'lucide-react';
+import { DEFAULT_SITE_SETTINGS } from '@/lib/settings/types';
 
 export default function ModelEvaluationPage({
   params,
@@ -57,6 +58,11 @@ export default function ModelEvaluationPage({
   // Handle single-select auto advance
   const handleSingleSelect = (questionId: string, optionId: string) => {
     setAnswers((prev) => ({ ...prev, [questionId]: optionId }));
+    if (questionId !== 'q_switch_on' || optionId !== 'power_no') {
+      if (currentStepIndex < CONDITION_QUESTIONS.length - 1) {
+        setTimeout(() => setCurrentStepIndex((prev) => prev + 1), 200);
+      }
+    }
   };
 
   // Handle multi-select toggle
@@ -101,6 +107,57 @@ export default function ModelEvaluationPage({
 
   const totalQuestions = CONDITION_QUESTIONS.length;
   const progressPercent = Math.round(((currentStepIndex + 1) / totalQuestions) * 100);
+
+  if (answers['q_switch_on'] === 'power_no') {
+    return (
+      <div className="max-w-xl mx-auto px-4 py-16 text-center space-y-6">
+        <div className="w-16 h-16 rounded-3xl bg-amber-50 text-amber-600 flex items-center justify-center mx-auto shadow-inner">
+          <AlertCircle className="w-8 h-8" />
+        </div>
+        <div className="space-y-2">
+          <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
+            Diagnostic Policy
+          </span>
+          <h1 className="text-2xl font-black text-slate-900">
+            We Can&apos;t Quote This Device Online
+          </h1>
+          <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+            Our automated pricing engine and doorstep technician need the phone to power on in order to run diagnostic tests on the screen, battery, and hardware functions.
+          </p>
+        </div>
+
+        <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 text-left text-xs space-y-2">
+          <div className="font-bold text-slate-800">What you can do:</div>
+          <ul className="list-disc list-inside space-y-1 text-slate-600">
+            <li>Try charging the device with an authentic cable for 30 minutes and retry.</li>
+            <li>Connect with our WhatsApp support team for non-working device recycling options.</li>
+          </ul>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <button
+            type="button"
+            onClick={() => {
+              setAnswers((prev) => ({ ...prev, q_switch_on: 'power_yes' }));
+              setCurrentStepIndex(0);
+            }}
+            className="px-5 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition"
+          >
+            Change Answer
+          </button>
+          <a
+            href={`https://wa.me/${(DEFAULT_SITE_SETTINGS.supportPhone || '+919876543210').replace(/\D/g, '')}?text=Hi%20Sellbar,%20my%20phone%20does%20not%20turn%20on.%20Can%20I%20still%20sell%20it%20for%20parts/recycling?`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-1.5"
+          >
+            <span>Contact Support on WhatsApp</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
@@ -159,7 +216,7 @@ export default function ModelEvaluationPage({
         </div>
         <div className="w-full h-2.5 rounded-full bg-slate-200 overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all duration-300 rounded-full"
+            className="h-full bg-linear-to-r from-emerald-500 to-teal-500 transition-all duration-300 rounded-full"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -248,7 +305,7 @@ export default function ModelEvaluationPage({
             type="button"
             disabled={currentStepIndex === 0}
             onClick={() => setCurrentStepIndex((prev) => Math.max(0, prev - 1))}
-            className="min-h-[44px] px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition flex items-center gap-1.5 active:scale-95 cursor-pointer"
+            className="min-h-11 px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition flex items-center gap-1.5 active:scale-95 cursor-pointer"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Previous</span>
@@ -258,7 +315,7 @@ export default function ModelEvaluationPage({
             <button
               type="button"
               onClick={() => setCurrentStepIndex((prev) => Math.min(totalQuestions - 1, prev + 1))}
-              className="min-h-[44px] flex-1 sm:flex-initial px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
+              className="min-h-11 flex-1 sm:flex-initial px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
             >
               <span>Next Question</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -268,7 +325,7 @@ export default function ModelEvaluationPage({
               type="button"
               disabled={isSubmitting}
               onClick={handleGetExactQuote}
-              className="min-h-[44px] flex-1 sm:flex-initial px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-emerald-600/25 transition flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
+              className="min-h-11 flex-1 sm:flex-initial px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-emerald-600/25 transition flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
             >
               <Sparkles className="w-4 h-4 text-emerald-200" />
               <span>{isSubmitting ? 'Calculating...' : 'Calculate Cash Quote'}</span>

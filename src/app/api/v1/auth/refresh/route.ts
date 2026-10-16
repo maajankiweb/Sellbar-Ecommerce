@@ -14,7 +14,7 @@ import {
 
 export async function POST(req: NextRequest) {
   try {
-    const cookieToken = req.cookies.get('selbar_refresh_token')?.value;
+    const cookieToken = req.cookies.get('sellbar_refresh_token')?.value;
     const body = await req.json().catch(() => ({}));
     const refreshToken = cookieToken || body.refreshToken;
 
@@ -137,7 +137,7 @@ export async function POST(req: NextRequest) {
       accessToken: newAccessToken,
     });
 
-    response.cookies.set('selbar_refresh_token', newRefreshToken, {
+    response.cookies.set('sellbar_refresh_token', newRefreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
@@ -145,7 +145,7 @@ export async function POST(req: NextRequest) {
       maxAge: expiresInSeconds,
     });
 
-    response.cookies.set('selbar_has_session', '1', {
+    response.cookies.set('sellbar_has_session', '1', {
       httpOnly: false,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',

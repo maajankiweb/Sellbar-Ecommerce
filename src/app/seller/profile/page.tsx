@@ -162,7 +162,7 @@ export default function SellerProfilePage() {
             <div className="space-y-2.5 text-xs">
               <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
                 <div>
-                  <div className="font-bold text-slate-900">SELBAR Certified Shield</div>
+                  <div className="font-bold text-slate-900">Sellbar Certified Shield</div>
                   <div className="text-[10px] text-slate-500">1-Year warranty badging on listings</div>
                 </div>
                 <span className="text-emerald-700 font-black">ACTIVE</span>

@@ -74,7 +74,7 @@ export default function OrderMilestoneStepper({
       step: 3,
       id: 'inspected',
       title: orderType === 'sell' ? 'Diagnostic Inspection' : 'Delivery Verification',
-      description: '32-Point Diagnostics',
+      description: 'Quality Diagnostics',
       badge: 'Verified',
     },
     {
@@ -88,12 +88,12 @@ export default function OrderMilestoneStepper({
 
   const handleDownloadReceipt = () => {
     setReceiptDownloaded(true);
-    const content = `SELBAR INSTANT PAYOUT RECEIPT\n-----------------------------------\nOrder ID: ${orderId}\nDevice: ${deviceTitle}\nAmount Paid: INR ${amount}\nUTR Number: ${utrNumber}\nPaid To: ${upiId}\nStatus: SUCCESS / NEFT-IMPS\nDate: ${new Date().toLocaleDateString('en-IN')}\nSELBAR Technologies Pvt Ltd\n`;
+    const content = `Sellbar INSTANT PAYOUT RECEIPT\n-----------------------------------\nOrder ID: ${orderId}\nDevice: ${deviceTitle}\nAmount Paid: INR ${amount}\nUTR Number: ${utrNumber}\nPaid To: ${upiId}\nStatus: SUCCESS / NEFT-IMPS\nDate: ${new Date().toLocaleDateString('en-IN')}\nSellbar Technologies Pvt Ltd\n`;
     const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `SELBAR_Payout_Receipt_${orderId}.txt`;
+    link.download = `Sellbar_Payout_Receipt_${orderId}.txt`;
     link.click();
     setTimeout(() => setReceiptDownloaded(false), 3000);
   };
@@ -214,7 +214,7 @@ export default function OrderMilestoneStepper({
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-black text-slate-900">{technicianName}</span>
                       <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
-                        SELBAR Field Engineer
+                        Sellbar Field Engineer
                       </span>
                     </div>
                     <p className="text-xs text-slate-500 flex items-center gap-1.5 mt-0.5">

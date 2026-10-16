@@ -43,7 +43,7 @@ export function GstinInput({
       const mockDetails: GstDetails = {
         gstin: formattedValue,
         legalName: 'MAAJANKI ELECTRONICS & TELECOM PRIVATE LIMITED',
-        tradeName: 'SELBAR Tech Hub Patna',
+        tradeName: 'Sellbar Tech Hub Patna',
         state: 'Bihar (10)',
         status: 'ACTIVE'
       };

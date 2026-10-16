@@ -98,7 +98,7 @@ export default function ForgotPasswordPage() {
                     setIdentifier(val);
                     setError('');
                   }}
-                  placeholder="e.g. 9876543210 or name@selbar.in"
+                  placeholder="e.g. 9876543210 or name@sellbar.in"
                   disabled={loading}
                 />
               </div>

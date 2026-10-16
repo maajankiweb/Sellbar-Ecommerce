@@ -112,7 +112,7 @@ export function Ecommerce8({ product, onAddToCart, mode = 'full' }: Ecommerce8Pr
       { label: 'Battery Capacity', value: product?.specs?.battery ? `${product.specs.battery} (OEM Battery Health Verified)` : '4,422 mAh (95%+ OEM Health)' },
       { label: 'Main Camera', value: product?.specs?.camera || '48MP Quad-Pixel with 5x Optical Telephoto' },
       { label: 'Condition Grade', value: product?.conditionType === 'new' ? 'Brand New Sealed Pack' : 'Superb (Grade A) - 100% Functional' },
-      { label: 'Warranty & Testing', value: `${product?.warrantyMonths || 12} Months SELBAR Full Coverage • 32-Point Certified` },
+      { label: 'Warranty & Testing', value: `${product?.warrantyMonths || 6} Months Sellbar Full Coverage • Quality Certified` },
       { label: 'Doorstep Return', value: `${product?.replacementDays || 15} Days Easy Return & Doorstep Replacement` },
     ];
   }, [product]);
@@ -152,14 +152,14 @@ export function Ecommerce8({ product, onAddToCart, mode = 'full' }: Ecommerce8Pr
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200/60">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>32-Point Inspected</span>
+            <span>Quality Checked</span>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Finish & Gallery Preview */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="relative aspect-square w-full rounded-2xl bg-gradient-to-b from-slate-100/80 via-slate-50 to-slate-100/80 border border-slate-200/80 p-6 flex items-center justify-center overflow-hidden shadow-inner">
+            <div className="relative aspect-square w-full rounded-2xl bg-linear-to-b from-slate-100/80 via-slate-50 to-slate-100/80 border border-slate-200/80 p-6 flex items-center justify-center overflow-hidden shadow-inner">
               <img
                 key={activeFinish.id}
                 src={activeFinish.image}
@@ -219,7 +219,7 @@ export function Ecommerce8({ product, onAddToCart, mode = 'full' }: Ecommerce8Pr
                     : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
-                32-Point Audit Card
+                Quality Audit Card
               </button>
             </div>
 
@@ -244,7 +244,7 @@ export function Ecommerce8({ product, onAddToCart, mode = 'full' }: Ecommerce8Pr
               <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50/70 space-y-3 text-xs">
                 <div className="font-bold text-slate-900 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  <span>SELBAR 32-Point Automated Diagnostics Verified</span>
+                  <span>Sellbar Hardware Diagnostics Verified</span>
                 </div>
                 <p className="text-slate-600 leading-relaxed text-xs">
                   Every device undergoes hardware validation for biometric enclaves (FaceID / TouchID), OEM display digitizer, dual optical image stabilization, battery discharge health, 5G carrier bands, and thermal dissipation.
@@ -288,7 +288,7 @@ export function Ecommerce8({ product, onAddToCart, mode = 'full' }: Ecommerce8Pr
             ================================================================= */}
         <div className="lg:col-span-6 space-y-4">
           {/* Main Object Showcase with Crossfading Transition */}
-          <div className="relative aspect-square w-full rounded-3xl bg-gradient-to-b from-slate-100/80 via-slate-50 to-slate-100/80 border border-slate-200/80 p-8 flex items-center justify-center overflow-hidden shadow-inner">
+          <div className="relative aspect-square w-full rounded-3xl bg-linear-to-b from-slate-100/80 via-slate-50 to-slate-100/80 border border-slate-200/80 p-8 flex items-center justify-center overflow-hidden shadow-inner">
             {/* Live Crossfading Gallery Image */}
             <img
               key={activeFinish.id}
@@ -465,7 +465,7 @@ export function Ecommerce8({ product, onAddToCart, mode = 'full' }: Ecommerce8Pr
                     : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
-                32-Point Audit Card
+                Quality Audit Card
               </button>
             </div>
 
@@ -490,7 +490,7 @@ export function Ecommerce8({ product, onAddToCart, mode = 'full' }: Ecommerce8Pr
               <div className="p-4 rounded-2xl border border-slate-200 bg-slate-50 space-y-2 text-xs">
                 <div className="font-bold text-slate-900 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  <span>SELBAR 32-Point Automated Diagnostics Passed</span>
+                  <span>Sellbar Hardware Diagnostics Passed</span>
                 </div>
                 <p className="text-slate-600 leading-relaxed text-[11px]">
                   All OEM sensors, TrueDepth cameras, 5G baseband chips, OLED brightness levels, and battery thermal sensors match original factory tolerances. 100% certified genuine parts.

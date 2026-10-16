@@ -16,7 +16,7 @@ import { useAdmin } from '@/context/AdminContext';
 export default function AdminSEOPage() {
   const { addToast } = useAdmin();
 
-  const [siteTitle, setSiteTitle] = useState('SELBAR | India\'s Premier Re-Commerce & Electronics Hub');
+  const [siteTitle, setSiteTitle] = useState('Sellbar | India\'s Premier Re-Commerce & Electronics Hub');
   const [siteDesc, setSiteDesc] = useState('Buy new & certified refurbished smartphones, laptops, audio wearables and sneakers with 1-year warranty and express delivery across India.');
   const [robotsTxt, setRobotsTxt] = useState(
 `User-agent: *

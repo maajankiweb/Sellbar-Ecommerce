@@ -1,155 +1,135 @@
 import crypto from 'crypto';
+import connectToDatabase from '@/lib/db/mongodb';
+import { ApiKey, IApiKey, ApiKeyScope } from '@/lib/db/models/ApiKey';
 
-export type ApiKeyScope =
-  | '*'
-  | 'admin:full'
-  | 'read:stock'
-  | 'write:stock'
-  | 'send:notifications'
-  | 'read:notifications'
-  | 'read:catalog'
-  | 'manage:catalog'
-  | 'read:screener'
-  | 'manage:orders'
-  | 'read:orders';
+export type { ApiKeyScope };
 
-export interface SelbarApiKey {
+export interface CreatedApiKeyResult {
   id: string;
   name: string;
-  key: string;
   prefix: string;
+  rawKey: string; // Shown once at creation
   environment: 'live' | 'test';
   scopes: ApiKeyScope[];
-  createdAt: string;
-  lastUsedAt?: string;
-  usageCount: number;
-  isActive: boolean;
+  createdAt: Date;
 }
 
-// Scoped API Keys store (No master key bypass - keys are explicitly scoped)
-declare global {
-  // eslint-disable-next-line no-var
-  var __SELBAR_API_KEYS__: SelbarApiKey[] | undefined;
-}
-
-if (!global.__SELBAR_API_KEYS__) {
-  global.__SELBAR_API_KEYS__ = [];
-}
-
-export function getAllApiKeys(): SelbarApiKey[] {
-  return global.__SELBAR_API_KEYS__ || [];
+export function hashApiKey(rawKey: string): string {
+  return crypto.createHash('sha256').update(rawKey).digest('hex');
 }
 
 /**
- * Generate a new custom API Key for SELBAR
+ * Generate a new custom scoped API Key for Sellbar
+ * The full raw key is returned ONLY once. The database stores strictly its SHA-256 hash.
  */
-export function generateApiKey(params: {
+export async function generateApiKey(params: {
   name: string;
   environment?: 'live' | 'test';
   scopes?: ApiKeyScope[];
-}): SelbarApiKey {
+  createdBy?: string;
+}): Promise<CreatedApiKeyResult> {
   const env = params.environment || 'live';
-  const randomEntropy = crypto.randomBytes(16).toString('hex');
-  const fullKey = `selbar_${env}_sk_${randomEntropy}`;
-  const prefix = fullKey.substring(0, 18);
+  const randomEntropy = crypto.randomBytes(24).toString('hex');
+  const rawKey = `sellbar_${env}_sk_${randomEntropy}`;
+  const prefix = rawKey.substring(0, 19);
+  const keyHash = hashApiKey(rawKey);
 
-  const newKey: SelbarApiKey = {
-    id: `key_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`,
+  await connectToDatabase();
+
+  const doc = await ApiKey.create({
     name: params.name,
-    key: fullKey,
     prefix,
+    keyHash,
     environment: env,
-    scopes: params.scopes && params.scopes.length > 0 ? params.scopes : ['*'],
-    createdAt: new Date().toISOString(),
-    usageCount: 0,
-    isActive: true,
-  };
-
-  global.__SELBAR_API_KEYS__ = [newKey, ...(global.__SELBAR_API_KEYS__ || [])];
-  return newKey;
-}
-
-/**
- * Revoke or Toggle an API Key
- */
-export function revokeApiKey(id: string): boolean {
-  const keys = global.__SELBAR_API_KEYS__ || [];
-  const target = keys.find((k) => k.id === id || k.key === id);
-  if (!target) return false;
-
-  target.isActive = false;
-  return true;
-}
-
-/**
- * Verify Request API Key
- * Checks 'x-selbar-api-key' or 'Authorization: Bearer <key>'
- */
-export function verifyApiKey(
-  req: Request,
-  requiredScope?: ApiKeyScope
-): { valid: boolean; status: number; message: string; apiKey?: SelbarApiKey } {
-  // Extract key from header
-  const headerKey =
-    req.headers.get('x-selbar-api-key') ||
-    req.headers.get('x-api-key') ||
-    extractBearerToken(req.headers.get('authorization'));
-
-  if (!headerKey) {
-    return {
-      valid: false,
-      status: 401,
-      message: 'Missing API Key. Provide key in "x-selbar-api-key" header or Authorization Bearer token.',
-    };
-  }
-
-  const keys = global.__SELBAR_API_KEYS__ || [];
-  const found = keys.find((k) => k.key === headerKey);
-
-  if (!found) {
-    return {
-      valid: false,
-      status: 401,
-      message: 'Invalid API Key provided.',
-    };
-  }
-
-  if (!found.isActive) {
-    return {
-      valid: false,
-      status: 403,
-      message: 'This API Key has been revoked or disabled.',
-    };
-  }
-
-  // Scope Verification
-  if (requiredScope && !found.scopes.includes('*') && !found.scopes.includes('admin:full')) {
-    if (!found.scopes.includes(requiredScope)) {
-      return {
-        valid: false,
-        status: 403,
-        message: `Insufficient permissions. Key lacks required scope: "${requiredScope}".`,
-      };
-    }
-  }
-
-  // Update audit tracking
-  found.lastUsedAt = new Date().toISOString();
-  found.usageCount += 1;
+    scopes: params.scopes || ['read:catalog'],
+    createdBy: params.createdBy || undefined,
+  });
 
   return {
-    valid: true,
-    status: 200,
-    message: 'Authorized',
-    apiKey: found,
+    id: doc._id.toString(),
+    name: doc.name,
+    prefix: doc.prefix,
+    rawKey,
+    environment: doc.environment,
+    scopes: doc.scopes,
+    createdAt: doc.createdAt,
   };
 }
 
-function extractBearerToken(authHeader: string | null): string | null {
-  if (!authHeader) return null;
-  const parts = authHeader.split(' ');
-  if (parts.length === 2 && parts[0].toLowerCase() === 'bearer') {
-    return parts[1];
+/**
+ * List all active API keys (metadata only, raw key is never stored or returned)
+ */
+export async function listAllApiKeys(): Promise<Array<{
+  id: string;
+  name: string;
+  prefix: string;
+  environment: string;
+  scopes: ApiKeyScope[];
+  usageCount: number;
+  lastUsedAt?: Date;
+  revokedAt?: Date;
+  createdAt: Date;
+}>> {
+  await connectToDatabase();
+  const keys = await ApiKey.find().sort({ createdAt: -1 }).lean();
+  return keys.map((k) => ({
+    id: k._id.toString(),
+    name: k.name,
+    prefix: k.prefix,
+    environment: k.environment,
+    scopes: k.scopes as ApiKeyScope[],
+    usageCount: k.usageCount || 0,
+    lastUsedAt: k.lastUsedAt,
+    revokedAt: k.revokedAt,
+    createdAt: k.createdAt,
+  }));
+}
+
+/**
+ * Verify incoming API Key against stored SHA-256 hash
+ */
+export async function verifyApiKey(
+  rawKey: string,
+  requiredScope?: ApiKeyScope
+): Promise<{ valid: boolean; name?: string; scopes?: ApiKeyScope[]; error?: string }> {
+  if (!rawKey || !rawKey.startsWith('sellbar_')) {
+    return { valid: false, error: 'Invalid API key format' };
   }
-  return null;
+
+  const keyHash = hashApiKey(rawKey);
+
+  try {
+    await connectToDatabase();
+    const doc = await ApiKey.findOne({ keyHash });
+
+    if (!doc) {
+      return { valid: false, error: 'API key not recognized' };
+    }
+
+    if (doc.revokedAt) {
+      return { valid: false, error: 'API key has been revoked' };
+    }
+
+    if (requiredScope && !doc.scopes.includes('*') && !doc.scopes.includes('admin:full') && !doc.scopes.includes(requiredScope)) {
+      return { valid: false, error: `Key lacks required scope: ${requiredScope}` };
+    }
+
+    // Increment usage
+    doc.usageCount = (doc.usageCount || 0) + 1;
+    doc.lastUsedAt = new Date();
+    await doc.save();
+
+    return { valid: true, name: doc.name, scopes: doc.scopes };
+  } catch (err) {
+    return { valid: false, error: 'API key verification error' };
+  }
+}
+
+/**
+ * Revoke an API key
+ */
+export async function revokeApiKey(id: string): Promise<boolean> {
+  await connectToDatabase();
+  const res = await ApiKey.findByIdAndUpdate(id, { $set: { revokedAt: new Date() } });
+  return Boolean(res);
 }

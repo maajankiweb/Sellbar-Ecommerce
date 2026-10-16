@@ -310,7 +310,7 @@ export async function POST(request: Request) {
           return NextResponse.json(
             {
               success: false,
-              error: 'Compliance Violation: Device cannot be published for resale before NIST 800-88 data sanitization is verified.',
+              error: 'Compliance Violation: Device cannot be published for resale before Cryptographic Secure Erase data sanitization is verified.',
             },
             { status: 422 }
           );

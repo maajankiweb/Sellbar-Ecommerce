@@ -14,7 +14,7 @@ async function handleRebalanceTrigger(req: NextRequest) {
   try {
     const authHeader = req.headers.get('authorization') || '';
     const token = authHeader.replace(/^Bearer\s+/i, '');
-    const cronSecret = process.env.CRON_SECRET || 'selbar_cron_secret_key_2026';
+    const cronSecret = process.env.CRON_SECRET || 'sellbar_cron_secret_key_2026';
 
     let authorized = false;
     if (token === cronSecret) {

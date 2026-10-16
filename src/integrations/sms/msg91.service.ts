@@ -48,7 +48,7 @@ export class Msg91Service {
    */
   public static async checkAndDispatchQuotaAlerts(currentUsage: number): Promise<void> {
     const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
-    const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'admin@selbar.in';
+    const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'admin@sellbar.in';
 
     // 1. HARD STOP ALERT (5,000)
     if (currentUsage >= this.OTP_LIMIT) {
@@ -192,7 +192,7 @@ export class Msg91Service {
               color: data.color,
               title: data.title,
               text: `${data.message}\n*Current Quota:* \`${data.usage}\``,
-              footer: 'SELBAR Telemetry & Quota Engine',
+              footer: 'Sellbar Telemetry & Quota Engine',
               ts: Math.floor(Date.now() / 1000),
             },
           ],
@@ -208,7 +208,7 @@ export class Msg91Service {
       const { sendEmail } = await import('@/lib/email/mailer');
       await sendEmail({
         to: adminEmail,
-        subject: `⚠️ [SELBAR QUOTA] ${subject}`,
+        subject: `⚠️ [Sellbar QUOTA] ${subject}`,
         html: `
           <div style="font-family: sans-serif; background: #0f172a; color: #f8fafc; padding: 24px; border-radius: 12px;">
             <h3 style="color: #f59e0b;">MSG91 SMS OTP Quota Alert</h3>

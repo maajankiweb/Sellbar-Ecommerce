@@ -64,7 +64,7 @@ export default function PackagingPage() {
     grade: 'Grade A+ (Certified Like-New)',
     qcTech: 'Karan Mehra (#STF-104)',
     bin: 'BIN-APL-01',
-    warranty: '12 Months Comprehensive SELBAR Shield',
+    warranty: '12 Months Comprehensive Sellbar Shield',
   });
   const [isPrinting, setIsPrinting] = useState(false);
   const [toast, setToast] = useState('');
@@ -129,7 +129,7 @@ export default function PackagingPage() {
 
           <div className="bg-white text-slate-950 p-6 rounded-3xl shadow-md font-mono space-y-4 border-2 border-dashed border-slate-300">
             <div className="flex items-center justify-between border-b-2 border-slate-900 pb-2">
-              <div className="font-black text-lg tracking-tight">SELBAR REFURBISHED</div>
+              <div className="font-black text-lg tracking-tight">Sellbar REFURBISHED</div>
               <div className="text-[10px] font-bold border border-slate-900 px-1.5 py-0.5">QC VERIFIED</div>
             </div>
 
@@ -176,7 +176,7 @@ export default function PackagingPage() {
                 'Device wiped with 99.8% isopropyl alcohol and microfiber lint-free cloth',
                 'Screen covered with peel-off static-protective film',
                 'Enclosed in MIL-STD 3010B certified anti-static bubble sleeve',
-                'SELBAR Tamper-evident holographic serial seal applied',
+                'Sellbar Tamper-evident holographic serial seal applied',
                 'Placed in standardized eco-friendly Kraft recyclable box',
               ].map((step, idx) => (
                 <div key={idx} className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center gap-3">

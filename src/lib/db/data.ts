@@ -350,7 +350,7 @@ export const CONDITION_QUESTIONS: ConditionQuestion[] = [
 ];
 
 export const REFURB_PRODUCTS: RefurbProduct[] = [
-  // --- SELBAR EXACT SHOWCASE REFURBISHED PHONES ---
+  // --- Sellbar EXACT SHOWCASE REFURBISHED PHONES ---
   {
     id: 'rf-samsung-galaxy-m32',
     modelId: 'galaxy-m32',
@@ -406,7 +406,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     replacementDays: 7,
     qcPointsCount: 32,
     highlights: [
-      '32-Point Rigorous SELBAR Diagnostic Check',
+      'Rigorous Hardware Diagnostic Check',
       '12 Months Comprehensive Doorstep Warranty',
       '6000 mAh Monster Battery for 2-Day Endurance',
       '7 Days Hassle-Free Replacement Policy',
@@ -454,8 +454,8 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     replacementDays: 5,
     qcPointsCount: 32,
     highlights: [
-      '32-Point Rigorous Hardware & Battery Certification',
-      '12 Months SELBAR Comprehensive Warranty',
+      'Rigorous Hardware & Battery Certification',
+      '12 Months Sellbar Comprehensive Warranty',
       '108MP Flagship Quad Camera with 100X Zoom',
       'Free Doorstep Express Delivery',
     ],
@@ -546,7 +546,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     highlights: [
       'Stunning Curved Horizon Edge Display',
       'Advanced AI Assistant & Nightography',
-      '1 Year SELBAR Warranty with 15-Day Return',
+      '1 Year Sellbar Warranty with 15-Day Return',
     ],
     rating: 4.8,
     reviewCount: 78,
@@ -632,14 +632,14 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     highlights: [
       'Flagship Foldable Multitasking Experience',
       'Redesigned Zero-Gap Flex Hinge mechanism',
-      '12 Months Extended SELBAR Warranty Protection',
+      '12 Months Extended Sellbar Warranty Protection',
     ],
     rating: 4.9,
     reviewCount: 84,
     featured: true,
   },
 
-  // --- SELBAR EXACT SHOWCASE REFURBISHED LAPTOPS ---
+  // --- Sellbar EXACT SHOWCASE REFURBISHED LAPTOPS ---
   {
     id: 'rf-apple-macbook-pro-2025-a3434',
     modelId: 'macbook-pro-2025-a3434',
@@ -677,7 +677,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     highlights: [
       'Next-Gen Apple Silicon Architecture',
       'Extreme Dynamic Range with 1600 nits Peak Brightness',
-      '12 Months SELBAR Comprehensive Laptop Warranty',
+      '12 Months Sellbar Comprehensive Laptop Warranty',
     ],
     rating: 4.8,
     reviewCount: 42,
@@ -763,7 +763,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     highlights: [
       'Fanless Silent Performance with M5 Efficiency',
       'Midnight Anodization with Anti-fingerprint Seal',
-      '12 Months SELBAR Comprehensive Guarantee',
+      '12 Months Sellbar Comprehensive Guarantee',
     ],
     rating: 4.0,
     reviewCount: 36,
@@ -806,7 +806,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     highlights: [
       'Expansive 15.3-Inch Display in Portable Chassis',
       'Six-speaker sound system with Spatial Audio',
-      '1 Year SELBAR Warranty & 15-Day Replacement',
+      '1 Year Sellbar Warranty & 15-Day Replacement',
     ],
     rating: 4.8,
     reviewCount: 65,
@@ -849,7 +849,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     highlights: [
       'Interactive Touch Bar with integrated Touch ID',
       'Four Thunderbolt 3 (USB-C) high speed ports',
-      '1 Year SELBAR Warranty with Doorstep Service',
+      '1 Year Sellbar Warranty with Doorstep Service',
     ],
     rating: 4.9,
     reviewCount: 94,
@@ -905,8 +905,8 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     replacementDays: 5,
     qcPointsCount: 32,
     highlights: [
-      '32-Point Rigorous Hardware & Battery Certification',
-      '12 Months Full Repair/Replace SELBAR Warranty',
+      'Rigorous Hardware & Battery Certification',
+      '12 Months Full Repair/Replace Sellbar Warranty',
       '5 Days Hassle-Free Replacement Guarantee',
       'Certified 100% Secure Data-Wiped',
       'Free Fast Doorstep Delivery with Open Box Verification',
@@ -967,7 +967,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     highlights: [
       'Snapdragon 8 Gen 2 Flagship Performance',
       'Dynamic AMOLED 2X with Adaptive 120Hz',
-      '1 Year SELBAR Warranty & 15-Day Replacement',
+      '1 Year Sellbar Warranty & 15-Day Replacement',
       'Box & Compatible 25W Fast Cable Included',
     ],
     rating: 4.7,
@@ -1074,7 +1074,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     highlights: [
       'Super Fluid 120Hz Curved AMOLED',
       'Ultra Fast 100W Charging supported',
-      '6 Months SELBAR Assured Warranty',
+      '6 Months Sellbar Assured Warranty',
     ],
     rating: 4.6,
     reviewCount: 74,
@@ -1301,9 +1301,9 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     replacementDays: 5,
     qcPointsCount: 32,
     highlights: [
-      '12 Months SELBAR Comprehensive Warranty',
+      '12 Months Sellbar Comprehensive Warranty',
       'Active Cooling for Sustained Pro Workflows',
-      'Tested 32-Point Battery & Hardware Check',
+      'Tested Battery & Hardware Quality Check',
     ],
     rating: 4.9,
     reviewCount: 88,
@@ -1334,7 +1334,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
       {
         grade: 'superb',
         title: 'Superb (A+ Grade)',
-        description: 'Legendary ThinkPad military-grade build with mint keyboard.',
+        description: 'Legendary ThinkPad durable robust build with mint keyboard.',
         price: 28999,
         originalMrp: 84999,
         stock: 10,
@@ -1346,7 +1346,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     highlights: [
       'Legendary Spill-resistant ThinkPad Keyboard',
       'Enterprise Durability & vPro Security',
-      '1 Year SELBAR Warranty & Free Delivery',
+      '1 Year Sellbar Warranty & Free Delivery',
     ],
     rating: 4.8,
     reviewCount: 45,
@@ -1477,7 +1477,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     highlights: [
       'Breathtaking 27-inch 5K Retina Screen',
       'Upgraded 32GB RAM for Heavy Multitasking',
-      '1 Year Full SELBAR Warranty with Doorstep Service',
+      '1 Year Full Sellbar Warranty with Doorstep Service',
     ],
     rating: 4.8,
     reviewCount: 52,
@@ -1520,7 +1520,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     highlights: [
       'Compact Palm-Sized Ultra Small Form Factor',
       'High Reliability Dell Commercial OptiPlex Series',
-      '1 Year SELBAR Warranty & Genuine Windows 11 Pro',
+      '1 Year Sellbar Warranty & Genuine Windows 11 Pro',
     ],
     rating: 4.7,
     reviewCount: 41,
@@ -1537,7 +1537,7 @@ export interface DatabaseState {
 
 declare global {
   // eslint-disable-next-line no-var
-  var __selbar_db: DatabaseState | undefined;
+  var __sellbar_db: DatabaseState | undefined;
 }
 
 const initialSellOrders: SellOrder[] = [];
@@ -1549,7 +1549,7 @@ const initialDb: DatabaseState = {
   buyOrders: new Map(),
 };
 
-export const db: DatabaseState = global.__selbar_db ?? initialDb;
+export const db: DatabaseState = global.__sellbar_db ?? initialDb;
 if (process.env.NODE_ENV !== 'production') {
-  global.__selbar_db = db;
+  global.__sellbar_db = db;
 }

@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
 
     await connectToDatabase();
 
-    const currentRefreshToken = req.cookies.get('selbar_refresh_token')?.value;
+    const currentRefreshToken = req.cookies.get('sellbar_refresh_token')?.value;
     const currentTokenHash = currentRefreshToken ? hashToken(currentRefreshToken) : null;
 
     const sessions = await Session.find({
@@ -72,7 +72,7 @@ export async function DELETE(req: NextRequest) {
 
     await connectToDatabase();
 
-    const currentRefreshToken = req.cookies.get('selbar_refresh_token')?.value;
+    const currentRefreshToken = req.cookies.get('sellbar_refresh_token')?.value;
     const currentTokenHash = currentRefreshToken ? hashToken(currentRefreshToken) : null;
 
     if (revokeAllOthers) {

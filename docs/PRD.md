@@ -1,5 +1,5 @@
-# SELBAR — Product Requirements Document (PRD)
-**Product:** SELBAR — Sell, Buy, Repair & Recycle Electronics Platform
+# Sellbar — Product Requirements Document (PRD)
+**Product:** Sellbar — Sell, Buy, Repair & Recycle Electronics Platform
 **Platforms:** Responsive Website + Native Android App
 **Version:** 1.0 (MVP → v1.1 roadmap included)
 **Prepared for:** Maajanki Web Tech
@@ -9,22 +9,22 @@
 
 ## 1. EXECUTIVE SUMMARY
 
-SELBAR is a recommerce platform for India that lets users **sell** old smartphones/laptops/tablets/gadgets for instant cash via doorstep pickup, **buy** quality-checked refurbished devices at a discount, **repair** devices at authorized centres, and **recycle** end-of-life electronics responsibly. The platform launches as a **website (web-first, mobile-responsive)** plus a **native Android app**, sharing one backend and one pricing engine.
+Sellbar is a recommerce platform for India that lets users **sell** old smartphones/laptops/tablets/gadgets for instant cash via doorstep pickup, **buy** quality-checked refurbished devices at a discount, **repair** devices at authorized centres, and **recycle** end-of-life electronics responsibly. The platform launches as a **website (web-first, mobile-responsive)** plus a **native Android app**, sharing one backend and one pricing engine.
 
-**Samjho (Hinglish):** SELBAR bilkul Cashify jaisa hi model follow karega — lekin apni brand identity, apna pricing engine config, aur shuruaat mein 1-2 focus cities/states (jaise Bihar/UP) ke saath launch karenge, phir scale karenge. MVP mein "Sell Phone" + "Buy Refurbished Phone" hi core hoga; baaki (laptop, TV, repair, B2B) phase-2/3 mein add hoga.
+**Samjho (Hinglish):** Sellbar bilkul Cashify jaisa hi model follow karega — lekin apni brand identity, apna pricing engine config, aur shuruaat mein 1-2 focus cities/states (jaise Bihar/UP) ke saath launch karenge, phir scale karenge. MVP mein "Sell Phone" + "Buy Refurbished Phone" hi core hoga; baaki (laptop, TV, repair, B2B) phase-2/3 mein add hoga.
 
 ---
 
 ## 2. PRODUCT VISION & GOALS
 
-**Vision:** "Har purana device SELBAR par ek fair price paaye — bina bhaag-daud, bina bargaining, bina wait ke."
+**Vision:** "Har purana device Sellbar par ek fair price paaye — bina bhaag-daud, bina bargaining, bina wait ke."
 
 **Goals (Year 1):**
 - G1: Launch Sell + Buy flow for mobile phones in target cities within MVP timeline.
 - G2: Achieve <5-minute average time-to-quote and <3% sell-flow abandonment increase per screen.
 - G3: Build trust fast — data-wipe guarantee, transparent pricing, instant payment — to compete credibly against Cashify/local dealers from day one.
 - G4: Android app parity with web for the sell-flow within 60 days of web launch.
-- G5: Lay groundwork for B2B/franchise ("SELBAR Partner") model by Q3.
+- G5: Lay groundwork for B2B/franchise ("Sellbar Partner") model by Q3.
 
 ---
 
@@ -35,7 +35,7 @@ SELBAR is a recommerce platform for India that lets users **sell** old smartphon
 | **Seller Suresh** | 25–40, tier-2/3 city, owns 1–2 old phones lying unused | Fair price, no bargaining, doorstep convenience, trust that data is wiped |
 | **Buyer Priya** | Budget-conscious student/young professional | Affordable phone with real warranty, confidence it's not "junk" |
 | **Repair Ramesh** | Cracked screen/battery issue, wants quick fix | Nearby service point, transparent pricing, quick turnaround |
-| **Partner Praveen** | Local mobile-shop owner | Wants SELBAR's pricing engine/API to quote confidently to his own walk-in customers (Phase 2/3) |
+| **Partner Praveen** | Local mobile-shop owner | Wants Sellbar's pricing engine/API to quote confidently to his own walk-in customers (Phase 2/3) |
 
 ---
 
@@ -45,7 +45,7 @@ SELBAR is a recommerce platform for India that lets users **sell** old smartphon
 2. **Refurbished device sales margin** (B2C).
 3. **Repair service fees.**
 4. **Recycle** — compliance-linked revenue + material recovery (low priority in MVP).
-5. **Phase 3: B2B/Partner API licensing** — white-labelled pricing engine for local shops (SELBAR Partner Program).
+5. **Phase 3: B2B/Partner API licensing** — white-labelled pricing engine for local shops (Sellbar Partner Program).
 
 ---
 
@@ -79,7 +79,7 @@ SELBAR is a recommerce platform for India that lets users **sell** old smartphon
 - Basic AI photo-upload for condition pre-check (reduce questionnaire length).
 
 ### 5.3 Phase 3 (Months 7–12)
-- B2B/Partner program (SELBAR Partner) with pricing-engine API.
+- B2B/Partner program (Sellbar Partner) with pricing-engine API.
 - Additional categories: TV, DSLR, gaming consoles, smart speakers, earbuds.
 - iOS app.
 - Carbon-footprint tracker + shareable impact card.
@@ -160,7 +160,7 @@ SELBAR is a recommerce platform for India that lets users **sell** old smartphon
 |---|---|
 | **Performance** | Web: LCP <2.5s, CLS <0.1 on 4G mobile. Android app: cold start <2.5s, screen transitions <300ms. |
 | **Availability** | 99.5% uptime target for MVP (single-region), 99.9% target post Phase-2 scale-out. |
-| **Security** | HTTPS everywhere, OTP-based auth, PII encryption at rest (address, phone, ID scans), PCI-DSS-compliant payment handling via gateway (no card data touches SELBAR servers), role-based access for admin panel. |
+| **Security** | HTTPS everywhere, OTP-based auth, PII encryption at rest (address, phone, ID scans), PCI-DSS-compliant payment handling via gateway (no card data touches Sellbar servers), role-based access for admin panel. |
 | **Data privacy** | Compliant with India's DPDP Act 2023 — consent capture, data retention policy, right-to-erasure support for user data on request. |
 | **Accessibility** | WCAG 2.1 AA on web; Android app follows Android Accessibility guidelines (TalkBack support, min 48dp touch targets, content descriptions on all icons). |
 | **Scalability** | Architecture must support horizontal scaling of the pricing/quote service and order service independently (these are the two highest-traffic paths). |
@@ -186,7 +186,7 @@ SELBAR is a recommerce platform for India that lets users **sell** old smartphon
 ## 10. ASSUMPTIONS & CONSTRAINTS
 
 - MVP launches in a limited set of cities/pincodes (owner-defined at launch) where doorstep pickup can be reliably staffed — either via in-house executives or a third-party logistics/gig partner.
-- Refurbished inventory at MVP launch will be sourced from SELBAR's own buyback pipeline plus a small seed stock (owner to confirm sourcing plan) — buy-flow cannot outpace actual inventory.
+- Refurbished inventory at MVP launch will be sourced from Sellbar's own buyback pipeline plus a small seed stock (owner to confirm sourcing plan) — buy-flow cannot outpace actual inventory.
 - Payment payouts require a business current account + payment gateway merchant account (Razorpay/Cashfree) to be active before launch.
 - IMEI blacklist-check API and data-wipe certification tooling are third-party dependencies — must be contracted before Phase 1 code-complete.
 - Android app is native (not a WebView wrapper) for MVP to ensure push notifications, camera-based condition photo capture (Phase 2), and offline order-status caching work reliably.
@@ -218,4 +218,4 @@ SELBAR is a recommerce platform for India that lets users **sell** old smartphon
 
 ---
 
-*Companion document: SELBAR-TRD.md (Technical Requirements Document) — covers architecture, API design, database schema, Android app tech stack, and third-party integrations in implementation detail.*
+*Companion document: Sellbar-TRD.md (Technical Requirements Document) — covers architecture, API design, database schema, Android app tech stack, and third-party integrations in implementation detail.*

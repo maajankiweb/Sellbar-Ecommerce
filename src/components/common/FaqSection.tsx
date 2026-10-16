@@ -29,8 +29,8 @@ const FAQ_ITEMS: FaqItem[] = [
     id: 'faq-1',
     category: 'selling',
     tag: 'Instant Sell',
-    question: 'How does SELBAR determine the valuation of my old smartphone?',
-    answer: 'SELBAR utilizes an AI-driven transparent valuation engine. The quote is calculated based on brand, exact model/storage variant, cosmetic condition (scratches, dents), screen integrity, and hardware diagnostic checks. What we quote online is guaranteed for 72 hours with zero doorstep price haggling.'
+    question: 'How does Sellbar determine the valuation of my old smartphone?',
+    answer: 'Sellbar utilizes a transparent pricing engine. The quote is calculated based on brand, exact model/storage variant, cosmetic condition (scratches, dents), screen integrity, and hardware diagnostic checks. What we quote online is locked for 72 hours with zero doorstep price haggling.'
   },
   {
     id: 'faq-2',
@@ -44,14 +44,14 @@ const FAQ_ITEMS: FaqItem[] = [
     category: 'buying',
     tag: 'Refurbished Quality',
     question: 'What quality checks are performed on refurbished phones?',
-    answer: 'Every refurbished device undergoes an exhaustive 32-point hardware and software diagnostic test. We inspect screen digitizers, battery health (>85%), cameras, microphones, biometric sensors, connectivity, and motherboard circuits to ensure 100% factory-level functionality.'
+    answer: 'Every refurbished device undergoes comprehensive hardware and software diagnostic testing before sale. We inspect screen digitizers, battery health (>85%), cameras, microphones, biometric sensors, connectivity, and motherboard circuits to ensure full reliable operation.'
   },
   {
     id: 'faq-4',
     category: 'warranty',
     tag: 'Warranty & Replacement',
     question: 'What warranty and replacement policy do you offer on purchases?',
-    answer: 'All certified refurbished smartphones and laptops come with an Assured 12-Month Comprehensive Hardware Warranty and a 15-day hassle-free replacement or money-back guarantee. If anything goes wrong, we repair or replace it at zero cost.'
+    answer: 'All certified refurbished smartphones come with a 6-month comprehensive hardware warranty and a 15-day replacement guarantee. If anything goes wrong within the policy window, we repair or replace it at zero cost.'
   },
   {
     id: 'faq-5',
@@ -65,7 +65,7 @@ const FAQ_ITEMS: FaqItem[] = [
     category: 'privacy',
     tag: 'Data Sanitization',
     question: 'Is my personal data completely safe when selling my phone?',
-    answer: 'Yes! SELBAR strictly adheres to the Digital Personal Data Protection (DPDP) Act 2023. Every device is wiped using NIST 800-88 military-grade algorithms that cryptographically overwrite all storage sectors. You also receive an official Digital Data Erasure Certificate with an immutable SHA-256 verification hash.'
+    answer: 'Yes! Sellbar strictly adheres to the Digital Personal Data Protection (DPDP) Act 2023. Every device undergoes certified cryptographic data sanitization that overwrites storage sectors. Once completed by our ops team, an official Digital Data Wipe Certificate with an immutable SHA-256 verification hash is generated.'
   }
 ];
 
@@ -183,7 +183,7 @@ export function FaqSection() {
         </div>
 
         {/* Bottom CTA Card */}
-        <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800">
+        <div className="bg-linear-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800">
           <div className="space-y-1.5 text-center sm:text-left">
             <div className="inline-flex items-center gap-2 text-xs font-bold text-teal-400">
               <MessageSquare className="w-4 h-4" />

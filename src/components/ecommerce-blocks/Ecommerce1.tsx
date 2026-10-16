@@ -97,14 +97,14 @@ const DEMO_PRODUCT: ProductData = {
   accordions: [
     {
       id: 'qc',
-      title: '32-Point Diagnostic Test Report',
+      title: 'Diagnostic Test Report',
       icon: ShieldCheck,
       content:
-        'Passed rigorous lab examination: TrueTone display calibrated, LiDAR operational, optical camera stabilization verified, FaceID responsive, clean OEM audio transducers, and NIST 800-88 sanitized.',
+        'Passed rigorous lab examination: TrueTone display calibrated, LiDAR operational, optical camera stabilization verified, FaceID responsive, clean OEM audio transducers, and Cryptographic Secure Erase sanitized.',
     },
     {
       id: 'warranty',
-      title: '12-Month Comprehensive SELBAR Warranty',
+      title: '12-Month Comprehensive Sellbar Warranty',
       icon: Sparkles,
       content:
         'Includes 1-year coverage for motherboard, screen components, audio receivers, and battery performance. Free doorstep pickup and priority repair if any hardware defect arises.',
@@ -121,7 +121,7 @@ const DEMO_PRODUCT: ProductData = {
       title: 'Battery Health & Packaging Specs',
       icon: Battery,
       content:
-        'Certified OEM battery health audited at 92% to 98%. Ships in tamper-proof SELBAR Eco-Kraft recycled box with MFi-certified fast braided charging cable and SIM ejector tool.',
+        'Certified OEM battery health audited at 92% to 98%. Ships in tamper-proof Sellbar Eco-Kraft recycled box with MFi-certified fast braided charging cable and SIM ejector tool.',
     },
   ],
 };
@@ -142,7 +142,7 @@ export function Ecommerce1({ product, onAddToCart, onBuyNow }: Ecommerce1Props =
         originalPrice: product.originalMrp || product.price || DEMO_PRODUCT.originalPrice,
         rating: product.rating || 4.9,
         reviewsCount: product.reviewCount || 340,
-        sku: product.id || product.slug || 'SELBAR-CERT-01',
+        sku: product.id || product.slug || 'Sellbar-CERT-01',
         images:
           Array.isArray(product.images) && product.images.length > 0
             ? product.images
@@ -153,7 +153,7 @@ export function Ecommerce1({ product, onAddToCart, onBuyNow }: Ecommerce1Props =
               label: g.title || (g.grade === 'brand-new' ? 'Brand New' : 'Superb (Grade A)'),
               price: g.price || product.price,
               badge: g.grade === 'brand-new' ? 'Sealed Pack' : 'Most Popular',
-              desc: g.description || '100% genuine hardware, 32-point QC passed, full warranty.',
+              desc: g.description || '100% genuine hardware, Quality QC passed, full warranty.',
             }))
           : DEMO_PRODUCT.grades,
         fits: product.specs?.storage
@@ -220,14 +220,14 @@ export function Ecommerce1({ product, onAddToCart, onBuyNow }: Ecommerce1Props =
           </div>
 
           {/* Main Showcase Hero Image */}
-          <div className="relative flex-1 aspect-square rounded-3xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/80 p-6 flex items-center justify-center overflow-hidden group">
+          <div className="relative flex-1 aspect-square rounded-3xl bg-linear-to-b from-slate-50 to-slate-100/70 border border-slate-200/80 p-6 flex items-center justify-center overflow-hidden group">
             {/* Top Savings & Verified Badges */}
             <div className="absolute top-4 left-4 flex flex-col gap-2 z-10">
               <span className="px-3 py-1 rounded-full bg-emerald-600 text-white text-xs font-black uppercase tracking-wider shadow-sm">
                 Save {savingsPercent}%
               </span>
               <span className="px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-xs text-slate-800 border border-slate-200 text-[10px] font-bold shadow-2xs">
-                32-Point QC Passed
+                Quality Checked
               </span>
             </div>
 
@@ -318,7 +318,7 @@ export function Ecommerce1({ product, onAddToCart, onBuyNow }: Ecommerce1Props =
               <div className="flex items-center justify-between text-xs">
                 <span className="font-bold text-slate-900">Select Condition Grade</span>
                 <span className="text-[#00a599] font-medium cursor-pointer hover:underline">
-                  32-Point Quality Inspected
+                  Quality Checked Before Sale
                 </span>
               </div>
 

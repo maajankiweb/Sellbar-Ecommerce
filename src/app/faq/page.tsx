@@ -37,7 +37,7 @@ const FAQ_DATA: FaqItem[] = [
     id: 's-1',
     category: 'selling',
     tag: 'Doorstep Valuation',
-    q: 'How does SELBAR compute my phone valuation?',
+    q: 'How does Sellbar compute my phone valuation?',
     a: 'We evaluate your device using our proprietary real-time algorithmic pricing engine based on brand, exact storage/RAM variant, physical cosmetic wear, screen scratches, and hardware tests. The itemized price breakdown is completely transparent with zero hidden deductibles.'
   },
   {
@@ -82,14 +82,14 @@ const FAQ_DATA: FaqItem[] = [
     category: 'buying',
     tag: 'Warranty Coverage',
     q: 'Does a refurbished phone come with a warranty and return window?',
-    a: 'Yes! Every refurbished device comes with a 12-Month SELBAR Assured Hardware Warranty and a 15-Day Hassle-Free Replacement / Refund window.'
+    a: 'Yes! Every refurbished device comes with a 12-Month Sellbar Assured Hardware Warranty and a 15-Day Hassle-Free Replacement / Refund window.'
   },
   {
     id: 'b-3',
     category: 'buying',
     tag: 'Box Contents',
     q: 'What accessories come inside the box?',
-    a: 'Your phone arrives in an official SELBAR branded shockproof box containing a certified fast-charging cable, SIM ejector tool, quality test report card, and a stamped warranty certificate.'
+    a: 'Your phone arrives in an official Sellbar branded shockproof box containing a certified fast-charging cable, SIM ejector tool, quality test report card, and a stamped warranty certificate.'
   },
   {
     id: 'b-4',
@@ -128,13 +128,13 @@ const FAQ_DATA: FaqItem[] = [
     category: 'privacy',
     tag: 'Data Sanitization',
     q: 'Will my personal photos or WhatsApp messages be seen?',
-    a: 'Never. Our intake process conducts military-standard NIST 800-88 multi-pass cryptographic data sanitization that overwrites every flash sector. You also receive an official Data Erasure Certificate with an immutable SHA-256 hash.'
+    a: 'Never. Our intake process conducts complete cryptographic multi-pass data sanitization that overwrites flash storage before resale. You also receive an official Data Erasure confirmation.'
   },
   {
     id: 'p-2',
     category: 'privacy',
     tag: 'Legal Compliance',
-    q: 'Is SELBAR compliant with the India DPDP Act 2023?',
+    q: 'Is Sellbar compliant with the India DPDP Act 2023?',
     a: 'Yes. We strictly adhere to India’s Digital Personal Data Protection Act 2023 as a registered Data Fiduciary with dedicated Grievance Officer oversight.'
   },
 
@@ -205,7 +205,7 @@ export default function FAQPage() {
           </h1>
 
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Find answers to common questions about doorstep buyback, live payouts, 32-point refurbished quality checks, warranty claims, and certified data erasure.
+            Find answers to common questions about doorstep buyback, live payouts, refurbished quality inspection, warranty claims, and secure data erasure.
           </p>
 
           {/* Search Box */}
@@ -366,7 +366,7 @@ export default function FAQPage() {
         </div>
 
         {/* Comprehensive Help & Support Desk Banner */}
-        <div className="p-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white rounded-3xl shadow-xl border border-slate-800 space-y-6">
+        <div className="p-8 bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-white rounded-3xl shadow-xl border border-slate-800 space-y-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="space-y-1.5 max-w-lg">
               <div className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-400">
@@ -395,7 +395,7 @@ export default function FAQPage() {
                 className="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs rounded-xl transition border border-slate-700 flex items-center justify-center gap-2"
               >
                 <PhoneCall className="w-4 h-4 text-teal-400" />
-                <span>1800-SELBAR</span>
+                <span>1800-Sellbar</span>
               </a>
             </div>
           </div>

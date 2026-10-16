@@ -8,13 +8,13 @@ interface MemoryCacheItem {
 // Global store to survive Next.js HMR in development
 declare global {
   // eslint-disable-next-line no-var
-  var __SELBAR_REDIS_CLIENT__: Redis | null | undefined;
+  var __Sellbar_REDIS_CLIENT__: Redis | null | undefined;
   // eslint-disable-next-line no-var
-  var __SELBAR_FALLBACK_CACHE__: Map<string, MemoryCacheItem> | undefined;
+  var __Sellbar_FALLBACK_CACHE__: Map<string, MemoryCacheItem> | undefined;
 }
 
-if (!global.__SELBAR_FALLBACK_CACHE__) {
-  global.__SELBAR_FALLBACK_CACHE__ = new Map();
+if (!global.__Sellbar_FALLBACK_CACHE__) {
+  global.__Sellbar_FALLBACK_CACHE__ = new Map();
 }
 
 const REDIS_URL = process.env.REDIS_URL;
@@ -22,8 +22,8 @@ let isRedisConnected = false;
 let client: Redis | null = null;
 
 if (REDIS_URL) {
-  if (global.__SELBAR_REDIS_CLIENT__) {
-    client = global.__SELBAR_REDIS_CLIENT__;
+  if (global.__Sellbar_REDIS_CLIENT__) {
+    client = global.__Sellbar_REDIS_CLIENT__;
     isRedisConnected = client.status === 'ready' || client.status === 'connect';
   } else {
     try {
@@ -55,7 +55,7 @@ if (REDIS_URL) {
         console.warn(`[Redis Notice] Could not establish initial connection: ${err.message}. Local cache engaged.`);
       });
 
-      global.__SELBAR_REDIS_CLIENT__ = client;
+      global.__Sellbar_REDIS_CLIENT__ = client;
     } catch (e: any) {
       console.warn('[Redis] Failed to initialize Redis client:', e.message);
       client = null;
@@ -92,7 +92,7 @@ export const cacheStore = {
     }
 
     const expiresAt = ttlSeconds ? Date.now() + ttlSeconds * 1000 : Infinity;
-    global.__SELBAR_FALLBACK_CACHE__!.set(key, { value, expiresAt });
+    global.__Sellbar_FALLBACK_CACHE__!.set(key, { value, expiresAt });
   },
 
   /**
@@ -107,11 +107,11 @@ export const cacheStore = {
       }
     }
 
-    const item = global.__SELBAR_FALLBACK_CACHE__!.get(key);
+    const item = global.__Sellbar_FALLBACK_CACHE__!.get(key);
     if (!item) return null;
 
     if (Date.now() > item.expiresAt) {
-      global.__SELBAR_FALLBACK_CACHE__!.delete(key);
+      global.__Sellbar_FALLBACK_CACHE__!.delete(key);
       return null;
     }
 
@@ -130,7 +130,7 @@ export const cacheStore = {
       }
     }
 
-    const existed = global.__SELBAR_FALLBACK_CACHE__!.delete(key);
+    const existed = global.__Sellbar_FALLBACK_CACHE__!.delete(key);
     return existed ? 1 : 0;
   },
 
@@ -150,10 +150,10 @@ export const cacheStore = {
       }
     }
 
-    const item = global.__SELBAR_FALLBACK_CACHE__!.get(key);
+    const item = global.__Sellbar_FALLBACK_CACHE__!.get(key);
     const now = Date.now();
     if (!item || now > item.expiresAt) {
-      global.__SELBAR_FALLBACK_CACHE__!.set(key, {
+      global.__Sellbar_FALLBACK_CACHE__!.set(key, {
         value: '1',
         expiresAt: now + ttlSecondsIfNew * 1000,
       });
@@ -177,12 +177,12 @@ export const cacheStore = {
       }
     }
 
-    const item = global.__SELBAR_FALLBACK_CACHE__!.get(key);
+    const item = global.__Sellbar_FALLBACK_CACHE__!.get(key);
     if (!item) return -2;
     if (item.expiresAt === Infinity) return -1;
     const remainingMs = item.expiresAt - Date.now();
     if (remainingMs <= 0) {
-      global.__SELBAR_FALLBACK_CACHE__!.delete(key);
+      global.__Sellbar_FALLBACK_CACHE__!.delete(key);
       return -2;
     }
     return Math.ceil(remainingMs / 1000);
@@ -203,7 +203,7 @@ export const cacheStore = {
     const regex = new RegExp('^' + pattern.replace(/\*/g, '.*') + '$');
     const matched: string[] = [];
     const now = Date.now();
-    for (const [k, item] of global.__SELBAR_FALLBACK_CACHE__!.entries()) {
+    for (const [k, item] of global.__Sellbar_FALLBACK_CACHE__!.entries()) {
       if (regex.test(k) && item.expiresAt > now) {
         matched.push(k);
       }

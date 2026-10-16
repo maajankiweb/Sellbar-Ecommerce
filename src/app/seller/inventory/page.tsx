@@ -30,7 +30,7 @@ const INITIAL_LISTINGS: RefurbListing[] = [
     stock: 6,
     price: 98999,
     originalMrp: 179900,
-    warranty: '12 Months SELBAR Shield',
+    warranty: '12 Months Sellbar Shield',
     status: 'active',
   },
   {
@@ -42,7 +42,7 @@ const INITIAL_LISTINGS: RefurbListing[] = [
     stock: 4,
     price: 84999,
     originalMrp: 139900,
-    warranty: '12 Months SELBAR Shield',
+    warranty: '12 Months Sellbar Shield',
     status: 'active',
   },
   {
@@ -118,7 +118,7 @@ export default function SellerInventoryPage() {
       stock: Number(newStock) || 1,
       price: Number(newPrice),
       originalMrp: Math.round(Number(newPrice) * 1.35),
-      warranty: '12 Months SELBAR Shield',
+      warranty: '12 Months Sellbar Shield',
       status: 'active',
     };
 
@@ -126,7 +126,7 @@ export default function SellerInventoryPage() {
     setShowAddModal(false);
     setNewTitle('');
     setNewPrice('');
-    setToast('New refurbished inventory listing published to SELBAR storefront!');
+    setToast('New refurbished inventory listing published to Sellbar storefront!');
     setTimeout(() => setToast(''), 3000);
   };
 

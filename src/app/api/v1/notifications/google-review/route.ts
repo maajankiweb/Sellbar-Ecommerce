@@ -8,9 +8,9 @@ export async function POST(req: NextRequest) {
 
     const authorName = body.authorName || body.reviewerName || body.name || 'Google Customer';
     const rating = Number(body.rating) || 5;
-    const reviewText = body.reviewText || body.comment || body.text || 'Great experience with SELBAR!';
+    const reviewText = body.reviewText || body.comment || body.text || 'Great experience with Sellbar!';
     const time = body.time || new Date().toLocaleString('en-IN');
-    const reviewUrl = body.reviewUrl || 'https://maps.google.com/?cid=selbar-recommerce';
+    const reviewUrl = body.reviewUrl || 'https://maps.google.com/?cid=sellbar-recommerce';
     const adminEmail = body.adminEmail || process.env.ADMIN_NOTIFICATION_EMAIL || process.env.SMTP_USER;
 
     // 1. Dispatch Google Review Email Alert to Admin/Store Manager

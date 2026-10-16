@@ -763,7 +763,7 @@ export default function AddProductPage() {
                 type="text"
                 value={seoTitle}
                 onChange={e => setSeoTitle(e.target.value)}
-                placeholder="Buy Apple iPhone 16 Pro Online India | SELBAR"
+                placeholder="Buy Apple iPhone 16 Pro Online India | Sellbar"
                 className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100"
               />
             </div>
@@ -805,7 +805,7 @@ export default function AddProductPage() {
                 https://selbar.com &gt; buy &gt; {slug || 'product-slug'}
               </div>
               <div className="text-base font-medium text-blue-600 hover:underline dark:text-blue-400 cursor-pointer mt-0.5">
-                {seoTitle || name || 'Product Name Preview'} | SELBAR
+                {seoTitle || name || 'Product Name Preview'} | Sellbar
               </div>
               <div className="text-xs text-slate-600 dark:text-slate-300 mt-1 line-clamp-2">
                 {seoDescription || description || 'Product description will appear here as indexed by web crawlers.'}

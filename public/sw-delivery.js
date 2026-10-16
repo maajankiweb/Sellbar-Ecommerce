@@ -1,5 +1,5 @@
-// SELBAR Delivery PWA Service Worker with Background Sync
-const CACHE_NAME = 'selbar-delivery-cache-v1';
+// Sellbar Delivery PWA Service Worker with Background Sync
+const CACHE_NAME = 'sellbar-delivery-cache-v1';
 const STATIC_ASSETS = [
   '/delivery',
   '/delivery/profile',
@@ -77,7 +77,7 @@ self.addEventListener('push', (event) => {
 
   try {
     const payload = event.data.json();
-    const title = payload.title || 'SELBAR Delivery Update';
+    const title = payload.title || 'Sellbar Delivery Update';
     const options = {
       body: payload.body || 'Your delivery executive is nearby.',
       icon: payload.icon || '/icon.svg',

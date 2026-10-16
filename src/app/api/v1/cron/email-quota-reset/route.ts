@@ -16,7 +16,7 @@ async function handleCronReset(req: NextRequest) {
     // 1. Authenticate Cron Caller via Secret Token or Vercel Cron Header
     const authHeader = req.headers.get('authorization');
     const vercelCronHeader = req.headers.get('x-vercel-cron');
-    const configuredSecret = process.env.CRON_SECRET || 'selbar_cron_secret_key_2026';
+    const configuredSecret = process.env.CRON_SECRET || 'sellbar_cron_secret_key_2026';
 
     const isAuthorized =
       vercelCronHeader === '1' ||

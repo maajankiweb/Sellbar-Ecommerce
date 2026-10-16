@@ -92,10 +92,10 @@ export async function POST(req: NextRequest) {
 
         await sendEmailNotification({
           to: recipientEmail,
-          subject: 'SELBAR Password Reset Request',
+          subject: 'Sellbar Password Reset Request',
           htmlContent: `
             <div style="font-family: Arial, sans-serif; max-width: 580px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px;">
-              <h2 style="color: #047857; margin-top: 0;">SELBAR Account Security</h2>
+              <h2 style="color: #047857; margin-top: 0;">Sellbar Account Security</h2>
               <p style="color: #475569; font-size: 14px;">We received a request to reset your password. Click the secure link below to choose a new password:</p>
               <div style="text-align: center; margin: 28px 0;">
                 <a href="${resetUrl}" style="background: #059669; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 14px; display: inline-block;">Reset Password</a>

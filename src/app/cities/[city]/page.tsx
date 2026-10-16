@@ -34,7 +34,7 @@ const CITY_STORES: Record<string, {
   reviews: number;
 }> = {
   bettiah: {
-    name: 'SELBAR Experience Centre — Bettiah Flagship',
+    name: 'Sellbar Experience Centre — Bettiah Flagship',
     address: 'Shop 12-14, Ground Floor, Station Road, Near Supriya Cinema, Bettiah (845438)',
     phone: '+91 98765 43210',
     timing: '10:00 AM – 08:30 PM (All 7 Days Open)',
@@ -42,7 +42,7 @@ const CITY_STORES: Record<string, {
     reviews: 428
   },
   bagaha: {
-    name: 'SELBAR Store — Bagaha Main Market',
+    name: 'Sellbar Store — Bagaha Main Market',
     address: 'Gandhi Chowk, Main Bazaar Road, Bagaha-1, West Champaran (845105)',
     phone: '+91 98765 43211',
     timing: '10:00 AM – 08:00 PM',
@@ -50,7 +50,7 @@ const CITY_STORES: Record<string, {
     reviews: 312
   },
   narkatiaganj: {
-    name: 'SELBAR Hub — Narkatiaganj Station Road',
+    name: 'Sellbar Hub — Narkatiaganj Station Road',
     address: 'Station Road, Near Railway Junction Gate 1, Narkatiaganj (845455)',
     phone: '+91 98765 43212',
     timing: '10:00 AM – 08:00 PM',
@@ -58,7 +58,7 @@ const CITY_STORES: Record<string, {
     reviews: 245
   },
   patna: {
-    name: 'SELBAR Super Experience Hub — Boring Road',
+    name: 'Sellbar Super Experience Hub — Boring Road',
     address: 'Plot 104, Boring Road Crossing, Near Alankar Jewellers, Patna (800001)',
     phone: '+91 98765 43213',
     timing: '10:00 AM – 09:00 PM',
@@ -66,7 +66,7 @@ const CITY_STORES: Record<string, {
     reviews: 1120
   },
   gorakhpur: {
-    name: 'SELBAR Experience Hub — Golghar',
+    name: 'Sellbar Experience Hub — Golghar',
     address: 'Shop 4-5, City Center Mall, Golghar Main Road, Gorakhpur (273001)',
     phone: '+91 98765 43214',
     timing: '10:00 AM – 08:30 PM',
@@ -74,7 +74,7 @@ const CITY_STORES: Record<string, {
     reviews: 580
   },
   motihari: {
-    name: 'SELBAR Store — Chhatauni Chawk',
+    name: 'Sellbar Store — Chhatauni Chawk',
     address: 'Near Old Bus Stand, Chhatauni, Motihari (845401)',
     phone: '+91 98765 43215',
     timing: '10:00 AM – 08:00 PM',
@@ -82,7 +82,7 @@ const CITY_STORES: Record<string, {
     reviews: 310
   },
   muzaffarpur: {
-    name: 'SELBAR Store — Motijheel Commercial Area',
+    name: 'Sellbar Store — Motijheel Commercial Area',
     address: 'Motijheel Road, Opposite City Hospital, Muzaffarpur (842001)',
     phone: '+91 98765 43216',
     timing: '10:00 AM – 08:30 PM',
@@ -90,7 +90,7 @@ const CITY_STORES: Record<string, {
     reviews: 440
   },
   'delhi-ncr': {
-    name: 'SELBAR Hub — Sector 18 Noida & Connaught Place',
+    name: 'Sellbar Hub — Sector 18 Noida & Connaught Place',
     address: 'Block K, Connaught Place, New Delhi & Sector 18 Commercial Hub, Noida',
     phone: '+91 98765 43217',
     timing: '09:30 AM – 09:30 PM',
@@ -121,7 +121,7 @@ const CITY_REVIEWS: Record<string, Array<{ name: string; device: string; comment
     {
       name: 'Rajnish Kumar',
       device: 'Sold OnePlus 11R',
-      comment: 'Bazaar me shop wale 20k de rahe the, SELBAR ne 24,500 direct account me credit kiya. Zero hassle.',
+      comment: 'Bazaar me shop wale 20k de rahe the, Sellbar ne 24,500 direct account me credit kiya. Zero hassle.',
       rating: 5,
       area: 'Gandhi Chowk'
     }
@@ -130,7 +130,7 @@ const CITY_REVIEWS: Record<string, Array<{ name: string; device: string; comment
     {
       name: 'Amitabh Sen',
       device: 'Sold Samsung Galaxy S23 Ultra',
-      comment: 'Best recommerce service in Patna. Doorstep NIST data wipe certificate bhi mila on spot.',
+      comment: 'Best recommerce service in Patna. Doorstep data wipe certificate bhi mila on spot.',
       rating: 5,
       area: 'Boring Road'
     }
@@ -177,10 +177,10 @@ export default function CityDetailPage() {
     },
     {
       q: `Is data wiping certified in ${city.name}?`,
-      a: `Every device undergoes our certified NIST SP 800-88 data sanitization process. You receive an official digital certificate with a verifiable SHA-256 hash.`
+      a: `Every device undergoes our secure data sanitization process. You receive an official digital certificate with a verifiable hash.`
     },
     {
-      q: `Can I visit the local SELBAR Experience Store in ${city.name}?`,
+      q: `Can I visit the local Sellbar Experience Store in ${city.name}?`,
       a: `Yes, you can visit our local store at ${store.address} to buy certified refurbished smartphones or get 30-minute screen and battery repairs.`
     }
   ];
@@ -190,7 +190,7 @@ export default function CityDetailPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-emerald-950 via-slate-900 to-slate-900 py-16 text-white md:py-24">
+      <section className="relative overflow-hidden bg-linear-to-b from-emerald-950 via-slate-900 to-slate-900 py-16 text-white md:py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(16,185,129,0.18),transparent_55%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
@@ -201,7 +201,7 @@ export default function CityDetailPage() {
               </div>
 
               <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-5xl leading-tight">
-                Sell Old Phone in <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">{city.name}</span>
+                Sell Old Phone in <span className="bg-linear-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">{city.name}</span>
                 <br />Get Instant Cash at Doorstep
               </h1>
 
@@ -221,7 +221,7 @@ export default function CityDetailPage() {
                 </div>
                 <div className="flex items-center gap-1.5 rounded-lg bg-slate-800/80 px-3 py-1.5 border border-slate-700">
                   <ShieldCheck className="h-4 w-4 text-emerald-400" />
-                  <span>NIST 800-88 Data Wipe</span>
+                  <span>Data Erased Before Resale</span>
                 </div>
               </div>
 
@@ -332,7 +332,7 @@ export default function CityDetailPage() {
             </div>
             <h3 className="mt-4 font-bold text-slate-900">Instant UPI Payment</h3>
             <p className="mt-2 text-xs text-slate-500 leading-relaxed">
-              Receive 100% full payment on the spot via GPay / PhonePe / Bank along with a NIST 800-88 Data Wipe Certificate.
+              Receive 100% full payment on the spot via GPay / PhonePe / Bank along with a verified Data Wipe Certificate.
             </p>
           </div>
         </div>
@@ -382,7 +382,7 @@ export default function CityDetailPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-slate-900">
-            What Customers in {city.name} Say About SELBAR
+            What Customers in {city.name} Say About Sellbar
           </h2>
           <p className="mt-1 text-xs text-slate-500">
             Real verified doorstep transactions from your neighbourhood.

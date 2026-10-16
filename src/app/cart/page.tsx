@@ -30,13 +30,18 @@ import {
   ChevronDown,
   ChevronUp,
   RotateCcw,
+  Clock,
+  AlertTriangle,
 } from 'lucide-react';
 
 import {
   AUTHORIZED_LOCATIONS,
+  STAGING_SEEDED_LOCATIONS,
   validateServiceLocation,
   SERVICE_RESTRICTION_ERROR_MESSAGE,
 } from '@/lib/location/config';
+import { PublicSiteSettings, DEFAULT_SITE_SETTINGS } from '@/lib/settings/types';
+import { openRazorpayModal } from '@/lib/razorpay';
 
 export default function CartCheckoutPage() {
   const router = useRouter();
@@ -88,6 +93,48 @@ export default function CartCheckoutPage() {
     }
   }, [user]);
 
+  // Site Settings for COD and warranty policies
+  const [settings, setSettings] = useState<PublicSiteSettings>(DEFAULT_SITE_SETTINGS);
+
+  useEffect(() => {
+    async function loadSettings() {
+      try {
+        const res = await fetch('/api/v1/settings');
+        const json = await res.json();
+        if (json.success && json.data) {
+          setSettings(json.data);
+          if (!json.data.codEnabled && paymentMethod === 'Cash on Delivery') {
+            setPaymentMethod('UPI');
+          }
+        }
+      } catch {
+        // use default settings
+      }
+    }
+    loadSettings();
+  }, []);
+
+  // 15-Minute Unit Inventory Reservation Timer
+  const [reservationSecondsLeft, setReservationSecondsLeft] = useState(15 * 60);
+
+  useEffect(() => {
+    if (items.length === 0) return;
+    const interval = setInterval(() => {
+      setReservationSecondsLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [items.length]);
+
+  const resMinutes = Math.floor(reservationSecondsLeft / 60);
+  const resSeconds = reservationSecondsLeft % 60;
+  const isReservationExpired = reservationSecondsLeft === 0;
+
   // Payment method
   const [paymentMethod, setPaymentMethod] = useState<'UPI' | 'Credit/Debit Card' | 'NetBanking' | 'Cash on Delivery'>('UPI');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -127,6 +174,11 @@ export default function CartCheckoutPage() {
     e.preventDefault();
     if (items.length === 0) return;
 
+    if (isReservationExpired) {
+      setError('Your 15-minute unit inventory reservation has expired. Please refresh the page to re-verify stock availability.');
+      return;
+    }
+
     if (!phoneNumber || phoneNumber.length < 10) {
       setError('Please provide a valid 10-digit phone number');
       return;
@@ -147,7 +199,7 @@ export default function CartCheckoutPage() {
     setIsSubmitting(true);
 
     if (!isLoggedIn) {
-      login(phoneNumber, fullName || 'SELBAR Member');
+      login(phoneNumber, fullName || 'Sellbar Member');
     }
 
     try {
@@ -156,7 +208,7 @@ export default function CartCheckoutPage() {
         customer: {
           name: fullName,
           phone: phoneNumber,
-          email: `${phoneNumber}@customer.selbar.in`,
+          email: `${phoneNumber}@customer.sellbar.in`,
         },
         shippingAddress: {
           id: `addr_${Date.now()}`,
@@ -191,9 +243,66 @@ export default function CartCheckoutPage() {
         return;
       }
 
-      setPendingOrderId(data.data.id);
+      const createdOrderId = data.data.id;
+      setPendingOrderId(createdOrderId);
+
+      // Attempt Razorpay Standard Checkout for online payments if available
+      if (paymentMethod !== 'Cash on Delivery') {
+        try {
+          const payRes = await fetch('/api/v1/payments/create-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              orderId: createdOrderId,
+              amount: finalPayableAmount,
+              customerInfo: { phone: phoneNumber, name: fullName },
+            }),
+          });
+          const payData = await payRes.json();
+          if (
+            payData.success &&
+            payData.data?.orderId &&
+            payData.data?.keyId &&
+            !payData.data.keyId.includes('placeholder')
+          ) {
+            const opened = await openRazorpayModal({
+              key: payData.data.keyId,
+              amount: payData.data.amount,
+              currency: 'INR',
+              name: 'Sellbar Recommerce',
+              description: `Order ${createdOrderId}`,
+              order_id: payData.data.orderId,
+              prefill: {
+                name: fullName,
+                contact: phoneNumber,
+              },
+              theme: { color: '#059669' },
+              handler: async (rzpResponse) => {
+                await fetch('/api/v1/payments/verify', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(rzpResponse),
+                }).catch(() => null);
+                handlePaymentSuccess();
+              },
+              modal: {
+                ondismiss: () => {
+                  setIsSubmitting(false);
+                },
+              },
+            });
+            if (opened) {
+              setIsSubmitting(false);
+              return;
+            }
+          }
+        } catch (rzpErr) {
+          console.warn('Razorpay standard modal fallback:', rzpErr);
+        }
+      }
+
       setIsSubmitting(false);
-      // Open Payment / OTP Modal
+      // Open Payment / OTP Modal fallback
       setIsPaymentModalOpen(true);
     } catch {
       setError('Network connection error. Please try again.');
@@ -220,7 +329,7 @@ export default function CartCheckoutPage() {
         </div>
         <h2 className="text-xl font-bold text-slate-900">Your Cart is Empty</h2>
         <p className="text-xs text-slate-500 max-w-sm mx-auto">
-          Explore certified refurbished phones & laptops with 32-point QC inspection, 12 months warranty, and a 5-day easy replacement policy!
+          Explore certified refurbished phones quality-checked before sale, backed by a verified 6-month warranty and 15-day replacement policy!
         </p>
         <Link
           href="/buy"
@@ -252,7 +361,7 @@ export default function CartCheckoutPage() {
             Review Cart & Checkout
           </h1>
           <p className="text-xs text-slate-500 mt-1">
-            Doorstep Delivery & 5-Day Hassle-Free Replacement Guarantee in West Champaran
+            Doorstep Delivery & {settings?.replacementWindowDays || 15}-Day Hassle-Free Replacement Guarantee in West Champaran
           </p>
         </div>
 
@@ -262,9 +371,49 @@ export default function CartCheckoutPage() {
           <span>⚡ 24–48 Hr Doorstep Delivery in {city}</span>
         </div>
       </div>
+      {/* 15-Minute Unit Reservation Timer Bar */}
+      <div
+        className={`p-4 rounded-2xl border transition-all ${
+          isReservationExpired
+            ? 'bg-rose-50 border-rose-200 text-rose-900'
+            : 'bg-amber-50/80 border-amber-200/80 text-amber-950'
+        }`}
+      >
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+          <div className="flex items-center gap-2.5">
+            <div
+              className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 ${
+                isReservationExpired ? 'bg-rose-600 text-white' : 'bg-amber-600 text-white'
+              }`}
+            >
+              {isReservationExpired ? <AlertTriangle className="w-4 h-4" /> : <Clock className="w-4 h-4" />}
+            </div>
+            <div>
+              <div className="text-xs font-bold">
+                {isReservationExpired
+                  ? 'Unit Reservation Expired'
+                  : `Units Reserved For You: ${resMinutes.toString().padStart(2, '0')}:${resSeconds.toString().padStart(2, '0')} min`}
+              </div>
+              <div className="text-[11px] text-slate-600">
+                {isReservationExpired
+                  ? 'Your 15-minute checkout hold has lapsed. Please refresh your cart.'
+                  : 'Refurbished devices are unique 1-of-1 inventory units held temporarily during checkout.'}
+              </div>
+            </div>
+          </div>
+          {!isReservationExpired && (
+            <div className="w-32 bg-amber-200/60 rounded-full h-2 overflow-hidden self-end sm:self-center">
+              <div
+                className="bg-amber-600 h-full transition-all duration-1000 rounded-full"
+                style={{ width: `${(reservationSecondsLeft / (15 * 60)) * 100}%` }}
+              />
+            </div>
+          )}
+        </div>
+      </div>
 
       {/* Dynamic Free Shipping Milestone Progress Bar (Ecommerce 11 feature) */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-teal-50/70 via-[#eef7f6] to-emerald-50/70 border border-[#00a599]/20 shadow-2xs">
+      <div className="p-4 sm:p-5 rounded-2xl bg-linear-to-r from-teal-50/70 via-[#eef7f6] to-emerald-50/70 border border-[#00a599]/20 shadow-2xs">
         <div className="flex items-center justify-between text-xs sm:text-sm font-bold text-slate-900 mb-2">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-xl bg-[#00a599] text-white flex items-center justify-center shrink-0 shadow-xs">
@@ -291,7 +440,7 @@ export default function CartCheckoutPage() {
         {/* Progress Track */}
         <div className="w-full bg-white/80 rounded-full h-2.5 overflow-hidden border border-[#00a599]/20 shadow-inner">
           <div
-            className="bg-gradient-to-r from-[#00a599] to-emerald-500 h-full rounded-full transition-all duration-500 ease-out"
+            className="bg-linear-to-r from-[#00a599] to-emerald-500 h-full rounded-full transition-all duration-500 ease-out"
             style={{ width: `${freeShippingProgress}%` }}
           />
         </div>
@@ -376,7 +525,7 @@ export default function CartCheckoutPage() {
           </div>
 
           {/* Protection Plan Add-On Card (Phase 3) */}
-          <div className="bg-gradient-to-r from-emerald-900 to-slate-900 rounded-3xl p-6 text-white shadow-md relative overflow-hidden">
+          <div className="bg-linear-to-r from-emerald-900 to-slate-900 rounded-3xl p-6 text-white shadow-md relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl" />
             <div className="flex items-start justify-between gap-4 relative z-10">
               <div className="space-y-1.5 max-w-md">
@@ -385,7 +534,7 @@ export default function CartCheckoutPage() {
                   <span>Value Added Protection</span>
                 </div>
                 <h3 className="text-sm font-bold text-white">
-                  SELBAR Complete Care (+1 Year Screen & Liquid Damage Cover)
+                  Sellbar Complete Care (+1 Year Screen & Liquid Damage Cover)
                 </h3>
                 <p className="text-xs text-slate-300">
                   Protect against accidental drops, liquid spills & screen cracks with 100% free doorstep pickup in West Champaran.
@@ -406,7 +555,7 @@ export default function CartCheckoutPage() {
               >
                 {warrantyProtection ? (
                   <>
-                    <Check className="w-3.5 h-3.5 stroke-[3]" />
+                    <Check className="w-3.5 h-3.5 stroke-3" />
                     <span>Added</span>
                   </>
                 ) : (
@@ -469,7 +618,7 @@ export default function CartCheckoutPage() {
                     value={giftNote}
                     onChange={(e) => setGiftNote(e.target.value)}
                     maxLength={160}
-                    placeholder="e.g. Happy Birthday! Enjoy your certified flagship device from SELBAR."
+                    placeholder="e.g. Happy Birthday! Enjoy your certified flagship device from Sellbar."
                     className="w-full p-2.5 text-xs rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a599]/20 resize-none"
                   />
                   <div className="text-[10px] text-slate-400 text-right">
@@ -553,7 +702,7 @@ export default function CartCheckoutPage() {
                   }}
                   className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
                 >
-                  {AUTHORIZED_LOCATIONS.map((loc) => (
+                  {(AUTHORIZED_LOCATIONS.length > 0 ? AUTHORIZED_LOCATIONS : STAGING_SEEDED_LOCATIONS).map((loc) => (
                     <option key={loc.id} value={loc.name}>
                       {loc.name} (West Champaran)
                     </option>
@@ -635,16 +784,34 @@ export default function CartCheckoutPage() {
 
               <button
                 type="button"
-                onClick={() => setPaymentMethod('Cash on Delivery')}
+                onClick={() => {
+                  if (settings.codEnabled) {
+                    setPaymentMethod('Cash on Delivery');
+                  }
+                }}
+                disabled={!settings.codEnabled}
                 className={`p-3.5 rounded-2xl border-2 text-left transition ${
-                  paymentMethod === 'Cash on Delivery' ? 'border-emerald-600 bg-emerald-50/50' : 'border-slate-200'
-                }`}
+                  paymentMethod === 'Cash on Delivery'
+                    ? 'border-emerald-600 bg-emerald-50/50'
+                    : 'border-slate-200'
+                } ${!settings.codEnabled ? 'opacity-60 cursor-not-allowed bg-slate-50' : ''}`}
               >
-                <div className="flex items-center gap-2 font-bold text-xs text-slate-900">
-                  <Banknote className="w-4 h-4 text-emerald-600" />
-                  <span>Cash on Delivery</span>
+                <div className="flex items-center justify-between font-bold text-xs text-slate-900">
+                  <div className="flex items-center gap-2">
+                    <Banknote className="w-4 h-4 text-emerald-600" />
+                    <span>Cash on Delivery</span>
+                  </div>
+                  {!settings.codEnabled && (
+                    <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-slate-200 text-slate-600">
+                      Disabled
+                    </span>
+                  )}
                 </div>
-                <span className="text-[11px] text-slate-500 mt-1 block">With OTP verification at checkout</span>
+                <span className="text-[11px] text-slate-500 mt-1 block">
+                  {settings.codEnabled
+                    ? 'With OTP verification at checkout'
+                    : 'Prepaid only for pilot launch (CD-11)'}
+                </span>
               </button>
             </div>
           </div>
@@ -685,7 +852,7 @@ export default function CartCheckoutPage() {
                     type="text"
                     value={couponInput}
                     onChange={(e) => setCouponInput(e.target.value.toUpperCase())}
-                    placeholder="Enter promo code (e.g. SELBAR500)"
+                    placeholder="Enter promo code (e.g. Sellbar500)"
                     className="flex-1 px-3 py-2 text-xs font-mono font-bold uppercase rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
                   />
                   <button
@@ -714,7 +881,7 @@ export default function CartCheckoutPage() {
                     Available Offers
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    {['SELBAR500', 'WELCOME10', 'FESTIVE2000', 'CHAMPARAN300'].map((code) => (
+                    {['Sellbar500', 'WELCOME10', 'FESTIVE2000', 'CHAMPARAN300'].map((code) => (
                       <button
                         key={code}
                         type="button"
@@ -760,7 +927,7 @@ export default function CartCheckoutPage() {
               </div>
 
               <div className="flex justify-between text-slate-600">
-                <span>12-Month Assured Warranty</span>
+                <span>{settings?.warrantyMonthsDefault || 6}-Month Assured Warranty</span>
                 <span className="text-emerald-700 font-bold uppercase">INCLUDED</span>
               </div>
 
@@ -781,13 +948,13 @@ export default function CartCheckoutPage() {
               </span>
             </div>
 
-            {/* Strictly 5-Day Return Policy Badge */}
+            {/* Strictly Dynamic Return Policy Badge */}
             <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-[11px] text-emerald-900 flex items-start gap-2">
               <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
               <div>
-                <strong className="font-bold block">5-Day Hassle-Free Replacement Guarantee</strong>
+                <strong className="font-bold block">{settings?.replacementWindowDays || 15}-Day Hassle-Free Replacement Guarantee</strong>
                 <span>
-                  Inspect at doorstep. Swap or return device within 5 days of delivery with free reverse pickup in West Champaran.
+                  Inspect at doorstep. Swap or return device within {settings?.replacementWindowDays || 15} days of delivery with free reverse pickup in West Champaran.
                 </span>
               </div>
             </div>
@@ -801,7 +968,7 @@ export default function CartCheckoutPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full min-h-[48px] py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-sm shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 transition disabled:opacity-50 cursor-pointer active:scale-98"
+              className="w-full min-h-12 py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-sm shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 transition disabled:opacity-50 cursor-pointer active:scale-98"
             >
               <span>
                 {isSubmitting
@@ -824,7 +991,7 @@ export default function CartCheckoutPage() {
           type="button"
           onClick={handleCheckoutSubmit}
           disabled={isSubmitting}
-          className="min-h-[44px] px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-extrabold text-xs shadow-md shadow-emerald-600/25 flex items-center gap-1.5 active:scale-95 cursor-pointer disabled:opacity-50"
+          className="min-h-11 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-extrabold text-xs shadow-md shadow-emerald-600/25 flex items-center gap-1.5 active:scale-95 cursor-pointer disabled:opacity-50"
         >
           <span>{isSubmitting ? 'Processing...' : 'Pay Now'}</span>
           <ArrowRight className="w-3.5 h-3.5" />

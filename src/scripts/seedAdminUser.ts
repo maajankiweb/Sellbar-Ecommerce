@@ -37,7 +37,7 @@ async function seedAdmin() {
   await mongoose.connect(MONGO_URI);
   console.log('Connected to MongoDB Atlas successfully.');
 
-  const adminEmail = process.env.ADMIN_EMAIL || 'admin@selbar.in';
+  const adminEmail = process.env.ADMIN_EMAIL || 'admin@sellbar.in';
   const adminMobile = process.env.ADMIN_MOBILE || '9999999999';
   const adminUsername = process.env.ADMIN_USERNAME || 'admin';
   const adminPassword = process.env.ADMIN_PASSWORD || `Admin@${crypto.randomBytes(8).toString('hex')}!`;

@@ -250,7 +250,7 @@ export async function POST(req: NextRequest) {
     );
 
     // Set secure HttpOnly cookie for Refresh Token
-    response.cookies.set('selbar_refresh_token', refreshToken, {
+    response.cookies.set('sellbar_refresh_token', refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',

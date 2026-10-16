@@ -20,7 +20,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       document.documentElement.classList.remove('dark');
     }
     try {
-      localStorage.removeItem('selbar_theme');
+      localStorage.removeItem('sellbar_theme');
     } catch {}
   }, []);
 

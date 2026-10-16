@@ -118,7 +118,7 @@ export function VoiceSearchModal({ isOpen, onClose, mode }: VoiceSearchModalProp
             <div className="space-y-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-                SELBAR Voice Assist
+                Sellbar Voice Assist
               </span>
               <h3 className="text-xl font-black text-slate-900">
                 {isListening ? 'Listening to you...' : 'Search Completed'}

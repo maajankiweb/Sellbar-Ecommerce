@@ -3,8 +3,8 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   return NextResponse.json(
     {
-      name: 'SELBAR Platform',
-      description: 'SELBAR Recommerce API',
+      name: 'Sellbar Platform',
+      description: 'Sellbar Recommerce API',
       status: 'ok',
       namespaces: []
     },

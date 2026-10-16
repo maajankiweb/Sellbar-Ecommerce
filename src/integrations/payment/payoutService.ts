@@ -84,7 +84,7 @@ export class PayoutService {
             amount: payout.amount,
             transferMode: 'upi',
             beneDetails: { vpa: payout.upiId, name: payout.driverName, phone: payout.phone },
-            remarks: payout.narration || `SELBAR Daily Settlement ${payout.dateStr}`,
+            remarks: payout.narration || `Sellbar Daily Settlement ${payout.dateStr}`,
           },
           { headers: { 'X-Client-Id': cashfreeAppId, 'X-Client-Secret': cashfreeSecret } }
         );

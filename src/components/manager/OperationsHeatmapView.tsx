@@ -167,7 +167,7 @@ export default function OperationsHeatmapView() {
       const res = await fetch('/api/v1/cron/rebalance-zones', {
         method: 'POST',
         headers: {
-          authorization: 'Bearer selbar_cron_secret_key_2026',
+          authorization: 'Bearer sellbar_cron_secret_key_2026',
         },
       });
       const data = await res.json();

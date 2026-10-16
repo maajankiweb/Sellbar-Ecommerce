@@ -16,7 +16,7 @@ export interface QueuedDeliveryProof {
   retryCount: number;
 }
 
-const DB_NAME = 'selbar_delivery_offline_db';
+const DB_NAME = 'sellbar_delivery_offline_db';
 const DB_VERSION = 1;
 const STORE_NAME = 'queued_proofs';
 

@@ -1,14 +1,14 @@
-name: SELBAR Security & CI Suite
+name: Sellbar CI/CD & Security Verification
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main", "phase-*" ]
   pull_request:
-    branches: [ "main", "master" ]
+    branches: [ "main" ]
 
 jobs:
   verify:
-    name: Security Tests & Typecheck
+    name: Lint, Brand Check, Security Tests & Build
     runs-on: ubuntu-latest
 
     steps:
@@ -24,10 +24,16 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Run TypeScript Check
+      - name: Brand Integrity Grep Check
+        run: npm run check:brand
+
+      - name: TypeScript Typecheck
         run: npx tsc --noEmit
 
-      - name: Run Auth & Cryptography Security Suite
+      - name: Product Slug Smoke Test
+        run: npm run test:smoke
+
+      - name: Run Cryptographic & Auth Security Suite
         run: npm run test:auth
         env:
           NODE_ENV: test
@@ -35,5 +41,5 @@ jobs:
           JWT_REFRESH_SECRET: fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210
           OTP_HMAC_SECRET: abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789
 
-      - name: Production Build Verification
+      - name: Next.js Production Build
         run: npm run build

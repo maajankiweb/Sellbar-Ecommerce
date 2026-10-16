@@ -178,7 +178,7 @@ export default function AdminCustomersPage() {
         keyField="id"
         searchPlaceholder="Search customers by name, email or mobile..."
         searchField={c => `${c.name} ${c.email} ${c.phone}`}
-        exportFilename="selbar_customer_directory"
+        exportFilename="sellbar_customer_directory"
         filterOptions={[
           {
             label: 'Group Tier',

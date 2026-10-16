@@ -62,7 +62,7 @@ const INITIAL_CATEGORIES: DiagnosticCategory[] = [
       { id: 'net-1', name: '5G Sub-6 & mmWave Bands', description: 'Carrier aggregation and RSSI signal strength', status: 'passed', metric: '-68 dBm' },
       { id: 'net-2', name: 'Wi-Fi 6E & Bluetooth 5.3', description: 'MIMO throughput and peripheral pairing', status: 'passed' },
       { id: 'net-3', name: 'Apple Secure Enclave / Titan M2', description: 'Biometric cryptographic keys and zero tampering', status: 'passed', metric: 'OEM Verified' },
-      { id: 'net-4', name: 'NAND Flash S.M.A.R.T.', description: 'DoD 5220.22-M sanitization & block wear level', status: 'passed', metric: '0 Bad Blocks' },
+      { id: 'net-4', name: 'NAND Flash S.M.A.R.T.', description: 'Secure Multi-Pass Overwrite sanitization & block wear level', status: 'passed', metric: '0 Bad Blocks' },
     ],
   },
 ];
@@ -127,7 +127,7 @@ export default function DiagnosticsPage() {
               Diagnostic Hardware Test Suite
             </span>
             <span className="text-slate-300">•</span>
-            <span className="text-xs text-slate-500 font-mono">SELBAR V5.4 Precision Rig</span>
+            <span className="text-xs text-slate-500 font-mono">Sellbar V5.4 Precision Rig</span>
           </div>
           <h1 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
             <Wrench className="w-6 h-6 text-cyan-600" />

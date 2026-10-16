@@ -274,7 +274,7 @@ export default function AdminProductsPage() {
         keyField="id"
         searchPlaceholder="Search by product name, SKU or brand..."
         searchField={p => `${p.name} ${p.sku} ${p.brand}`}
-        exportFilename="selbar_products_catalog"
+        exportFilename="sellbar_products_catalog"
         filterOptions={[
           {
             label: 'Category',

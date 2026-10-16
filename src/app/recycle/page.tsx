@@ -132,7 +132,7 @@ export default function RecyclePage() {
               </span>
               <div className="text-base font-black text-emerald-900">{activeCategoryObj.reward}</div>
               <p className="text-[10px] text-emerald-700">
-                Redeemable on SELBAR certified refurbished phones or instant UPI credit.
+                Redeemable on Sellbar certified refurbished phones or instant UPI credit.
               </p>
             </div>
           </div>

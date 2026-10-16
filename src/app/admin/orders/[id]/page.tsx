@@ -37,6 +37,10 @@ export default function OrderDetailsPage() {
   const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState<OrderStatus>('Processing');
   const [timelineNotes, setTimelineNotes] = useState('');
+  const [carrier, setCarrier] = useState('');
+  const [trackingNumber, setTrackingNumber] = useState('');
+  const [trackingUrl, setTrackingUrl] = useState('');
+  const [shippingError, setShippingError] = useState('');
   const [isUpdating, setIsUpdating] = useState(false);
 
   useEffect(() => {
@@ -46,6 +50,9 @@ export default function OrderDetailsPage() {
       if (data) {
         setOrder(data);
         setSelectedStatus(data.status);
+        if (data.carrier) setCarrier(data.carrier);
+        if (data.trackingNumber) setTrackingNumber(data.trackingNumber);
+        if (data.trackingUrl) setTrackingUrl(data.trackingUrl);
       }
       setIsLoading(false);
     }
@@ -54,19 +61,38 @@ export default function OrderDetailsPage() {
 
   const handleStatusUpdate = async () => {
     if (!order) return;
-    setIsUpdating(true);
-    const updated = await adminService.updateOrderStatus(order.id, selectedStatus, timelineNotes);
-    if (updated) {
-      setOrder(updated);
-      addToast({
-        title: 'Status Updated',
-        message: `Order status is now ${selectedStatus}.`,
-        type: 'success',
-      });
+    setShippingError('');
+
+    if (selectedStatus === 'Shipped') {
+      if (!carrier.trim() || !trackingNumber.trim() || !trackingUrl.trim()) {
+        setShippingError('Courier Name, AWB Tracking Number, and Tracking URL are all mandatory before an order can move to SHIPPED (CD-04).');
+        return;
+      }
     }
-    setIsUpdating(false);
-    setIsStatusModalOpen(false);
-    setTimelineNotes('');
+
+    setIsUpdating(true);
+    try {
+      const updated = await adminService.updateOrderStatus(
+        order.id,
+        selectedStatus,
+        timelineNotes,
+        selectedStatus === 'Shipped' ? { carrier, trackingNumber, trackingUrl } : undefined
+      );
+      if (updated) {
+        setOrder(updated);
+        addToast({
+          title: 'Status Updated',
+          message: `Order status is now ${selectedStatus}.`,
+          type: 'success',
+        });
+      }
+      setIsStatusModalOpen(false);
+      setTimelineNotes('');
+    } catch (err: any) {
+      setShippingError(err.message || 'Failed to update order status');
+    } finally {
+      setIsUpdating(false);
+    }
   };
 
   const handlePrint = () => {
@@ -393,6 +419,44 @@ export default function OrderDetailsPage() {
             </p>
           </div>
 
+          {/* Logistics & Tracking (CD-04) */}
+          <div className="rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-900/90 space-y-3 text-xs">
+            <div className="flex items-center justify-between">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Logistics & Carrier Details
+              </h4>
+              <Truck className="h-3.5 w-3.5 text-purple-500" />
+            </div>
+            {order.carrier ? (
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <span className="text-slate-500">Courier Partner</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">{order.carrier}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-slate-500">AWB Tracking #</span>
+                  <span className="font-mono font-bold text-slate-800 dark:text-slate-200">{order.trackingNumber || 'N/A'}</span>
+                </div>
+                {order.trackingUrl && (
+                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+                    <a
+                      href={order.trackingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline font-semibold block truncate"
+                    >
+                      Track Package →
+                    </a>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <p className="text-slate-400 text-[11px]">
+                Not yet dispatched. Courier details mandatory before moving to SHIPPED.
+              </p>
+            )}
+          </div>
+
           {/* Billing & Payment Method */}
           <div className="rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-900/90 space-y-3 text-xs">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
@@ -437,6 +501,13 @@ export default function OrderDetailsPage() {
         }
       >
         <div className="space-y-4">
+          {shippingError && (
+            <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2 dark:bg-rose-950/40 dark:border-rose-900 dark:text-rose-300">
+              <AlertCircle className="w-4 h-4 shrink-0" />
+              <span>{shippingError}</span>
+            </div>
+          )}
+
           <div>
             <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
               Select New Stage
@@ -449,12 +520,61 @@ export default function OrderDetailsPage() {
               <option value="Pending">Pending</option>
               <option value="Processing">Processing</option>
               <option value="Packed">Packed</option>
-              <option value="Shipped">Shipped</option>
+              <option value="Shipped">Shipped (Requires Courier & AWB)</option>
               <option value="Delivered">Delivered</option>
               <option value="Cancelled">Cancelled</option>
               <option value="Refunded">Refunded</option>
             </select>
           </div>
+
+          {selectedStatus === 'Shipped' && (
+            <div className="rounded-lg border border-purple-200 bg-purple-50/50 p-3 space-y-3 dark:border-purple-900/60 dark:bg-purple-950/20">
+              <div className="text-xs font-bold text-purple-900 dark:text-purple-300 flex items-center gap-1.5">
+                <Truck className="w-3.5 h-3.5" />
+                Mandatory Logistics Details (CD-04)
+              </div>
+              <div>
+                <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                  Courier Partner Name *
+                </label>
+                <input
+                  type="text"
+                  value={carrier}
+                  onChange={e => setCarrier(e.target.value)}
+                  placeholder="e.g. BlueDart Express, Delhivery, DTDC, India Post"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs dark:border-slate-700 dark:bg-slate-800"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                  AWB Tracking Number *
+                </label>
+                <input
+                  type="text"
+                  value={trackingNumber}
+                  onChange={e => setTrackingNumber(e.target.value)}
+                  placeholder="e.g. BLU-9928104812"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-mono dark:border-slate-700 dark:bg-slate-800"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                  Tracking Portal URL *
+                </label>
+                <input
+                  type="url"
+                  value={trackingUrl}
+                  onChange={e => setTrackingUrl(e.target.value)}
+                  placeholder="e.g. https://www.bluedart.com/tracking?awb=..."
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs dark:border-slate-700 dark:bg-slate-800"
+                  required
+                />
+              </div>
+            </div>
+          )}
+
           <div>
             <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
               Timeline Note

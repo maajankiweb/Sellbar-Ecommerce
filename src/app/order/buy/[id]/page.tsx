@@ -25,7 +25,7 @@ import {
 
 const BUY_TIMELINE: { state: BuyOrderState; title: string; desc: string }[] = [
   { state: 'PLACED', title: 'Order Confirmed', desc: 'Item allocated and payment verified' },
-  { state: 'PACKED', title: 'Quality Check & Packed', desc: '32-point inspection passed and sealed in tamper-proof box' },
+  { state: 'PACKED', title: 'Quality Check & Packed', desc: 'quality inspection passed and sealed in tamper-proof box' },
   { state: 'SHIPPED', title: 'In Transit with Courier', desc: 'Dispatched with insured doorstep courier' },
   { state: 'OUT_FOR_DELIVERY', title: 'Out for Delivery', desc: 'Local delivery agent en route to your address' },
   { state: 'DELIVERED', title: 'Delivered', desc: 'Open-box inspection completed successfully' },
@@ -123,7 +123,7 @@ export default function BuyOrderTrackingPage({
         isOpen={isRatingModalOpen}
         onClose={() => setIsRatingModalOpen(false)}
         orderId={order.id}
-        courierName={order.courierPartner || 'SELBAR Delivery Partner'}
+        courierName={order.courierPartner || 'Sellbar Delivery Partner'}
         onSuccess={() => {
           setHasRated(true);
           if (typeof window !== 'undefined') localStorage.setItem(`rated_${order.id}`, 'true');
@@ -140,7 +140,7 @@ export default function BuyOrderTrackingPage({
             </div>
             <h1 className="text-xl sm:text-2xl font-black">Order #{order.id}</h1>
             <p className="text-xs text-emerald-100">
-              Courier Partner: <strong className="text-white">{order.courierPartner || 'SELBAR Express'}</strong> • AWB:{' '}
+              Courier Partner: <strong className="text-white">{order.courierPartner || 'Sellbar Express'}</strong> • AWB:{' '}
               <strong className="font-mono text-white">{order.trackingNumber}</strong>
             </p>
           </div>
@@ -299,7 +299,7 @@ export default function BuyOrderTrackingPage({
           </div>
 
           <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span className="text-slate-500">SELBAR 12-Month Warranty:</span>
+            <span className="text-slate-500">Sellbar 12-Month Warranty:</span>
             <span className="font-bold text-emerald-700">Active ✓</span>
           </div>
         </div>

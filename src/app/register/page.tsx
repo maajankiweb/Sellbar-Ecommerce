@@ -125,7 +125,7 @@ function RegisterForm() {
         <div className="inline-flex p-3 bg-emerald-50 rounded-2xl border border-emerald-100 text-emerald-600 mb-2">
           <ShieldCheck className="w-8 h-8" />
         </div>
-        <h1 className="text-2xl font-black text-slate-900 tracking-tight">Create Your SELBAR Account</h1>
+        <h1 className="text-2xl font-black text-slate-900 tracking-tight">Create Your Sellbar Account</h1>
         <p className="text-xs text-slate-500">Sell old tech for instant cash or buy certified refurbished devices with 12 months warranty.</p>
       </div>
 
@@ -279,10 +279,13 @@ function RegisterForm() {
             />
             <span className="text-slate-600 leading-relaxed">
               I agree to the{' '}
-              <Link href="/faq" className="text-emerald-600 underline font-medium">
+              <Link href="/legal/terms" className="text-emerald-600 underline font-medium">
                 Terms of Service
               </Link>{' '}
-              and acknowledge SELBAR&apos;s NIST 800-88 compliant certified data wipe protocol and privacy policy.
+              and acknowledge Sellbar&apos;s data erasure protocol and{' '}
+              <Link href="/legal/privacy" className="text-emerald-600 underline font-medium">
+                Privacy Policy
+              </Link>.
             </span>
           </label>
         </div>
@@ -308,7 +311,7 @@ function RegisterForm() {
       </form>
 
       <div className="pt-4 border-t border-slate-100 text-center text-xs text-slate-500">
-        Already have a SELBAR account?{' '}
+        Already have a Sellbar account?{' '}
         <Link
           href={`/login${returnUrl !== '/account' ? `?returnUrl=${encodeURIComponent(returnUrl)}` : ''}`}
           className="font-bold text-emerald-600 hover:text-emerald-700"
@@ -322,7 +325,7 @@ function RegisterForm() {
 
 export default function RegisterPage() {
   return (
-    <div className="min-h-[85vh] flex flex-col items-center justify-center p-6 bg-gradient-to-b from-slate-50 to-emerald-50/30">
+    <div className="min-h-[85vh] flex flex-col items-center justify-center p-6 bg-linear-to-b from-slate-50 to-emerald-50/30">
       <Suspense fallback={<div className="text-sm text-slate-500">Loading registration...</div>}>
         <RegisterForm />
       </Suspense>

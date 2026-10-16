@@ -62,7 +62,7 @@ export const INITIAL_PRODUCTS: AdminProduct[] = [
     rating: 4.8,
     reviewsCount: 142,
     salesCount: 388,
-    seoTitle: 'Buy Apple iPhone 15 Pro Online Best Price India | SELBAR',
+    seoTitle: 'Buy Apple iPhone 15 Pro Online Best Price India | Sellbar',
     seoDescription: 'Get original Apple iPhone 15 Pro 128GB Natural Titanium with 1 Year Warranty & fast express delivery across India.',
     createdAt: '2026-01-15T10:00:00Z',
     updatedAt: '2026-09-20T14:30:00Z'
@@ -102,7 +102,7 @@ export const INITIAL_PRODUCTS: AdminProduct[] = [
     rating: 4.7,
     reviewsCount: 89,
     salesCount: 245,
-    seoTitle: 'Sony WH-1000XM5 Premium Noise Cancelling Headphones | SELBAR',
+    seoTitle: 'Sony WH-1000XM5 Premium Noise Cancelling Headphones | Sellbar',
     seoDescription: 'Experience pure acoustic silence with Sony WH-1000XM5 wireless ANC headphones. Free delivery & easy EMI.',
     createdAt: '2026-02-10T12:00:00Z',
     updatedAt: '2026-09-22T08:15:00Z'
@@ -186,7 +186,7 @@ export const INITIAL_PRODUCTS: AdminProduct[] = [
     name: 'Minimalist Heavyweight Cotton Hoodie (Oversized)',
     slug: 'minimalist-heavyweight-cotton-hoodie',
     sku: 'SEL-HD-450-OVR',
-    brand: 'SELBAR Originals',
+    brand: 'Sellbar Originals',
     category: 'Footwear & Apparel',
     subcategory: 'Streetwear',
     description: '450 GSM French Terry 100% combed organic cotton with dropped shoulders and double-layered warm hood.',

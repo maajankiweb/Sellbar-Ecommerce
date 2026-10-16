@@ -225,8 +225,8 @@ function AccountSettingsContent() {
 
         {/* App Version */}
         <div className="text-center py-4">
-          <p className="text-xs text-slate-400">SELBAR Customer App · v2.1.0</p>
-          <p className="text-xs text-slate-300 mt-0.5">© 2026 SELBAR. All rights reserved.</p>
+          <p className="text-xs text-slate-400">Sellbar Customer App · v2.1.0</p>
+          <p className="text-xs text-slate-300 mt-0.5">© 2026 Sellbar. All rights reserved.</p>
         </div>
       </div>
 

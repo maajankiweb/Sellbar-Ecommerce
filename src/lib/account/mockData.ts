@@ -256,7 +256,7 @@ export const mockOrders: Order[] = [
       pincode: '800001',
       country: 'India',
     },
-    paymentMethod: 'Wallet - SELBAR Pay',
+    paymentMethod: 'Wallet - Sellbar Pay',
     timeline: buildTimeline('DELIVERED'),
   },
 ];
@@ -541,7 +541,7 @@ export const mockTransactions: Transaction[] = [
     transactionId: 'TXN-20260815-002',
     date: '2026-09-15T14:00:00Z',
     type: 'WALLET_CREDIT',
-    description: 'Referral Bonus - Friend joined SELBAR',
+    description: 'Referral Bonus - Friend joined Sellbar',
     amount: 500,
     status: 'SUCCESSFUL',
   },
@@ -667,7 +667,7 @@ export const mockLoyalty: LoyaltyData = {
   ],
   pointsHistory: [
     { id: 'ph_001', date: '2026-09-18T10:35:00Z', activity: 'Purchase - Order #ORD-10245', orderId: 'ORD-10245', points: 250, type: 'EARNED', balance: 2450 },
-    { id: 'ph_002', date: '2026-09-15T14:00:00Z', activity: 'Referral Bonus - Friend joined SELBAR', points: 500, type: 'EARNED', balance: 2200 },
+    { id: 'ph_002', date: '2026-09-15T14:00:00Z', activity: 'Referral Bonus - Friend joined Sellbar', points: 500, type: 'EARNED', balance: 2200 },
     { id: 'ph_003', date: '2026-09-01T09:00:00Z', activity: 'Redeemed for ₹100 Discount', points: -1000, type: 'REDEEMED', balance: 1700 },
     { id: 'ph_004', date: '2026-08-22T14:25:00Z', activity: 'Purchase - Order #ORD-09876', orderId: 'ORD-09876', points: 150, type: 'EARNED', balance: 2700 },
     { id: 'ph_005', date: '2026-08-05T09:00:00Z', activity: 'Birthday Bonus (2x Points)', points: 500, type: 'EARNED', balance: 2550 },
@@ -703,9 +703,9 @@ export const mockTickets: SupportTicket[] = [
     priority: 'HIGH',
     messages: [
       { id: 'msg_001', sender: 'CUSTOMER', senderName: 'Rahul Sharma', content: 'Hi, my order #ORD-10245 tracking has not updated since yesterday. It says "Shipped" but no further updates. Please help.', sentAt: '2026-09-22T09:00:00Z' },
-      { id: 'msg_002', sender: 'AGENT', senderName: 'Priya (SELBAR Support)', senderAvatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80', content: 'Hi Rahul! I understand your concern. I can see your shipment is with Delhivery Express. There was a slight delay due to high volume. Your package is now out for delivery and should arrive today by 6 PM. I have escalated this for priority handling.', sentAt: '2026-09-22T11:30:00Z' },
+      { id: 'msg_002', sender: 'AGENT', senderName: 'Priya (Sellbar Support)', senderAvatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80', content: 'Hi Rahul! I understand your concern. I can see your shipment is with Delhivery Express. There was a slight delay due to high volume. Your package is now out for delivery and should arrive today by 6 PM. I have escalated this for priority handling.', sentAt: '2026-09-22T11:30:00Z' },
       { id: 'msg_003', sender: 'CUSTOMER', senderName: 'Rahul Sharma', content: 'Thank you for the update! Will it definitely arrive today?', sentAt: '2026-09-22T11:45:00Z' },
-      { id: 'msg_004', sender: 'AGENT', senderName: 'Priya (SELBAR Support)', senderAvatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80', content: 'Yes, it is marked for delivery today. I have personally escalated this with Delhivery Express. You will receive an SMS when the delivery executive is nearby.', sentAt: '2026-09-22T12:00:00Z' },
+      { id: 'msg_004', sender: 'AGENT', senderName: 'Priya (Sellbar Support)', senderAvatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80', content: 'Yes, it is marked for delivery today. I have personally escalated this with Delhivery Express. You will receive an SMS when the delivery executive is nearby.', sentAt: '2026-09-22T12:00:00Z' },
     ],
   },
   {
@@ -719,7 +719,7 @@ export const mockTickets: SupportTicket[] = [
     priority: 'MEDIUM',
     messages: [
       { id: 'msg_005', sender: 'CUSTOMER', senderName: 'Rahul Sharma', content: 'I received Size 8 instead of the Size 9 I ordered for the Nike Air Max 270. Please initiate return.', sentAt: '2026-08-10T10:00:00Z' },
-      { id: 'msg_006', sender: 'AGENT', senderName: 'Arjun (SELBAR Support)', content: 'I sincerely apologize for this error. I have initiated a return request (RET-5521) and your pickup will be scheduled within 24 hours. Full refund will be processed in 3-5 business days.', sentAt: '2026-08-10T12:00:00Z' },
+      { id: 'msg_006', sender: 'AGENT', senderName: 'Arjun (Sellbar Support)', content: 'I sincerely apologize for this error. I have initiated a return request (RET-5521) and your pickup will be scheduled within 24 hours. Full refund will be processed in 3-5 business days.', sentAt: '2026-08-10T12:00:00Z' },
     ],
   },
 ];

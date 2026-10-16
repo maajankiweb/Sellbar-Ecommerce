@@ -34,14 +34,14 @@ export function extractTokenFromRequest(req: Request | NextRequest): string | nu
 
   // NextRequest cookies inspection
   if ('cookies' in req && typeof (req as any).cookies?.get === 'function') {
-    const cookieVal = (req as NextRequest).cookies.get('selbar_access_token')?.value;
+    const cookieVal = (req as NextRequest).cookies.get('sellbar_access_token')?.value;
     if (cookieVal) return cookieVal;
   }
 
   // Standard Request Cookie header parsing fallback
   const cookieHeader = req.headers.get('cookie');
   if (cookieHeader) {
-    const match = cookieHeader.match(/selbar_access_token=([^;]+)/);
+    const match = cookieHeader.match(/sellbar_access_token=([^;]+)/);
     if (match) return match[1];
   }
 

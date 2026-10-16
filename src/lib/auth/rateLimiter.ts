@@ -5,11 +5,11 @@ interface RateLimitRecord {
 
 declare global {
   // eslint-disable-next-line no-var
-  var __SELBAR_RATE_LIMITS__: Map<string, RateLimitRecord> | undefined;
+  var __Sellbar_RATE_LIMITS__: Map<string, RateLimitRecord> | undefined;
 }
 
-if (!global.__SELBAR_RATE_LIMITS__) {
-  global.__SELBAR_RATE_LIMITS__ = new Map();
+if (!global.__Sellbar_RATE_LIMITS__) {
+  global.__Sellbar_RATE_LIMITS__ = new Map();
 }
 
 /**
@@ -26,7 +26,7 @@ export function checkRateLimit(
   resetSeconds: number;
   retryAfterSeconds?: number;
 } {
-  const store = global.__SELBAR_RATE_LIMITS__!;
+  const store = global.__Sellbar_RATE_LIMITS__!;
   const now = Date.now();
   const windowMs = windowSeconds * 1000;
 

@@ -11,15 +11,15 @@ export interface NotificationItem {
 
 declare global {
   // eslint-disable-next-line no-var
-  var __SELBAR_NOTIFICATIONS__: NotificationItem[] | undefined;
+  var __Sellbar_NOTIFICATIONS__: NotificationItem[] | undefined;
 }
 
-if (!global.__SELBAR_NOTIFICATIONS__) {
-  global.__SELBAR_NOTIFICATIONS__ = [
+if (!global.__Sellbar_NOTIFICATIONS__) {
+  global.__Sellbar_NOTIFICATIONS__ = [
     {
       id: 'notif_welcome',
       recipient: 'admin',
-      title: 'SELBAR Notification Center Active',
+      title: 'Sellbar Notification Center Active',
       message: 'In-house notification engine initialized. Transactional alerts will be recorded here.',
       type: 'SYSTEM_ANNOUNCEMENT',
       isRead: false,
@@ -46,12 +46,12 @@ export function createNotification(params: {
     createdAt: new Date().toISOString(),
   };
 
-  global.__SELBAR_NOTIFICATIONS__!.unshift(item);
+  global.__Sellbar_NOTIFICATIONS__!.unshift(item);
   return item;
 }
 
 export function getNotifications(recipient?: string, unreadOnly = false): NotificationItem[] {
-  let list = global.__SELBAR_NOTIFICATIONS__ || [];
+  let list = global.__Sellbar_NOTIFICATIONS__ || [];
   if (recipient) {
     list = list.filter((n) => n.recipient === recipient || n.recipient === 'all');
   }
@@ -62,7 +62,7 @@ export function getNotifications(recipient?: string, unreadOnly = false): Notifi
 }
 
 export function markNotificationAsRead(id: string): boolean {
-  const item = (global.__SELBAR_NOTIFICATIONS__ || []).find((n) => n.id === id);
+  const item = (global.__Sellbar_NOTIFICATIONS__ || []).find((n) => n.id === id);
   if (!item) return false;
   item.isRead = true;
   return true;
@@ -70,7 +70,7 @@ export function markNotificationAsRead(id: string): boolean {
 
 export function markAllNotificationsAsRead(recipient: string): number {
   let count = 0;
-  for (const item of global.__SELBAR_NOTIFICATIONS__ || []) {
+  for (const item of global.__Sellbar_NOTIFICATIONS__ || []) {
     if (item.recipient === recipient && !item.isRead) {
       item.isRead = true;
       count++;
@@ -98,7 +98,7 @@ export async function sendEmailNotification(params: {
     metadata: { subject, htmlPreview: htmlContent.substring(0, 150) },
   });
 
-  console.log(`[SELBAR Notification Engine] Dispatched email to: ${to} | Subject: ${subject}`);
+  console.log(`[Sellbar Notification Engine] Dispatched email to: ${to} | Subject: ${subject}`);
   return { success: true, message: `Email delivered to ${to} via in-house notification queue` };
 }
 
@@ -115,7 +115,7 @@ export function generateProfileCompleteEmailHtml(user: {
   return `
     <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 620px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
       <div style="background: linear-gradient(135deg, #065f46 0%, #047857 50%, #059669 100%); padding: 32px 24px; text-align: center; color: #ffffff;">
-        <h1 style="margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.5px;">SELBAR</h1>
+        <h1 style="margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.5px;">Sellbar</h1>
         <p style="margin: 4px 0 0; font-size: 13px; color: #a7f3d0; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">India's Trusted Recommerce Platform</p>
         <div style="display: inline-block; background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); padding: 8px 18px; border-radius: 9999px; margin-top: 18px; font-size: 13px; font-weight: 700;">
           🎉 Profile 100% Completed!
@@ -125,7 +125,7 @@ export function generateProfileCompleteEmailHtml(user: {
       <div style="padding: 28px 24px; color: #1e293b;">
         <h2 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-top: 0;">Hello ${user.name},</h2>
         <p style="font-size: 14px; line-height: 1.6; color: #475569;">
-          Congratulations! Your SELBAR account setup is <strong>100% verified and complete</strong>. Your account is now fully secured with Amazon-grade protection.
+          Congratulations! Your Sellbar account setup is <strong>100% verified and complete</strong>. Your account is now fully secured with Amazon-grade protection.
         </p>
 
         <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; margin: 24px 0;">
@@ -140,7 +140,7 @@ export function generateProfileCompleteEmailHtml(user: {
 
         <div style="border-top: 1px solid #f1f5f9; padding-top: 18px; margin-top: 24px; font-size: 12px; color: #64748b; line-height: 1.6;">
           <p style="margin: 0;">Need help? Reply directly to this email or visit our Bettiah / West Champaran Support Hub.</p>
-          <p style="margin: 4px 0 0; color: #94a3b8;">SELBAR Recommerce India • Bettiah, West Champaran, Bihar 845438</p>
+          <p style="margin: 4px 0 0; color: #94a3b8;">Sellbar Recommerce India • Bettiah, West Champaran, Bihar 845438</p>
         </div>
       </div>
     </div>
@@ -177,7 +177,7 @@ export function generateAmazonOrderConfirmationEmailHtml(order: any): string {
       <!-- Header -->
       <div style="background: #131921; padding: 20px 24px; color: #ffffff;">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 24px; font-weight: 800; color: #10b981; letter-spacing: -0.5px;">SELBAR</span>
+          <span style="font-size: 24px; font-weight: 800; color: #10b981; letter-spacing: -0.5px;">Sellbar</span>
           <span style="font-size: 12px; color: #94a3b8;">ORDER # ${order.id}</span>
         </div>
       </div>
@@ -185,7 +185,7 @@ export function generateAmazonOrderConfirmationEmailHtml(order: any): string {
       <div style="background: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 20px 24px;">
         <h2 style="margin: 0; font-size: 18px; color: #0f172a; font-weight: 700;">Order Confirmation</h2>
         <p style="margin: 4px 0 0; font-size: 13px; color: #475569;">
-          Thank you for shopping at SELBAR, <strong>${order.customer?.name}</strong>. We'll send tracking updates to your registered email when your package ships.
+          Thank you for shopping at Sellbar, <strong>${order.customer?.name}</strong>. We'll send tracking updates to your registered email when your package ships.
         </p>
       </div>
 
@@ -226,7 +226,7 @@ export function generateAmazonOrderConfirmationEmailHtml(order: any): string {
           order.protectionPlan
             ? `
           <div style="display: flex; justify-content: space-between; font-size: 13px; color: #475569; margin-bottom: 6px;">
-            <span>SELBAR Complete Care (+1 Yr Damage Protection):</span>
+            <span>Sellbar Complete Care (+1 Yr Damage Protection):</span>
             <span>₹499</span>
           </div>
         `
@@ -245,12 +245,12 @@ export function generateAmazonOrderConfirmationEmailHtml(order: any): string {
 
       <!-- 5-Day Policy Banner -->
       <div style="padding: 16px 24px; background: #fefce8; border-bottom: 1px solid #fef08a; font-size: 12px; color: #854d0e;">
-        🛡️ <strong>SELBAR 5-Day Return Guarantee:</strong> If the device does not meet your expectations, schedule an express reverse doorstep pickup within 5 days for a 100% refund or free replacement.
+        🛡️ <strong>Sellbar 5-Day Return Guarantee:</strong> If the device does not meet your expectations, schedule an express reverse doorstep pickup within 5 days for a 100% refund or free replacement.
       </div>
 
       <!-- Track Order CTA -->
       <div style="padding: 24px; text-align: center;">
-        <a href="https://selbar.in/order/buy/${order.id}" style="display: inline-block; background: #059669; color: #ffffff; text-decoration: none; padding: 12px 32px; border-radius: 10px; font-size: 14px; font-weight: 700; box-shadow: 0 4px 12px rgba(5,150,105,0.25);">
+        <a href="https://sellbar.in/order/buy/${order.id}" style="display: inline-block; background: #059669; color: #ffffff; text-decoration: none; padding: 12px 32px; border-radius: 10px; font-size: 14px; font-weight: 700; box-shadow: 0 4px 12px rgba(5,150,105,0.25);">
           Track Your Package
         </a>
       </div>
@@ -264,12 +264,12 @@ export function generateAmazonOrderConfirmationEmailHtml(order: any): string {
 export function generateAmazonTrackingUpdateEmailHtml(order: any, newStatus: string): string {
   const statusLabels: Record<string, { title: string; desc: string }> = {
     PACKED: {
-      title: 'Your SELBAR package has been inspected and packed',
-      desc: 'Our certified engineers in West Champaran completed the 32-point hardware check and securely packaged your device.',
+      title: 'Your Sellbar package has been inspected and packed',
+      desc: 'Our certified engineers in West Champaran completed the hardware quality check and securely packaged your device.',
     },
     SHIPPED: {
-      title: 'Your SELBAR package has shipped!',
-      desc: 'Your package is on its way with SELBAR Express Doorstep Courier.',
+      title: 'Your Sellbar package has shipped!',
+      desc: 'Your package is on its way with Sellbar Express Doorstep Courier.',
     },
     OUT_FOR_DELIVERY: {
       title: 'Out for delivery today!',
@@ -283,13 +283,13 @@ export function generateAmazonTrackingUpdateEmailHtml(order: any, newStatus: str
 
   const statusInfo = statusLabels[newStatus] || {
     title: `Order Status Updated: ${newStatus}`,
-    desc: 'There has been an update regarding your SELBAR order.',
+    desc: 'There has been an update regarding your Sellbar order.',
   };
 
   return `
     <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 620px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden;">
       <div style="background: #131921; padding: 20px 24px; color: #ffffff;">
-        <span style="font-size: 24px; font-weight: 800; color: #10b981;">SELBAR</span>
+        <span style="font-size: 24px; font-weight: 800; color: #10b981;">Sellbar</span>
         <span style="float: right; font-size: 12px; color: #94a3b8; line-height: 28px;">AWB: ${order.trackingNumber || 'SEL-EXP-LIVE'}</span>
       </div>
 
@@ -299,12 +299,12 @@ export function generateAmazonTrackingUpdateEmailHtml(order: any, newStatus: str
 
         <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin: 20px 0;">
           <div style="font-size: 12px; color: #64748b;">Order Number: <strong style="color: #0f172a;">${order.id}</strong></div>
-          <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Courier Partner: <strong style="color: #0f172a;">${order.courierPartner || 'SELBAR Express'}</strong></div>
+          <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Courier Partner: <strong style="color: #0f172a;">${order.courierPartner || 'Sellbar Express'}</strong></div>
           <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Destination: <strong style="color: #0f172a;">${order.shippingAddress?.city || 'West Champaran'}, Bihar</strong></div>
         </div>
 
         <div style="text-align: center; margin-top: 24px;">
-          <a href="https://selbar.in/order/buy/${order.id}" style="display: inline-block; background: #059669; color: #ffffff; text-decoration: none; padding: 12px 32px; border-radius: 10px; font-size: 14px; font-weight: 700;">
+          <a href="https://sellbar.in/order/buy/${order.id}" style="display: inline-block; background: #059669; color: #ffffff; text-decoration: none; padding: 12px 32px; border-radius: 10px; font-size: 14px; font-weight: 700;">
             View Real-Time Tracking
           </a>
         </div>
@@ -327,7 +327,7 @@ export async function sendProfileCompleteEmail(user: {
   const html = generateProfileCompleteEmailHtml(user);
   return sendEmailNotification({
     to: user.email,
-    subject: 'Welcome to SELBAR: Your Profile is 100% Complete! 🎉',
+    subject: 'Welcome to Sellbar: Your Profile is 100% Complete! 🎉',
     htmlContent: html,
   });
 }
@@ -336,7 +336,7 @@ export async function sendProfileCompleteEmail(user: {
  * Dispatch Helper: Order Confirmation
  */
 export async function sendOrderConfirmationEmail(order: any) {
-  const recipient = order.customer?.email || order.shippingAddress?.email || 'customer@selbar.in';
+  const recipient = order.customer?.email || order.shippingAddress?.email || 'customer@sellbar.in';
   const html = generateAmazonOrderConfirmationEmailHtml(order);
   return sendEmailNotification({
     to: recipient,
@@ -349,7 +349,7 @@ export async function sendOrderConfirmationEmail(order: any) {
  * Dispatch Helper: Order Tracking Update
  */
 export async function sendOrderTrackingEmail(order: any, newStatus: string) {
-  const recipient = order.customer?.email || order.shippingAddress?.email || 'customer@selbar.in';
+  const recipient = order.customer?.email || order.shippingAddress?.email || 'customer@sellbar.in';
   const html = generateAmazonTrackingUpdateEmailHtml(order, newStatus);
   return sendEmailNotification({
     to: recipient,

@@ -104,8 +104,10 @@ export async function POST(request: Request) {
       email: authUser && authUser.email ? authUser.email : customer.email,
     };
 
-    const id = `BUY-${Math.floor(100000 + Math.random() * 900000)}`;
-    const trackingNumber = `SEL-EXP-${Math.floor(10000000 + Math.random() * 90000000)}`;
+    const year = new Date().getFullYear();
+    const randomSuffix = Math.floor(100000 + Math.random() * 900000);
+    const id = `SB-${year}-${randomSuffix}`;
+    const trackingNumber = `SB-TRK-${year}-${randomSuffix}`;
     const nowIso = new Date().toISOString();
 
     const newOrder: BuyOrder = {
@@ -122,7 +124,7 @@ export async function POST(request: Request) {
       totalAmount,
       state: 'PLACED',
       trackingNumber,
-      courierPartner: 'SELBAR Express Doorstep',
+      courierPartner: 'Sellbar Express Doorstep',
       createdAt: nowIso,
       updatedAt: nowIso,
     };

@@ -49,7 +49,7 @@ import {
   AlertCircle,
 } from 'lucide-react';
 
-export default function SelbarRefurbishedProductPage({
+export default function SellbarRefurbishedProductPage({
   params,
 }: {
   params: Promise<{ productSlug: string }>;
@@ -75,7 +75,7 @@ export default function SelbarRefurbishedProductPage({
   const [pincodeChecked, setPincodeChecked] = useState(true);
   const [addedToast, setAddedToast] = useState(false);
 
-  // Add-ons State (SELBAR Extended Warranty & Screen Protection)
+  // Add-ons State (Sellbar Extended Warranty & Screen Protection)
   const [includeWarrantyAddon, setIncludeWarrantyAddon] = useState(false);
   const [includeScreenProtection, setIncludeScreenProtection] = useState(false);
 
@@ -116,7 +116,7 @@ export default function SelbarRefurbishedProductPage({
       <div className="min-h-[70vh] flex flex-col items-center justify-center p-6 space-y-4 bg-[#fbfbfb]">
         <div className="w-12 h-12 border-4 border-[#42c8b7] border-t-transparent rounded-full animate-spin"></div>
         <div className="text-sm font-bold text-slate-800">Loading verified device specifications...</div>
-        <p className="text-xs text-slate-400">Fetching 32-point inspection diagnostics and real-time recommerce pricing</p>
+        <p className="text-xs text-slate-400">Fetching quality inspection diagnostics and real-time recommerce pricing</p>
       </div>
     );
   }
@@ -255,7 +255,7 @@ export default function SelbarRefurbishedProductPage({
 
   return (
     <div className="min-h-screen bg-[#f7f8f9] text-[#222] pb-24 sm:pb-16 font-sans antialiased">
-      {/* 32-Point QC Modal */}
+      {/* Quality QC Modal */}
       <DiagnosticScorecardModal
         isOpen={isQcModalOpen}
         onClose={() => setIsQcModalOpen(false)}
@@ -284,9 +284,9 @@ export default function SelbarRefurbishedProductPage({
 
             <div className="space-y-1">
               <span className="text-xs font-bold uppercase tracking-wider text-[#42c8b7]">Condition Standards</span>
-              <h2 className="text-xl font-extrabold text-slate-900">What are SELBAR Certified Grades?</h2>
+              <h2 className="text-xl font-extrabold text-slate-900">What are Sellbar Certified Grades?</h2>
               <p className="text-xs text-slate-500">
-                Every SELBAR refurbished phone undergoes a 32-point technical diagnostic and is graded purely based on cosmetic appearance. All devices are 100% functional.
+                Every Sellbar refurbished phone undergoes a technical diagnostic and is graded purely based on cosmetic appearance. All devices are 100% functional.
               </p>
             </div>
 
@@ -414,7 +414,7 @@ export default function SelbarRefurbishedProductPage({
             </div>
 
             {/* High-Res Viewport */}
-            <div className="relative flex-1 min-h-[320px] sm:min-h-[420px] rounded-2xl bg-[#fafafa] border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
+            <div className="relative flex-1 min-h-80 sm:min-h-105 rounded-2xl bg-[#fafafa] border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
               <button
                 type="button"
                 onClick={() =>
@@ -471,7 +471,7 @@ export default function SelbarRefurbishedProductPage({
           <div className="w-5 h-5 rounded-full bg-[#42c8b7] flex items-center justify-center text-white">
             <Check className="w-3 h-3 stroke-3" />
           </div>
-          <span>Added to your SELBAR Cart!</span>
+          <span>Added to your Sellbar Cart!</span>
           <Link
             href="/cart"
             className="ml-2 px-3 py-1 bg-[#42c8b7] text-white rounded-lg font-black hover:bg-[#38b5a5] transition inline-flex items-center gap-1 text-[11px]"
@@ -496,7 +496,7 @@ export default function SelbarRefurbishedProductPage({
               Buy Refurbished {product.brand || 'Samsung'}
             </Link>
             <span className="text-slate-300">›</span>
-            <span className="text-slate-800 font-bold truncate max-w-[200px] sm:max-w-[320px]">
+            <span className="text-slate-800 font-bold truncate max-w-50 sm:max-w-[320px]">
               {product.name} - Refurbished
             </span>
           </div>
@@ -645,14 +645,14 @@ export default function SelbarRefurbishedProductPage({
                   <ChevronRight className="w-4 h-4" />
                 </button>
 
-                {/* Cashify 32-Point Inspection Stamp */}
+                {/* Cashify Quality Inspection Stamp */}
                 <button
                   type="button"
                   onClick={() => setIsQcModalOpen(true)}
                   className="absolute bottom-3 left-3 bg-white/95 border border-[#42c8b7]/40 text-slate-800 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1.5 hover:bg-[#eefcf9] transition cursor-pointer z-10"
                 >
                   <Award className="w-3.5 h-3.5 text-[#42c8b7]" />
-                  <span>32-Point Quality Passed</span>
+                  <span>Quality Checked Before Sale</span>
                 </button>
 
                 {/* 360 Inspection Tag */}
@@ -723,7 +723,7 @@ export default function SelbarRefurbishedProductPage({
                   <div className="w-9 h-9 rounded-full bg-[#eefcf9] flex items-center justify-center text-[#42c8b7]">
                     <Award className="w-4 h-4" />
                   </div>
-                  <span className="text-[10px] font-black text-slate-800 leading-tight">32-Point Check</span>
+                  <span className="text-[10px] font-black text-slate-800 leading-tight">Quality Check</span>
                   <span className="text-[9px] text-slate-400">Expert tested</span>
                 </div>
 
@@ -769,7 +769,7 @@ export default function SelbarRefurbishedProductPage({
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
-                    SELBAR Certified Recommerce
+                    Sellbar Certified Recommerce
                   </span>
                   <span className="text-[10px] font-bold text-slate-400">•</span>
                   <span className="text-[10px] font-bold text-slate-500">SKU: {product.slug?.slice(0, 8).toUpperCase() || '227394'}</span>
@@ -834,7 +834,7 @@ export default function SelbarRefurbishedProductPage({
               </div>
 
               {/* Cashify Sale Banner / Promo Callout */}
-              <div className="p-3 rounded-xl bg-gradient-to-r from-[#eefcf9] to-[#e6f9f6] border border-[#42c8b7]/30 flex items-center justify-between text-xs">
+              <div className="p-3 rounded-xl bg-linear-to-r from-[#eefcf9] to-[#e6f9f6] border border-[#42c8b7]/30 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2 font-bold text-slate-800">
                   <Tag className="w-4 h-4 text-[#42c8b7] shrink-0" />
                   <span>
@@ -1147,7 +1147,7 @@ export default function SelbarRefurbishedProductPage({
       </div>
 
       {/* =========================================================================
-          4. SELBAR 32-POINT QUALITY CHECK BREAKDOWN
+          4. Sellbar QUALITY INSPECTION BREAKDOWN
           ========================================================================= */}
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4">
         <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-8 shadow-xs space-y-6">
@@ -1157,7 +1157,7 @@ export default function SelbarRefurbishedProductPage({
                 Certified Quality Assurance
               </span>
               <h2 className="text-lg sm:text-xl font-extrabold text-slate-900">
-                SELBAR 32-Point Quality Check
+                Sellbar Quality Inspection
               </h2>
             </div>
             <button
@@ -1179,7 +1179,7 @@ export default function SelbarRefurbishedProductPage({
               { title: 'Biometrics & Sensors', desc: 'Side-mounted Fingerprint & Face Unlock ok' },
               { title: 'Wireless & Cellular', desc: '4G VoLTE, Dual Band Wi-Fi, Bluetooth 5.0' },
               { title: 'Physical Ports & Keys', desc: 'Type-C jack, 3.5mm audio & volume click' },
-              { title: 'Clean IMEI & Factory Reset', desc: 'NIST 800-88 sanitized, zero carrier locks' },
+              { title: 'Clean IMEI & Factory Reset', desc: 'Cryptographic Secure Erase sanitized, zero carrier locks' },
             ].map((qc, i) => (
               <div key={i} className="p-3.5 rounded-xl border border-slate-200/80 bg-slate-50/50 flex items-start gap-2.5">
                 <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
@@ -1196,25 +1196,25 @@ export default function SelbarRefurbishedProductPage({
       </div>
 
       {/* =========================================================================
-          SELBAR SEAL OF TRUST (As per Verified Recommerce Standard)
+          Sellbar SEAL OF TRUST (As per Verified Recommerce Standard)
           ========================================================================= */}
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3">
-        <div className="bg-gradient-to-br from-white via-[#fbfdfd] to-[#f0faf8] rounded-3xl border border-[#42c8b7]/30 p-6 sm:p-10 shadow-xs relative overflow-hidden">
+        <div className="bg-linear-to-br from-white via-[#fbfdfd] to-[#f0faf8] rounded-3xl border border-[#42c8b7]/30 p-6 sm:p-10 shadow-xs relative overflow-hidden">
           {/* Subtle Watermark in background */}
           <div className="absolute right-12 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full border-8 border-[#42c8b7]/10 flex items-center justify-center pointer-events-none opacity-40">
             <ShieldCheck className="w-36 h-36 text-[#42c8b7]/20" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            {/* Left Column: SELBAR Seal of Trust Points */}
+            {/* Left Column: Sellbar Seal of Trust Points */}
             <div className="lg:col-span-7 space-y-6">
               <div className="space-y-1">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#42c8b7]/10 text-[#00a599] text-xs font-black uppercase tracking-wider">
                   <ShieldCheck className="w-4 h-4" />
-                  <span>SELBAR Assured Quality</span>
+                  <span>Sellbar Assured Quality</span>
                 </div>
                 <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-                  SELBAR Seal of Trust
+                  Sellbar Seal of Trust
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-500">
                   Every device is backed by our nationwide recommerce guarantee and doorstep assurance.
@@ -1227,8 +1227,8 @@ export default function SelbarRefurbishedProductPage({
                     <Shield className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">Up to 12-month warranty</h4>
-                    <p className="text-xs text-slate-500">Comprehensive hardware protection & free doorstep repairs pan-India</p>
+                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">Verified 6-month warranty</h4>
+                    <p className="text-xs text-slate-500">Comprehensive hardware protection & free doorstep repairs</p>
                   </div>
                 </div>
 
@@ -1237,18 +1237,18 @@ export default function SelbarRefurbishedProductPage({
                     <RotateCcw className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">15-day easy returns</h4>
-                    <p className="text-xs text-slate-500">No-questions-asked doorstep return or instant device replacement</p>
+                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">15-day easy replacement</h4>
+                    <p className="text-xs text-slate-500">Doorstep verification with hassle-free device replacement</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4 bg-white/80 backdrop-blur-xs p-4 rounded-2xl border border-slate-200/70 shadow-2xs">
                   <div className="w-12 h-12 rounded-2xl bg-[#42c8b7] text-white flex items-center justify-center shrink-0 shadow-sm shadow-[#42c8b7]/20">
-                    <MapPin className="w-6 h-6" />
+                    <Truck className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">200+ stores Pan-India</h4>
-                    <p className="text-xs text-slate-500">Walk into any authorized SELBAR experience store for instant support</p>
+                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">Doorstep Express Delivery</h4>
+                    <p className="text-xs text-slate-500">Direct doorstep fulfillment and open-box verification</p>
                   </div>
                 </div>
               </div>
@@ -1256,14 +1256,14 @@ export default function SelbarRefurbishedProductPage({
 
             {/* Right Column: Visual Eco-Box Branding Showcase */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full max-w-xs sm:max-w-sm rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 text-white p-6 shadow-2xl border border-slate-800 relative overflow-hidden flex flex-col justify-between min-h-[360px]">
+              <div className="w-full max-w-xs sm:max-w-sm rounded-3xl bg-linear-to-b from-slate-900 to-slate-950 text-white p-6 shadow-2xl border border-slate-800 relative overflow-hidden flex flex-col justify-between min-h-90">
                 {/* Top Badge */}
                 <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                   <div className="flex items-center gap-2">
                     <div className="w-6 h-6 rounded-full border-2 border-[#42c8b7] flex items-center justify-center">
                       <Check className="w-3.5 h-3.5 text-[#42c8b7] stroke-3" />
                     </div>
-                    <span className="text-xs font-black tracking-wider uppercase text-white">SELBAR ASSURED</span>
+                    <span className="text-xs font-black tracking-wider uppercase text-white">Sellbar ASSURED</span>
                   </div>
                   <span className="text-[10px] font-bold text-[#42c8b7] bg-[#42c8b7]/10 px-2 py-0.5 rounded-full border border-[#42c8b7]/30">
                     SEAL OF TRUST
@@ -1272,14 +1272,14 @@ export default function SelbarRefurbishedProductPage({
 
                 {/* Box Center Art */}
                 <div className="py-6 space-y-3 text-center my-auto">
-                  <div className="text-3xl sm:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-[#42c8b7]">
+                  <div className="text-3xl sm:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-linear-to-r from-white via-slate-200 to-[#42c8b7]">
                     BE THE CHANGE
                   </div>
-                  <p className="text-xs text-slate-400 max-w-[240px] mx-auto">
+                  <p className="text-xs text-slate-400 max-w-60 mx-auto">
                     Sustainable recommerce packaging. 100% verified, sanitized and sealed.
                   </p>
                   <div className="flex items-center justify-center gap-4 text-[11px] text-slate-300 font-bold pt-2">
-                    <span>🔬 32 Pt QC</span>
+                    <span>🔬 Quality-Checked</span>
                     <span>•</span>
                     <span>⭐ 50K+ Buyers</span>
                     <span>•</span>
@@ -1289,7 +1289,7 @@ export default function SelbarRefurbishedProductPage({
 
                 {/* Box Bottom Band */}
                 <div className="pt-3 border-t border-slate-800 flex items-center justify-between">
-                  <div className="text-xs font-black tracking-widest text-[#42c8b7]">SELBAR</div>
+                  <div className="text-xs font-black tracking-widest text-[#42c8b7]">Sellbar</div>
                   <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#42c8b7]" />
                     <span>Official Verified Warranty</span>
@@ -1302,7 +1302,7 @@ export default function SelbarRefurbishedProductPage({
       </div>
 
       {/* =========================================================================
-          5. WHAT'S IN THE BOX (SELBAR Eco-Packaging)
+          5. WHAT'S IN THE BOX (Sellbar Eco-Packaging)
           ========================================================================= */}
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2">
         <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-8 shadow-xs space-y-4">
@@ -1340,7 +1340,7 @@ export default function SelbarRefurbishedProductPage({
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div className="text-xs font-bold text-slate-800">Warranty Card</div>
-              <div className="text-[10px] text-slate-500">SELBAR Assurance</div>
+              <div className="text-[10px] text-slate-500">Sellbar Assurance</div>
             </div>
           </div>
         </div>
@@ -1354,16 +1354,16 @@ export default function SelbarRefurbishedProductPage({
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-[#42c8b7]">The Recommerce Advantage</span>
             <h2 className="text-lg sm:text-xl font-extrabold text-slate-900">
-              Why Buy From SELBAR vs Local Second-Hand Market?
+              Why Buy From Sellbar vs Local Second-Hand Market?
             </h2>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse min-w-[500px]">
+            <table className="w-full text-left text-xs border-collapse min-w-125">
               <thead>
                 <tr className="border-b border-slate-200">
                   <th className="py-3 px-4 text-slate-500 font-bold w-1/3">Feature</th>
-                  <th className="py-3 px-4 text-[#00a599] font-black w-1/3 bg-[#eefcf9] rounded-t-lg">SELBAR Certified</th>
+                  <th className="py-3 px-4 text-[#00a599] font-black w-1/3 bg-[#eefcf9] rounded-t-lg">Sellbar Certified</th>
                   <th className="py-3 px-4 text-slate-400 font-bold w-1/3">Local Second-Hand Shop</th>
                 </tr>
               </thead>
@@ -1375,7 +1375,7 @@ export default function SelbarRefurbishedProductPage({
                 </tr>
                 <tr>
                   <td className="py-3 px-4 font-bold text-slate-800">Inspection & Diagnostics</td>
-                  <td className="py-3 px-4 font-bold text-emerald-700 bg-[#eefcf9]">Rigorous 32-Point Diagnostic Test</td>
+                  <td className="py-3 px-4 font-bold text-emerald-700 bg-[#eefcf9]">Rigorous Hardware Diagnostic Test</td>
                   <td className="py-3 px-4 text-slate-500">Casual 2-minute visual check</td>
                 </tr>
                 <tr>
@@ -1647,7 +1647,7 @@ export default function SelbarRefurbishedProductPage({
                       </span>
                     </div>
                     <span className="text-[10px] font-bold text-[#00a599]">
-                      SELBAR Grade
+                      Sellbar Grade
                     </span>
                   </div>
                 </Link>

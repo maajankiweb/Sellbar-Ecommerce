@@ -48,13 +48,13 @@ class AdminServiceStore {
   private loadFromStorage() {
     if (typeof window === 'undefined') return;
     try {
-      const storedProducts = localStorage.getItem('selbar_admin_products');
+      const storedProducts = localStorage.getItem('sellbar_admin_products');
       if (storedProducts) this.products = JSON.parse(storedProducts);
 
-      const storedOrders = localStorage.getItem('selbar_admin_orders');
+      const storedOrders = localStorage.getItem('sellbar_admin_orders');
       if (storedOrders) this.orders = JSON.parse(storedOrders);
 
-      const storedCoupons = localStorage.getItem('selbar_admin_coupons');
+      const storedCoupons = localStorage.getItem('sellbar_admin_coupons');
       if (storedCoupons) this.coupons = JSON.parse(storedCoupons);
     } catch {
       // Fallback to initial data if storage parse fails
@@ -141,7 +141,7 @@ class AdminServiceStore {
           ...product,
           updatedAt: new Date().toISOString()
         } as AdminProduct;
-        this.saveToStorage('selbar_admin_products', this.products);
+        this.saveToStorage('sellbar_admin_products', this.products);
         this.logActivity('Admin User', 'Super Admin', 'Product Updated', 'Products', `Updated product: ${this.products[idx].name}`);
         return this.products[idx];
       }
@@ -152,7 +152,7 @@ class AdminServiceStore {
       name: product.name || 'Untitled Product',
       slug: product.slug || (product.name?.toLowerCase().replace(/\s+/g, '-') || 'product'),
       sku: product.sku || `SKU-${Math.floor(1000 + Math.random() * 9000)}`,
-      brand: product.brand || 'SELBAR',
+      brand: product.brand || 'Sellbar',
       category: product.category || 'General',
       subcategory: product.subcategory || '',
       description: product.description || '',
@@ -183,7 +183,7 @@ class AdminServiceStore {
     };
 
     this.products.unshift(newProd);
-    this.saveToStorage('selbar_admin_products', this.products);
+    this.saveToStorage('sellbar_admin_products', this.products);
     this.logActivity('Admin User', 'Super Admin', 'Product Created', 'Products', `Created new product: ${newProd.name}`);
     return newProd;
   }
@@ -192,7 +192,7 @@ class AdminServiceStore {
     await this.delay(150);
     const prod = this.products.find(p => p.id === id);
     this.products = this.products.filter(p => p.id !== id);
-    this.saveToStorage('selbar_admin_products', this.products);
+    this.saveToStorage('sellbar_admin_products', this.products);
     if (prod) {
       this.logActivity('Admin User', 'Super Admin', 'Product Deleted', 'Products', `Deleted product: ${prod.name}`);
     }
@@ -203,7 +203,7 @@ class AdminServiceStore {
     await this.delay(200);
     const initialCount = this.products.length;
     this.products = this.products.filter(p => !ids.includes(p.id));
-    this.saveToStorage('selbar_admin_products', this.products);
+    this.saveToStorage('sellbar_admin_products', this.products);
     this.logActivity('Admin User', 'Super Admin', 'Bulk Delete', 'Products', `Deleted ${ids.length} products`);
     return initialCount - this.products.length;
   }
@@ -218,7 +218,7 @@ class AdminServiceStore {
       }
       return p;
     });
-    this.saveToStorage('selbar_admin_products', this.products);
+    this.saveToStorage('sellbar_admin_products', this.products);
     return count;
   }
 
@@ -264,23 +264,41 @@ class AdminServiceStore {
     return this.orders.find(o => o.id === idOrNumber || o.orderNumber === idOrNumber) || null;
   }
 
-  async updateOrderStatus(id: string, newStatus: OrderStatus, notes?: string): Promise<AdminOrder | null> {
+  async updateOrderStatus(
+    id: string,
+    newStatus: OrderStatus,
+    notes?: string,
+    shipping?: { carrier?: string; trackingNumber?: string; trackingUrl?: string }
+  ): Promise<AdminOrder | null> {
     await this.delay(150);
     const order = this.orders.find(o => o.id === id || o.orderNumber === id);
     if (!order) return null;
+
+    if (newStatus === 'Shipped') {
+      if (!shipping?.carrier?.trim() || !shipping?.trackingNumber?.trim() || !shipping?.trackingUrl?.trim()) {
+        throw new Error('Courier name, AWB tracking number, and tracking URL are mandatory before an order can move to SHIPPED.');
+      }
+      order.carrier = shipping.carrier.trim();
+      order.trackingNumber = shipping.trackingNumber.trim();
+      order.trackingUrl = shipping.trackingUrl.trim();
+    }
 
     order.status = newStatus;
     order.updatedAt = new Date().toISOString();
     order.timeline.unshift({
       id: `t-${Date.now()}`,
       title: `Status Changed to ${newStatus}`,
-      description: notes || `Admin updated order status to ${newStatus}`,
+      description:
+        notes ||
+        (newStatus === 'Shipped' && shipping?.carrier
+          ? `Dispatched via ${shipping.carrier} (AWB: ${shipping.trackingNumber})`
+          : `Admin updated order status to ${newStatus}`),
       timestamp: new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }),
       completed: true,
       status: newStatus
     });
 
-    this.saveToStorage('selbar_admin_orders', this.orders);
+    this.saveToStorage('sellbar_admin_orders', this.orders);
     this.logActivity('Admin User', 'Order Manager', 'Order Status Update', 'Orders', `Updated ${order.orderNumber} to ${newStatus}`);
     return { ...order };
   }
@@ -387,7 +405,7 @@ class AdminServiceStore {
     } else {
       this.coupons.unshift(newCoupon);
     }
-    this.saveToStorage('selbar_admin_coupons', this.coupons);
+    this.saveToStorage('sellbar_admin_coupons', this.coupons);
     this.logActivity('Admin User', 'Marketing Manager', 'Coupon Saved', 'Marketing', `Saved coupon: ${newCoupon.code}`);
     return newCoupon;
   }
@@ -395,7 +413,7 @@ class AdminServiceStore {
   async deleteCoupon(id: string): Promise<boolean> {
     await this.delay(100);
     this.coupons = this.coupons.filter(c => c.id !== id);
-    this.saveToStorage('selbar_admin_coupons', this.coupons);
+    this.saveToStorage('sellbar_admin_coupons', this.coupons);
     return true;
   }
 

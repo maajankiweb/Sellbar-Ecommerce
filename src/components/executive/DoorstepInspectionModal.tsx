@@ -476,7 +476,7 @@ export function DoorstepInspectionModal({
                 <span>Customer Handover Agreement</span>
               </div>
               <p className="text-[11px] leading-relaxed text-slate-500">
-                &quot;I, {task.customerName}, hereby confirm that I am the rightful owner of this {task.device} (IMEI: {imei}). I consent to selling this device to SELBAR for the final agreed amount of ₹{finalPrice.toLocaleString('en-IN')} and authorize immediate NIST 800-88 data sanitization.&quot;
+                &quot;I, {task.customerName}, hereby confirm that I am the rightful owner of this {task.device} (IMEI: {imei}). I consent to selling this device to Sellbar for the final agreed amount of ₹{finalPrice.toLocaleString('en-IN')} and authorize immediate Cryptographic Secure Erase data sanitization.&quot;
               </p>
             </div>
 

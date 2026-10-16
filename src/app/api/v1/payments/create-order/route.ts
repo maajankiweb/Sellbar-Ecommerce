@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
           currency: 'INR',
           receipt,
           notes: {
-            app: 'SELBAR_RECOMMERCE',
+            app: 'Sellbar_RECOMMERCE',
             orderId: orderId || 'BUY_ORDER',
             customer: customerInfo?.phone || 'Customer',
           },
