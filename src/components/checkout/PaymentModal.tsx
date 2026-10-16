@@ -63,7 +63,7 @@ export default function PaymentModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
       <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden border border-slate-200/80 animate-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="p-5 bg-gradient-to-r from-emerald-600 to-teal-700 text-white flex items-center justify-between">
+        <div className="p-5 bg-linear-to-r from-emerald-600 to-teal-700 text-white flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-xs">
               <Lock className="w-4 h-4 text-white" />

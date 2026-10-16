@@ -305,7 +305,7 @@ export default function ModelEvaluationPage({
             type="button"
             disabled={currentStepIndex === 0}
             onClick={() => setCurrentStepIndex((prev) => Math.max(0, prev - 1))}
-            className="min-h-[44px] px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition flex items-center gap-1.5 active:scale-95 cursor-pointer"
+            className="min-h-11 px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition flex items-center gap-1.5 active:scale-95 cursor-pointer"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Previous</span>
@@ -315,7 +315,7 @@ export default function ModelEvaluationPage({
             <button
               type="button"
               onClick={() => setCurrentStepIndex((prev) => Math.min(totalQuestions - 1, prev + 1))}
-              className="min-h-[44px] flex-1 sm:flex-initial px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
+              className="min-h-11 flex-1 sm:flex-initial px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
             >
               <span>Next Question</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -325,7 +325,7 @@ export default function ModelEvaluationPage({
               type="button"
               disabled={isSubmitting}
               onClick={handleGetExactQuote}
-              className="min-h-[44px] flex-1 sm:flex-initial px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-emerald-600/25 transition flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
+              className="min-h-11 flex-1 sm:flex-initial px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-emerald-600/25 transition flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
             >
               <Sparkles className="w-4 h-4 text-emerald-200" />
               <span>{isSubmitting ? 'Calculating...' : 'Calculate Cash Quote'}</span>

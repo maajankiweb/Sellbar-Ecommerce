@@ -799,7 +799,7 @@ export default function QuotePage({
           <button
             type="submit"
             disabled={isSubmitting || !hasConsented || timeLeft.isExpired}
-            className="w-full min-h-[48px] py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 transition cursor-pointer active:scale-98"
+            className="w-full min-h-12 py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 transition cursor-pointer active:scale-98"
           >
             <Sparkles className="w-5 h-5 text-emerald-200" />
             <span>{isSubmitting ? 'Booking Doorstep Slot...' : `Confirm Pickup & Lock ₹${quote.finalPrice.toLocaleString('en-IN')}`}</span>
@@ -818,7 +818,7 @@ export default function QuotePage({
           type="submit"
           form="pickup-form"
           disabled={isSubmitting || !hasConsented || timeLeft.isExpired}
-          className="min-h-[44px] px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-extrabold text-xs shadow-md shadow-emerald-600/25 flex items-center gap-1.5 active:scale-95 cursor-pointer"
+          className="min-h-11 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-extrabold text-xs shadow-md shadow-emerald-600/25 flex items-center gap-1.5 active:scale-95 cursor-pointer"
         >
           <Sparkles className="w-3.5 h-3.5 text-emerald-200" />
           <span>{isSubmitting ? 'Booking...' : 'Confirm Pickup'}</span>
