@@ -6,6 +6,7 @@ import Header from './Header';
 import Footer from './Footer';
 import CartDrawer from '../cart/CartDrawer';
 import AuthModal from '../auth/AuthModal';
+import WhatsAppFloatingButton from '../common/WhatsAppFloatingButton';
 
 export default function StorefrontLayoutWrapper({
   children,
@@ -37,6 +38,7 @@ export default function StorefrontLayoutWrapper({
       </main>
       <CartDrawer />
       <AuthModal />
+      <WhatsAppFloatingButton />
       <Footer />
     </>
   );
