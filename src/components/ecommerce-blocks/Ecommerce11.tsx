@@ -178,7 +178,7 @@ export function Ecommerce11({ onCheckout }: Ecommerce11Props = {}) {
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200/60">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>NIST 800-88 Sanitized Tech</span>
+            <span>Cryptographic Secure Erase Sanitized Tech</span>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">
             <RotateCcw className="w-3.5 h-3.5 text-slate-500" />
@@ -490,7 +490,7 @@ export function Ecommerce11({ onCheckout }: Ecommerce11Props = {}) {
               </div>
 
               <div className="flex items-center justify-between text-slate-600">
-                <span>32-Point Diagnostics & QC Fee</span>
+                <span>Quality Diagnostics & QC Fee</span>
                 <span className="text-emerald-700 font-bold uppercase text-[11px]">
                   FREE (Waived)
                 </span>

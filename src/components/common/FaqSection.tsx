@@ -44,7 +44,7 @@ const FAQ_ITEMS: FaqItem[] = [
     category: 'buying',
     tag: 'Refurbished Quality',
     question: 'What quality checks are performed on refurbished phones?',
-    answer: 'Every refurbished device undergoes an exhaustive 32-point hardware and software diagnostic test. We inspect screen digitizers, battery health (>85%), cameras, microphones, biometric sensors, connectivity, and motherboard circuits to ensure 100% factory-level functionality.'
+    answer: 'Every refurbished device undergoes comprehensive hardware and software diagnostic testing before sale. We inspect screen digitizers, battery health (>85%), cameras, microphones, biometric sensors, connectivity, and motherboard circuits to ensure full reliable operation.'
   },
   {
     id: 'faq-4',

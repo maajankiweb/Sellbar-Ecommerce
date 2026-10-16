@@ -31,8 +31,10 @@ export default function AdminSettingsPage() {
   const [supportEmail, setSupportEmail] = useState('support@sellbar.in');
   const [supportPhone, setSupportPhone] = useState('');
   const [legalEntityName, setLegalEntityName] = useState('');
+  const [tradeName, setTradeName] = useState('');
   const [gstin, setGstin] = useState('');
   const [enabledCategories, setEnabledCategories] = useState<string[]>(['phone']);
+  const [payoutApprovalLimit, setPayoutApprovalLimit] = useState(10000);
   const [codEnabled, setCodEnabled] = useState(false);
   const [gstScheme, setGstScheme] = useState<'STANDARD_GST' | 'MARGIN_SCHEME'>('STANDARD_GST');
 
@@ -50,8 +52,10 @@ export default function AdminSettingsPage() {
           setSupportEmail(d.supportEmail || 'support@sellbar.in');
           setSupportPhone(d.supportPhone || '');
           setLegalEntityName(d.legalEntityName || '');
+          setTradeName(d.tradeName || '');
           setGstin(d.gstin || '');
           setEnabledCategories(d.enabledCategories || ['phone']);
+          setPayoutApprovalLimit(d.payoutApprovalLimit ?? 10000);
           setCodEnabled(Boolean(d.codEnabled));
           setGstScheme(d.gstScheme || 'STANDARD_GST');
         }
@@ -78,9 +82,11 @@ export default function AdminSettingsPage() {
           warrantyMonthsDefault: Number(warrantyMonths),
           replacementWindowDays: Number(replacementDays),
           quoteValidityHours: Number(quoteValidityHours),
+          payoutApprovalLimit: Number(payoutApprovalLimit),
           supportEmail,
           supportPhone,
           legalEntityName: legalEntityName.trim() || undefined,
+          tradeName: tradeName.trim() || undefined,
           gstin: gstin.trim() || undefined,
           enabledCategories,
           codEnabled,
@@ -251,6 +257,21 @@ export default function AdminSettingsPage() {
                   />
                   <p className="text-[11px] text-slate-400">Online quote guaranteed duration: 72 hours.</p>
                 </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+                    Seller Payout Approval Threshold (₹)
+                  </label>
+                  <input
+                    type="number"
+                    min={0}
+                    step={1000}
+                    value={payoutApprovalLimit}
+                    onChange={(e) => setPayoutApprovalLimit(Number(e.target.value))}
+                    className="w-full text-xs p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800"
+                  />
+                  <p className="text-[11px] text-slate-400">CD-05: Payouts above this amount require admin approval (default: ₹10,000).</p>
+                </div>
               </div>
             </div>
           )}
@@ -350,6 +371,20 @@ export default function AdminSettingsPage() {
                     className="w-full text-xs p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800"
                   />
                   <p className="text-[11px] text-slate-400">Appears on invoices and legal terms once supplied.</p>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+                    Trade / Brand Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Sellbar"
+                    value={tradeName}
+                    onChange={(e) => setTradeName(e.target.value)}
+                    className="w-full text-xs p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800"
+                  />
+                  <p className="text-[11px] text-slate-400">Operating brand name shown to consumers.</p>
                 </div>
 
                 <div className="space-y-1.5">

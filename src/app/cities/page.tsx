@@ -68,7 +68,7 @@ export const CITIES_DATA: CityHub[] = [
     experienceStoresCount: 1,
     popularModels: ['iPhone 12', 'OnePlus Nord CE 3', 'Redmi 12 5G', 'Oppo Reno 10'],
     serviceablePincodes: ['845455', '845457', '845453'],
-    tagline: 'Certified device buyback hub near Railway Junction with instant cash transfer and NIST data wiping.'
+    tagline: 'Certified device buyback hub near Railway Junction with instant cash transfer and secure data wiping before resale.'
   },
   {
     slug: 'motihari',
@@ -289,9 +289,9 @@ export default function CitiesDirectoryPage() {
               <div className="rounded-full bg-blue-100 p-3 text-blue-600 mb-3">
                 <ShieldCheck className="h-6 w-6" />
               </div>
-              <h3 className="font-bold text-slate-900">NIST 800-88 Data Wipe</h3>
+              <h3 className="font-bold text-slate-900">Data Erased Before Resale</h3>
               <p className="text-xs text-slate-500 mt-1 max-w-xs">
-                Military-grade cryptographic wiping certificate generated before your device leaves your hands.
+                Permanent cryptographic wiping performed before your device leaves your hands.
               </p>
             </div>
 

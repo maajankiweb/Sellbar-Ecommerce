@@ -74,7 +74,7 @@ export default function OrderMilestoneStepper({
       step: 3,
       id: 'inspected',
       title: orderType === 'sell' ? 'Diagnostic Inspection' : 'Delivery Verification',
-      description: '32-Point Diagnostics',
+      description: 'Quality Diagnostics',
       badge: 'Verified',
     },
     {

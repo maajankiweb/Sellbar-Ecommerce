@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Certified Refurbished Flagships at Up to 50% Off | Sellbar',
-    description: '32-point tested smartphones with 6 months warranty and 15 days replacement.',
+    description: 'Quality-checked smartphones with 6 months warranty and 15 days replacement.',
     url: 'https://sellbar.in/buy',
     siteName: 'Sellbar',
     type: 'website',
@@ -23,7 +23,7 @@ export default function BuyCatalogPage() {
     '@type': 'CollectionPage',
     name: 'Certified Refurbished Phones & Electronics',
     url: 'https://sellbar.in/buy',
-    description: 'Explore certified refurbished smartphones inspected with 32-point checklist and verified warranty.',
+    description: 'Explore certified refurbished smartphones quality-checked before sale with verified warranty.',
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [

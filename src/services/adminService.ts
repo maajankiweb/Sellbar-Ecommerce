@@ -264,17 +264,35 @@ class AdminServiceStore {
     return this.orders.find(o => o.id === idOrNumber || o.orderNumber === idOrNumber) || null;
   }
 
-  async updateOrderStatus(id: string, newStatus: OrderStatus, notes?: string): Promise<AdminOrder | null> {
+  async updateOrderStatus(
+    id: string,
+    newStatus: OrderStatus,
+    notes?: string,
+    shipping?: { carrier?: string; trackingNumber?: string; trackingUrl?: string }
+  ): Promise<AdminOrder | null> {
     await this.delay(150);
     const order = this.orders.find(o => o.id === id || o.orderNumber === id);
     if (!order) return null;
+
+    if (newStatus === 'Shipped') {
+      if (!shipping?.carrier?.trim() || !shipping?.trackingNumber?.trim() || !shipping?.trackingUrl?.trim()) {
+        throw new Error('Courier name, AWB tracking number, and tracking URL are mandatory before an order can move to SHIPPED.');
+      }
+      order.carrier = shipping.carrier.trim();
+      order.trackingNumber = shipping.trackingNumber.trim();
+      order.trackingUrl = shipping.trackingUrl.trim();
+    }
 
     order.status = newStatus;
     order.updatedAt = new Date().toISOString();
     order.timeline.unshift({
       id: `t-${Date.now()}`,
       title: `Status Changed to ${newStatus}`,
-      description: notes || `Admin updated order status to ${newStatus}`,
+      description:
+        notes ||
+        (newStatus === 'Shipped' && shipping?.carrier
+          ? `Dispatched via ${shipping.carrier} (AWB: ${shipping.trackingNumber})`
+          : `Admin updated order status to ${newStatus}`),
       timestamp: new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }),
       completed: true,
       status: newStatus

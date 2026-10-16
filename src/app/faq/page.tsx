@@ -128,7 +128,7 @@ const FAQ_DATA: FaqItem[] = [
     category: 'privacy',
     tag: 'Data Sanitization',
     q: 'Will my personal photos or WhatsApp messages be seen?',
-    a: 'Never. Our intake process conducts military-standard NIST 800-88 multi-pass cryptographic data sanitization that overwrites every flash sector. You also receive an official Data Erasure Certificate with an immutable SHA-256 hash.'
+    a: 'Never. Our intake process conducts complete cryptographic multi-pass data sanitization that overwrites flash storage before resale. You also receive an official Data Erasure confirmation.'
   },
   {
     id: 'p-2',
@@ -205,7 +205,7 @@ export default function FAQPage() {
           </h1>
 
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Find answers to common questions about doorstep buyback, live payouts, 32-point refurbished quality checks, warranty claims, and certified data erasure.
+            Find answers to common questions about doorstep buyback, live payouts, refurbished quality inspection, warranty claims, and secure data erasure.
           </p>
 
           {/* Search Box */}

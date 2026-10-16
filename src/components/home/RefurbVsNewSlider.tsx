@@ -206,7 +206,7 @@ export function RefurbVsNewSlider() {
                 <ul className="space-y-2 text-xs text-slate-700 pt-2 border-t border-emerald-100 font-medium">
                   <li className="flex items-center gap-2 text-emerald-700 font-bold">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Passed 32-Point Factory Diagnostic QC</span>
+                    <span>Passed Diagnostic Quality Check</span>
                   </li>
                   <li className="flex items-center gap-2 text-emerald-700 font-bold">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />

@@ -60,7 +60,7 @@ const PARTNER_TIERS = [
     roi: 'Wholesale Margins 20–35%',
     features: [
       'Verified wholesale inventory lots (Grade A / B / C)',
-      '32-point inspection report for every IMEI in the batch',
+      'quality inspection report for every IMEI in the batch',
       'GST input tax credit compliant tax invoices',
       'Fast pan-India dispatch with transit insurance',
       'Dedicated institutional relationship manager'

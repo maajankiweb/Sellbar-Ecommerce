@@ -262,7 +262,7 @@ export function ProductUnboxingReviews() {
             {/* Tag badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/70 text-emerald-700 text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-              <span>32-Point Quality Diagnostics</span>
+              <span>Quality Inspection Diagnostics</span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">

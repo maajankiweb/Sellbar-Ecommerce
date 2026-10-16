@@ -406,7 +406,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     replacementDays: 7,
     qcPointsCount: 32,
     highlights: [
-      '32-Point Rigorous Sellbar Diagnostic Check',
+      'Rigorous Hardware Diagnostic Check',
       '12 Months Comprehensive Doorstep Warranty',
       '6000 mAh Monster Battery for 2-Day Endurance',
       '7 Days Hassle-Free Replacement Policy',
@@ -454,7 +454,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     replacementDays: 5,
     qcPointsCount: 32,
     highlights: [
-      '32-Point Rigorous Hardware & Battery Certification',
+      'Rigorous Hardware & Battery Certification',
       '12 Months Sellbar Comprehensive Warranty',
       '108MP Flagship Quad Camera with 100X Zoom',
       'Free Doorstep Express Delivery',
@@ -905,7 +905,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     replacementDays: 5,
     qcPointsCount: 32,
     highlights: [
-      '32-Point Rigorous Hardware & Battery Certification',
+      'Rigorous Hardware & Battery Certification',
       '12 Months Full Repair/Replace Sellbar Warranty',
       '5 Days Hassle-Free Replacement Guarantee',
       'Certified 100% Secure Data-Wiped',
@@ -1303,7 +1303,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
     highlights: [
       '12 Months Sellbar Comprehensive Warranty',
       'Active Cooling for Sustained Pro Workflows',
-      'Tested 32-Point Battery & Hardware Check',
+      'Tested Battery & Hardware Quality Check',
     ],
     rating: 4.9,
     reviewCount: 88,
@@ -1334,7 +1334,7 @@ export const REFURB_PRODUCTS: RefurbProduct[] = [
       {
         grade: 'superb',
         title: 'Superb (A+ Grade)',
-        description: 'Legendary ThinkPad military-grade build with mint keyboard.',
+        description: 'Legendary ThinkPad durable robust build with mint keyboard.',
         price: 28999,
         originalMrp: 84999,
         stock: 10,

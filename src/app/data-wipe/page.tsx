@@ -32,7 +32,7 @@ export default function DataWipePage() {
           100% Certified <span className="text-emerald-600">Data-Wipe</span> Guarantee & Privacy
         </h1>
         <p className="text-xs sm:text-base text-slate-600 leading-relaxed">
-          Selling an old device should never compromise your private memories or banking tokens. We guarantee permanent cryptographic sanitization adhering to NIST 800-88 standards.
+          Selling an old device should never compromise your private memories or banking tokens. We guarantee permanent cryptographic data erasure before device inspection or resale.
         </p>
 
         {/* Tab Navigation */}
@@ -72,7 +72,7 @@ export default function DataWipePage() {
               <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold mb-3">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="text-base font-bold text-slate-900">NIST 800-88 & DoD 5220.22-M</h3>
+              <h3 className="text-base font-bold text-slate-900">Cryptographic Multi-Pass Sanitization</h3>
               <p className="text-xs text-slate-500 leading-relaxed">
                 Multi-pass binary sanitization overwrites all flash storage sectors with random cryptographically secure patterns, rendering forensic recovery impossible.
               </p>
@@ -123,7 +123,7 @@ export default function DataWipePage() {
                 <span className="w-7 h-7 rounded-lg bg-emerald-600 text-white font-bold text-xs flex items-center justify-center">3</span>
                 <h4 className="text-sm font-bold text-slate-900">Multi-Pass Overwrite</h4>
                 <p className="text-xs text-slate-500">
-                  NIST 800-88 Purge executes 3-pass cryptographic zeros and random bytes.
+                  Multi-pass sanitization executes cryptographic zeros and random overwrites.
                 </p>
               </div>
 
@@ -168,7 +168,7 @@ export default function DataWipePage() {
 
               <div className="p-4 bg-slate-800/80 rounded-xl border border-slate-700/80 space-y-1">
                 <span className="text-slate-400 text-[11px] block">Sanitization Standard</span>
-                <span className="font-bold text-white">NIST SP 800-88 Rev. 1 (Purge)</span>
+                <span className="font-bold text-white">Multi-Pass Overwrite & Cryptographic Purge</span>
               </div>
 
               <div className="p-4 bg-slate-800/80 rounded-xl border border-slate-700/80 space-y-1 sm:col-span-2">
@@ -213,7 +213,7 @@ export default function DataWipePage() {
 
               <h3 className="text-sm font-bold text-slate-900">2. Device Data Destruction</h3>
               <p>
-                Under our Zero-Residual Data Guarantee, any pre-owned smartphone, laptop, or tablet received by Sellbar is sanitized through automated NIST 800-88 cryptographic wiping before diagnostic refurbishing or parts harvesting. No employee or customer has access to residual files.
+                Under our Zero-Residual Data Guarantee, any pre-owned smartphone, laptop, or tablet received by Sellbar is sanitized through automated cryptographic wiping before diagnostic refurbishing or parts harvesting. No employee or customer has access to residual files.
               </p>
 
               <h3 className="text-sm font-bold text-slate-900">3. Grievance Officer</h3>

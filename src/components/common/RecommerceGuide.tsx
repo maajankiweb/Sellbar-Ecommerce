@@ -202,7 +202,7 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
 
                 <div className="flex items-start gap-2.5 bg-white p-3 rounded-xl border border-slate-200/60 shadow-xs">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs text-slate-700"><strong>32-point</strong> quality checks</span>
+                  <span className="text-xs text-slate-700"><strong>Rigorous hardware</strong> quality checks</span>
                 </div>
 
                 <div className="flex items-start gap-2.5 bg-white p-3 rounded-xl border border-slate-200/60 shadow-xs">

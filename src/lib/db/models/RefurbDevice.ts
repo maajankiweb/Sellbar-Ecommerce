@@ -56,7 +56,7 @@ export interface IRefurbDevice extends Document {
   rackBin: string; // e.g. "Rack A-03, Bin B-12"
   status: DeviceLifecycleStatus;
 
-  // NIST 800-88 Data Sanitization
+  // Cryptographic Secure Erase Data Sanitization
   dataWipe: {
     wiped: boolean;
     certificateId?: string;
@@ -66,7 +66,7 @@ export interface IRefurbDevice extends Document {
     method?: string;
   };
 
-  // 32-Point Quality Control
+  // Quality Control Checklist
   qualityControl: {
     passed: boolean;
     inspectedAt?: Date;

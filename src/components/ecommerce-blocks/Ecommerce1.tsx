@@ -97,10 +97,10 @@ const DEMO_PRODUCT: ProductData = {
   accordions: [
     {
       id: 'qc',
-      title: '32-Point Diagnostic Test Report',
+      title: 'Diagnostic Test Report',
       icon: ShieldCheck,
       content:
-        'Passed rigorous lab examination: TrueTone display calibrated, LiDAR operational, optical camera stabilization verified, FaceID responsive, clean OEM audio transducers, and NIST 800-88 sanitized.',
+        'Passed rigorous lab examination: TrueTone display calibrated, LiDAR operational, optical camera stabilization verified, FaceID responsive, clean OEM audio transducers, and Cryptographic Secure Erase sanitized.',
     },
     {
       id: 'warranty',
@@ -153,7 +153,7 @@ export function Ecommerce1({ product, onAddToCart, onBuyNow }: Ecommerce1Props =
               label: g.title || (g.grade === 'brand-new' ? 'Brand New' : 'Superb (Grade A)'),
               price: g.price || product.price,
               badge: g.grade === 'brand-new' ? 'Sealed Pack' : 'Most Popular',
-              desc: g.description || '100% genuine hardware, 32-point QC passed, full warranty.',
+              desc: g.description || '100% genuine hardware, Quality QC passed, full warranty.',
             }))
           : DEMO_PRODUCT.grades,
         fits: product.specs?.storage
@@ -227,7 +227,7 @@ export function Ecommerce1({ product, onAddToCart, onBuyNow }: Ecommerce1Props =
                 Save {savingsPercent}%
               </span>
               <span className="px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-xs text-slate-800 border border-slate-200 text-[10px] font-bold shadow-2xs">
-                32-Point QC Passed
+                Quality Checked
               </span>
             </div>
 
@@ -318,7 +318,7 @@ export function Ecommerce1({ product, onAddToCart, onBuyNow }: Ecommerce1Props =
               <div className="flex items-center justify-between text-xs">
                 <span className="font-bold text-slate-900">Select Condition Grade</span>
                 <span className="text-[#00a599] font-medium cursor-pointer hover:underline">
-                  32-Point Quality Inspected
+                  Quality Checked Before Sale
                 </span>
               </div>
 

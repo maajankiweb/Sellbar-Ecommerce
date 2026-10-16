@@ -50,17 +50,17 @@ const MOCK_WARRANTY_DEVICES: WarrantyDevice[] = [
   },
 ];
 
-// Sample Sold Devices with NIST 800-88 Certificates
+// Sample Sold Devices with Cryptographic Secure Erase Certificates
 const MOCK_WIPED_DEVICES: DataWipeRecord[] = [
   {
-    certificateId: 'NIST-2026-88491',
+    certificateId: 'CERT-2026-88491',
     deviceId: 'DEV-2026-009182',
     customerName: 'Rahul Verma',
     customerPhone: '+91 98200 45678',
     deviceModel: 'Apple iPhone 12 (128GB, Blue)',
     imei: '354891028374619',
     serialNumber: 'F2LX9102K1',
-    sanitizationStandard: 'NIST SP 800-88 Rev. 1 (Cryptographic Purge)',
+    sanitizationStandard: 'Cryptographic Purge & Multi-Pass Overwrite',
     algorithm: 'Cryptographic Block Overwrite (3-Pass Zero/Random Fill)',
     passesCompleted: 3,
     wipedAt: '24 Sep 2026, 04:30 PM',
@@ -99,7 +99,7 @@ export default function MyDevicesPage() {
             My Devices & Cryptographic Certificates
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Manage your active warranties, 1-click replacement claims, and NIST 800-88 data sanitization records.
+            Manage your active warranties, 1-click replacement claims, and Cryptographic Secure Erase data sanitization records.
           </p>
         </div>
 
@@ -199,7 +199,7 @@ export default function MyDevicesPage() {
         </div>
       )}
 
-      {/* TAB 2: NIST 800-88 DATA-WIPE CERTIFICATES */}
+      {/* TAB 2: Cryptographic Secure Erase DATA-WIPE CERTIFICATES */}
       {activeTab === 'wiped' && (
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -234,7 +234,7 @@ export default function MyDevicesPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500">Standard:</span>
-                    <span className="font-semibold text-slate-800">NIST SP 800-88 Rev. 1</span>
+                    <span className="font-semibold text-slate-800">Cryptographic Purge</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500">Sanitized Date:</span>

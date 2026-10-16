@@ -1284,7 +1284,7 @@ export default function Header() {
                   <div className="font-bold text-[13px] text-slate-900 mt-4 mb-2">Help & Assurance</div>
                   {[
                     { label: 'How Buyback Works', href: '/how-it-works' },
-                    { label: 'NIST Data Wipe Certificate', href: '/data-wipe' },
+                    { label: 'Data Erasure Certificate', href: '/data-wipe' },
                     { label: 'Help & FAQs', href: '/faq' },
                   ].map((h) => (
                     <Link

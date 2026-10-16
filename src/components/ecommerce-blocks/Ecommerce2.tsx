@@ -542,7 +542,7 @@ export function Ecommerce2({
               <span>Sellbar Guarantee</span>
             </div>
             <p className="text-[11px] leading-tight text-slate-500">
-              1-year official warranty, 32-point QC checklist, and 15-day return window on every unit.
+              1-year official warranty, Quality QC checklist, and 15-day return window on every unit.
             </p>
           </div>
         </aside>

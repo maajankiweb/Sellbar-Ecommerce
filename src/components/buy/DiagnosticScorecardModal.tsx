@@ -62,7 +62,7 @@ export function DiagnosticScorecardModal({
           <div>
             <div className="text-[10px] font-black uppercase tracking-wider text-emerald-700 flex items-center gap-1.5">
               <Award className="w-3.5 h-3.5 text-emerald-600" />
-              <span>32-Point Factory Diagnostic Scorecard</span>
+              <span>Hardware Diagnostic Scorecard</span>
             </div>
             <h3 className="text-base sm:text-lg font-black text-slate-900 truncate">
               {productName}

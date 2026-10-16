@@ -220,7 +220,7 @@ export default function CartCheckoutPage() {
         </div>
         <h2 className="text-xl font-bold text-slate-900">Your Cart is Empty</h2>
         <p className="text-xs text-slate-500 max-w-sm mx-auto">
-          Explore certified refurbished phones & laptops with 32-point QC inspection, 12 months warranty, and a 5-day easy replacement policy!
+          Explore certified refurbished phones quality-checked before sale, backed by a verified 6-month warranty and 15-day replacement policy!
         </p>
         <Link
           href="/buy"

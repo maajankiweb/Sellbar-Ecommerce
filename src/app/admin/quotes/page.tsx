@@ -825,7 +825,7 @@ export default function AdminBuybackQuotesPage() {
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => addToast({ title: 'Certificate Downloaded', message: `NIST 800-88 certificate for ${selectedQuote.device.model} generated.`, type: 'info' })}
+                  onClick={() => addToast({ title: 'Certificate Downloaded', message: `Cryptographic Secure Erase certificate for ${selectedQuote.device.model} generated.`, type: 'info' })}
                 >
                   <Download className="mr-1.5 h-3.5 w-3.5" /> Data Wipe Cert
                 </Button>

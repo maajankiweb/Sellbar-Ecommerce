@@ -110,7 +110,7 @@ export function WarrantyContent({
           Sellbar <span className="text-emerald-600">Assured Warranty</span> &amp; Quality Standards
         </h1>
         <p className="text-xs sm:text-base text-slate-600 leading-relaxed">
-          Comprehensive {warrantyMonths}-month hardware warranty, {replacementDays}-day replacement window, transparent condition grading, and a rigorous 32-point diagnostic checklist.
+          Comprehensive {warrantyMonths}-month hardware warranty, {replacementDays}-day replacement window, transparent condition grading, and rigorous quality inspection before sale.
         </p>
 
         {/* Tab Navigation */}
@@ -119,7 +119,7 @@ export function WarrantyContent({
             { id: 'warranty', label: `${warrantyMonths}-Mo Warranty`, icon: ShieldCheck },
             { id: 'replacement', label: `${replacementDays}-Day Replacement`, icon: RotateCcw },
             { id: 'grades', label: 'Condition Grades', icon: Smartphone },
-            { id: 'checklist', label: '32-Point Inspection', icon: CheckCircle2 },
+            { id: 'checklist', label: 'Quality Inspection', icon: CheckCircle2 },
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -292,15 +292,15 @@ export function WarrantyContent({
         </div>
       )}
 
-      {/* TAB 4: 32-POINT CHECKLIST */}
+      {/* TAB 4: QUALITY CHECKLIST */}
       {activeTab === 'checklist' && (
         <div className="space-y-6 animate-in fade-in duration-200">
           <div className="text-center max-w-xl mx-auto space-y-1">
             <h2 className="text-xl sm:text-2xl font-black text-slate-900">
-              32-Point Quality Control Diagnostic
+              Hardware Quality Inspection Standards
             </h2>
             <p className="text-xs text-slate-500">
-              Every device passes 32 hardware, biometric, audio, and network checks before listing.
+              Every device passes complete hardware, biometric, audio, and network checks before listing.
             </p>
           </div>
 

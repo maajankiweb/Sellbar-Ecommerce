@@ -279,10 +279,13 @@ function RegisterForm() {
             />
             <span className="text-slate-600 leading-relaxed">
               I agree to the{' '}
-              <Link href="/faq" className="text-emerald-600 underline font-medium">
+              <Link href="/legal/terms" className="text-emerald-600 underline font-medium">
                 Terms of Service
               </Link>{' '}
-              and acknowledge Sellbar&apos;s NIST 800-88 compliant certified data wipe protocol and privacy policy.
+              and acknowledge Sellbar&apos;s data erasure protocol and{' '}
+              <Link href="/legal/privacy" className="text-emerald-600 underline font-medium">
+                Privacy Policy
+              </Link>.
             </span>
           </label>
         </div>

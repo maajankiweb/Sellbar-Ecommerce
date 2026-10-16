@@ -116,7 +116,7 @@ export default function SellbarRefurbishedProductPage({
       <div className="min-h-[70vh] flex flex-col items-center justify-center p-6 space-y-4 bg-[#fbfbfb]">
         <div className="w-12 h-12 border-4 border-[#42c8b7] border-t-transparent rounded-full animate-spin"></div>
         <div className="text-sm font-bold text-slate-800">Loading verified device specifications...</div>
-        <p className="text-xs text-slate-400">Fetching 32-point inspection diagnostics and real-time recommerce pricing</p>
+        <p className="text-xs text-slate-400">Fetching quality inspection diagnostics and real-time recommerce pricing</p>
       </div>
     );
   }
@@ -255,7 +255,7 @@ export default function SellbarRefurbishedProductPage({
 
   return (
     <div className="min-h-screen bg-[#f7f8f9] text-[#222] pb-24 sm:pb-16 font-sans antialiased">
-      {/* 32-Point QC Modal */}
+      {/* Quality QC Modal */}
       <DiagnosticScorecardModal
         isOpen={isQcModalOpen}
         onClose={() => setIsQcModalOpen(false)}
@@ -286,7 +286,7 @@ export default function SellbarRefurbishedProductPage({
               <span className="text-xs font-bold uppercase tracking-wider text-[#42c8b7]">Condition Standards</span>
               <h2 className="text-xl font-extrabold text-slate-900">What are Sellbar Certified Grades?</h2>
               <p className="text-xs text-slate-500">
-                Every Sellbar refurbished phone undergoes a 32-point technical diagnostic and is graded purely based on cosmetic appearance. All devices are 100% functional.
+                Every Sellbar refurbished phone undergoes a technical diagnostic and is graded purely based on cosmetic appearance. All devices are 100% functional.
               </p>
             </div>
 
@@ -645,14 +645,14 @@ export default function SellbarRefurbishedProductPage({
                   <ChevronRight className="w-4 h-4" />
                 </button>
 
-                {/* Cashify 32-Point Inspection Stamp */}
+                {/* Cashify Quality Inspection Stamp */}
                 <button
                   type="button"
                   onClick={() => setIsQcModalOpen(true)}
                   className="absolute bottom-3 left-3 bg-white/95 border border-[#42c8b7]/40 text-slate-800 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1.5 hover:bg-[#eefcf9] transition cursor-pointer z-10"
                 >
                   <Award className="w-3.5 h-3.5 text-[#42c8b7]" />
-                  <span>32-Point Quality Passed</span>
+                  <span>Quality Checked Before Sale</span>
                 </button>
 
                 {/* 360 Inspection Tag */}
@@ -723,7 +723,7 @@ export default function SellbarRefurbishedProductPage({
                   <div className="w-9 h-9 rounded-full bg-[#eefcf9] flex items-center justify-center text-[#42c8b7]">
                     <Award className="w-4 h-4" />
                   </div>
-                  <span className="text-[10px] font-black text-slate-800 leading-tight">32-Point Check</span>
+                  <span className="text-[10px] font-black text-slate-800 leading-tight">Quality Check</span>
                   <span className="text-[9px] text-slate-400">Expert tested</span>
                 </div>
 
@@ -1147,7 +1147,7 @@ export default function SellbarRefurbishedProductPage({
       </div>
 
       {/* =========================================================================
-          4. Sellbar 32-POINT QUALITY CHECK BREAKDOWN
+          4. Sellbar QUALITY INSPECTION BREAKDOWN
           ========================================================================= */}
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4">
         <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-8 shadow-xs space-y-6">
@@ -1157,7 +1157,7 @@ export default function SellbarRefurbishedProductPage({
                 Certified Quality Assurance
               </span>
               <h2 className="text-lg sm:text-xl font-extrabold text-slate-900">
-                Sellbar 32-Point Quality Check
+                Sellbar Quality Inspection
               </h2>
             </div>
             <button
@@ -1179,7 +1179,7 @@ export default function SellbarRefurbishedProductPage({
               { title: 'Biometrics & Sensors', desc: 'Side-mounted Fingerprint & Face Unlock ok' },
               { title: 'Wireless & Cellular', desc: '4G VoLTE, Dual Band Wi-Fi, Bluetooth 5.0' },
               { title: 'Physical Ports & Keys', desc: 'Type-C jack, 3.5mm audio & volume click' },
-              { title: 'Clean IMEI & Factory Reset', desc: 'NIST 800-88 sanitized, zero carrier locks' },
+              { title: 'Clean IMEI & Factory Reset', desc: 'Cryptographic Secure Erase sanitized, zero carrier locks' },
             ].map((qc, i) => (
               <div key={i} className="p-3.5 rounded-xl border border-slate-200/80 bg-slate-50/50 flex items-start gap-2.5">
                 <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
@@ -1375,7 +1375,7 @@ export default function SellbarRefurbishedProductPage({
                 </tr>
                 <tr>
                   <td className="py-3 px-4 font-bold text-slate-800">Inspection & Diagnostics</td>
-                  <td className="py-3 px-4 font-bold text-emerald-700 bg-[#eefcf9]">Rigorous 32-Point Diagnostic Test</td>
+                  <td className="py-3 px-4 font-bold text-emerald-700 bg-[#eefcf9]">Rigorous Hardware Diagnostic Test</td>
                   <td className="py-3 px-4 text-slate-500">Casual 2-minute visual check</td>
                 </tr>
                 <tr>

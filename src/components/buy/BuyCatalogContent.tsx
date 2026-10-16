@@ -51,6 +51,8 @@ export function BuyCatalogContent() {
 
   // Wishlist State
   const [wishlist, setWishlist] = useState<string[]>([]);
+  const [comingSoonEmail, setComingSoonEmail] = useState('');
+  const [comingSoonSubmitted, setComingSoonSubmitted] = useState(false);
 
   useEffect(() => {
     try {
@@ -105,10 +107,10 @@ export function BuyCatalogContent() {
   }, []);
 
   const CATEGORIES = [
-    { id: 'all', label: 'All Gadgets', count: productsList.length },
+    { id: 'all', label: '📱 All Certified Phones', count: productsList.filter((p) => p.categoryGroup === 'old-phone' || p.category === 'old-phone' || (!p.categoryGroup && (p.category === 'phone' || !p.category))).length },
     { id: 'old-phone', label: '📱 Certified Phones', count: productsList.filter((p) => p.categoryGroup === 'old-phone' || p.category === 'old-phone' || (!p.categoryGroup && (p.category === 'phone' || !p.category))).length },
-    { id: 'old-laptop', label: '💻 Certified Laptops', count: productsList.filter((p) => p.categoryGroup === 'old-laptop' || p.category === 'old-laptop' || p.category === 'laptop').length },
-    { id: 'tablet', label: '📲 Tablets', count: productsList.filter((p) => p.category === 'tablet' || p.categoryGroup === 'tablet').length },
+    { id: 'old-laptop', label: '💻 Laptops (Coming Soon)', count: 0 },
+    { id: 'tablet', label: '📲 Tablets (Coming Soon)', count: 0 },
   ];
 
   const filteredProducts = useMemo(() => {
@@ -194,7 +196,7 @@ export function BuyCatalogContent() {
             Buy Certified Refurbished Flagships
           </h1>
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Every phone is tested with a 32-point hardware checklist and sanitized before sale. Backed by a verified 6-month warranty and 15-day replacement policy.
+            Every phone is quality-checked before sale and data erased before resale. Backed by a verified 6-month warranty and 15-day replacement policy.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-emerald-400 font-semibold">
@@ -222,7 +224,7 @@ export function BuyCatalogContent() {
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold backdrop-blur-xs transition border border-white/10"
             >
               <ClipboardCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Sample 32-Point Diagnostic Report</span>
+              <span>Sample Quality Inspection Report</span>
             </button>
           </div>
         </div>
@@ -404,7 +406,47 @@ export function BuyCatalogContent() {
           </div>
 
           {/* Cards Grid */}
-          {filteredProducts.length === 0 ? (
+          {(selectedCategory === 'old-laptop' || selectedCategory === 'tablet') ? (
+            <div className="text-center py-16 px-6 bg-white rounded-3xl border border-slate-200 space-y-4 max-w-lg mx-auto">
+              <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mx-auto">
+                <Sparkles className="w-7 h-7" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 capitalize">
+                Refurbished {selectedCategory === 'old-laptop' ? 'Laptops' : 'Tablets'} — Coming Soon
+              </h3>
+              <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
+                We are currently establishing verified refurbishing benchmarks and warranty fulfillment for this category. Enter your email to receive early access discounts upon launch!
+              </p>
+              {comingSoonSubmitted ? (
+                <div className="p-3 bg-emerald-50 text-emerald-800 text-xs font-bold rounded-xl border border-emerald-200">
+                  ✓ Thank you! We will notify you as soon as this category launches.
+                </div>
+              ) : (
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (comingSoonEmail.trim()) setComingSoonSubmitted(true);
+                  }}
+                  className="flex gap-2 max-w-sm mx-auto"
+                >
+                  <input
+                    type="email"
+                    required
+                    placeholder="Enter your email..."
+                    value={comingSoonEmail}
+                    onChange={(e) => setComingSoonEmail(e.target.value)}
+                    className="flex-1 px-3.5 py-2 rounded-xl border border-slate-200 text-xs focus:outline-emerald-600"
+                  />
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-slate-900 text-white font-bold text-xs rounded-xl hover:bg-slate-800 transition"
+                  >
+                    Notify Me
+                  </button>
+                </form>
+              )}
+            </div>
+          ) : filteredProducts.length === 0 ? (
             <div className="text-center py-20 bg-white rounded-3xl border border-slate-200">
               <ShieldCheck className="w-12 h-12 text-slate-300 mx-auto mb-3" />
               <h3 className="text-base font-bold text-slate-800">No refurbished devices match your filters</h3>

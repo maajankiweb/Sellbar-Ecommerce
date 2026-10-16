@@ -13,14 +13,24 @@ export default function BuyOrderInvoicePage({
   const { id } = use(params);
   const [order, setOrder] = useState<BuyOrder | null>(null);
   const [loading, setLoading] = useState(true);
+  const [settings, setSettings] = useState<any>(null);
 
   useEffect(() => {
-    async function fetchOrder() {
+    async function fetchData() {
       try {
-        const res = await fetch(`/api/v1/orders/buy/${id}`);
-        const data = await res.json();
-        if (data.success) {
-          setOrder(data.data);
+        const [orderRes, settingsRes] = await Promise.all([
+          fetch(`/api/v1/orders/buy/${id}`),
+          fetch('/api/v1/settings').catch(() => null),
+        ]);
+        const orderData = await orderRes.json();
+        if (orderData.success) {
+          setOrder(orderData.data);
+        }
+        if (settingsRes) {
+          const settingsData = await settingsRes.json();
+          if (settingsData.success) {
+            setSettings(settingsData.data);
+          }
         }
       } catch {
         // error
@@ -28,14 +38,14 @@ export default function BuyOrderInvoicePage({
         setLoading(false);
       }
     }
-    fetchOrder();
+    fetchData();
   }, [id]);
 
   if (loading) {
     return (
       <div className="max-w-3xl mx-auto py-24 text-center">
         <div className="w-10 h-10 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-        <p className="text-xs text-slate-500 font-semibold">Generating GST Tax Invoice...</p>
+        <p className="text-xs text-slate-500 font-semibold">Generating Invoice Preview...</p>
       </div>
     );
   }
@@ -63,8 +73,22 @@ export default function BuyOrderInvoicePage({
   const cgst = Math.round(totalGst / 2);
   const sgst = totalGst - cgst;
 
+  const hasEntityDetails = Boolean(settings?.legalEntityName && settings?.gstin);
+
   return (
     <div className="min-h-screen bg-slate-100 py-8 px-4 sm:px-6">
+      {/* Draft Marker Notification Banner */}
+      <div className="max-w-4xl mx-auto mb-4 p-3.5 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 flex items-center justify-between text-xs">
+        <div className="flex items-center gap-2">
+          <span className="px-2 py-0.5 rounded bg-amber-200 text-amber-950 font-bold uppercase text-[10px]">
+            Draft / Template
+          </span>
+          <span className="font-semibold">
+            This invoice is a preview template pending Chartered Accountant GST scheme confirmation. Not valid for real customer billing.
+          </span>
+        </div>
+      </div>
+
       {/* Action Bar (Hidden on Print) */}
       <div className="max-w-4xl mx-auto mb-6 flex items-center justify-between print:hidden">
         <Link
@@ -85,7 +109,12 @@ export default function BuyOrderInvoicePage({
       </div>
 
       {/* Invoice Document Paper */}
-      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 sm:p-12 border border-slate-200 print:shadow-none print:border-none print:p-0">
+      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 sm:p-12 border border-slate-200 print:shadow-none print:border-none print:p-0 relative overflow-hidden">
+        {/* Watermark for template */}
+        <div className="pointer-events-none select-none absolute inset-0 flex items-center justify-center opacity-5 rotate-[-25deg] text-6xl font-black text-slate-900 uppercase">
+          DRAFT TEMPLATE
+        </div>
+
         {/* Header Strip */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-8 border-b-2 border-slate-900 gap-4">
           <div>
@@ -95,19 +124,25 @@ export default function BuyOrderInvoicePage({
                 Recommerce
               </span>
             </div>
-            <p className="text-xs text-slate-500 mt-1">
-              Sellbar Recommerce India Pvt. Ltd.<br />
-              Supriya Cinema Road, Bettiah, West Champaran, Bihar - 845438<br />
-              GSTIN: <strong className="font-mono text-slate-900">10AABCS1429B1Z8</strong> • State Code: 10
-            </p>
+            {hasEntityDetails ? (
+              <p className="text-xs text-slate-500 mt-1">
+                {settings.legalEntityName}<br />
+                {settings.registeredAddress?.line1 || ''}{settings.registeredAddress?.city ? `, ${settings.registeredAddress.city}` : ''}<br />
+                GSTIN: <strong className="font-mono text-slate-900">{settings.gstin}</strong>
+              </p>
+            ) : (
+              <p className="text-xs text-slate-400 italic mt-1">
+                Official entity details hidden pending client registration certificate.
+              </p>
+            )}
           </div>
 
           <div className="text-left sm:text-right">
             <h1 className="text-xl font-black text-slate-900 uppercase tracking-wider">TAX INVOICE</h1>
             <div className="text-xs text-slate-600 mt-1 space-y-0.5 font-mono">
-              <div>Invoice No: <strong className="text-slate-900">INV-2026-{order.id}</strong></div>
+              <div>Invoice No: <strong className="text-slate-900">INV-{order.id}</strong></div>
               <div>Invoice Date: <strong className="text-slate-900">{invoiceDate}</strong></div>
-              <div>Order ID: <strong className="text-slate-900">#{order.id}</strong></div>
+              <div>Order ID: <strong className="text-slate-900">{order.id}</strong></div>
               <div>AWB Tracking: <strong className="text-slate-900">{order.trackingNumber}</strong></div>
             </div>
           </div>

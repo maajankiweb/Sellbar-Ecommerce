@@ -28,6 +28,25 @@ export async function PATCH(
 
   try {
     const body = await request.json();
+
+    // CD-04: Courier name, AWB and tracking URL are mandatory before an order can move to SHIPPED
+    const targetState = (body.state || body.status || '').toUpperCase();
+    if (targetState === 'SHIPPED') {
+      const courier = body.courierPartner || body.carrier || order.courierPartner;
+      const trackingNumber = body.trackingNumber || order.trackingNumber;
+      const trackingUrl = body.trackingUrl || (order as any).trackingUrl;
+
+      if (!courier?.trim() || !trackingNumber?.trim() || !trackingUrl?.trim()) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: 'Courier name, AWB tracking number, and tracking URL are mandatory before an order can move to SHIPPED (CD-04).',
+          },
+          { status: 400 }
+        );
+      }
+    }
+
     const updated = {
       ...order,
       ...body,

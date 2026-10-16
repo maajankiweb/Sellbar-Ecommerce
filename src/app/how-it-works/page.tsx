@@ -100,7 +100,7 @@ export default function HowItWorksPage() {
 
               <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
                 <span className="w-8 h-8 rounded-xl bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shadow-xs">3</span>
-                <h3 className="text-sm font-bold text-slate-900">Live 32-Point Check</h3>
+                <h3 className="text-sm font-bold text-slate-900">Live Doorstep Inspection</h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   Technician conducts a quick functional diagnostic in front of your eyes (display, camera, biometric, speaker) in under 5 minutes.
                 </p>
@@ -145,9 +145,9 @@ export default function HowItWorksPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
                 <span className="w-8 h-8 rounded-xl bg-blue-600 text-white font-bold text-xs flex items-center justify-center shadow-xs">1</span>
-                <h3 className="text-sm font-bold text-slate-900">32-Point Factory Testing</h3>
+                <h3 className="text-sm font-bold text-slate-900">Quality-Checked Before Sale</h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  Every pre-owned phone undergoes military-standard diagnostic hardware testing and certified 100% data eradication.
+                  Every pre-owned phone undergoes rigorous diagnostic hardware testing and complete data erasure before resale.
                 </p>
               </div>
 
@@ -273,7 +273,7 @@ export default function HowItWorksPage() {
                 <ShieldCheck className="w-6 h-6 text-emerald-600" />
                 <h4 className="text-sm font-bold text-slate-900">DPDP Act 2023 Compliance</h4>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  Cryptographic NIST 800-88 multi-pass data sanitization ensures zero customer data residue.
+                  Cryptographic multi-pass data sanitization ensures zero customer data residue.
                 </p>
               </div>
 

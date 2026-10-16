@@ -133,7 +133,7 @@ export default function AdminRefurbishmentPage() {
             Refurbishment & Device Lifecycle Center
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Track inward intake, NIST 800-88 sanitization, replacement parts, 32-point QC grading, and unit profitability.
+            Track inward intake, secure data sanitization, replacement parts, Quality QC grading, and unit profitability.
           </p>
         </div>
 
@@ -289,10 +289,10 @@ export default function AdminRefurbishmentPage() {
                 {/* Status Badges */}
                 <div className="flex items-center gap-3 text-xs">
                   <span className={`inline-flex items-center gap-1 font-semibold ${device.dataWipe.wiped ? 'text-emerald-700' : 'text-slate-400'}`}>
-                    <Lock className="w-3.5 h-3.5" /> {device.dataWipe.wiped ? 'NIST Wiped' : 'Pending Wipe'}
+                    <Lock className="w-3.5 h-3.5" /> {device.dataWipe.wiped ? 'Data Erased' : 'Pending Wipe'}
                   </span>
                   <span className={`inline-flex items-center gap-1 font-semibold ${device.qualityControl.passed ? 'text-emerald-700' : 'text-slate-400'}`}>
-                    <CheckCircle2 className="w-3.5 h-3.5" /> {device.qualityControl.passed ? '32-Pt QC Passed' : 'Pending QC'}
+                    <CheckCircle2 className="w-3.5 h-3.5" /> {device.qualityControl.passed ? 'QC Passed' : 'Pending QC'}
                   </span>
                 </div>
 
@@ -308,7 +308,7 @@ export default function AdminRefurbishmentPage() {
                       className="px-3.5 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs flex items-center gap-1.5 transition"
                     >
                       <Lock className="w-3.5 h-3.5" />
-                      <span>Run NIST Data Wipe</span>
+                      <span>Run Secure Data Wipe</span>
                     </button>
                   )}
 
@@ -391,7 +391,7 @@ export default function AdminRefurbishmentPage() {
             {actionType === 'wipe' && (
               <div className="space-y-3 text-xs text-slate-600">
                 <p>
-                  Execute <strong>NIST SP 800-88 Rev. 1 Cryptographic Purge</strong> on IMEI <strong>{selectedDevice.imei}</strong>.
+                  Execute <strong>Cryptographic Purge & Multi-Pass Overwrite</strong> on IMEI <strong>{selectedDevice.imei}</strong>.
                 </p>
                 <div className="p-3 bg-teal-50 border border-teal-200 rounded-xl text-teal-900 space-y-1">
                   <div className="font-bold">✓ 3-Pass Overwrite</div>

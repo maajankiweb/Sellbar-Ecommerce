@@ -265,7 +265,7 @@ export function generateAmazonTrackingUpdateEmailHtml(order: any, newStatus: str
   const statusLabels: Record<string, { title: string; desc: string }> = {
     PACKED: {
       title: 'Your Sellbar package has been inspected and packed',
-      desc: 'Our certified engineers in West Champaran completed the 32-point hardware check and securely packaged your device.',
+      desc: 'Our certified engineers in West Champaran completed the hardware quality check and securely packaged your device.',
     },
     SHIPPED: {
       title: 'Your Sellbar package has shipped!',

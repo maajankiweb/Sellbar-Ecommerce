@@ -12,6 +12,7 @@ const UpdateSettingsSchema = z.object({
   supportPhone: z.string().max(20).optional(),
   supportEmail: z.string().email().optional(),
   legalEntityName: z.string().max(100).optional(),
+  tradeName: z.string().max(100).optional(),
   gstin: z.string().max(20).optional(),
   registeredAddress: z
     .object({
@@ -40,6 +41,7 @@ const UpdateSettingsSchema = z.object({
     .optional(),
   enabledCategories: z.array(z.string()).optional(),
   payoutModes: z.array(z.string()).optional(),
+  payoutApprovalLimit: z.number().int().min(0).max(1000000).optional(),
   codEnabled: z.boolean().optional(),
   gstScheme: z.enum(['STANDARD_GST', 'MARGIN_SCHEME']).optional(),
   standardGstRate: z.number().min(0).max(28).optional(),

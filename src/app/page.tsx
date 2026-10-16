@@ -121,7 +121,7 @@ export default function HomePage() {
       badge: "Instant Cash Valuation",
       title: "Sell Old Phone for Instant Cash",
       subtitle:
-        "Free 2-Hour Express Pickup • Instant On-Spot UPI Transfer • 100% Certified Data Wipe",
+        "Free Doorstep Pickup • Instant On-Spot UPI Transfer • Data Erased Before Resale",
       ctaText: "Sell Phone Now",
       ctaHref: "/sell",
       secondaryText: "Check Phone Price",
@@ -137,7 +137,7 @@ export default function HomePage() {
       badge: "Super Sale • Certified Refurbished",
       title: "Buy Certified Refurbished Flagships",
       subtitle:
-        "Inspected with 32-Point Quality Checklist • Certified Warranty • 15-Day Replacement",
+        "Quality-Checked Before Sale • Verified 6-Month Warranty • 15-Day Replacement",
       ctaText: "Shop Refurbished Phones",
       ctaHref: "/buy?category=old-phone",
       secondaryText: "View All Deals",
@@ -1003,7 +1003,7 @@ export default function HomePage() {
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold">
                 <Star className="w-3.5 h-3.5 fill-emerald-400" />
-                <span>Verified Customer Feedback & 32-Point Quality Checklist</span>
+                <span>Verified Customer Feedback & Quality Inspection Process</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-black tracking-tight">
                 Trusted by 50,000+ Happy Customers & Recommerce Sellers

@@ -25,7 +25,7 @@ import {
 
 const BUY_TIMELINE: { state: BuyOrderState; title: string; desc: string }[] = [
   { state: 'PLACED', title: 'Order Confirmed', desc: 'Item allocated and payment verified' },
-  { state: 'PACKED', title: 'Quality Check & Packed', desc: '32-point inspection passed and sealed in tamper-proof box' },
+  { state: 'PACKED', title: 'Quality Check & Packed', desc: 'quality inspection passed and sealed in tamper-proof box' },
   { state: 'SHIPPED', title: 'In Transit with Courier', desc: 'Dispatched with insured doorstep courier' },
   { state: 'OUT_FOR_DELIVERY', title: 'Out for Delivery', desc: 'Local delivery agent en route to your address' },
   { state: 'DELIVERED', title: 'Delivered', desc: 'Open-box inspection completed successfully' },

@@ -151,6 +151,7 @@ export interface AdminOrder {
   timeline: OrderTimelineEvent[];
   carrier?: string;
   trackingNumber?: string;
+  trackingUrl?: string;
   createdAt: string;
   updatedAt: string;
 }

@@ -130,7 +130,7 @@ const CITY_REVIEWS: Record<string, Array<{ name: string; device: string; comment
     {
       name: 'Amitabh Sen',
       device: 'Sold Samsung Galaxy S23 Ultra',
-      comment: 'Best recommerce service in Patna. Doorstep NIST data wipe certificate bhi mila on spot.',
+      comment: 'Best recommerce service in Patna. Doorstep data wipe certificate bhi mila on spot.',
       rating: 5,
       area: 'Boring Road'
     }
@@ -177,7 +177,7 @@ export default function CityDetailPage() {
     },
     {
       q: `Is data wiping certified in ${city.name}?`,
-      a: `Every device undergoes our certified NIST SP 800-88 data sanitization process. You receive an official digital certificate with a verifiable SHA-256 hash.`
+      a: `Every device undergoes our secure data sanitization process. You receive an official digital certificate with a verifiable hash.`
     },
     {
       q: `Can I visit the local Sellbar Experience Store in ${city.name}?`,
@@ -221,7 +221,7 @@ export default function CityDetailPage() {
                 </div>
                 <div className="flex items-center gap-1.5 rounded-lg bg-slate-800/80 px-3 py-1.5 border border-slate-700">
                   <ShieldCheck className="h-4 w-4 text-emerald-400" />
-                  <span>NIST 800-88 Data Wipe</span>
+                  <span>Data Erased Before Resale</span>
                 </div>
               </div>
 
@@ -332,7 +332,7 @@ export default function CityDetailPage() {
             </div>
             <h3 className="mt-4 font-bold text-slate-900">Instant UPI Payment</h3>
             <p className="mt-2 text-xs text-slate-500 leading-relaxed">
-              Receive 100% full payment on the spot via GPay / PhonePe / Bank along with a NIST 800-88 Data Wipe Certificate.
+              Receive 100% full payment on the spot via GPay / PhonePe / Bank along with a verified Data Wipe Certificate.
             </p>
           </div>
         </div>

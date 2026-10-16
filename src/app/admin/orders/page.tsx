@@ -33,6 +33,10 @@ export default function AdminOrdersPage() {
   const [selectedOrder, setSelectedOrder] = useState<AdminOrder | null>(null);
   const [newStatus, setNewStatus] = useState<OrderStatus>('Processing');
   const [statusNote, setStatusNote] = useState('');
+  const [carrier, setCarrier] = useState('');
+  const [trackingNumber, setTrackingNumber] = useState('');
+  const [trackingUrl, setTrackingUrl] = useState('');
+  const [shippingError, setShippingError] = useState('');
   const [isUpdating, setIsUpdating] = useState(false);
 
   const fetchOrders = async () => {
@@ -52,17 +56,39 @@ export default function AdminOrdersPage() {
 
   const handleUpdateStatus = async () => {
     if (!selectedOrder) return;
+    setShippingError('');
+
+    if (newStatus === 'Shipped') {
+      if (!carrier.trim() || !trackingNumber.trim() || !trackingUrl.trim()) {
+        setShippingError('Courier Name, AWB Tracking Number, and Tracking URL are mandatory before moving to SHIPPED (CD-04).');
+        return;
+      }
+    }
+
     setIsUpdating(true);
-    await adminService.updateOrderStatus(selectedOrder.id, newStatus, statusNote);
-    addToast({
-      title: 'Order Status Updated',
-      message: `${selectedOrder.orderNumber} is now marked as ${newStatus}.`,
-      type: 'success',
-    });
-    setIsUpdating(false);
-    setSelectedOrder(null);
-    setStatusNote('');
-    fetchOrders();
+    try {
+      await adminService.updateOrderStatus(
+        selectedOrder.id,
+        newStatus,
+        statusNote,
+        newStatus === 'Shipped' ? { carrier, trackingNumber, trackingUrl } : undefined
+      );
+      addToast({
+        title: 'Order Status Updated',
+        message: `${selectedOrder.orderNumber} is now marked as ${newStatus}.`,
+        type: 'success',
+      });
+      setSelectedOrder(null);
+      setStatusNote('');
+      setCarrier('');
+      setTrackingNumber('');
+      setTrackingUrl('');
+      fetchOrders();
+    } catch (err: any) {
+      setShippingError(err.message || 'Failed to update order status');
+    } finally {
+      setIsUpdating(false);
+    }
   };
 
   const getStatusVariant = (status: OrderStatus) => {
@@ -297,6 +323,13 @@ export default function AdminOrdersPage() {
       >
         {selectedOrder && (
           <div className="space-y-4">
+            {shippingError && (
+              <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2 dark:bg-rose-950/40 dark:border-rose-900 dark:text-rose-300">
+                <AlertCircle className="w-4 h-4 shrink-0" />
+                <span>{shippingError}</span>
+              </div>
+            )}
+
             <div>
               <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                 New Order Status
@@ -309,12 +342,60 @@ export default function AdminOrdersPage() {
                 <option value="Pending">Pending Verification</option>
                 <option value="Processing">Processing / Allocation</option>
                 <option value="Packed">Packed & Sealed</option>
-                <option value="Shipped">Dispatched / Shipped</option>
+                <option value="Shipped">Dispatched / Shipped (Requires Logistics)</option>
                 <option value="Delivered">Delivered</option>
                 <option value="Cancelled">Cancelled</option>
                 <option value="Refunded">Refunded</option>
               </select>
             </div>
+
+            {newStatus === 'Shipped' && (
+              <div className="rounded-lg border border-purple-200 bg-purple-50/50 p-3 space-y-3 dark:border-purple-900/60 dark:bg-purple-950/20">
+                <div className="text-xs font-bold text-purple-900 dark:text-purple-300 flex items-center gap-1.5">
+                  <Truck className="w-3.5 h-3.5" />
+                  Mandatory Logistics Details (CD-04)
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                    Courier Partner Name *
+                  </label>
+                  <input
+                    type="text"
+                    value={carrier}
+                    onChange={e => setCarrier(e.target.value)}
+                    placeholder="e.g. BlueDart Express, Delhivery, DTDC, India Post"
+                    className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs dark:border-slate-700 dark:bg-slate-800"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                    AWB Tracking Number *
+                  </label>
+                  <input
+                    type="text"
+                    value={trackingNumber}
+                    onChange={e => setTrackingNumber(e.target.value)}
+                    placeholder="e.g. BLU-9928104812"
+                    className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-mono dark:border-slate-700 dark:bg-slate-800"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                    Tracking Portal URL *
+                  </label>
+                  <input
+                    type="url"
+                    value={trackingUrl}
+                    onChange={e => setTrackingUrl(e.target.value)}
+                    placeholder="e.g. https://www.bluedart.com/tracking?awb=..."
+                    className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs dark:border-slate-700 dark:bg-slate-800"
+                    required
+                  />
+                </div>
+              </div>
+            )}
 
             <div>
               <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">

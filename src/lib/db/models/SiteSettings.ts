@@ -7,6 +7,7 @@ export interface ISiteSettings extends Document {
   supportPhone: string;
   supportEmail: string;
   legalEntityName?: string;
+  tradeName?: string;
   gstin?: string;
   registeredAddress?: {
     line1?: string;
@@ -29,6 +30,7 @@ export interface ISiteSettings extends Document {
   };
   enabledCategories: string[];
   payoutModes: string[];
+  payoutApprovalLimit: number;
   codEnabled: boolean;
   gstScheme: 'STANDARD_GST' | 'MARGIN_SCHEME';
   standardGstRate: number;
@@ -44,6 +46,7 @@ const SiteSettingsSchema = new Schema<ISiteSettings>(
     supportPhone: { type: String, default: '' },
     supportEmail: { type: String, default: 'support@sellbar.in' },
     legalEntityName: { type: String, default: '' }, // Never rendered publicly if empty
+    tradeName: { type: String, default: '' },       // Never rendered publicly if empty
     gstin: { type: String, default: '' },           // Never rendered publicly if empty
     registeredAddress: {
       line1: { type: String, default: '' },
@@ -72,6 +75,7 @@ const SiteSettingsSchema = new Schema<ISiteSettings>(
       type: [String],
       default: ['upi', 'bank', 'cash'],
     },
+    payoutApprovalLimit: { type: Number, default: 10000 },
     codEnabled: { type: Boolean, default: false },
     gstScheme: {
       type: String,
