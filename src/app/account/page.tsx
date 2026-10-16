@@ -83,7 +83,7 @@ function ActionItem({ icon, iconBg, label, title, message, ctaLabel, ctaHref, ty
 // ─── ORDER CARD ───────────────────────────────────────────────────────────────
 function CurrentOrderCard({ order }: { order: Order }) {
   return (
-    <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white overflow-hidden relative">
+    <div className="bg-linear-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white overflow-hidden relative">
       {/* Decorative */}
       <div className="absolute right-0 top-0 h-full w-48 opacity-10">
         <div className="absolute right-4 top-4 h-32 w-32 rounded-full border-4 border-white" />
@@ -194,7 +194,7 @@ function ProductMiniCard({ item }: { item: WishlistProduct }) {
 function RewardBanner({ loyalty }: { loyalty: LoyaltyData }) {
   const pct = Math.round(((loyalty.points - loyalty.tierMinPoints) / (loyalty.tierMaxPoints - loyalty.tierMinPoints)) * 100);
   return (
-    <div className="bg-gradient-to-br from-amber-400 via-orange-500 to-rose-500 rounded-2xl p-5 text-white relative overflow-hidden">
+    <div className="bg-linear-to-br from-amber-400 via-orange-500 to-rose-500 rounded-2xl p-5 text-white relative overflow-hidden">
       <div className="absolute right-0 top-0 opacity-10">
         <Award className="h-32 w-32" />
       </div>
