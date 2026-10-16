@@ -146,7 +146,7 @@ export default function AdminOrdersPage() {
           <div className="font-semibold text-slate-900 dark:text-white">
             {o.customerName}
           </div>
-          <div className="text-[11px] text-slate-400 truncate max-w-[160px]">
+          <div className="text-[11px] text-slate-400 truncate max-w-40">
             {o.customerEmail}
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function AdminOrdersPage() {
           <span className="font-medium text-slate-700 dark:text-slate-300">
             {o.items.length} item{o.items.length > 1 ? 's' : ''}
           </span>
-          <div className="text-[11px] text-slate-400 truncate max-w-[180px]">
+          <div className="text-[11px] text-slate-400 truncate max-w-45">
             {o.items.map(i => i.productName).join(', ')}
           </div>
         </div>

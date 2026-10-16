@@ -29,7 +29,7 @@ export function EcoImpactCounter() {
   ];
 
   return (
-    <section className="w-full py-12 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white relative overflow-hidden">
+    <section className="w-full py-12 bg-linear-to-br from-slate-900 via-slate-950 to-slate-900 text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
         {/* Header Ribbon */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-white/10 pb-6">

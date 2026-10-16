@@ -414,7 +414,7 @@ export default function SellbarRefurbishedProductPage({
             </div>
 
             {/* High-Res Viewport */}
-            <div className="relative flex-1 min-h-[320px] sm:min-h-[420px] rounded-2xl bg-[#fafafa] border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
+            <div className="relative flex-1 min-h-80 sm:min-h-105 rounded-2xl bg-[#fafafa] border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
               <button
                 type="button"
                 onClick={() =>
@@ -496,7 +496,7 @@ export default function SellbarRefurbishedProductPage({
               Buy Refurbished {product.brand || 'Samsung'}
             </Link>
             <span className="text-slate-300">›</span>
-            <span className="text-slate-800 font-bold truncate max-w-[200px] sm:max-w-[320px]">
+            <span className="text-slate-800 font-bold truncate max-w-50 sm:max-w-[320px]">
               {product.name} - Refurbished
             </span>
           </div>
@@ -834,7 +834,7 @@ export default function SellbarRefurbishedProductPage({
               </div>
 
               {/* Cashify Sale Banner / Promo Callout */}
-              <div className="p-3 rounded-xl bg-gradient-to-r from-[#eefcf9] to-[#e6f9f6] border border-[#42c8b7]/30 flex items-center justify-between text-xs">
+              <div className="p-3 rounded-xl bg-linear-to-r from-[#eefcf9] to-[#e6f9f6] border border-[#42c8b7]/30 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2 font-bold text-slate-800">
                   <Tag className="w-4 h-4 text-[#42c8b7] shrink-0" />
                   <span>
@@ -1199,7 +1199,7 @@ export default function SellbarRefurbishedProductPage({
           Sellbar SEAL OF TRUST (As per Verified Recommerce Standard)
           ========================================================================= */}
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3">
-        <div className="bg-gradient-to-br from-white via-[#fbfdfd] to-[#f0faf8] rounded-3xl border border-[#42c8b7]/30 p-6 sm:p-10 shadow-xs relative overflow-hidden">
+        <div className="bg-linear-to-br from-white via-[#fbfdfd] to-[#f0faf8] rounded-3xl border border-[#42c8b7]/30 p-6 sm:p-10 shadow-xs relative overflow-hidden">
           {/* Subtle Watermark in background */}
           <div className="absolute right-12 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full border-8 border-[#42c8b7]/10 flex items-center justify-center pointer-events-none opacity-40">
             <ShieldCheck className="w-36 h-36 text-[#42c8b7]/20" />
@@ -1256,7 +1256,7 @@ export default function SellbarRefurbishedProductPage({
 
             {/* Right Column: Visual Eco-Box Branding Showcase */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full max-w-xs sm:max-w-sm rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 text-white p-6 shadow-2xl border border-slate-800 relative overflow-hidden flex flex-col justify-between min-h-[360px]">
+              <div className="w-full max-w-xs sm:max-w-sm rounded-3xl bg-linear-to-b from-slate-900 to-slate-950 text-white p-6 shadow-2xl border border-slate-800 relative overflow-hidden flex flex-col justify-between min-h-90">
                 {/* Top Badge */}
                 <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                   <div className="flex items-center gap-2">
@@ -1272,14 +1272,14 @@ export default function SellbarRefurbishedProductPage({
 
                 {/* Box Center Art */}
                 <div className="py-6 space-y-3 text-center my-auto">
-                  <div className="text-3xl sm:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-[#42c8b7]">
+                  <div className="text-3xl sm:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-linear-to-r from-white via-slate-200 to-[#42c8b7]">
                     BE THE CHANGE
                   </div>
-                  <p className="text-xs text-slate-400 max-w-[240px] mx-auto">
+                  <p className="text-xs text-slate-400 max-w-60 mx-auto">
                     Sustainable recommerce packaging. 100% verified, sanitized and sealed.
                   </p>
                   <div className="flex items-center justify-center gap-4 text-[11px] text-slate-300 font-bold pt-2">
-                    <span>🔬 32 Pt QC</span>
+                    <span>🔬 Quality-Checked</span>
                     <span>•</span>
                     <span>⭐ 50K+ Buyers</span>
                     <span>•</span>
@@ -1359,7 +1359,7 @@ export default function SellbarRefurbishedProductPage({
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse min-w-[500px]">
+            <table className="w-full text-left text-xs border-collapse min-w-125">
               <thead>
                 <tr className="border-b border-slate-200">
                   <th className="py-3 px-4 text-slate-500 font-bold w-1/3">Feature</th>

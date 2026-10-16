@@ -59,11 +59,11 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1 space-y-6">
             {/* Logo (Exact Navbar Logo) */}
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-blue-600 via-teal-500 to-emerald-500 flex items-center justify-center text-white font-black text-xl shadow-md shadow-blue-600/20">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-linear-to-tr from-blue-600 via-teal-500 to-emerald-500 flex items-center justify-center text-white font-black text-xl shadow-md shadow-blue-600/20">
                 S
               </div>
               <span className="font-black text-xl sm:text-2xl tracking-tight text-slate-950 flex items-center leading-tight">
-                <span className="text-blue-600">SEL</span><span className="text-emerald-600">BAR</span>
+                <span className="text-blue-600">SELL</span><span className="text-emerald-600">BAR</span>
               </span>
             </Link>
 

@@ -220,7 +220,7 @@ export function Ecommerce1({ product, onAddToCart, onBuyNow }: Ecommerce1Props =
           </div>
 
           {/* Main Showcase Hero Image */}
-          <div className="relative flex-1 aspect-square rounded-3xl bg-gradient-to-b from-slate-50 to-slate-100/70 border border-slate-200/80 p-6 flex items-center justify-center overflow-hidden group">
+          <div className="relative flex-1 aspect-square rounded-3xl bg-linear-to-b from-slate-50 to-slate-100/70 border border-slate-200/80 p-6 flex items-center justify-center overflow-hidden group">
             {/* Top Savings & Verified Badges */}
             <div className="absolute top-4 left-4 flex flex-col gap-2 z-10">
               <span className="px-3 py-1 rounded-full bg-emerald-600 text-white text-xs font-black uppercase tracking-wider shadow-sm">

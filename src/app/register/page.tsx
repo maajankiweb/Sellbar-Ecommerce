@@ -325,7 +325,7 @@ function RegisterForm() {
 
 export default function RegisterPage() {
   return (
-    <div className="min-h-[85vh] flex flex-col items-center justify-center p-6 bg-gradient-to-b from-slate-50 to-emerald-50/30">
+    <div className="min-h-[85vh] flex flex-col items-center justify-center p-6 bg-linear-to-b from-slate-50 to-emerald-50/30">
       <Suspense fallback={<div className="text-sm text-slate-500">Loading registration...</div>}>
         <RegisterForm />
       </Suspense>

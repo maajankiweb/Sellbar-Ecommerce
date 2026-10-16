@@ -190,7 +190,7 @@ export default function CityDetailPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-emerald-950 via-slate-900 to-slate-900 py-16 text-white md:py-24">
+      <section className="relative overflow-hidden bg-linear-to-b from-emerald-950 via-slate-900 to-slate-900 py-16 text-white md:py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(16,185,129,0.18),transparent_55%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
@@ -201,7 +201,7 @@ export default function CityDetailPage() {
               </div>
 
               <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-5xl leading-tight">
-                Sell Old Phone in <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">{city.name}</span>
+                Sell Old Phone in <span className="bg-linear-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">{city.name}</span>
                 <br />Get Instant Cash at Doorstep
               </h1>
 

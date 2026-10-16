@@ -186,7 +186,7 @@ export function BuyCatalogContent() {
       )}
 
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white p-6 sm:p-10 rounded-3xl relative overflow-hidden shadow-xl">
+      <div className="bg-linear-to-r from-slate-900 via-slate-800 to-slate-900 text-white p-6 sm:p-10 rounded-3xl relative overflow-hidden shadow-xl">
         <div className="max-w-2xl relative z-10 space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold">
             <Sparkles className="w-3.5 h-3.5" />
@@ -590,7 +590,7 @@ export function BuyCatalogContent() {
 
                         <Link
                           href={`/buy/${prod.slug}`}
-                          className="min-h-[36px] px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-xs transition flex items-center gap-1 active:scale-95"
+                          className="min-h-9 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-xs transition flex items-center gap-1 active:scale-95"
                         >
                           <span>Buy</span>
                           <ArrowRight className="w-3 h-3" />

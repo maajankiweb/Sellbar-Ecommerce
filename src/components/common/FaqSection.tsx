@@ -183,7 +183,7 @@ export function FaqSection() {
         </div>
 
         {/* Bottom CTA Card */}
-        <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800">
+        <div className="bg-linear-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800">
           <div className="space-y-1.5 text-center sm:text-left">
             <div className="inline-flex items-center gap-2 text-xs font-bold text-teal-400">
               <MessageSquare className="w-4 h-4" />

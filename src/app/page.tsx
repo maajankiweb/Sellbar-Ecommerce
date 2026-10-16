@@ -354,7 +354,7 @@ export default function HomePage() {
         onMouseEnter={() => setIsSliderHovered(true)}
         onMouseLeave={() => setIsSliderHovered(false)}
       >
-        <div className="relative min-h-[560px] sm:min-h-[500px] md:min-h-[480px] flex items-center">
+        <div className="relative min-h-140 sm:min-h-125 md:min-h-120 flex items-center">
           {HERO_SLIDES.map((slide, index) => {
             const isActive = index === currentSlide;
             return (
@@ -364,7 +364,7 @@ export default function HomePage() {
                   isActive
                     ? "opacity-100 z-10"
                     : "opacity-0 z-0 pointer-events-none"
-                } bg-gradient-to-r ${slide.bgGradient}`}
+                } bg-linear-to-r ${slide.bgGradient}`}
               >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-12 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
                   {/* Left Text & CTA */}
@@ -391,7 +391,7 @@ export default function HomePage() {
                     <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5 sm:gap-3 pt-1 sm:pt-2">
                       <Link
                         href={slide.ctaHref}
-                        className="min-h-[44px] px-5 sm:px-6 py-3 sm:py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-slate-950 font-black text-xs sm:text-sm shadow-xl hover:shadow-2xl transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2 active:scale-95"
+                        className="min-h-11 px-5 sm:px-6 py-3 sm:py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-slate-950 font-black text-xs sm:text-sm shadow-xl hover:shadow-2xl transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2 active:scale-95"
                       >
                         <span>{slide.ctaText}</span>
                         <ArrowRight className="w-4 h-4" />
@@ -399,7 +399,7 @@ export default function HomePage() {
 
                       <Link
                         href={slide.secondaryHref}
-                        className="min-h-[44px] px-4 sm:px-5 py-3 sm:py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 transition backdrop-blur-sm flex items-center justify-center active:scale-95"
+                        className="min-h-11 px-4 sm:px-5 py-3 sm:py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 transition backdrop-blur-sm flex items-center justify-center active:scale-95"
                       >
                         {slide.secondaryText}
                       </Link>
@@ -425,7 +425,7 @@ export default function HomePage() {
             type="button"
             onClick={prevSlide}
             aria-label="Previous Slide"
-            className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white items-center justify-center backdrop-blur-md border border-white/20 transition hover:scale-110 min-h-[44px] min-w-[44px]"
+            className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white items-center justify-center backdrop-blur-md border border-white/20 transition hover:scale-110 min-h-11 min-w-11"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
@@ -434,7 +434,7 @@ export default function HomePage() {
             type="button"
             onClick={nextSlide}
             aria-label="Next Slide"
-            className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white items-center justify-center backdrop-blur-md border border-white/20 transition hover:scale-110 min-h-[44px] min-w-[44px]"
+            className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white items-center justify-center backdrop-blur-md border border-white/20 transition hover:scale-110 min-h-11 min-w-11"
           >
             <ArrowRight className="w-5 h-5" />
           </button>
@@ -572,7 +572,7 @@ export default function HomePage() {
                 )
               }
               aria-label="Scroll refurbished devices left"
-              className="absolute -left-3 sm:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-slate-200/90 shadow-md hover:shadow-lg flex items-center justify-center text-slate-800 hover:text-black transition z-20 cursor-pointer hidden sm:flex hover:scale-105 active:scale-95 animate-in fade-in duration-200"
+              className="absolute -left-3 sm:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-slate-200/90 shadow-md hover:shadow-lg hidden sm:flex items-center justify-center text-slate-800 hover:text-black transition z-20 cursor-pointer hover:scale-105 active:scale-95 animate-in fade-in duration-200"
             >
               <ArrowLeft className="w-4 h-4 stroke-[2.2]" />
             </button>
@@ -610,11 +610,11 @@ export default function HomePage() {
                 <Link
                   key={phone.id || phone.slug}
                   href={`/buy/${phone.slug}`}
-                  className="flex flex-col justify-between w-[215px] sm:w-[235px] md:w-[245px] lg:w-[250px] shrink-0 bg-white rounded-xl border border-slate-200 p-3.5 sm:p-4 hover:shadow-md hover:border-slate-300 transition duration-200 cursor-pointer group select-none relative"
+                  className="flex flex-col justify-between w-53.75 sm:w-58.75 md:w-61.25 lg:w-62.5 shrink-0 bg-white rounded-xl border border-slate-200 p-3.5 sm:p-4 hover:shadow-md hover:border-slate-300 transition duration-200 cursor-pointer group select-none relative"
                 >
                   <div>
                     {/* Top Row: Assured Badge */}
-                    <div className="flex items-center justify-between min-h-[22px] mb-2">
+                    <div className="flex items-center justify-between min-h-5.5 mb-2">
                       <div className="flex items-center gap-1.5">
                         <div className="w-5 h-5 rounded-full border-[1.5px] border-[#009B77] flex items-center justify-center bg-white text-[#009B77] shrink-0">
                           <svg
@@ -655,7 +655,7 @@ export default function HomePage() {
 
                     {/* Product Title */}
                     <h3
-                      className="font-bold text-xs sm:text-[13px] text-slate-900 leading-snug line-clamp-2 min-h-[36px] mt-1.5 group-hover:text-[#009B77] transition"
+                      className="font-bold text-xs sm:text-[13px] text-slate-900 leading-snug line-clamp-2 min-h-9 mt-1.5 group-hover:text-[#009B77] transition"
                       title={phone.name}
                     >
                       {phone.name}
@@ -704,7 +704,7 @@ export default function HomePage() {
                 )
               }
               aria-label="Scroll refurbished devices right"
-              className="absolute -right-3 sm:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-slate-200/90 shadow-md hover:shadow-lg flex items-center justify-center text-slate-800 hover:text-black transition z-20 cursor-pointer hidden sm:flex hover:scale-105 active:scale-95 animate-in fade-in duration-200"
+              className="absolute -right-3 sm:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-slate-200/90 shadow-md hover:shadow-lg hidden sm:flex items-center justify-center text-slate-800 hover:text-black transition z-20 cursor-pointer hover:scale-105 active:scale-95 animate-in fade-in duration-200"
             >
               <ArrowRight className="w-4 h-4 stroke-[2.2]" />
             </button>
@@ -741,7 +741,7 @@ export default function HomePage() {
                 )
               }
               aria-label="Scroll refurbished laptops left"
-              className="absolute -left-3 sm:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-slate-200/90 shadow-md hover:shadow-lg flex items-center justify-center text-slate-800 hover:text-black transition z-20 cursor-pointer hidden sm:flex hover:scale-105 active:scale-95 animate-in fade-in duration-200"
+              className="absolute -left-3 sm:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-slate-200/90 shadow-md hover:shadow-lg hidden sm:flex items-center justify-center text-slate-800 hover:text-black transition z-20 cursor-pointer hover:scale-105 active:scale-95 animate-in fade-in duration-200"
             >
               <ArrowLeft className="w-4 h-4 stroke-[2.2]" />
             </button>
@@ -787,11 +787,11 @@ export default function HomePage() {
                 <Link
                   key={laptop.id || laptop.slug}
                   href={`/buy/${laptop.slug}`}
-                  className="flex flex-col justify-between w-[215px] sm:w-[235px] md:w-[245px] lg:w-[250px] shrink-0 bg-white rounded-xl border border-slate-200 p-3.5 sm:p-4 hover:shadow-md hover:border-slate-300 transition duration-200 cursor-pointer group select-none relative"
+                  className="flex flex-col justify-between w-53.75 sm:w-58.75 md:w-61.25 lg:w-62.5 shrink-0 bg-white rounded-xl border border-slate-200 p-3.5 sm:p-4 hover:shadow-md hover:border-slate-300 transition duration-200 cursor-pointer group select-none relative"
                 >
                   <div>
                     {/* Top Row: Assured Badge & Urgency Badge */}
-                    <div className="flex items-center justify-between min-h-[22px] mb-2">
+                    <div className="flex items-center justify-between min-h-5.5 mb-2">
                       <div className="flex items-center gap-1.5">
                         <div className="w-5 h-5 rounded-full border-[1.5px] border-[#009B77] flex items-center justify-center bg-white text-[#009B77] shrink-0">
                           <svg
@@ -839,7 +839,7 @@ export default function HomePage() {
 
                     {/* Product Title */}
                     <h3
-                      className="font-bold text-xs sm:text-[13px] text-slate-900 leading-snug line-clamp-2 min-h-[36px] mt-1.5 group-hover:text-[#009B77] transition"
+                      className="font-bold text-xs sm:text-[13px] text-slate-900 leading-snug line-clamp-2 min-h-9 mt-1.5 group-hover:text-[#009B77] transition"
                       title={laptop.name}
                     >
                       {laptop.name}
@@ -888,7 +888,7 @@ export default function HomePage() {
                 )
               }
               aria-label="Scroll refurbished laptops right"
-              className="absolute -right-3 sm:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-slate-200/90 shadow-md hover:shadow-lg flex items-center justify-center text-slate-800 hover:text-black transition z-20 cursor-pointer hidden sm:flex hover:scale-105 active:scale-95 animate-in fade-in duration-200"
+              className="absolute -right-3 sm:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-slate-200/90 shadow-md hover:shadow-lg hidden sm:flex items-center justify-center text-slate-800 hover:text-black transition z-20 cursor-pointer hover:scale-105 active:scale-95 animate-in fade-in duration-200"
             >
               <ArrowRight className="w-4 h-4 stroke-[2.2]" />
             </button>
@@ -910,7 +910,7 @@ export default function HomePage() {
 
       {/* 7. CASHIFY GREEN MIDDLE PROMO BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 rounded-3xl p-6 sm:p-10 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+        <div className="bg-linear-to-r from-emerald-600 via-teal-600 to-emerald-700 rounded-3xl p-6 sm:p-10 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
           <div className="space-y-3 max-w-xl z-10 text-center md:text-left">
             <span className="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-wider inline-block">
               Free 2-Hour Express Pickup
@@ -1123,7 +1123,7 @@ export default function HomePage() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="p-5 rounded-3xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/80 space-y-2">
+          <div className="p-5 rounded-3xl bg-linear-to-br from-amber-50 to-orange-50 border border-amber-200/80 space-y-2">
             <span className="px-2 py-0.5 rounded-md bg-amber-200 text-amber-900 text-[10px] font-extrabold uppercase">
               Exchange Bonus
             </span>
@@ -1136,7 +1136,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="p-5 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/80 space-y-2">
+          <div className="p-5 rounded-3xl bg-linear-to-br from-blue-50 to-indigo-50 border border-blue-200/80 space-y-2">
             <span className="px-2 py-0.5 rounded-md bg-blue-200 text-blue-900 text-[10px] font-extrabold uppercase">
               Student Special
             </span>
@@ -1149,7 +1149,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="p-5 rounded-3xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200/80 space-y-2">
+          <div className="p-5 rounded-3xl bg-linear-to-br from-emerald-50 to-teal-50 border border-emerald-200/80 space-y-2">
             <span className="px-2 py-0.5 rounded-md bg-emerald-200 text-emerald-900 text-[10px] font-extrabold uppercase">
               App Only Deal
             </span>
@@ -1162,7 +1162,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="p-5 rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200/80 space-y-2">
+          <div className="p-5 rounded-3xl bg-linear-to-br from-purple-50 to-pink-50 border border-purple-200/80 space-y-2">
             <span className="px-2 py-0.5 rounded-md bg-purple-200 text-purple-900 text-[10px] font-extrabold uppercase">
               B2B Enterprise
             </span>
@@ -1274,7 +1274,7 @@ export default function HomePage() {
         id="download-app"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+        <div className="bg-linear-to-r from-emerald-600 via-teal-600 to-emerald-700 rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
           <div className="space-y-4 max-w-lg z-10 text-center md:text-left">
             <span className="px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-wider inline-block">
               Sellbar Mobile App

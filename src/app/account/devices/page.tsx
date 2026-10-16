@@ -243,7 +243,7 @@ export default function MyDevicesPage() {
                 </div>
 
                 <div className="flex items-center justify-between gap-3 pt-1">
-                  <span className="text-[11px] text-slate-400 font-mono truncate max-w-[200px]">
+                  <span className="text-[11px] text-slate-400 font-mono truncate max-w-50">
                     SHA: {record.sha256Hash.substring(0, 16)}...
                   </span>
 

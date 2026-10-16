@@ -366,7 +366,7 @@ export default function FAQPage() {
         </div>
 
         {/* Comprehensive Help & Support Desk Banner */}
-        <div className="p-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white rounded-3xl shadow-xl border border-slate-800 space-y-6">
+        <div className="p-8 bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-white rounded-3xl shadow-xl border border-slate-800 space-y-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="space-y-1.5 max-w-lg">
               <div className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-400">

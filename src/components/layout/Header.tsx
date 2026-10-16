@@ -180,11 +180,11 @@ export default function Header() {
           {/* Logo & Location Pill */}
           <div className="flex items-center gap-3 sm:gap-4 shrink-0">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-blue-600 via-teal-500 to-emerald-500 flex items-center justify-center text-white font-black text-xl shadow-md shadow-blue-600/20 group-hover:scale-105 transition-transform duration-200">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-linear-to-tr from-blue-600 via-teal-500 to-emerald-500 flex items-center justify-center text-white font-black text-xl shadow-md shadow-blue-600/20 group-hover:scale-105 transition-transform duration-200">
                 S
               </div>
               <span className="font-black text-xl sm:text-2xl tracking-tight text-slate-950 flex items-center leading-tight">
-                <span className="text-blue-600">SEL</span>
+                <span className="text-blue-600">SELL</span>
                 <span className="text-emerald-600">BAR</span>
               </span>
             </Link>
@@ -202,7 +202,7 @@ export default function Header() {
               >
                 <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                 <MapPin className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span className="max-w-[115px] truncate">{selectedCity.split(',')[0]}</span>
+                <span className="max-w-28.75 truncate">{selectedCity.split(',')[0]}</span>
                 <ChevronDown className={`w-3 h-3 text-slate-400 transition-transform duration-200 ${showCityPicker ? 'rotate-180 text-emerald-600' : ''}`} />
               </button>
 
@@ -360,7 +360,7 @@ export default function Header() {
                     <div className="w-6 h-6 rounded-full bg-emerald-600 text-white text-[10px] font-black flex items-center justify-center">
                       {(user?.name?.[0] || user?.phone?.[0] || 'U').toUpperCase()}
                     </div>
-                    <span className="max-w-[80px] truncate hidden sm:inline">{user?.name || user?.phone}</span>
+                    <span className="max-w-20 truncate hidden sm:inline">{user?.name || user?.phone}</span>
                     <ChevronDown className="w-3 h-3 text-slate-400" />
                   </button>
 
@@ -440,7 +440,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-700 transition"
+              className="lg:hidden min-h-11 min-w-11 flex items-center justify-center p-2 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-700 transition"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -501,7 +501,7 @@ export default function Header() {
               {activeMegaMenu === 'all' && (
                 <div className="absolute top-full left-0 mt-0.5 bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 z-50 flex animate-in fade-in-0 zoom-in-95 duration-150">
                   {/* Left Column (Width ~ 195px) */}
-                  <div className={`w-[195px] p-3 space-y-0.5 text-xs ${allSubMenu ? 'border-r border-slate-100' : ''}`}>
+                  <div className={`w-48.75 p-3 space-y-0.5 text-xs ${allSubMenu ? 'border-r border-slate-100' : ''}`}>
                     <div className="font-bold text-slate-900 px-3 pt-1 pb-1.5 text-[13px]">
                       Sell
                     </div>
@@ -555,7 +555,7 @@ export default function Header() {
 
                   {/* Right Column (Width ~ 230px) - ONLY rendered when an item is hovered */}
                   {allSubMenu && (
-                    <div className="w-[230px] p-4 text-xs animate-in fade-in-0 duration-100">
+                    <div className="w-57.5 p-4 text-xs animate-in fade-in-0 duration-100">
                       <div className="text-[11px] text-slate-400 font-medium mb-2">
                         More in {allSubMenu === 'phone' ? 'Sell Phone' : allSubMenu === 'laptop' ? 'Sell Laptop' : allSubMenu === 'smartwatch' ? 'Sell Smartwatch' : allSubMenu === 'tablet' ? 'Sell Tablet' : allSubMenu === 'more' ? 'More Devices' : allSubMenu === 'repair' ? 'Repair' : allSubMenu === 'sellGadgets' ? 'Sell Gadgets' : allSubMenu === 'buyGadgets' ? 'Buy Gadgets' : allSubMenu === 'recycle' ? 'Recycle' : allSubMenu === 'findNewPhone' ? 'New Phone' : 'Sellbar Store'}
                       </div>
@@ -733,7 +733,7 @@ export default function Header() {
               </Link>
 
               {activeMegaMenu === 'sellPhone' && (
-                <div className="absolute top-full left-0 mt-0.5 w-[220px] bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 p-4 z-50 animate-in fade-in-0 zoom-in-95 duration-150 text-xs">
+                <div className="absolute top-full left-0 mt-0.5 w-55 bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 p-4 z-50 animate-in fade-in-0 zoom-in-95 duration-150 text-xs">
                   <div className="font-bold text-[13px] text-slate-900 mb-2">Top Brands</div>
                   {['Apple', 'Xiaomi', 'Samsung', 'Oneplus', 'Nokia', 'Poco', 'More Phone Brands'].map((b) => (
                     <Link
@@ -784,7 +784,7 @@ export default function Header() {
               {activeMegaMenu === 'sellGadgets' && (
                 <div className="absolute top-full left-0 mt-0.5 bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 z-50 flex animate-in fade-in-0 zoom-in-95 duration-150">
                   {/* Left Column (Exact match Screenshot 3) */}
-                  <div className={`w-[195px] p-3 space-y-0.5 text-xs ${gadgetsSubMenu ? 'border-r border-slate-100' : ''}`}>
+                  <div className={`w-48.75 p-3 space-y-0.5 text-xs ${gadgetsSubMenu ? 'border-r border-slate-100' : ''}`}>
                     {[
                       { id: 'phone', label: 'Phone', href: '/sell?category=phone' },
                       { id: 'laptop', label: 'Laptop', href: '/sell?category=laptop' },
@@ -818,7 +818,7 @@ export default function Header() {
 
                   {/* Right Column - ONLY rendered when an item with submenu is hovered */}
                   {gadgetsSubMenu && (
-                    <div className="w-[230px] p-4 text-xs animate-in fade-in-0 duration-100">
+                    <div className="w-57.5 p-4 text-xs animate-in fade-in-0 duration-100">
                       <div className="text-[11px] text-slate-400 font-medium mb-2">
                         More in {gadgetsSubMenu === 'phone' ? 'Phone' : gadgetsSubMenu.charAt(0).toUpperCase() + gadgetsSubMenu.slice(1)}
                       </div>
@@ -957,7 +957,7 @@ export default function Header() {
               </Link>
 
               {activeMegaMenu === 'buyRefurb' && (
-                <div className="absolute top-full left-0 mt-0.5 w-[230px] bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 p-4 z-50 animate-in fade-in-0 zoom-in-95 duration-150 text-xs">
+                <div className="absolute top-full left-0 mt-0.5 w-57.5 bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 p-4 z-50 animate-in fade-in-0 zoom-in-95 duration-150 text-xs">
                   {[
                     { label: 'Refurbished Phones', href: '/buy?category=old-phone' },
                     { label: 'Refurbished Laptops', href: '/buy?category=old-laptop' },
@@ -1016,7 +1016,7 @@ export default function Header() {
               {activeMegaMenu === 'findNew' && (
                 <div className="absolute top-full left-0 mt-0.5 bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 z-50 flex animate-in fade-in-0 zoom-in-95 duration-150">
                   {/* Left Column (Exact match Screenshot 5) */}
-                  <div className={`w-[195px] p-3 space-y-0.5 text-xs ${findNewSubMenu ? 'border-r border-slate-100' : ''}`}>
+                  <div className={`w-48.75 p-3 space-y-0.5 text-xs ${findNewSubMenu ? 'border-r border-slate-100' : ''}`}>
                     {[
                       { id: 'phone', label: 'Find New Phone', href: '/buy?category=new-phone' },
                       { id: 'laptop', label: 'Find New Laptop', href: '/buy?category=new-laptop' },
@@ -1057,7 +1057,7 @@ export default function Header() {
 
                   {/* Right Column - ONLY rendered when an item is hovered */}
                   {findNewSubMenu && (
-                    <div className="w-[230px] p-4 text-xs animate-in fade-in-0 duration-100">
+                    <div className="w-57.5 p-4 text-xs animate-in fade-in-0 duration-100">
                       <div className="text-[11px] text-slate-400 font-medium mb-2">
                         More in {findNewSubMenu === 'phone' ? 'Find New Phone' : findNewSubMenu === 'laptop' ? 'Find New Laptop' : findNewSubMenu === 'smartwatch' ? 'Find New Smartwatch' : 'Find New Tablet'}
                       </div>
@@ -1154,7 +1154,7 @@ export default function Header() {
               </Link>
 
               {activeMegaMenu === 'buyLaptop' && (
-                <div className="absolute top-full left-0 mt-0.5 w-[230px] bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 p-4 z-50 animate-in fade-in-0 zoom-in-95 duration-150 text-xs">
+                <div className="absolute top-full left-0 mt-0.5 w-57.5 bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 p-4 z-50 animate-in fade-in-0 zoom-in-95 duration-150 text-xs">
                   <div className="font-bold text-[13px] text-slate-900 mb-2">Refurbished Laptops</div>
                   {[
                     { label: 'MacBook Air & Pro', href: '/buy?category=old-laptop&brand=Apple' },
@@ -1209,7 +1209,7 @@ export default function Header() {
               </Link>
 
               {activeMegaMenu === 'store' && (
-                <div className="absolute top-full left-0 mt-0.5 w-[250px] bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 p-4 z-50 animate-in fade-in-0 zoom-in-95 duration-150 text-xs">
+                <div className="absolute top-full left-0 mt-0.5 w-62.5 bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 p-4 z-50 animate-in fade-in-0 zoom-in-95 duration-150 text-xs">
                   <div className="font-bold text-[13px] text-slate-900 mb-2">West Champaran Stores</div>
                   {[
                     { name: 'Bettiah Flagship Store', desc: 'Supriya Cinema Road', href: '/stores' },
@@ -1263,7 +1263,7 @@ export default function Header() {
               </button>
 
               {activeMegaMenu === 'more' && (
-                <div className="absolute top-full right-0 mt-0.5 w-[230px] bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 p-4 z-50 animate-in fade-in-0 zoom-in-95 duration-150 text-xs">
+                <div className="absolute top-full right-0 mt-0.5 w-57.5 bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-slate-100 p-4 z-50 animate-in fade-in-0 zoom-in-95 duration-150 text-xs">
                   <div className="font-bold text-[13px] text-slate-900 mb-2">Services & Programs</div>
                   {[
                     { label: 'Mobile & Laptop Repair', href: '/repair' },
@@ -1303,7 +1303,7 @@ export default function Header() {
       </header>
 
       {/* Spacer to guarantee public page content is never hidden under the fixed navbar */}
-      <div className="h-[110px] md:h-[72px] lg:h-[114px] shrink-0" aria-hidden="true" />
+      <div className="h-27.5 md:h-18 lg:h-28.5 shrink-0" aria-hidden="true" />
 
       {/* MOBILE SLIDE-OVER DRAWER MENU */}
       {mobileMenuOpen && (
@@ -1320,11 +1320,11 @@ export default function Header() {
               {/* Drawer Top Header */}
               <div className="flex items-center justify-between border-b border-slate-100 pb-3">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-2xl bg-gradient-to-tr from-blue-600 via-teal-500 to-emerald-500 flex items-center justify-center text-white font-black text-base shadow-xs">
+                  <div className="w-8 h-8 rounded-2xl bg-linear-to-tr from-blue-600 via-teal-500 to-emerald-500 flex items-center justify-center text-white font-black text-base shadow-xs">
                     S
                   </div>
                   <span className="font-black text-lg tracking-tight text-slate-950">
-                    <span className="text-blue-600">SEL</span><span className="text-emerald-600">BAR</span>
+                    <span className="text-blue-600">SELL</span><span className="text-emerald-600">BAR</span>
                   </span>
                 </div>
                 <button
@@ -1368,7 +1368,7 @@ export default function Header() {
                 <Link
                   href="/sell"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-3.5 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 text-emerald-950 text-xs font-bold flex flex-col items-center gap-1 shadow-2xs hover:scale-101 transition-transform"
+                  className="p-3.5 rounded-2xl bg-linear-to-br from-emerald-50 to-teal-50 border border-emerald-200 text-emerald-950 text-xs font-bold flex flex-col items-center gap-1 shadow-2xs hover:scale-101 transition-transform"
                 >
                   <Smartphone className="w-5 h-5 text-emerald-600" />
                   <span>Sell Old Devices</span>
@@ -1378,7 +1378,7 @@ export default function Header() {
                 <Link
                   href="/buy"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-3.5 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 text-blue-950 text-xs font-bold flex flex-col items-center gap-1 shadow-2xs hover:scale-101 transition-transform"
+                  className="p-3.5 rounded-2xl bg-linear-to-br from-blue-50 to-indigo-50 border border-blue-200 text-blue-950 text-xs font-bold flex flex-col items-center gap-1 shadow-2xs hover:scale-101 transition-transform"
                 >
                   <ShoppingBag className="w-5 h-5 text-blue-600" />
                   <span>Buy Devices</span>
@@ -1448,7 +1448,7 @@ export default function Header() {
                 <Link
                   href="/repair"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
+                  className="min-h-11 flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
                 >
                   <Wrench className="w-4 h-4 text-emerald-600" />
                   <span>Certified Mobile Repair</span>
@@ -1456,7 +1456,7 @@ export default function Header() {
                 <Link
                   href="/recycle"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
+                  className="min-h-11 flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
                 >
                   <Recycle className="w-4 h-4 text-teal-600" />
                   <span>Responsible E-Waste Recycling</span>
@@ -1464,7 +1464,7 @@ export default function Header() {
                 <Link
                   href="/partner"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
+                  className="min-h-11 flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
                 >
                   <Handshake className="w-4 h-4 text-amber-500" />
                   <span>Partner With Us (Franchise & Retail)</span>
@@ -1472,7 +1472,7 @@ export default function Header() {
                 <Link
                   href="/seller"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
+                  className="min-h-11 flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
                 >
                   <Building className="w-4 h-4 text-indigo-600" />
                   <span>Seller Central Portal</span>
@@ -1480,7 +1480,7 @@ export default function Header() {
                 <Link
                   href="/faq"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="min-h-[44px] flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
+                  className="min-h-11 flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50"
                 >
                   <HelpCircle className="w-4 h-4 text-slate-500" />
                   <span>Help & FAQs</span>
@@ -1494,7 +1494,7 @@ export default function Header() {
                 <Link
                   href="/account"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="min-h-[44px] w-full py-2.5 px-4 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-between"
+                  className="min-h-11 w-full py-2.5 px-4 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-between"
                 >
                   <span>My Account & Orders</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1506,7 +1506,7 @@ export default function Header() {
                     setMobileMenuOpen(false);
                     setIsAuthModalOpen(true);
                   }}
-                  className="min-h-[44px] w-full py-2.5 px-4 rounded-xl bg-emerald-600 text-white text-xs font-bold text-center shadow-md shadow-emerald-600/20 flex items-center justify-center"
+                  className="min-h-11 w-full py-2.5 px-4 rounded-xl bg-emerald-600 text-white text-xs font-bold text-center shadow-md shadow-emerald-600/20 flex items-center justify-center"
                 >
                   Login / Create Account
                 </button>
@@ -1522,7 +1522,7 @@ export default function Header() {
           <div className="grid grid-cols-5 gap-1 text-center">
             <Link
               href="/"
-              className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
+              className={`min-h-11 flex flex-col items-center justify-center py-1 rounded-xl transition ${
                 pathname === '/' ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
               }`}
             >
@@ -1532,7 +1532,7 @@ export default function Header() {
 
             <Link
               href="/sell"
-              className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
+              className={`min-h-11 flex flex-col items-center justify-center py-1 rounded-xl transition ${
                 pathname.startsWith('/sell') ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
               }`}
             >
@@ -1542,7 +1542,7 @@ export default function Header() {
 
             <Link
               href="/buy"
-              className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
+              className={`min-h-11 flex flex-col items-center justify-center py-1 rounded-xl transition ${
                 pathname.startsWith('/buy') ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
               }`}
             >
@@ -1552,7 +1552,7 @@ export default function Header() {
 
             <Link
               href="/repair"
-              className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl transition ${
+              className={`min-h-11 flex flex-col items-center justify-center py-1 rounded-xl transition ${
                 pathname === '/repair' ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
               }`}
             >
@@ -1562,7 +1562,7 @@ export default function Header() {
 
             <Link
               href="/cart"
-              className={`min-h-[44px] flex flex-col items-center justify-center py-1 rounded-xl relative transition ${
+              className={`min-h-11 flex flex-col items-center justify-center py-1 rounded-xl relative transition ${
                 pathname === '/cart' ? 'text-emerald-600 font-extrabold' : 'text-slate-500 hover:text-slate-900 font-medium'
               }`}
             >

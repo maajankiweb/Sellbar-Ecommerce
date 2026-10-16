@@ -264,7 +264,7 @@ export default function CartCheckoutPage() {
       </div>
 
       {/* Dynamic Free Shipping Milestone Progress Bar (Ecommerce 11 feature) */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-teal-50/70 via-[#eef7f6] to-emerald-50/70 border border-[#00a599]/20 shadow-2xs">
+      <div className="p-4 sm:p-5 rounded-2xl bg-linear-to-r from-teal-50/70 via-[#eef7f6] to-emerald-50/70 border border-[#00a599]/20 shadow-2xs">
         <div className="flex items-center justify-between text-xs sm:text-sm font-bold text-slate-900 mb-2">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-xl bg-[#00a599] text-white flex items-center justify-center shrink-0 shadow-xs">
@@ -291,7 +291,7 @@ export default function CartCheckoutPage() {
         {/* Progress Track */}
         <div className="w-full bg-white/80 rounded-full h-2.5 overflow-hidden border border-[#00a599]/20 shadow-inner">
           <div
-            className="bg-gradient-to-r from-[#00a599] to-emerald-500 h-full rounded-full transition-all duration-500 ease-out"
+            className="bg-linear-to-r from-[#00a599] to-emerald-500 h-full rounded-full transition-all duration-500 ease-out"
             style={{ width: `${freeShippingProgress}%` }}
           />
         </div>
@@ -376,7 +376,7 @@ export default function CartCheckoutPage() {
           </div>
 
           {/* Protection Plan Add-On Card (Phase 3) */}
-          <div className="bg-gradient-to-r from-emerald-900 to-slate-900 rounded-3xl p-6 text-white shadow-md relative overflow-hidden">
+          <div className="bg-linear-to-r from-emerald-900 to-slate-900 rounded-3xl p-6 text-white shadow-md relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl" />
             <div className="flex items-start justify-between gap-4 relative z-10">
               <div className="space-y-1.5 max-w-md">
@@ -406,7 +406,7 @@ export default function CartCheckoutPage() {
               >
                 {warrantyProtection ? (
                   <>
-                    <Check className="w-3.5 h-3.5 stroke-[3]" />
+                    <Check className="w-3.5 h-3.5 stroke-3" />
                     <span>Added</span>
                   </>
                 ) : (
@@ -801,7 +801,7 @@ export default function CartCheckoutPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full min-h-[48px] py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-sm shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 transition disabled:opacity-50 cursor-pointer active:scale-98"
+              className="w-full min-h-12 py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-sm shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 transition disabled:opacity-50 cursor-pointer active:scale-98"
             >
               <span>
                 {isSubmitting
@@ -824,7 +824,7 @@ export default function CartCheckoutPage() {
           type="button"
           onClick={handleCheckoutSubmit}
           disabled={isSubmitting}
-          className="min-h-[44px] px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-extrabold text-xs shadow-md shadow-emerald-600/25 flex items-center gap-1.5 active:scale-95 cursor-pointer disabled:opacity-50"
+          className="min-h-11 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-extrabold text-xs shadow-md shadow-emerald-600/25 flex items-center gap-1.5 active:scale-95 cursor-pointer disabled:opacity-50"
         >
           <span>{isSubmitting ? 'Processing...' : 'Pay Now'}</span>
           <ArrowRight className="w-3.5 h-3.5" />

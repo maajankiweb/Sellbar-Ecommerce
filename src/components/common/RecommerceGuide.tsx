@@ -292,7 +292,7 @@ export function RecommerceGuide({ className = '' }: RecommerceGuideProps) {
         </div>
 
         {/* Data Privacy & Brand Flexibility Banner */}
-        <div className="mt-8 bg-gradient-to-r from-teal-50 via-emerald-50 to-blue-50 border border-teal-200/70 rounded-2xl p-6 sm:p-8 space-y-4">
+        <div className="mt-8 bg-linear-to-r from-teal-50 via-emerald-50 to-blue-50 border border-teal-200/70 rounded-2xl p-6 sm:p-8 space-y-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-white shadow-xs border border-teal-200 flex items-center justify-center text-teal-600 shrink-0">
               <Lock className="w-6 h-6" />

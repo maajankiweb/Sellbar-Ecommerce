@@ -159,7 +159,7 @@ export function Ecommerce8({ product, onAddToCart, mode = 'full' }: Ecommerce8Pr
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Finish & Gallery Preview */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="relative aspect-square w-full rounded-2xl bg-gradient-to-b from-slate-100/80 via-slate-50 to-slate-100/80 border border-slate-200/80 p-6 flex items-center justify-center overflow-hidden shadow-inner">
+            <div className="relative aspect-square w-full rounded-2xl bg-linear-to-b from-slate-100/80 via-slate-50 to-slate-100/80 border border-slate-200/80 p-6 flex items-center justify-center overflow-hidden shadow-inner">
               <img
                 key={activeFinish.id}
                 src={activeFinish.image}
@@ -288,7 +288,7 @@ export function Ecommerce8({ product, onAddToCart, mode = 'full' }: Ecommerce8Pr
             ================================================================= */}
         <div className="lg:col-span-6 space-y-4">
           {/* Main Object Showcase with Crossfading Transition */}
-          <div className="relative aspect-square w-full rounded-3xl bg-gradient-to-b from-slate-100/80 via-slate-50 to-slate-100/80 border border-slate-200/80 p-8 flex items-center justify-center overflow-hidden shadow-inner">
+          <div className="relative aspect-square w-full rounded-3xl bg-linear-to-b from-slate-100/80 via-slate-50 to-slate-100/80 border border-slate-200/80 p-8 flex items-center justify-center overflow-hidden shadow-inner">
             {/* Live Crossfading Gallery Image */}
             <img
               key={activeFinish.id}
