@@ -19,7 +19,7 @@ import {
   Award,
   Layers
 } from 'lucide-react';
-import { PublicSiteSettings, DEFAULT_SITE_SETTINGS } from '@/lib/settings/siteSettings';
+import { PublicSiteSettings, DEFAULT_SITE_SETTINGS } from '@/lib/settings/types';
 
 export default function HomePage() {
   const [settings, setSettings] = useState<PublicSiteSettings>(DEFAULT_SITE_SETTINGS);

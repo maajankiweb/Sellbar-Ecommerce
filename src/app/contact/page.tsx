@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { getSiteSettings } from '@/lib/settings/siteSettings';
-import { AUTHORIZED_LOCATIONS } from '@/lib/constants/locations';
+import { AUTHORIZED_LOCATIONS, STAGING_SEEDED_LOCATIONS } from '@/lib/location/config';
 import { Mail, Phone, MessageSquare, MapPin, Clock, Send, ArrowRight, ShieldCheck } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -228,7 +228,7 @@ export default async function ContactPage() {
                 Free 24-hour doorstep inspection is currently active across verified locations:
               </p>
               <div className="flex flex-wrap gap-1.5 mb-4">
-                {AUTHORIZED_LOCATIONS.map((loc) => (
+                {(AUTHORIZED_LOCATIONS.length > 0 ? AUTHORIZED_LOCATIONS : STAGING_SEEDED_LOCATIONS).map((loc) => (
                   <span
                     key={loc.id}
                     className="inline-block px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 text-[11px] font-semibold"

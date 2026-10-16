@@ -21,7 +21,7 @@ import {
   ShieldCheck,
   Home
 } from 'lucide-react';
-import { AUTHORIZED_LOCATIONS } from '@/lib/constants/locations';
+import { AUTHORIZED_LOCATIONS, STAGING_SEEDED_LOCATIONS } from '@/lib/location/config';
 
 export default function Header() {
   const pathname = usePathname();
@@ -110,14 +110,17 @@ export default function Header() {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
-  const handleSelectLocation = (loc: typeof AUTHORIZED_LOCATIONS[0]) => {
-    const cityStr = `${loc.name}, Bihar (${loc.pincode})`;
+  const activeLocations = AUTHORIZED_LOCATIONS.length > 0 ? AUTHORIZED_LOCATIONS : STAGING_SEEDED_LOCATIONS;
+
+  const handleSelectLocation = (loc: typeof activeLocations[0]) => {
+    const pin = loc.pincodes[0] || '845438';
+    const cityStr = `${loc.name}, Bihar (${pin})`;
     setSelectedCity(cityStr);
-    setUserPincode(loc.pincode);
+    setUserPincode(pin);
     try {
       localStorage.setItem('sellbar_user_city', cityStr);
-      localStorage.setItem('sellbar_user_pincode', loc.pincode);
-      document.cookie = `sellbar_pincode=${loc.pincode}; path=/; max-age=2592000; SameSite=Lax`;
+      localStorage.setItem('sellbar_user_pincode', pin);
+      document.cookie = `sellbar_pincode=${pin}; path=/; max-age=2592000; SameSite=Lax`;
     } catch {}
     setShowLocationModal(false);
   };
@@ -130,7 +133,7 @@ export default function Header() {
       return;
     }
 
-    const matched = AUTHORIZED_LOCATIONS.find((l) => l.pincode === pin);
+    const matched = activeLocations.find((l) => l.pincodes.includes(pin));
     const cityStr = matched ? `${matched.name}, Bihar (${pin})` : `Pincode ${pin}`;
     setSelectedCity(cityStr);
     setUserPincode(pin);
@@ -427,21 +430,24 @@ export default function Header() {
 
             {/* Quick Hub Badges */}
             <div className="grid grid-cols-2 gap-2">
-              {AUTHORIZED_LOCATIONS.map((loc) => (
-                <button
-                  key={loc.id}
-                  type="button"
-                  onClick={() => handleSelectLocation(loc)}
-                  className={`p-3 rounded-2xl border text-left transition ${
-                    userPincode === loc.pincode
-                      ? 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold'
-                      : 'border-slate-200 hover:border-slate-300 bg-slate-50/50 text-slate-700'
-                  }`}
-                >
-                  <div className="text-xs font-bold">{loc.name}</div>
-                  <div className="text-[10px] text-slate-400">PIN: {loc.pincode}</div>
-                </button>
-              ))}
+              {activeLocations.map((loc) => {
+                const pin = loc.pincodes[0] || '845438';
+                return (
+                  <button
+                    key={loc.id}
+                    type="button"
+                    onClick={() => handleSelectLocation(loc)}
+                    className={`p-3 rounded-2xl border text-left transition ${
+                      userPincode === pin
+                        ? 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold'
+                        : 'border-slate-200 hover:border-slate-300 bg-slate-50/50 text-slate-700'
+                    }`}
+                  >
+                    <div className="text-xs font-bold">{loc.name}</div>
+                    <div className="text-[10px] text-slate-400">PIN: {pin}</div>
+                  </button>
+                );
+              })}
             </div>
 
             {/* Custom Pincode Form */}

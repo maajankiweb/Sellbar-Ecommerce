@@ -12,7 +12,7 @@ import {
   ArrowRight,
   ExternalLink
 } from 'lucide-react';
-import { PublicSiteSettings, DEFAULT_SITE_SETTINGS } from '@/lib/settings/siteSettings';
+import { PublicSiteSettings, DEFAULT_SITE_SETTINGS } from '@/lib/settings/types';
 
 export default function Footer() {
   const pathname = usePathname();
