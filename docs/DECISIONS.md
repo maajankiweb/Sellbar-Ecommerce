@@ -61,3 +61,17 @@ The original TRD specified enterprise-scale infrastructure (separate Express bac
 - **Brand Name:** Strictly **"Sellbar"** (Title Case: capital `S`, double `l`, lowercase `bar`).
 - **Domain:** **`sellbar.in`** (no other domain or sub-brand).
 - **Zero Tolerance Policy:** No occurrences of legacy single-L spelling or variants in public UI, meta tags, JSON-LD, emails, invoices, or customer-facing documentation.
+
+---
+
+## 5. Storefront Redesign & Navigation Decisions (Phase 1 / Spec §3)
+
+| # | Topic | Status | Formal Decision & Implementation Details |
+|---|---|---|---|
+| **SD-01** | **Navigation & Mega-Menu Scope** | **APPROVED** | In MVP, remove the 1,000-line multi-category mega menu (laptop, tv, audio, cameras). Desktop header provides 4 focused links: **Sell Phone** (`/sell`), **Buy Phone** (`/buy`), **How it works** (`/how-it-works`), **Help** (`/faq`), with typeahead search, city/pincode chip, and cart count. |
+| **SD-02** | **Mobile Bottom Navigation** | **APPROVED** | Persistent 5-tab mobile bottom bar (`Home`, `Sell`, `Buy`, `Orders`, `Account`) with safe-area inset padding. Unauthenticated clicks on Orders/Account trigger the auth modal. |
+| **SD-03** | **Zero Fake Data Cleansing** | **APPROVED** | Completely removed fake tickers ("Sold iPhone 13 2m ago"), fake eco-impact counters (kg e-waste, water litres), fabricated video unboxing carousels, and fake accessory ratings. Customer reviews are displayed only when $\ge 3$ verified reviews exist in DB. |
+| **SD-04** | **3-Step Phone Estimator** | **APPROVED** | Valuation widget streamlined strictly to mobile phones (Brand $\rightarrow$ Model $\rightarrow$ Storage). Displays transparent "Up to ₹X" base price with mandatory disclosure: *"Final price depends on device condition inspection"*. Fake festive bonus removed. |
+| **SD-05** | **Coming Soon & Contact Routing** | **APPROVED** | Out-of-scope categories route to `/coming-soon/[category]` with email waitlist capture. Storefront contact centralized at `/contact` displaying support channels, operational hours, and authorized pickup hubs. |
+| **SD-06** | **Floating WhatsApp Help Desk** | **APPROVED** | Sticky WhatsApp floating button positioned above the mobile bottom nav (`bottom-20 lg:bottom-6`), reading `supportPhone` from `SiteSettings` with prefilled inquiry message. |
+
