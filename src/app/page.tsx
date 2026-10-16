@@ -11,10 +11,8 @@ import { FaqSection } from "@/components/common/FaqSection";
 import { RefurbVsNewSlider } from "@/components/home/RefurbVsNewSlider";
 import { AmazonFeatureCards } from "@/components/home/AmazonFeatureCards";
 import { BestSellersAccessories } from "@/components/home/BestSellersAccessories";
-import { LiveActivityTicker } from "@/components/home/LiveActivityTicker";
 import { EcoImpactCounter } from "@/components/home/EcoImpactCounter";
 import { CustomerReviewsCarousel } from "@/components/home/CustomerReviewsCarousel";
-import { ProductUnboxingReviews } from "@/components/home/ProductUnboxingReviews";
 import SellOldVsNewSection from "@/components/home/SellOldVsNewSection";
 import { HeroInstantValuation } from "@/components/home/HeroInstantValuation";
 import {
@@ -129,23 +127,23 @@ export default function HomePage() {
       secondaryText: "Check Phone Price",
       secondaryHref: "/sell",
       bgGradient: "from-emerald-700 via-teal-700 to-emerald-900",
-      tagline: "Best Price Guaranteed • Zero Bargaining",
+      tagline: "Transparent Pricing Engine • Zero Bargaining",
       badgeColor: "bg-emerald-500/30 text-emerald-200 border-emerald-400/30",
       image:
         "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&auto=format&fit=crop&q=80",
     },
     {
       id: 2,
-      badge: "Super Sale • Up to 60% Off",
+      badge: "Super Sale • Certified Refurbished",
       title: "Buy Certified Refurbished Flagships",
       subtitle:
-        "Inspected with 32-Point Quality Checklist • 12-Month SELBAR Warranty • 15-Day Return",
+        "Inspected with 32-Point Quality Checklist • Certified Warranty • 15-Day Replacement",
       ctaText: "Shop Refurbished Phones",
       ctaHref: "/buy?category=old-phone",
       secondaryText: "View All Deals",
       secondaryHref: "/buy",
       bgGradient: "from-teal-800 via-cyan-800 to-slate-900",
-      tagline: "iPhone 14 from ₹39,999 • Galaxy S23 from ₹38,999",
+      tagline: "Quality-Tested Phones with Verified Warranty",
       badgeColor: "bg-amber-400/20 text-amber-200 border-amber-400/30",
       image:
         "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&auto=format&fit=crop&q=80",
@@ -155,7 +153,7 @@ export default function HomePage() {
       badge: "Express Laptop Buyback",
       title: "Sell Old Laptop & MacBooks",
       subtitle:
-        "Highest Resale Valuation in India • Safe NIST 800-88 Data Sanitization • Free Pickup",
+        "Transparent Resale Valuation • Certified Data Sanitization • Free Pickup",
       ctaText: "Sell Old Laptop",
       ctaHref: "/sell?category=laptop",
       secondaryText: "Browse Refurb Laptops",
@@ -227,12 +225,6 @@ export default function HomePage() {
       title: "Buy Laptops",
       image: "/images/services/buy-laptops.svg",
       href: "/buy?category=old-laptop",
-    },
-    {
-      id: "rent-ps5",
-      title: "Rent PS5",
-      image: "/images/services/rent-ps5.svg",
-      href: "/screener",
     },
     {
       id: "buy-cameras",
@@ -927,8 +919,8 @@ export default function HomePage() {
               Get Instant Cash For Your Old Phone
             </h2>
             <p className="text-xs sm:text-sm text-emerald-100 leading-relaxed">
-              No bargaining. No market trips. Enter your phone model, get a
-              guaranteed price quote, and get paid instantly via UPI upon pickup.
+              No bargaining. No market trips. Enter your phone model, get an
+              instant price quote, and get paid directly via UPI upon verified pickup.
             </p>
             <div className="pt-2">
               <Link
@@ -957,7 +949,7 @@ export default function HomePage() {
             Simple 3-Step Process
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-950">
-            How SELBAR Buyback Works
+            How Sellbar Buyback Works
           </h2>
           <p className="text-xs text-slate-500">
             We make selling electronics as effortless as ordering a meal.
@@ -972,7 +964,7 @@ export default function HomePage() {
             <h3 className="font-bold text-base text-slate-950">Check Price</h3>
             <p className="text-xs text-slate-500 leading-relaxed">
               Select your gadget model and answer 4 quick questions about screen
-              and body condition to see your guaranteed quote.
+              and body condition to see your instant quote.
             </p>
           </div>
 
@@ -1191,9 +1183,6 @@ export default function HomePage() {
       {/* 11.8 VERIFIED CUSTOMER REVIEWS CAROUSEL */}
       <CustomerReviewsCarousel />
 
-      {/* 11.9 PRODUCT UNBOXING & HANDS-ON VIDEO REVIEWS (BEFORE FAQ) */}
-      <ProductUnboxingReviews />
-
       {/* 12. FREQUENTLY ASKED QUESTIONS */}
       <FaqSection />
 
@@ -1270,8 +1259,7 @@ export default function HomePage() {
               Privacy & Security • 3 min read
             </div>
             <h3 className="font-bold text-sm text-slate-950 leading-snug">
-              Military-Grade NIST 800-88 Data Wiping: How SELBAR Protects Your
-              Privacy
+              Certified Data Sanitization: How Sellbar Protects Your Privacy
             </h3>
             <p className="text-xs text-slate-500 line-clamp-2">
               Simple factory reset does not delete your photos permanently.
@@ -1289,10 +1277,10 @@ export default function HomePage() {
         <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
           <div className="space-y-4 max-w-lg z-10 text-center md:text-left">
             <span className="px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-wider inline-block">
-              SELBAR Mobile App
+              Sellbar Mobile App
             </span>
             <h2 className="text-2xl sm:text-4xl font-black tracking-tight">
-              Download The SELBAR App
+              Download The Sellbar App
             </h2>
             <p className="text-xs sm:text-sm text-emerald-100 leading-relaxed">
               Book doorstep pickups in 60 seconds, get exclusive flash discounts
@@ -1303,7 +1291,7 @@ export default function HomePage() {
               <div
                 role="button"
                 onClick={() =>
-                  alert("SELBAR Android App is under active development and will be live on Google Play Store soon!")
+                  alert("Sellbar Android App is under active development and will be live on Google Play Store soon!")
                 }
                 className="px-5 py-3 rounded-2xl bg-white text-slate-950 font-bold text-xs shadow-lg flex items-center gap-3 border border-white/60 hover:bg-slate-50 transition cursor-pointer select-none"
               >
@@ -1336,7 +1324,7 @@ export default function HomePage() {
             <div className="w-44 sm:w-52 aspect-square flex items-center justify-center">
               <img
                 src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&auto=format&fit=crop&q=80"
-                alt="SELBAR App on Phone"
+                alt="Sellbar App on Phone"
                 className="h-full object-contain drop-shadow-2xl"
               />
             </div>
@@ -1347,9 +1335,6 @@ export default function HomePage() {
       {/* 15. RECOMMERCE & BUYBACK GUIDE SECTION (BEFORE FOOTER) */}
       <RecommerceGuide />
     </div>
-
-    {/* LIVE RECENT ACTIVITY FLOATING TICKER (Outside flow container to prevent phantom whitespace) */}
-    <LiveActivityTicker />
   </>
   );
 }

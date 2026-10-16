@@ -126,7 +126,7 @@ export function HeroInstantValuation() {
               <CheckCircle2 className="w-4 h-4" /> 72-Hour Price Lock
             </span>
             <span className="inline-flex items-center gap-1 text-teal-400 font-semibold">
-              <ShieldCheck className="w-4 h-4" /> NIST 800-88 Wiped
+              <ShieldCheck className="w-4 h-4" /> Certified Data Wipe
             </span>
           </div>
         </div>
