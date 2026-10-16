@@ -138,7 +138,7 @@ export default function SellbarRefurbishedProductPage({
     );
   }
 
-  // Active Grade Calculation & Pricing Delta (Cashify Style)
+  // Active Grade Calculation & Pricing Delta (Sellbar Style)
   const basePrice = product.price || 7299;
   const gradePriceMap: Record<ConditionGrade, number> = {
     superb: basePrice,
@@ -164,7 +164,7 @@ export default function SellbarRefurbishedProductPage({
     const rawImages: string[] =
       product?.images && product.images.length > 0
         ? product.images
-        : ['https://s3n.cashify.in/estore/f25c0b395ebd4793b54ec0404a8232f3.webp'];
+        : ['https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m32-1.jpg'];
 
     const angleConfigs = [
       {
@@ -231,7 +231,7 @@ export default function SellbarRefurbishedProductPage({
       id: `${product.id}-${selectedGrade}-${selectedStorage}-${includeWarrantyAddon ? 'extw' : 'std'}`,
       productId: product.id,
       title: `${product.name} (${selectedColor}, ${selectedStorage}) - ${selectedGrade.toUpperCase()}`,
-      image: anglePerspectives[0]?.url || 'https://s3n.cashify.in/estore/f25c0b395ebd4793b54ec0404a8232f3.webp',
+      image: anglePerspectives[0]?.url || 'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m32-1.jpg',
       grade: selectedGrade,
       storage: selectedStorage,
       color: selectedColor,
@@ -270,7 +270,7 @@ export default function SellbarRefurbishedProductPage({
         productName={product.name}
       />
 
-      {/* Grade Explained Drawer / Modal (Cashify Grade-exp-PDP) */}
+      {/* Grade Explained Drawer / Modal (Sellbar Grade-exp-PDP) */}
       {isGradeModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
           <div className="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-5 relative max-h-[90vh] overflow-y-auto">
@@ -483,7 +483,7 @@ export default function SellbarRefurbishedProductPage({
       )}
 
       {/* =========================================================================
-          1. CASHIFY BREADCRUMBS BAR
+          1. SELLBAR BREADCRUMBS BAR
           ========================================================================= */}
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 py-2.5 text-[11px] sm:text-xs text-slate-500 flex items-center justify-between">
@@ -530,13 +530,13 @@ export default function SellbarRefurbishedProductPage({
       </div>
 
       {/* =========================================================================
-          2. CORE CASHIFY 2-COLUMN PRODUCT SHOWCASE
+          2. CORE SELLBAR 2-COLUMN PRODUCT SHOWCASE
           ========================================================================= */}
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
           {/* ---------------------------------------------------------------------
-              LEFT COLUMN: PRODUCT STAGE & CASHIFY REASSURANCE STRIP (5 Cols)
+              LEFT COLUMN: PRODUCT STAGE & SELLBAR REASSURANCE STRIP (5 Cols)
               --------------------------------------------------------------------- */}
           <div className="lg:col-span-5 space-y-4 lg:sticky lg:top-4">
             <div className="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-6 shadow-xs relative space-y-3.5">
@@ -580,7 +580,7 @@ export default function SellbarRefurbishedProductPage({
               {/* Main Image Stage */}
               <div className="relative aspect-square rounded-xl bg-[#fafafa] flex items-center justify-center p-4 sm:p-8 overflow-hidden group border border-slate-100">
                 
-                {/* Cashify Condition Grade Badge on Image */}
+                {/* Sellbar Condition Grade Badge on Image */}
                 <div className="absolute top-3 left-3 bg-[#42c8b7] text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1 uppercase tracking-wider z-10">
                   <Sparkles className="w-3 h-3" />
                   <span>Grade: {selectedGrade}</span>
@@ -645,7 +645,7 @@ export default function SellbarRefurbishedProductPage({
                   <ChevronRight className="w-4 h-4" />
                 </button>
 
-                {/* Cashify Quality Inspection Stamp */}
+                {/* Sellbar Quality Inspection Stamp */}
                 <button
                   type="button"
                   onClick={() => setIsQcModalOpen(true)}
@@ -701,7 +701,7 @@ export default function SellbarRefurbishedProductPage({
                 </div>
               </div>
 
-              {/* CASHIFY'S ICONIC 4-PILLAR BENEFIT STRIP (Under Product Image) */}
+              {/* SELLBAR'S ICONIC 4-PILLAR BENEFIT STRIP (Under Product Image) */}
               <div className="grid grid-cols-4 gap-2 pt-3 border-t border-slate-100 text-center">
                 <div className="flex flex-col items-center gap-1 p-1">
                   <div className="w-9 h-9 rounded-full bg-[#eefcf9] flex items-center justify-center text-[#42c8b7]">
@@ -737,7 +737,7 @@ export default function SellbarRefurbishedProductPage({
               </div>
             </div>
 
-            {/* CASHIFY ICONIC CTA BUTTONS (DESKTOP) */}
+            {/* SELLBAR ICONIC CTA BUTTONS (DESKTOP) */}
             <div className="hidden sm:grid grid-cols-2 gap-3 pt-1">
               <button
                 type="button"
@@ -760,11 +760,11 @@ export default function SellbarRefurbishedProductPage({
           </div>
 
           {/* ---------------------------------------------------------------------
-              RIGHT COLUMN: CASHIFY PRODUCT CONFIGURATOR & PRICING (7 Cols)
+              RIGHT COLUMN: SELLBAR PRODUCT CONFIGURATOR & PRICING (7 Cols)
               --------------------------------------------------------------------- */}
           <div className="lg:col-span-7 space-y-5">
             
-            {/* Cashify Product Title & Rating */}
+            {/* Sellbar Product Title & Rating */}
             <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs space-y-4">
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
@@ -800,7 +800,7 @@ export default function SellbarRefurbishedProductPage({
                 </div>
               </div>
 
-              {/* Price Header (Cashify Exact Design) */}
+              {/* Price Header (Sellbar Exact Design) */}
               <div className="pt-2 border-t border-slate-100 space-y-1">
                 <div className="flex items-baseline gap-3 flex-wrap">
                   <span className="text-3xl sm:text-4xl font-black text-slate-900">
@@ -833,7 +833,7 @@ export default function SellbarRefurbishedProductPage({
                 </div>
               </div>
 
-              {/* Cashify Sale Banner / Promo Callout */}
+              {/* Sellbar Sale Banner / Promo Callout */}
               <div className="p-3 rounded-xl bg-linear-to-r from-[#eefcf9] to-[#e6f9f6] border border-[#42c8b7]/30 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2 font-bold text-slate-800">
                   <Tag className="w-4 h-4 text-[#42c8b7] shrink-0" />
@@ -847,7 +847,7 @@ export default function SellbarRefurbishedProductPage({
               </div>
             </div>
 
-            {/* CASHIFY CONDITION GRADE SELECTOR (Core Differentiator) */}
+            {/* SELLBAR CONDITION GRADE SELECTOR (Core Differentiator) */}
             <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-black text-slate-900 uppercase tracking-wider">
@@ -915,7 +915,7 @@ export default function SellbarRefurbishedProductPage({
               </div>
             </div>
 
-            {/* CASHIFY STORAGE & RAM PILLS */}
+            {/* SELLBAR STORAGE & RAM PILLS */}
             <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs space-y-4">
               <div className="space-y-2">
                 <span className="text-xs font-black text-slate-900 uppercase tracking-wider block">
@@ -942,7 +942,7 @@ export default function SellbarRefurbishedProductPage({
                 </div>
               </div>
 
-              {/* CASHIFY COLOR SELECTION */}
+              {/* SELLBAR COLOR SELECTION */}
               <div className="space-y-2 pt-2 border-t border-slate-100">
                 <span className="text-xs font-black text-slate-900 uppercase tracking-wider block">
                   Color: <span className="font-normal text-slate-600 capitalize">{selectedColor}</span>
@@ -977,7 +977,7 @@ export default function SellbarRefurbishedProductPage({
               </div>
             </div>
 
-            {/* CASHIFY PINCODE DELIVERY CHECKER */}
+            {/* SELLBAR PINCODE DELIVERY CHECKER */}
             <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-black text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
@@ -1019,7 +1019,7 @@ export default function SellbarRefurbishedProductPage({
               )}
             </div>
 
-            {/* CASHIFY EXTENDED WARRANTY & DAMAGE PROTECTION ADD-ON */}
+            {/* SELLBAR EXTENDED WARRANTY & DAMAGE PROTECTION ADD-ON */}
             <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs space-y-3">
               <div className="text-xs font-black text-slate-900 uppercase tracking-wider flex items-center justify-between">
                 <span>Value Added Services & Warranty</span>
@@ -1071,7 +1071,7 @@ export default function SellbarRefurbishedProductPage({
               </div>
             </div>
 
-            {/* CASHIFY AVAILABLE PAYMENT METHODS */}
+            {/* SELLBAR AVAILABLE PAYMENT METHODS */}
             <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between text-xs text-slate-600 flex-wrap gap-2">
               <span className="font-bold text-slate-800">Available Payment Methods:</span>
               <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-700">
@@ -1086,7 +1086,7 @@ export default function SellbarRefurbishedProductPage({
       </div>
 
       {/* =========================================================================
-          3. CASHIFY TOP SPECS PILL GRID
+          3. SELLBAR TOP SPECS PILL GRID
           ========================================================================= */}
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2">
         <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs space-y-4">
@@ -1507,7 +1507,7 @@ export default function SellbarRefurbishedProductPage({
       </div>
 
       {/* =========================================================================
-          8. CASHIFY VERIFIED CUSTOMER REVIEWS
+          8. SELLBAR VERIFIED CUSTOMER REVIEWS
           ========================================================================= */}
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4">
         <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-8 shadow-xs space-y-6">
@@ -1620,7 +1620,7 @@ export default function SellbarRefurbishedProductPage({
                   <div>
                     <div className="aspect-square bg-[#fafafa] rounded-xl p-2 flex items-center justify-center overflow-hidden mb-2.5 relative">
                       <img
-                        src={p.images?.[0] || 'https://s3n.cashify.in/estore/f25c0b395ebd4793b54ec0404a8232f3.webp'}
+                        src={p.images?.[0] || 'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m32-1.jpg'}
                         alt={p.name}
                         className="max-h-[85%] max-w-[85%] object-contain group-hover:scale-105 transition-transform duration-300"
                       />
@@ -1658,7 +1658,7 @@ export default function SellbarRefurbishedProductPage({
       </div>
 
       {/* =========================================================================
-          10. CASHIFY MOBILE BOTTOM ACTION BAR (Sticky at Bottom on Mobile)
+          10. SELLBAR MOBILE BOTTOM ACTION BAR (Sticky at Bottom on Mobile)
           ========================================================================= */}
       <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 shadow-2xl p-3 flex items-center gap-2">
         <div className="flex-1 pl-1">

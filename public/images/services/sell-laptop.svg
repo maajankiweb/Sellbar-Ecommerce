@@ -29,7 +29,7 @@
     <rect x="48" y="9" width="28" height="5.5" rx="1" fill="#334155"/>
   </g>
 
-  <!-- Floating Gold Coins (as in Cashify screenshot) -->
+  <!-- Floating Valuation Currency Coins -->
   <!-- Coin 1 (Left top) -->
   <g transform="translate(24, 28)">
     <circle cx="8" cy="8" r="7" fill="#fbbf24" stroke="#d97706" stroke-width="1.2"/>

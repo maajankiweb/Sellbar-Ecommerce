@@ -131,7 +131,7 @@ export default function SellOldVsNewSection() {
           </Link>
         </div>
 
-        {/* 8-Card Grid matching Cashify Design */}
+        {/* 8-Card Responsive Category Grid */}
         <div className="grid grid-cols-4 md:grid-cols-8 gap-2.5 sm:gap-3.5 md:gap-4">
           {OLD_DEVICE_CATEGORIES.map((cat) => (
             <Link
@@ -176,7 +176,7 @@ export default function SellOldVsNewSection() {
           </Link>
         </div>
 
-        {/* 8-Card Grid matching Cashify Design */}
+        {/* 8-Card Responsive Category Grid */}
         <div className="grid grid-cols-4 md:grid-cols-8 gap-2.5 sm:gap-3.5 md:gap-4">
           {NEW_DEVICE_CATEGORIES.map((cat) => (
             <Link
