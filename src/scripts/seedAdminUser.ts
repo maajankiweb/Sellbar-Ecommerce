@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import mongoose from 'mongoose';
 import fs from 'fs';
 import path from 'path';
@@ -23,20 +24,23 @@ try {
   // Ignore
 }
 
-const MONGO_URI =
-  process.env.MONGO_URI ||
-  process.env.MONGODB_URI ||
-  'mongodb+srv://maajankiweb_db_user:2dtSdEb8XcUtschQ@cluster0.ovhbcst.mongodb.net/selbar?retryWrites=true&w=majority&appName=Cluster0';
+const MONGO_URI = process.env.MONGO_URI || process.env.MONGODB_URI;
 
 async function seedAdmin() {
+  if (!MONGO_URI) {
+    console.error('❌ MONGO_URI environment variable is not defined.');
+    console.error('Please set MONGO_URI in .env.local or your runtime environment.');
+    process.exit(1);
+  }
+
   console.log('Connecting to MongoDB Atlas at:', MONGO_URI.replace(/:([^@]+)@/, ':****@'));
   await mongoose.connect(MONGO_URI);
   console.log('Connected to MongoDB Atlas successfully.');
 
-  const adminEmail = 'admin@selbar.in';
-  const adminMobile = '9999999999';
-  const adminUsername = 'admin';
-  const adminPassword = 'Admin@Selbar2026!';
+  const adminEmail = process.env.ADMIN_EMAIL || 'admin@selbar.in';
+  const adminMobile = process.env.ADMIN_MOBILE || '9999999999';
+  const adminUsername = process.env.ADMIN_USERNAME || 'admin';
+  const adminPassword = process.env.ADMIN_PASSWORD || `Admin@${crypto.randomBytes(8).toString('hex')}!`;
 
   const passwordHash = await hashPassword(adminPassword);
 

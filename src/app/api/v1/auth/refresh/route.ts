@@ -41,20 +41,6 @@ export async function POST(req: NextRequest) {
       refreshTokenHash: hashedCurrent,
     });
 
-    if (!existingSession || existingSession.isRevoked) {
-      // Possible reuse attack: revoke all tokens in this family
-      if (existingSession?.familyId) {
-        await Session.updateMany(
-          { familyId: existingSession.familyId },
-          { $set: { isRevoked: true } }
-        );
-      }
-      return NextResponse.json(
-        { success: false, error: 'Session has been revoked or expired. Please sign in again.' },
-        { status: 403 }
-      );
-    }
-
     // Fetch user to confirm status
     const user = await User.findById(payload.userId);
     if (!user || !user.isActive) {
@@ -64,7 +50,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Rotate Refresh Token
     const emailVal = user.email?.value || (typeof user.email === 'string' ? user.email : undefined);
     const usernameVal = user.username?.value || (typeof user.username === 'string' ? user.username : undefined);
 
@@ -77,6 +62,45 @@ export async function POST(req: NextRequest) {
       sellerId: user.sellerId ? user.sellerId.toString() : undefined,
     };
 
+    if (!existingSession || existingSession.isRevoked) {
+      // Check for Multi-Tab Concurrent Refresh Race Condition (OWASP Grace Period)
+      const ROTATION_GRACE_PERIOD_MS = 25000; // 25 seconds grace window for concurrent browser tabs
+      const isWithinGracePeriod =
+        existingSession?.isRevoked &&
+        existingSession.revokedAt &&
+        Date.now() - new Date(existingSession.revokedAt).getTime() < ROTATION_GRACE_PERIOD_MS;
+
+      if (isWithinGracePeriod && existingSession?.familyId) {
+        // Return a fresh access token without invalidating the session family
+        const activeSuccessor = await Session.findOne({
+          familyId: existingSession.familyId,
+          isRevoked: false,
+          expiresAt: { $gt: new Date() },
+        }).sort({ createdAt: -1 });
+
+        if (activeSuccessor) {
+          const freshAccessToken = signAccessToken(tokenPayload);
+          return NextResponse.json({
+            success: true,
+            accessToken: freshAccessToken,
+          });
+        }
+      }
+
+      // Genuine reuse attack or expired family: revoke all tokens in this family
+      if (existingSession?.familyId) {
+        await Session.updateMany(
+          { familyId: existingSession.familyId },
+          { $set: { isRevoked: true } }
+        );
+      }
+      return NextResponse.json(
+        { success: false, error: 'Session has been revoked or expired. Please sign in again.' },
+        { status: 403 }
+      );
+    }
+
+    // Rotate Refresh Token
     const newAccessToken = signAccessToken(tokenPayload);
     const { token: newRefreshToken, expiresInSeconds, expiresAt } = signRefreshToken(tokenPayload, true);
 

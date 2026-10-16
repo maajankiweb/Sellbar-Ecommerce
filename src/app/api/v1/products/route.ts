@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getAllProducts, createProduct } from '@/lib/db/productsStore';
+import { getAllProducts, createProduct, getProductById } from '@/lib/db/productsStore';
 
 export async function GET(request: Request) {
   try {
@@ -11,6 +11,14 @@ export async function GET(request: Request) {
     const featuredParam = searchParams.get('featured');
     const slug = searchParams.get('slug') || undefined;
 
+    if (slug) {
+      const single = await getProductById(slug);
+      if (!single) {
+        return NextResponse.json({ success: false, message: 'Product not found' }, { status: 404 });
+      }
+      return NextResponse.json({ success: true, data: single });
+    }
+
     const featured = featuredParam !== null ? featuredParam === 'true' : undefined;
 
     const products = await getAllProducts({
@@ -20,14 +28,6 @@ export async function GET(request: Request) {
       search,
       featured,
     });
-
-    if (slug) {
-      const single = products.find((p) => p.slug === slug);
-      if (!single) {
-        return NextResponse.json({ success: false, message: 'Product not found' }, { status: 404 });
-      }
-      return NextResponse.json({ success: true, data: single });
-    }
 
     return NextResponse.json({
       success: true,

@@ -14,7 +14,7 @@
 **India's Next-Generation Recommerce & E-Commerce Platform**  
 *Instant Device Valuation • Doorstep Buyback • Certified Refurbished Flagships • Multi-Vendor Marketplace • Mobile Device Diagnostics*
 
-[Live Demo](http://localhost:3000) • [Admin Dashboard](http://localhost:3000/admin) • [Documentation](docs/) • [Architecture](docs/responsive-design-system.md)
+[Live Platform](https://selbar.in) • [Admin Portal](https://selbar.in/admin) • [Local Dev](http://localhost:3000) • [Documentation](docs/) • [Architecture](docs/responsive-design-system.md)
 
 </div>
 
@@ -41,7 +41,7 @@
 **SELBAR** is a high-performance recommerce and multi-vendor marketplace designed to scale to **1M+ registered users** and handle high-traffic spike campaigns. The platform facilitates both **single-vendor direct sales** and **multi-vendor store operations** across the circular electronics lifecycle:
 
 * **Sell Old Electronics**: Instant algorithmic price quote, 32-point doorstep diagnostic inspection, and instant UPI bank payouts.
-* **Certified Refurbished Store**: 12-month comprehensive warranty, 15-day replacement guarantee, and certified data sanitization certificates (NIST 800-88).
+* **Certified Refurbished Store**: 12-month comprehensive warranty, 7-day replacement guarantee, and certified data sanitization certificates (NIST 800-88).
 * **Mobile & Laptop Repairs**: Express 30-minute doorstep repair with OEM certified components.
 * **Multi-Vendor Seller Central**: Store onboarding, GSTIN verification, warehouse inventory tracking, order milestone progression, and commission analytics.
 * **Security Center**: Session device tracking, multi-device revocation, biometric/passkey support, and progressive lockout protection.
@@ -204,8 +204,8 @@ JWT_ACCESS_SECRET=your_384_bit_access_secret
 JWT_REFRESH_SECRET=your_384_bit_refresh_secret
 OTP_HMAC_SECRET=your_384_bit_otp_pepper_secret
 
-# Master Admin In-House API Key
-SELBAR_MASTER_API_KEY=selbar_live_sk_master_6413ad35e13902f58a665a63a3d9d38dac61c19dba79c430
+# Master Admin In-House API Key (Generate via openssl rand -hex 32)
+SELBAR_MASTER_API_KEY=your_generated_master_api_key_here
 ```
 
 ---
@@ -215,7 +215,7 @@ SELBAR_MASTER_API_KEY=selbar_live_sk_master_6413ad35e13902f58a665a63a3d9d38dac61
 ### 1. Clone & Install Dependencies
 ```bash
 git clone https://github.com/maajankiweb/Sellbar-Ecommerce.git
-cd Sellbar-Ecommerce/Website
+cd Sellbar-Ecommerce
 npm install
 ```
 
@@ -247,16 +247,16 @@ npm run start
 
 A **Super Administrator** account is provisioned in the database with full root privileges:
 
-| Parameter | Default Value |
+| Parameter | Configuration |
 | :--- | :--- |
-| **Login Portal** | [http://localhost:3000/login](http://localhost:3000/login) |
-| **Admin Operations Dashboard** | [http://localhost:3000/admin](http://localhost:3000/admin) |
-| **Identifier (Email / Username)** | `admin@selbar.in` or `admin` |
-| **Password** | `Admin@Selbar2026!` |
+| **Login Portal** | [/login](http://localhost:3000/login) (or `https://selbar.in/login`) |
+| **Admin Operations Dashboard** | [/admin](http://localhost:3000/admin) (or `https://selbar.in/admin`) |
+| **Identifier (Email / Username)** | Configured via `ADMIN_EMAIL` / `ADMIN_USERNAME` in `.env.local` (Default: `admin@selbar.in` / `admin`) |
+| **Password** | Configured via `ADMIN_PASSWORD` in `.env.local` (Generated securely by `npm run seed:admin` if omitted) |
 | **Access Tier** | `super_admin` (Full root access across orders, products, and tenants) |
 
 > [!NOTE]  
-> To update or reset the admin password at any time, run:
+> To provision or rotate the super administrator account and print generated credentials, run:
 > ```bash
 > npm run seed:admin
 > ```

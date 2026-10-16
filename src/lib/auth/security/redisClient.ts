@@ -62,7 +62,12 @@ if (REDIS_URL) {
     }
   }
 } else {
-  console.info('ℹ️ REDIS_URL not configured. Operating with local high-performance cache.');
+  if (process.env.NODE_ENV === 'production') {
+    console.error('🚨 [CRITICAL ARCHITECTURE WARNING] REDIS_URL is NOT configured in production environment.');
+    console.error('⚠️ In multi-instance cluster deployments, local memory cache cannot share rate-limits or revoked tokens across pods.');
+  } else {
+    console.info('ℹ️ REDIS_URL not configured. Operating with local high-performance cache.');
+  }
 }
 
 /**

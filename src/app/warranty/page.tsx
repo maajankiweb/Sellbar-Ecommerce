@@ -97,14 +97,14 @@ export default function WarrantyPolicyPage() {
           SELBAR <span className="text-emerald-600">Assured Warranty</span> & Quality Standards
         </h1>
         <p className="text-xs sm:text-base text-slate-600 leading-relaxed">
-          Comprehensive 12-month hardware warranty, 5-day replacement policy, transparent condition grading, and a rigorous 32-point factory diagnostic checklist.
+          Comprehensive 12-month hardware warranty, 7-day replacement policy, transparent condition grading, and a rigorous 32-point factory diagnostic checklist.
         </p>
 
         {/* Tab Navigation */}
         <div className="inline-flex bg-white p-1.5 rounded-2xl border border-slate-200/80 shadow-xs gap-1 max-w-full overflow-x-auto">
           {[
             { id: 'warranty', label: '12-Mo Warranty', icon: ShieldCheck },
-            { id: 'replacement', label: '5-Day Replacement', icon: RotateCcw },
+            { id: 'replacement', label: '7-Day Replacement', icon: RotateCcw },
             { id: 'grades', label: 'What is Refurbished?', icon: Smartphone },
             { id: 'checklist', label: '32-Point Inspection', icon: CheckCircle2 }
           ].map((tab) => {
@@ -233,13 +233,13 @@ export default function WarrantyPolicyPage() {
         </div>
       )}
 
-      {/* TAB 2: 5-DAY REPLACEMENT */}
+      {/* TAB 2: 7-DAY REPLACEMENT */}
       {activeTab === 'replacement' && (
         <div className="space-y-10 animate-in fade-in duration-200">
           <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-md space-y-6">
             <div className="space-y-1">
               <h2 className="text-xl sm:text-2xl font-black text-slate-900">
-                5-Day Hassle-Free Replacement Guarantee
+                7-Day Hassle-Free Replacement Guarantee
               </h2>
               <p className="text-xs text-slate-500">
                 Not satisfied with the cosmetic feel or discovered a functional defect? We will swap it free of charge.
@@ -251,7 +251,7 @@ export default function WarrantyPolicyPage() {
                 <span className="w-8 h-8 rounded-xl bg-amber-500 text-white font-bold text-xs flex items-center justify-center">1</span>
                 <h4 className="text-sm font-bold text-slate-900">Initiate in 1-Click</h4>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  Go to your Account Orders page and tap "Request Replacement" within 5 days of delivery.
+                  Go to your Account Orders page and tap "Request Replacement" within 7 days of delivery.
                 </p>
               </div>
 

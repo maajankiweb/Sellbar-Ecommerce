@@ -37,6 +37,51 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var cleanNode = function(node) {
+                    if (!node || node.nodeType !== 1) return;
+                    if (node.hasAttribute('bis_skin_checked')) node.removeAttribute('bis_skin_checked');
+                    if (node.hasAttribute('bis_register')) node.removeAttribute('bis_register');
+                  };
+                  var cleanTree = function(root) {
+                    if (!root || root.nodeType !== 1) return;
+                    cleanNode(root);
+                    var elements = root.querySelectorAll ? root.querySelectorAll('[bis_skin_checked], [bis_register]') : [];
+                    for (var i = 0; i < elements.length; i++) {
+                      cleanNode(elements[i]);
+                    }
+                  };
+                  var observer = new MutationObserver(function(mutations) {
+                    for (var i = 0; i < mutations.length; i++) {
+                      var m = mutations[i];
+                      if (m.type === 'attributes') {
+                        if (m.attributeName === 'bis_skin_checked' || m.attributeName === 'bis_register') {
+                          m.target.removeAttribute(m.attributeName);
+                        }
+                      } else if (m.type === 'childList') {
+                        for (var j = 0; j < m.addedNodes.length; j++) {
+                          cleanTree(m.addedNodes[j]);
+                        }
+                      }
+                    }
+                  });
+                  observer.observe(document.documentElement, {
+                    attributes: true,
+                    subtree: true,
+                    childList: true,
+                    attributeFilter: ['bis_skin_checked', 'bis_register']
+                  });
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         suppressHydrationWarning
         className={`${inter.className} min-h-full flex flex-col bg-slate-50 text-slate-900 selection:bg-emerald-500 selection:text-white`}

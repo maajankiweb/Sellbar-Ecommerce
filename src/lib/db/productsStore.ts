@@ -103,11 +103,15 @@ export async function getAllProducts(filters?: {
 
       const mongoProducts = await Product.find(query).sort({ createdAt: -1 }).lean();
       if (mongoProducts && mongoProducts.length > 0) {
-        return mongoProducts.map((doc: any) => ({
+        const mongoList = mongoProducts.map((doc: any) => ({
           ...doc,
           _id: doc._id?.toString(),
           id: doc.id || doc._id?.toString(),
         }));
+        // Merge missing memory products so mock/seed products are always accessible
+        const existingSlugs = new Set(mongoList.map((p: any) => p.slug?.toLowerCase()));
+        const missingFromDb = memoryProducts.filter((p) => !existingSlugs.has(p.slug?.toLowerCase()));
+        return [...mongoList, ...missingFromDb];
       }
     }
   } catch (err) {
@@ -147,11 +151,17 @@ export async function getAllProducts(filters?: {
 }
 
 export async function getProductById(idOrSlug: string): Promise<any | null> {
+  const normalized = idOrSlug.toLowerCase().trim();
   try {
     const db = await connectToDatabase();
     if (db && Product) {
       const doc = await Product.findOne({
-        $or: [{ id: idOrSlug }, { slug: idOrSlug }, { _id: idOrSlug.match(/^[0-9a-fA-F]{24}$/) ? idOrSlug : undefined }],
+        $or: [
+          { id: idOrSlug },
+          { slug: idOrSlug },
+          { slug: normalized },
+          { _id: idOrSlug.match(/^[0-9a-fA-F]{24}$/) ? idOrSlug : undefined },
+        ],
         isActive: true,
       }).lean();
       if (doc) {
@@ -166,7 +176,17 @@ export async function getProductById(idOrSlug: string): Promise<any | null> {
     // fallback
   }
 
-  return memoryProducts.find((p) => p.id === idOrSlug || p.slug === idOrSlug) || null;
+  const memoryMatch = memoryProducts.find(
+    (p) => p.id === idOrSlug || p.slug === idOrSlug || p.slug?.toLowerCase() === normalized
+  );
+  if (memoryMatch) return memoryMatch;
+
+  const rawMatch = REFURB_PRODUCTS.find(
+    (p) => p.id === idOrSlug || p.slug === idOrSlug || p.slug?.toLowerCase() === normalized
+  );
+  if (rawMatch) return normalizeInitialProduct(rawMatch);
+
+  return null;
 }
 
 export async function createProduct(productData: any): Promise<any> {

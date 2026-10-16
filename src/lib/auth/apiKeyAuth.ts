@@ -26,30 +26,14 @@ export interface SelbarApiKey {
   isActive: boolean;
 }
 
-// Seeded keys loaded strictly from secure environment variables (no hardcoded keys in source)
-const DEFAULT_PRESET_KEYS: SelbarApiKey[] = process.env.MASTER_API_KEY
-  ? [
-      {
-        id: 'key_master_env',
-        name: 'SELBAR Primary Environment Key',
-        key: process.env.MASTER_API_KEY,
-        prefix: process.env.MASTER_API_KEY.substring(0, 18),
-        environment: 'live',
-        scopes: ['*'],
-        createdAt: '2026-09-15T00:00:00Z',
-        usageCount: 0,
-        isActive: true,
-      },
-    ]
-  : [];
-
+// Scoped API Keys store (No master key bypass - keys are explicitly scoped)
 declare global {
   // eslint-disable-next-line no-var
   var __SELBAR_API_KEYS__: SelbarApiKey[] | undefined;
 }
 
 if (!global.__SELBAR_API_KEYS__) {
-  global.__SELBAR_API_KEYS__ = [...DEFAULT_PRESET_KEYS];
+  global.__SELBAR_API_KEYS__ = [];
 }
 
 export function getAllApiKeys(): SelbarApiKey[] {

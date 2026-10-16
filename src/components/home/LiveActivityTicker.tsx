@@ -48,12 +48,17 @@ const ACTIVITIES: ActivityNotification[] = [
 ];
 
 export function LiveActivityTicker() {
+  const [mounted, setMounted] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [isDismissed, setIsDismissed] = useState(false);
 
   useEffect(() => {
-    if (isDismissed) return;
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || isDismissed) return;
 
     const interval = setInterval(() => {
       setIsVisible(false);
@@ -64,9 +69,9 @@ export function LiveActivityTicker() {
     }, 5500);
 
     return () => clearInterval(interval);
-  }, [isDismissed]);
+  }, [mounted, isDismissed]);
 
-  if (isDismissed) return null;
+  if (!mounted || isDismissed) return null;
 
   const current = ACTIVITIES[currentIndex];
 
@@ -94,10 +99,8 @@ export function LiveActivityTicker() {
           </div>
           <div className="space-y-0.5 overflow-hidden">
             <div className="flex items-center gap-1.5 text-[10px] text-slate-500 font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Verified Customer in {current.city}</span>
-              <span>•</span>
-              <span>{current.timeAgo}</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              <span>Recent Transaction • {current.city}</span>
             </div>
             <div className="text-xs font-bold text-slate-900 truncate">
               {current.text}

@@ -58,7 +58,10 @@ export default function SelbarRefurbishedProductPage({
   const { productSlug } = use(params);
   const { addItem, setIsCartOpen } = useCart();
 
-  const initialProduct = REFURB_PRODUCTS.find((p) => p.slug === productSlug);
+  const normalizedSlug = decodeURIComponent(productSlug).toLowerCase().trim();
+  const initialProduct = REFURB_PRODUCTS.find(
+    (p) => p.slug === productSlug || p.slug?.toLowerCase() === normalizedSlug
+  );
   const [product, setProduct] = useState<any>(initialProduct || null);
   const [loading, setLoading] = useState(!initialProduct);
 
@@ -96,6 +99,8 @@ export default function SelbarRefurbishedProductPage({
           if (data.data.specs?.color) {
             setSelectedColor(data.data.specs.color);
           }
+        } else if (!initialProduct) {
+          setProduct(null);
         }
       } catch {
         // fallback to initial
@@ -104,7 +109,7 @@ export default function SelbarRefurbishedProductPage({
       }
     }
     loadProduct();
-  }, [productSlug]);
+  }, [productSlug, initialProduct]);
 
   if (loading) {
     return (

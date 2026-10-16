@@ -1011,22 +1011,22 @@ export default function HomePage() {
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold">
                 <Star className="w-3.5 h-3.5 fill-emerald-400" />
-                <span>4.5 / 5 Rating on Google Reviews & Trustpilot</span>
+                <span>Verified Customer Feedback & 32-Point Quality Checklist</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-black tracking-tight">
-                Trusted by 60 Lakh+ Happy Users and Major Brands
+                Trusted by 50,000+ Happy Customers & Recommerce Sellers
               </h2>
             </div>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-2xl bg-slate-800/80 border border-slate-700 text-center">
-                <div className="text-xl font-black text-emerald-400">60L+</div>
+                <div className="text-xl font-black text-emerald-400">50,000+</div>
                 <div className="text-[10px] text-slate-400">
-                  Devices Recommerce
+                  Devices Extended
                 </div>
               </div>
               <div className="p-3 rounded-2xl bg-slate-800/80 border border-slate-700 text-center">
                 <div className="text-xl font-black text-amber-400">
-                  ₹850 Cr+
+                  ₹12.5 Cr+
                 </div>
                 <div className="text-[10px] text-slate-400">Cash Disbursed</div>
               </div>
@@ -1075,7 +1075,7 @@ export default function HomePage() {
               </div>
               <div className="pt-3 border-t border-slate-700 flex items-center justify-between text-xs">
                 <div>
-                  <div className="font-bold text-white">Sneha Kapoor</div>
+                  <div className="font-bold text-white">Pooja Sharma</div>
                   <div className="text-[10px] text-slate-400">
                     Noida • Buyer
                   </div>

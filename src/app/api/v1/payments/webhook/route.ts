@@ -10,15 +10,26 @@ export async function POST(req: NextRequest) {
     const webhookSignature = req.headers.get('x-razorpay-signature');
     const webhookSecret = process.env.RAZORPAY_WEBHOOK_SECRET;
 
-    // Validate webhook signature if secret is active
-    if (webhookSecret && !webhookSecret.includes('xxxx') && webhookSignature) {
+    // Validate webhook signature with timing-safe comparison
+    if (process.env.NODE_ENV === 'production' && (!webhookSecret || !webhookSignature)) {
+      return NextResponse.json({ status: 'error', message: 'Webhook signature required in production.' }, { status: 401 });
+    }
+
+    if (webhookSecret && webhookSignature) {
       const expectedSignature = crypto
         .createHmac('sha256', webhookSecret)
         .update(rawBody)
         .digest('hex');
 
-      if (webhookSignature !== expectedSignature) {
-        console.error('Invalid Razorpay webhook signature');
+      const sigBuffer = Buffer.from(webhookSignature);
+      const expectedBuffer = Buffer.from(expectedSignature);
+
+      const isValid =
+        sigBuffer.length === expectedBuffer.length &&
+        crypto.timingSafeEqual(sigBuffer, expectedBuffer);
+
+      if (!isValid) {
+        console.error('❌ Invalid Razorpay webhook signature');
         return NextResponse.json({ status: 'error', message: 'Invalid signature' }, { status: 400 });
       }
     }
